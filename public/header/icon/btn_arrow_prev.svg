@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="btn_arrow_L" transform="translate(-140 -5465)">
+    <g id="그룹_4" data-name="그룹 4">
+      <g id="bg" transform="translate(140 5465)" fill="none" stroke="#fff" stroke-width="3">
+        <rect width="48" height="48" stroke="none"/>
+        <rect x="1.5" y="1.5" width="45" height="45" fill="none"/>
+      </g>
+      <path id="icon_arrow_L" d="M-3810.208,4633.746l-10,10,10,10" transform="translate(3979.708 845.754)" fill="none" stroke="#fff" stroke-width="4"/>
+    </g>
+  </g>
+</svg>
