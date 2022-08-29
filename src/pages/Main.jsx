@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-const StyledMain = styled.main``;
+const StyledMain = styled.main`
+  img {
+    width: 100%;
+    height: 100vh;
+  }
+`;
 
 const Main = () => {
   return (
     <StyledMain>
-      <h1>asd</h1>
+      <img src='./main/img/title3.jfif' alt='title image' />
     </StyledMain>
   );
 };
