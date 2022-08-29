@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
-import Header from './components/Header';
+import Header from './components/Nav';
 
 const App = () => {
   return (

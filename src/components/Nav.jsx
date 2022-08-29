@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
 
-const StyledHeader = styled.header`
+const StyledNav = styled.nav`
   display: flex;
   justify-content: center;
   position: fixed;
@@ -158,7 +158,7 @@ const StyledHeader = styled.header`
 
         &:last-of-type {
           div.inner {
-            background-image: url('./header/img/gnb_banner_smartfit.png');
+            background-image: url('./nav/img/gnb_banner_smartfit.png');
             background-size: auto 270px;
 
             div.innerContainer {
@@ -345,7 +345,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header = () => {
+const Nav = () => {
   const navigate = useNavigate();
   const input = useRef();
   const [search, setSearch] = useState(false);
@@ -359,9 +359,9 @@ const Header = () => {
   // 나중에 링크 추가
 
   return (
-    <StyledHeader search={search}>
+    <StyledNav search={search}>
       <div className='container'>
-        <img src='./header/icon/logo_white.svg' className='logo' alt='logo' />
+        <img src='./nav/icon//logo_white.svg' className='logo' alt='logo' />
 
         <ul className='gnb'>
           <li>
@@ -608,8 +608,8 @@ const Header = () => {
                   </li>
                 </ul>
                 <div className='adContainer'>
-                  <img src='./header/img/ad1.png' alt='ad1' />
-                  <img src='./header/img/ad2.png' alt='ad1' />
+                  <img src='./nav/img/ad1.png' alt='ad1' />
+                  <img src='./nav/img/ad2.png' alt='ad1' />
                 </div>
               </div>
             </div>
@@ -643,8 +643,8 @@ const Header = () => {
                   </li>
                 </ul>
                 <div className='adContainer'>
-                  <img src='./header/img/ad3.png' alt='' />
-                  <img src='./header/img/ad4.png' alt='' />
+                  <img src='./nav/img/ad3.png' alt='' />
+                  <img src='./nav/img/ad4.png' alt='' />
                 </div>
               </div>
             </div>
@@ -703,10 +703,10 @@ const Header = () => {
 
         <ul className='gnb2'>
           <li>
-            <img src='./header/icon/icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
+            <img src='./nav/icon//icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
           </li>
           <li>
-            <img src='./header/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
+            <img src='./nav/icon//icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
           </li>
           <li>
             <p>LOGIN</p>
@@ -724,7 +724,7 @@ const Header = () => {
                 type='text'
                 placeholder='구매 상품평 작성하면 최대 3천 포인트'
               />
-              {inputValue && <img src='./header/icon/icon_search_close.svg' alt='close' onClick={clearHandler} />}
+              {inputValue && <img src='./nav/icon//icon_search_close.svg' alt='close' onClick={clearHandler} />}
             </div>
             <button>검색</button>
           </form>
@@ -744,12 +744,12 @@ const Header = () => {
               <li>원더 쿨</li>
               <li>모자</li>
             </ul>
-            <img src='./header/img/search_add.png' alt='search banner' />
+            <img src='./nav/img/search_add.png' alt='search banner' />
           </div>
         </div>
       </div>
-    </StyledHeader>
+    </StyledNav>
   );
 };
 
-export default Header;
+export default Nav;
