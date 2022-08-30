@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 
 /**
  *
- * @param {any[]} list 캐러셀 슬라이드 요소로 이루어진 배열, 크기만 같으면 됨
- * @returns
+ * @param {any[]} list 캐러셀 슬라이드 요소로 이루어진 배열, 크기만 같으면 됨.
+ * li 사이에 gap이 없어야 합니다.
  */
 
 const useSwiper = list => {

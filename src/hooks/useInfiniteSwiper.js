@@ -3,10 +3,11 @@ import { useState, useRef, useEffect } from 'react';
 /**
  *
  * @param {any[]} list 캐러셀 슬라이드 요소로 이루어진 배열, 크기만 같으면 됨
- * @returns
+ * 양 끝에 복제하여 만들어주세요.
+ * li 사이에 gap이 없어야 합니다.
  */
 
-const useInfiniteSwiper = () => {
+const useInfiniteSwiper = list => {
   const [page, setPage] = useState(0);
   const swipedTarget = useRef(null);
   // swipedTarget은 ul임
@@ -16,10 +17,28 @@ const useInfiniteSwiper = () => {
   const start = useRef(0);
   const trans = useRef(0);
   const clicked = useRef(false);
+  const debounce = useRef();
+
+  useEffect(() => {
+    if (swipedTarget.current) {
+      const width = swipedTarget.current.getBoundingClientRect().width / list.length;
+
+      (() => {
+        setPage(1);
+        swipedTarget.current.style.transition = '0s';
+        trans.current = -width;
+        swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+        oldTrans.current = trans.current;
+      })();
+    }
+  }, []);
 
   useEffect(() => {
     // click
+
     const clickStart = ({ clientX }) => {
+      clearTimeout(debounce.current);
+
       clicked.current = true;
       start.current = clientX;
 
@@ -42,11 +61,20 @@ const useInfiniteSwiper = () => {
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0.3s';
 
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        const width = swipedTarget.current.getBoundingClientRect().width / list.length;
 
         if (trans.current > -width * 0.5) {
           trans.current = 0;
-          setPage(0);
+          setPage(list.length - 2);
+
+          const getLast = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width * (list.length - 2);
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getLast, 300);
         }
 
         list.forEach((_, i) => {
@@ -60,7 +88,16 @@ const useInfiniteSwiper = () => {
 
         if (trans.current <= -width * (list.length - 1.5)) {
           trans.current = -width * (list.length - 1);
-          setPage(list.length - 1);
+          setPage(1);
+
+          const getFirst = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width;
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getFirst, 300);
         }
       }
 
@@ -99,11 +136,20 @@ const useInfiniteSwiper = () => {
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0.3s';
 
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        const width = swipedTarget.current.getBoundingClientRect().width / list.length;
 
         if (trans.current > -width * 0.5) {
           trans.current = 0;
-          setPage(0);
+          setPage(list.length - 2);
+
+          const getLast = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width * (list.length - 2);
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getLast, 300);
         }
 
         list.forEach((_, i) => {
@@ -117,7 +163,16 @@ const useInfiniteSwiper = () => {
 
         if (trans.current <= -width * (list.length - 1.5)) {
           trans.current = -width * (list.length - 1);
-          setPage(list.length - 1);
+          setPage(1);
+
+          const getFirst = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width;
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getFirst, 300);
         }
       }
 
@@ -129,26 +184,57 @@ const useInfiniteSwiper = () => {
 
     const prev = () => {
       if (swipedTarget.current) {
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        swipedTarget.current.style.transition = '0.3s';
+        const width = swipedTarget.current.getBoundingClientRect().width / list.length;
 
-        trans.current = -width * (page - 1);
-        swipedTarget.current.style.transform = `translateX(${-width * (page - 1)}px)`;
-        oldTrans.current = -width * (page - 1);
+        if (page === 1) {
+          trans.current = 0;
+          oldTrans.current = trans.current;
+          swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+          setPage(list.length - 2);
+
+          const getLast = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width * (list.length - 2);
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getLast, 300);
+        } else {
+          trans.current = -width * (page - 1);
+          swipedTarget.current.style.transform = `translateX(${-width * (page - 1)}px)`;
+          oldTrans.current = -width * (page - 1);
+          setPage(page - 1);
+        }
       }
-
-      setPage(page - 1);
     };
 
     const next = () => {
       if (swipedTarget.current) {
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        swipedTarget.current.style.transition = '0.3s';
+        const width = swipedTarget.current.getBoundingClientRect().width / list.length;
 
-        trans.current = -width * (page + 1);
-        swipedTarget.current.style.transform = `translateX(${-width * (page + 1)}px)`;
-        oldTrans.current = -width * (page + 1);
+        if (page === 3) {
+          trans.current = -width * (list.length - 1);
+          swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+          setPage(1);
+
+          const getFirst = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width;
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getFirst, 300);
+        } else {
+          trans.current = -width * (page + 1);
+          swipedTarget.current.style.transform = `translateX(${-width * (page + 1)}px)`;
+          oldTrans.current = -width * (page + 1);
+          setPage(page + 1);
+        }
       }
-
-      setPage(page + 1);
     };
 
     if (swipedTarget.current) {
