@@ -9,7 +9,7 @@ import { useState, useRef, useEffect } from 'react';
 const useSwiper = list => {
   const [page, setPage] = useState(0);
   const swipedTarget = useRef(null);
-  // swipedTarget은 ul임
+  // swipedTarget은 ul
   const [prevButton, setPrevButton] = useState(null);
   const [nextButton, setNextButton] = useState(null);
   const oldTrans = useRef(0);

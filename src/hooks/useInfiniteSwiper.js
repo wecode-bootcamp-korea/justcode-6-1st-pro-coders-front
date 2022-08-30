@@ -243,9 +243,9 @@ const useInfiniteSwiper = list => {
       swipedTarget.current.addEventListener('mouseup', clickEnd);
       swipedTarget.current.addEventListener('mouseleave', clickEnd);
 
-      swipedTarget.current.addEventListener('touchstart', touchStart);
-      swipedTarget.current.addEventListener('touchmove', touchMove);
-      swipedTarget.current.addEventListener('touchend', touchEnd);
+      swipedTarget.current.addEventListener('touchstart', touchStart, { passive: true });
+      swipedTarget.current.addEventListener('touchmove', touchMove, { passive: true });
+      swipedTarget.current.addEventListener('touchend', touchEnd, { passive: true });
     }
 
     prevButton?.addEventListener('click', prev);
