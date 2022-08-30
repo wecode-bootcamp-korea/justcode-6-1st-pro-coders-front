@@ -9,6 +9,7 @@ const StyledNav = styled.nav`
   width: 100%;
   transition: 0.3s;
   background-color: ${({ search }) => (search ? 'white' : 'transparent')};
+  z-index: 10;
 
   div.container {
     max-width: 1640px;
