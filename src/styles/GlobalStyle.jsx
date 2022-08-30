@@ -6,12 +6,10 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
   }
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.text};
   }
 `;
 
