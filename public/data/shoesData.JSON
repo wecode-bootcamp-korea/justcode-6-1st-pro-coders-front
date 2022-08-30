@@ -1,0 +1,56 @@
+{
+    "data": [
+        {
+            "id": "0",
+            "img": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S553/PR0UR22S553_02.jpg/dims/resizef/530x530/optimize",
+            "hoverimg": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S553/PR0UR22S553_01.jpg/dims/resizef/240x240/optimize",
+            "cate": "[2022 S/S신상]",
+            "name": "X-FIN 113",
+            "price": "139,000원",
+            "sale": false,
+            "salePercent": "30%",
+            "salePrice": "20,000",
+            "gender": "unisex",
+            "coupon": true
+        },
+        {
+            "id": "1",
+            "img": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S552/PR0UR22S552_01.jpg/dims/resizef/530x530/optimize",
+            "hoverimg": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S552/PR0UR22S552_02.jpg/dims/resizef/530x530/optimize",
+            "cate": "[2022 S/S신상]",
+            "name": "X-FIN 112",
+            "price": "139,000원",
+            "sale": false,
+            "salePercent": "",
+            "salePrice": "",
+            "gender": "unisex",
+            "coupon": true
+        },
+        {
+            "id": "3",
+            "img": "https://img.prospecs.com/prod/PR0MR21/PR0MR21S131/PR0MR21S131_01.jpg/dims/resizef/530x530/optimize",
+            "hoverimg": "https://img.prospecs.com/prod/PR0MR21/PR0MR21S131/PR0MR21S131_02.jpg/dims/resizef/530x530/optimize",
+            "cate": "",
+            "name": "레코드 LT 211",
+            "price": "99,000원",
+            "sale": true,
+            "salePercent": "40%",
+            "salePrice": "59,000",
+            "gender": "male",
+            "coupon": true
+        },
+        {
+            "id": "4",
+            "img": "https://img.prospecs.com/prod/PR0MR21/PR0MR21S142/PR0MR21S142_01.jpg/dims/resizef/530x530/optimize",
+            "hoverimg": "https://img.prospecs.com/prod/PR0MR21/PR0MR21S142/PR0MR21S142_02.jpg/dims/resizef/530x530/optimize",
+            "cate": "[온라인특가]",
+            "name": "스피드 레이서 312",
+            "price": "69,000원",
+            "sale": true,
+            "salePercent": "30%",
+            "salePrice": "48,300",
+            "gender": "male",
+            "coupon": true
+        }
+    ]
+}
