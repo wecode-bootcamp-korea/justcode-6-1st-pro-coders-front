@@ -4,11 +4,13 @@ const Content = styled.p`
   font-weight: 700;
   font-size: 22px;
   color: ${(props) => props.theme.colors.text};
-  span.en {
-    font-family: 'Poppins', 'sans-serif';
-  }
+
   span.kr {
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  }
+
+  span.en {
+    font-family: 'Poppins', 'sans-serif';
   }
 `;
 

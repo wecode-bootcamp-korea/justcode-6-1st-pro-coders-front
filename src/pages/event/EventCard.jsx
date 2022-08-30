@@ -4,18 +4,20 @@ import CardContent from './CardContent';
 import styled from 'styled-components';
 
 const CardBox = styled.article`
-  width: 100%;
   display: flex;
+  width: 100%;
   align-items: center;
   flex-wrap: wrap;
   margin: 36px 0;
   padding: 0 20px;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  div.imgbox {
+
+  div.imgBox {
     width: 500px;
+
     img {
       width: 100%;
-      height: 500px;
+      height: auto;
       background-color: ${(props) => props.theme.colors.mainImgBg};
     }
   }
@@ -23,10 +25,11 @@ const CardBox = styled.article`
   div.desc {
     margin: 0;
     padding-top: 20px;
+
     p.date {
+      margin-bottom: 15px;
       font-family: 'Poppins', 'sans-serif';
       font-weight: 400;
-      margin-bottom: 15px;
       color: ${(props) => props.theme.colors.disabledTitle};
     }
   }
@@ -52,7 +55,7 @@ const EventCard = (props) => {
                 key={card.id}
               >
                 <CardBox>
-                  <div className='imgbox'>
+                  <div className='imgBox'>
                     <img alt='event banner' src={card.img} />
                   </div>
                   <div className='desc'>

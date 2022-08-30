@@ -6,11 +6,16 @@ import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import EventCard from './EventCard';
 
 const Main = styled.div`
+  width: 1280px;
+  margin: 100px auto 0 auto;
+
   div.headerContainer {
     margin: 0 20px;
+
     a {
       color: ${(props) => props.theme.colors.text};
     }
+
     h3 {
       margin-bottom: 47px;
       font-family: 'Poppins', 'sans-serif';
@@ -18,6 +23,7 @@ const Main = styled.div`
       font-size: 40px;
       ${(props) => props.theme.colors.text}
     }
+
     ul {
       display: flex;
       margin-bottom: 57px;
@@ -37,8 +43,8 @@ const Main = styled.div`
           width: 0;
           height: 7.5px;
           margin-top: 15px;
-          transition: width 200ms ease-in-out;
           background-color: ${(props) => props.theme.colors.text};
+          transition: width 200ms ease-in-out;
         }
         &:hover:after {
           content: '';
@@ -46,8 +52,8 @@ const Main = styled.div`
           width: 100%;
           height: 7.5px;
           margin-top: 15px;
-          transition: width 200ms ease-in-out;
           background-color: ${(props) => props.theme.colors.text};
+          transition: width 200ms ease-in-out;
         }
       }
 
@@ -57,7 +63,7 @@ const Main = styled.div`
         font-weight: 700;
         font-size: 26px;
         color: ${(props) => props.theme.colors.text};
-        &::after {
+        &:after {
           content: '';
           display: block;
           width: 100%;
@@ -83,6 +89,7 @@ const Main = styled.div`
     span {
       margin-right: 13px;
     }
+
     div {
       position: absolute;
       top: 32px;

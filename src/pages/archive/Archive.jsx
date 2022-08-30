@@ -18,7 +18,7 @@ padding: 0 20px;
     font-family: 'Poppins', 'sans-serif';
     font-weight: 700;
     font-size: 40px;
-    ${(props) => props.theme.colors.text}
+    color: ${(props) => props.theme.colors.text};
   }
 
   div.titleContainer {
@@ -31,7 +31,7 @@ padding: 0 20px;
       font-family: 'Poppins', 'sans-serif';
       font-weight: 700;
       font-size: 30px;
-      ${(props) => props.theme.colors.text}
+      color: ${(props) => props.theme.colors.text};
     }
 
     div.selectContainer {
@@ -102,10 +102,6 @@ padding: 0 20px;
         height: 720px;
         margin-right: 40px;
         overflow: hidden;
-        
-        &:last-of-type {
-          // margin-right: 0;
-        }
         
         img {
           width: auto;
