@@ -616,7 +616,7 @@ const Nav = () => {
             </div>
           </li>
           <li>
-            <Link to='/'>EVENT</Link>
+            <Link to='/event'>EVENT</Link>
           </li>
           <li>
             <Link to='/'>ARCHIVE</Link>
@@ -695,7 +695,10 @@ const Nav = () => {
               <div className='innerContainer'>
                 <div className='textContainer'>
                   <h4>SMART FIT</h4>
-                  <p>프로스펙스 스마트핏은 내 발에 완벽한 사이즈와 상품을 추천해 주고, 맞춤신발 제작까지 해 주는 SMART한 서비스입니다.</p>
+                  <p>
+                    프로스펙스 스마트핏은 내 발에 완벽한 사이즈와 상품을 추천해
+                    주고, 맞춤신발 제작까지 해 주는 SMART한 서비스입니다.
+                  </p>
                 </div>
               </div>
             </div>
@@ -704,10 +707,20 @@ const Nav = () => {
 
         <ul className='gnb2'>
           <li>
-            <img src='./nav/icon//icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
+            <img
+              src='./nav/icon//icon_search_white.svg'
+              className='logo'
+              alt='logo'
+              onClick={() => setSearch(!search)}
+            />
           </li>
           <li>
-            <img src='./nav/icon//icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
+            <img
+              src='./nav/icon//icon_cart_white.svg'
+              className='logo'
+              alt='logo'
+              onClick={() => navigate('/')}
+            />
           </li>
           <li>
             <p>LOGIN</p>
@@ -716,16 +729,22 @@ const Nav = () => {
       </div>
       <div className='searchContainer'>
         <div className='search'>
-          <form onSubmit={e => e.preventDefault()}>
+          <form onSubmit={(e) => e.preventDefault()}>
             <div className='inputContainer'>
               <input
                 //
                 ref={input}
-                onChange={e => setInputValue(e.target.value)}
+                onChange={(e) => setInputValue(e.target.value)}
                 type='text'
                 placeholder='구매 상품평 작성하면 최대 3천 포인트'
               />
-              {inputValue && <img src='./nav/icon//icon_search_close.svg' alt='close' onClick={clearHandler} />}
+              {inputValue && (
+                <img
+                  src='./nav/icon//icon_search_close.svg'
+                  alt='close'
+                  onClick={clearHandler}
+                />
+              )}
             </div>
             <button>검색</button>
           </form>

@@ -1,0 +1,109 @@
+[
+  {
+    "id": 1,
+    "date": "~ 2022.09.30 fri 09:59",
+    "img": "images/event/images/img1.png",
+    "title": [
+      {
+        "contentKR": "랭킹"
+      },
+      {
+        "contentEN": 100
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "date": "~ 2022.08.31 wed 23:59",
+    "img": "images/event/images/img2.png",
+    "title": [
+      {
+        "contentEN": 8
+      },
+      {
+        "contentKR": "월 카드사 즉시할인 프로모션"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "date": "~ 2022.09.12 mon 23:59",
+    "img": "images/event/images/img8.png",
+    "title": [
+      {
+        "contentKR": "추석연휴 특집 이벤트"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "date": "~ 2022.12.31 sat 09:59",
+    "img": "images/event/images/img3.png",
+    "title": [
+      {
+        "contentKR": "온라인단독기획 | "
+      },
+      { "contentEN": "ALWAYS PROSPECS" }
+    ]
+  },
+  {
+    "id": 5,
+    "date": "~ 2022.08.31 wed 23:59",
+    "img": "images/event/images/img4.png",
+    "title": [
+      {
+        "contentEN": 8
+      },
+      {
+        "contentKR": "월 출석체크 이벤트"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "date": "~ 2022.08.31 wed 23:59",
+    "img": "images/event/images/img5.png",
+    "title": [
+      {
+        "contentKR": "프로스펙스닷컴 "
+      },
+      { "contentEN": "APP " },
+      {
+        "contentKR": "이벤트"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "date": "~ 2022.08.31 wed 23:59",
+    "img": "images/event/images/img6.png",
+    "title": [
+      {
+        "contentKR": "기대해도 좋아! (의류편)"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "date": "~ 2022.08.31 wed 23:59",
+    "img": "images/event/images/img7.png",
+    "title": [
+      {
+        "contentKR": "기대해도 좋아! (용품편)"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "date": "~ 2022.08.31 wed 23:59",
+    "img": "images/event/images/img8.png",
+    "title": [
+      {
+        "contentEN": "2022 "
+      },
+      {
+        "contentKR": "신상 샌들 기획전"
+      }
+    ]
+  }
+]
