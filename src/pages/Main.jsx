@@ -2,6 +2,7 @@ import useInfiniteSwiper from '../hooks/useInfiniteSwiper';
 import styled from 'styled-components';
 import { useState } from 'react';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import Footer from '../components/Footer';
 
 const StyledHeader = styled.header`
   height: 100vh;
@@ -100,6 +101,7 @@ const MainPage = () => {
         </div>
       </StyledHeader>
       <StyledMain></StyledMain>
+      <Footer />
     </>
   );
 };

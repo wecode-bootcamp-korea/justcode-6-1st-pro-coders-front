@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
+import useScroll from '../hooks/useScroll';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -8,8 +9,9 @@ const StyledNav = styled.nav`
   position: fixed;
   width: 100%;
   transition: 0.3s;
-  background-color: ${({ search }) => (search ? 'white' : 'transparent')};
+  background-color: ${({ search, isScrolled }) => (search || isScrolled ? 'white' : 'transparent')};
   z-index: 10;
+  transform: translateY(${({ isScrollDown }) => (isScrollDown ? '-100px' : '0')});
 
   div.container {
     max-width: 1640px;
@@ -21,7 +23,7 @@ const StyledNav = styled.nav`
 
     img {
       transition: 0.2s;
-      filter: invert(${({ search }) => (search ? '1' : '0')});
+      filter: invert(${({ search, isScrolled }) => (search || isScrolled ? '1' : '0')});
       cursor: pointer;
     }
 
@@ -30,14 +32,14 @@ const StyledNav = styled.nav`
       font-weight: 900;
       font-size: 20px;
       transition: 0.2s;
-      color: ${({ search }) => (search ? 'black' : 'white')};
+      color: ${({ search, isScrolled }) => (search || isScrolled ? 'black' : 'white')};
     }
 
     p {
       font-size: 20px;
       font-weight: 900;
       cursor: pointer;
-      color: ${({ search }) => (search ? 'black' : 'white')};
+      color: ${({ search, isScrolled }) => (search || isScrolled ? 'black' : 'white')};
       transition: 0.2s;
     }
 
@@ -348,6 +350,8 @@ const StyledNav = styled.nav`
 
 const Nav = () => {
   const navigate = useNavigate();
+  const { isScrollDown, isScrolled } = useScroll();
+
   const input = useRef();
   const [search, setSearch] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -360,13 +364,17 @@ const Nav = () => {
   // 나중에 링크 추가
 
   return (
-    <StyledNav search={search}>
+    <StyledNav //
+      search={search}
+      isScrollDown={isScrollDown}
+      isScrolled={isScrolled}
+    >
       <div className='container'>
         <img src='./nav/icon//logo_white.svg' className='logo' alt='logo' />
 
         <ul className='gnb'>
           <li>
-            <Link to='/'>SHOP</Link>
+            <Link to='/shop'>SHOP</Link>
             <div className='inner'>
               <div className='innerContainer'>
                 <ul className='lnb'>
@@ -616,7 +624,7 @@ const Nav = () => {
             </div>
           </li>
           <li>
-            <Link to='/'>EVENT</Link>
+            <Link to='/event'>EVENT</Link>
           </li>
           <li>
             <Link to='/'>ARCHIVE</Link>
