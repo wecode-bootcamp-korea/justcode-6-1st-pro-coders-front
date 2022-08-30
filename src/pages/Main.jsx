@@ -1,13 +1,52 @@
+import useSwiper from '../hooks/useSwiper';
 import styled from 'styled-components';
 
-const StyledMain = styled.main``;
+const StyledHeader = styled.header`
+  height: 100vh;
+  background-color: ${({ theme }) => theme.colors.text};
+  overflow: hidden;
 
-const Main = () => {
+  ul {
+    display: flex;
+    width: 500%;
+    height: 100%;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+      height: 100%;
+      color: white;
+      font-size: 30px;
+    }
+  }
+`;
+
+const StyledMain = styled.main`
+  img {
+    width: 100%;
+    height: 100vh;
+  }
+`;
+
+const MainPage = () => {
+  const { page, setNextButton, setPrevButton, swipedTarget } = useSwiper([1, 2, 3, 4, 5]);
+
   return (
-    <StyledMain>
-      <h1>asd</h1>
-    </StyledMain>
+    <>
+      <StyledHeader>
+        <ul ref={swipedTarget}>
+          <li>3</li>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>1</li>
+        </ul>
+      </StyledHeader>
+      <StyledMain></StyledMain>
+    </>
   );
 };
 
-export default Main;
+export default MainPage;

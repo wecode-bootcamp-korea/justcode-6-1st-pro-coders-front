@@ -1,0 +1,9 @@
+<svg id="btn_arrow_R" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="그룹_5" data-name="그룹 5">
+    <g id="bg" fill="none" stroke="#fff" stroke-width="3">
+      <rect width="48" height="48" stroke="none"/>
+      <rect x="1.5" y="1.5" width="45" height="45" fill="none"/>
+    </g>
+    <path id="icon_arrow_R" d="M-3820.208,4633.746l10,10-10,10" transform="translate(3839.708 -4619.246)" fill="none" stroke="#fff" stroke-width="4"/>
+  </g>
+</svg>
