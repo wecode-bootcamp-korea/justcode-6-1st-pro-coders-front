@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 const StyledNav = styled.nav`
   display: flex;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   transition: 0.3s;
   background-color: ${({ search }) => (search ? 'white' : 'transparent')};
@@ -366,7 +366,7 @@ const Nav = () => {
 
         <ul className='gnb'>
           <li>
-            <Link to='/'>SHOP</Link>
+            <Link to='/shop'>SHOP</Link>
             <div className='inner'>
               <div className='innerContainer'>
                 <ul className='lnb'>

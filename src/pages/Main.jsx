@@ -1,5 +1,6 @@
 import useSwiper from '../hooks/useSwiper';
 import styled from 'styled-components';
+import Footer from '../components/Footer';
 
 const StyledHeader = styled.header`
   height: 100vh;
@@ -45,6 +46,7 @@ const MainPage = () => {
         </ul>
       </StyledHeader>
       <StyledMain></StyledMain>
+      <Footer />
     </>
   );
 };
