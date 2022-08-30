@@ -88,7 +88,7 @@ const SelectContainer = styled.div`
 const CardListBox = styled.main`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 `;
 

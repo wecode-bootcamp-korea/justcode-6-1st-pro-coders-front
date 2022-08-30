@@ -15,13 +15,13 @@ const CardBox = styled.article`
 `;
 
 const CardImgBox = styled.div`
-  width: 100%;
+  width: 500px;
 `;
 
 const CardImg = styled.img`
   width: 100%;
   height: 500px;
-  background-color: ${(props) => props.theme.colors.textHover};
+  background-color: ${(props) => props.theme.colors.mainImgBg};
 `;
 
 const CardDesc = styled.div`
