@@ -1,15 +1,19 @@
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useRef, useState, useEffect } from 'react';
+import useScroll from '../hooks/useScroll';
 
 const StyledNav = styled.nav`
   display: flex;
   justify-content: center;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   transition: 0.3s;
-  background-color: ${({ search }) => (search ? 'white' : 'transparent')};
+  background-color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'white' : 'transparent')};
   z-index: 10;
+  transform: translateY(${({ isScrollDown }) => (isScrollDown ? '-100px' : '0')});
 
   div.container {
     max-width: 1640px;
@@ -21,7 +25,7 @@ const StyledNav = styled.nav`
 
     img {
       transition: 0.2s;
-      filter: invert(${({ search }) => (search ? '1' : '0')});
+      filter: invert(${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? '1' : '0')});
       cursor: pointer;
     }
 
@@ -30,14 +34,14 @@ const StyledNav = styled.nav`
       font-weight: 900;
       font-size: 20px;
       transition: 0.2s;
-      color: ${({ search }) => (search ? 'black' : 'white')};
+      color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'black' : 'white')};
     }
 
     p {
       font-size: 20px;
       font-weight: 900;
       cursor: pointer;
-      color: ${({ search }) => (search ? 'black' : 'white')};
+      color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'black' : 'white')};
       transition: 0.2s;
     }
 
@@ -347,7 +351,11 @@ const StyledNav = styled.nav`
 `;
 
 const Nav = () => {
+  const { pathname } = useLocation();
   const navigate = useNavigate();
+  const [isMain, setIsMain] = useState(pathname === '/');
+  const { isScrollDown, isScrolled } = useScroll();
+
   const input = useRef();
   const [search, setSearch] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -357,12 +365,21 @@ const Nav = () => {
     setInputValue('');
   };
 
+  useEffect(() => {
+    setIsMain(pathname === '/');
+  }, [pathname]);
+
   // 나중에 링크 추가
 
   return (
-    <StyledNav search={search}>
+    <StyledNav //
+      search={search}
+      isScrollDown={isScrollDown}
+      isScrolled={isScrolled}
+      isMain={isMain}
+    >
       <div className='container'>
-        <img src='./nav/icon//logo_white.svg' className='logo' alt='logo' />
+        <img src='./images/logo-white.svg' className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
 
         <ul className='gnb'>
           <li>
@@ -616,7 +633,7 @@ const Nav = () => {
             </div>
           </li>
           <li>
-            <Link to='/'>EVENT</Link>
+            <Link to='/event'>EVENT</Link>
           </li>
           <li>
             <Link to='/'>ARCHIVE</Link>
