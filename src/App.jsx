@@ -15,6 +15,7 @@ import KidsShoes from './pages/Shop/Shoes/KidsShoes';
 import SnikersShoes from './pages/Shop/Shoes/SnikersShoes';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import ShopPage from './pages/Shop/ShopPage';
 
 const App = () => {
   return (
@@ -24,18 +25,20 @@ const App = () => {
         <Nav />
         <Routes>
           <Route path='/' element={<MainPage />} />
-          <Route path='/shop' element={<ShopMain />}>
-            <Route path='/shop/shoes/all' element={<ShopMain />}></Route>
-            <Route path='/shop/shoes/running' element={<RunningShoes />}></Route>
-            <Route path='/shop/shoes/working' element={<WorkingShoes />}></Route>
-            <Route path='/shop/shoes/sport' element={<SportShoes />}></Route>
-            <Route path='/shop/shoes/trekking' element={<TrekkingShoes />}></Route>
-            <Route path='/shop/shoes/snikers' element={<SnikersShoes />}></Route>
-            <Route path='/shop/shoes/slipper' element={<SlipperShoes />}></Route>
-            <Route path='/shop/shoes/kids' element={<KidsShoes />}></Route>
-          </Route>
+          <Route path='/shop' element={<ShopPage />} />
+          {/*  */}
+          <Route path='/shop/shoes/all' element={<ShopMain />} />
+          <Route path='/shop/shoes/running' element={<RunningShoes />} />
+          <Route path='/shop/shoes/working' element={<WorkingShoes />} />
+          <Route path='/shop/shoes/sport' element={<SportShoes />} />
+          <Route path='/shop/shoes/trekking' element={<TrekkingShoes />} />
+          <Route path='/shop/shoes/snikers' element={<SnikersShoes />} />
+          <Route path='/shop/shoes/slipper' element={<SlipperShoes />} />
+          <Route path='/shop/shoes/kids' element={<KidsShoes />} />
+          {/*  */}
           <Route path='/shop' element={<ShopMain />} />
           <Route path='/shop/:id' element={<ShopMain />} />
+          {/*  */}
           <Route path='/event' element={<Event />} />
           <Route path='/archive' element={<Archive />} />
         </Routes>

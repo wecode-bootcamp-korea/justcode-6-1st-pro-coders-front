@@ -1,24 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronUp,
-  faChevronDown,
-  faChevronLeft,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp, faChevronDown, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const Main = styled.div`
-width: 1280px;
-margin: 100px auto 140px auto;
-padding: 0 20px;
+  width: 1280px;
+  margin: 100px auto 140px auto;
+  padding: 0 20px;
 
   h3 {
     margin-bottom: 47px;
     font-family: 'Poppins', 'sans-serif';
     font-weight: 700;
     font-size: 40px;
-    color: ${(props) => props.theme.colors.text};
+    color: ${props => props.theme.colors.text};
   }
 
   div.titleContainer {
@@ -31,7 +26,7 @@ padding: 0 20px;
       font-family: 'Poppins', 'sans-serif';
       font-weight: 700;
       font-size: 30px;
-      color: ${(props) => props.theme.colors.text};
+      color: ${props => props.theme.colors.text};
     }
 
     div.selectContainer {
@@ -55,7 +50,7 @@ padding: 0 20px;
         width: 310px;
         padding-top: 5px;
         background-color: #fff;
-        border: 1px solid ${(props) => props.theme.colors.text};
+        border: 1px solid ${props => props.theme.colors.text};
         font-size: 16px;
         text-align: left;
         z-index: 2;
@@ -63,11 +58,11 @@ padding: 0 20px;
         li {
           padding: 18px 15px;
           font-weight: 200;
-          color: ${(props) => props.theme.colors.disabledTitle};
+          color: ${props => props.theme.colors.disabledTitle};
         }
 
         li.selected {
-          color: ${(props) => props.theme.colors.text};
+          color: ${props => props.theme.colors.text};
         }
       }
     }
@@ -75,8 +70,8 @@ padding: 0 20px;
 
   section {
     position: relative;
-    width: 100%
-    background-color: ${(props) => props.theme.colors.disabledTitle};
+    width: 100%;
+    background-color: ${props => props.theme.colors.disabledTitle};
     overflow: hidden;
 
     .chevron {
@@ -88,7 +83,7 @@ padding: 0 20px;
       left: 3%;
       z-index: 1;
     }
-    
+
     .chevron.right {
       right: 10%;
       z-index: 1;
@@ -102,18 +97,17 @@ padding: 0 20px;
         height: 720px;
         margin-right: 40px;
         overflow: hidden;
-        
+
         img {
           width: auto;
           height: 100%;
         }
       }
-
     }
   }
 `;
 
-const Archive = (props) => {
+const Archive = props => {
   const [toggleList, setToggleList] = useState([
     { id: 1, text: '22FW PERFORMANCE LOOKBOOK', selected: true },
     { id: 2, text: '22 SUMMER LOOKBOOK', selected: false },
@@ -131,22 +125,20 @@ const Archive = (props) => {
 
   useEffect(() => {
     fetch('data/archive.json')
-      .then((res) => res.json())
-      .then((json) => {
+      .then(res => res.json())
+      .then(json => {
         setWomenData(json.women);
         setMenData(json.men);
       });
   }, []);
 
   const handleToggle = () => {
-    setToggleShow((prev) => !prev);
+    setToggleShow(prev => !prev);
   };
 
-  const handleToggleMenu = (e) => {
-    const newToggleList = toggleList.map((list) => {
-      return list.id === +e.target.id
-        ? { ...list, selected: true }
-        : { ...list, selected: false };
+  const handleToggleMenu = e => {
+    const newToggleList = toggleList.map(list => {
+      return list.id === +e.target.id ? { ...list, selected: true } : { ...list, selected: false };
     });
     setToggleList(newToggleList);
     setToggleTitle(toggleList[e.target.id - 1]);
@@ -158,7 +150,7 @@ const Archive = (props) => {
     slideRef.current.style.transform = `translateX(${slide}px)`;
   }, [slide]);
 
-  const handleSwipe = (e) => {
+  const handleSwipe = e => {
     let slideValue = slide;
     const target = e.target.closest('.chevron');
     if (target.id === 'left') {
@@ -183,22 +175,13 @@ const Archive = (props) => {
         <div className='selectContainer' onClick={handleToggle}>
           <div>
             <span className='selectTitle'>{toggleTitle.text}</span>
-            {toggleShow ? (
-              <FontAwesomeIcon icon={faChevronUp} size='xs' />
-            ) : (
-              <FontAwesomeIcon icon={faChevronDown} size='xs' />
-            )}
+            {toggleShow ? <FontAwesomeIcon icon={faChevronUp} size='xs' /> : <FontAwesomeIcon icon={faChevronDown} size='xs' />}
           </div>
           {toggleShow && (
             <ul>
-              {toggleList.map((info) => {
+              {toggleList.map(info => {
                 return info.selected ? (
-                  <li
-                    className='selected'
-                    id={info.id}
-                    onClick={handleToggleMenu}
-                    key={info.id}
-                  >
+                  <li className='selected' id={info.id} onClick={handleToggleMenu} key={info.id}>
                     {info.text}
                   </li>
                 ) : (
@@ -222,7 +205,7 @@ const Archive = (props) => {
           {womenData &&
             menData &&
             ((toggleTitle.id + 1) % 2
-              ? menData.map((data) => {
+              ? menData.map(data => {
                   return (
                     <li key={data.id}>
                       <div className='imgBox'>
@@ -231,7 +214,7 @@ const Archive = (props) => {
                     </li>
                   );
                 })
-              : womenData.map((data) => {
+              : womenData.map(data => {
                   return (
                     <li key={data.id}>
                       <div className='imgBox'>
