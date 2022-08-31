@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import Item from '../Item';
+import ShopHeader from '../ShopHeader';
 
 const StyledTrekkingShoes = styled.div``;
 
 function TrekkingShoes() {
-	return(
-     <StyledTrekkingShoes>
-
+	return (
+		<StyledTrekkingShoes>
+			<ShopHeader />
 			<Item />
-
-    </StyledTrekkingShoes>
-    )
+		</StyledTrekkingShoes>
+	);
 }
 
 export default TrekkingShoes;

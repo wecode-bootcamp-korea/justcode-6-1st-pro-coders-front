@@ -1,14 +1,16 @@
 import styled from 'styled-components';
+import Item from '../Item';
+import ShopHeader from '../ShopHeader';
 
 const StyledWorkingShoes = styled.div``;
 
 function WorkingShoes() {
-	return(
-     <StyledWorkingShoes>
-
+	return (
+		<StyledWorkingShoes>
+			<ShopHeader />
 			<Item />
-    </StyledWorkingShoes>
-    )
+		</StyledWorkingShoes>
+	);
 }
 
 export default WorkingShoes;

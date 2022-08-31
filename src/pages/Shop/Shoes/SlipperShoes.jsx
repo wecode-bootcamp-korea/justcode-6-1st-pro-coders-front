@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import Item from '../Item';
+import ShopHeader from '../ShopHeader';
 
 const StyledSlipperShoes = styled.div``;
 
 function SlipperShoes() {
-	return(
-     <StyledSlipperShoes>
-
+	return (
+		<StyledSlipperShoes>
+			<ShopHeader />
 			<Item />
-
-    </StyledSlipperShoes>
-    )
+		</StyledSlipperShoes>
+	);
 }
 
 export default SlipperShoes;

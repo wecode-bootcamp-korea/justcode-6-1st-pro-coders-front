@@ -4,6 +4,8 @@ import Event from './pages/event/Event';
 import Archive from './pages/archive/Archive';
 import MainPage from './pages/main/Main';
 import ShopMain from './pages/Shop/ShopMain';
+import ShopMain from './pages/Shop/Shoes/ShopMain';
+
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 import RunningShoes from './pages/Shop/Shoes/RunningShoes';

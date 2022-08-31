@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import Item from '../Item';
 import ShopHeader from '../ShopHeader';
 
-const StyledSnikersShoes = styled.div``;
+const StyledShopMain = styled.div``;
 
-function SnikersShoes() {
+const ShopMain = () => {
 	return (
-		<StyledSnikersShoes>
+		<StyledShopMain>
 			<ShopHeader />
 			<Item />
-		</StyledSnikersShoes>
+		</StyledShopMain>
 	);
-}
+};
 
-export default SnikersShoes;
+export default ShopMain;
