@@ -354,7 +354,7 @@ const StyledNav = styled.nav`
 const Nav = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const [isMain, setIsMain] = useState(pathname === '/');
+  const [isMain, setIsMain] = useState(pathname === '/' || pathname === '/shop');
   const { isScrollDown, isScrolled } = useScroll();
 
   const input = useRef();
@@ -368,7 +368,7 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    setIsMain(pathname === '/');
+    setIsMain(pathname === '/' || pathname === '/shop');
   }, [pathname]);
 
   // 나중에 링크 추가
@@ -392,7 +392,7 @@ const Nav = () => {
                 <div className='innerContainer'>
                   <ul className='lnb'>
                     <li>
-                      <Link to='/shop/shoes/all' className='lnbSubName'>
+                      <Link to='/shop/shoes' className='lnbSubName'>
                         SHOES
                       </Link>
                     </li>
