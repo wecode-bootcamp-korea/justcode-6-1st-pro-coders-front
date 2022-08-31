@@ -1,39 +1,38 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CardContent from './CardContent';
-import styled, { ThemeProvider } from 'styled-components';
-import theme from '../../styles/theme';
+import styled from 'styled-components';
 
 const CardBox = styled.article`
-  width: 100%;
   display: flex;
+  width: 100%;
   align-items: center;
   flex-wrap: wrap;
   margin: 36px 0;
   padding: 0 20px;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-`;
 
-const CardImgBox = styled.div`
-  width: 500px;
-`;
+  div.imgBox {
+    width: 500px;
 
-const CardImg = styled.img`
-  width: 100%;
-  height: 500px;
-  background-color: ${(props) => props.theme.colors.mainImgBg};
-`;
+    img {
+      width: 100%;
+      height: auto;
+      background-color: ${(props) => props.theme.colors.mainImgBg};
+    }
+  }
 
-const CardDesc = styled.div`
-  margin: 0;
-  padding-top: 20px;
-`;
+  div.desc {
+    margin: 0;
+    padding-top: 20px;
 
-const CardDate = styled.p`
-  font-family: 'Poppins', 'sans-serif';
-  font-weight: 400;
-  margin-bottom: 15px;
-  color: ${(props) => props.theme.colors.disabledTitle};
+    p.date {
+      margin-bottom: 15px;
+      font-family: 'Poppins', 'sans-serif';
+      font-weight: 400;
+      color: ${(props) => props.theme.colors.disabledTitle};
+    }
+  }
 `;
 
 const EventCard = (props) => {
@@ -47,7 +46,7 @@ const EventCard = (props) => {
   return (
     <>
       {cardData && (
-        <ThemeProvider theme={theme}>
+        <>
           {cardData.map((card) => {
             return (
               <Link
@@ -56,18 +55,18 @@ const EventCard = (props) => {
                 key={card.id}
               >
                 <CardBox>
-                  <CardImgBox>
-                    <CardImg alt='event banner' src={card.img} />
-                  </CardImgBox>
-                  <CardDesc>
-                    <CardDate>{card.date}</CardDate>
+                  <div className='imgBox'>
+                    <img alt='event banner' src={card.img} />
+                  </div>
+                  <div className='desc'>
+                    <p className='date'>{card.date}</p>
                     <CardContent content={card.title} />
-                  </CardDesc>
+                  </div>
                 </CardBox>
               </Link>
             );
           })}
-        </ThemeProvider>
+        </>
       )}
     </>
   );
