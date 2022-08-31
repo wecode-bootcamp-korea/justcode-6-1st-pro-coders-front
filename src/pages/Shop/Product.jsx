@@ -11,7 +11,7 @@ const StyledProduct = styled.div`
 function Product() {
 	return (
 		<StyledProduct>
-			<div>가나sfl;dlsjf;dsfjjjgfdgfdgdfgdfgdfsg다라</div>
+			
 		</StyledProduct>
 	);
 }
