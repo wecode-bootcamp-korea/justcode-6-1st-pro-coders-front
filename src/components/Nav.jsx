@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import useScroll from '../hooks/useScroll';
+import LoginModal from './LoginModal';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -359,6 +360,7 @@ const Nav = () => {
   const input = useRef();
   const [search, setSearch] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [modal, setModal] = useState(false);
 
   const clearHandler = () => {
     input.current.value = '';
@@ -372,401 +374,404 @@ const Nav = () => {
   // 나중에 링크 추가
 
   return (
-    <StyledNav //
-      search={search}
-      isScrollDown={isScrollDown}
-      isScrolled={isScrolled}
-      isMain={isMain}
-    >
-      <div className='container'>
-        <img src='./images/logo-white.svg' className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
+    <>
+      {modal && <LoginModal setModal={setModal} />}
+      <StyledNav //
+        search={search}
+        isScrollDown={isScrollDown}
+        isScrolled={isScrolled}
+        isMain={isMain}
+      >
+        <div className='container'>
+          <img src='./images/logo-white.svg' className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
 
-        <ul className='gnb'>
-          <li>
-            <Link to='/shop'>SHOP</Link>
-            <div className='inner'>
-              <div className='innerContainer'>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      SHOES
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/'>러닝화</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>워킹화</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>스포츠화</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>트레킹화</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>스니커즈</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>샌들/슬리퍼</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>아동화</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>기타</Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      MEN
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/'>티셔츠</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>스웻셔츠 & 후디</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>재킷 & 베스트</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>팬츠 & 타이즈</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>숏팬츠</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>트레이닝 상/하</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>기타</Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      WOMEN
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/'>티셔츠</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>스웻셔츠 & 후디</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>재킷 & 베스트</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>스포츠 브라</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>팬츠 & 레깅스</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>숏팬츠 & 스커트</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>트레이닝 상/하</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>기타</Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      ORIGINAL
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='lnbSubMenu'>
-                      신발
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/'>스니커즈</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>샌들/슬라이드</Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='lnbSubMenu'>
-                      의류
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/'>티셔츠</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>스웻셔츠 & 후디</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>재킷 & 베스트</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>팬츠 & 레깅스</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>숏팬츠 & 스커트</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>트레이닝 상/하</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>기타</Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='lnbSubMenu'>
-                      용품
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/'>가방</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>모자 & 헤드밴드</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>양말</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>기타</Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      BAG/ACC
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/'>가방</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>모자 & 헤드밴드</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>양말</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>장갑 & 암가드</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>숏팬츠</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>기타</Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      KIDS
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='strong'>
-                      신발
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='strong'>
-                      의류
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='strong'>
-                      용품
-                    </Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      SALE
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='strong'>
-                      신발
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='strong'>
-                      남성의류
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='strong'>
-                      여성의류
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/' className='strong'>
-                      용품
-                    </Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      BEST 50
-                    </Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      GIFT CARD
-                    </Link>
-                  </li>
-                </ul>
-                <div className='adContainer'>
-                  <img src='./nav/img/ad1.png' alt='ad1' />
-                  <img src='./nav/img/ad2.png' alt='ad1' />
+          <ul className='gnb'>
+            <li>
+              <Link to='/shop'>SHOP</Link>
+              <div className='inner'>
+                <div className='innerContainer'>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        SHOES
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/'>러닝화</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>워킹화</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>스포츠화</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>트레킹화</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>스니커즈</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>샌들/슬리퍼</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>아동화</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>기타</Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        MEN
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/'>티셔츠</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>스웻셔츠 & 후디</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>재킷 & 베스트</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>팬츠 & 타이즈</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>숏팬츠</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>트레이닝 상/하</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>기타</Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        WOMEN
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/'>티셔츠</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>스웻셔츠 & 후디</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>재킷 & 베스트</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>스포츠 브라</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>팬츠 & 레깅스</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>숏팬츠 & 스커트</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>트레이닝 상/하</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>기타</Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        ORIGINAL
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='lnbSubMenu'>
+                        신발
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/'>스니커즈</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>샌들/슬라이드</Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='lnbSubMenu'>
+                        의류
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/'>티셔츠</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>스웻셔츠 & 후디</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>재킷 & 베스트</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>팬츠 & 레깅스</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>숏팬츠 & 스커트</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>트레이닝 상/하</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>기타</Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='lnbSubMenu'>
+                        용품
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/'>가방</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>모자 & 헤드밴드</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>양말</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>기타</Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        BAG/ACC
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/'>가방</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>모자 & 헤드밴드</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>양말</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>장갑 & 암가드</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>숏팬츠</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>기타</Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        KIDS
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='strong'>
+                        신발
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='strong'>
+                        의류
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='strong'>
+                        용품
+                      </Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        SALE
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='strong'>
+                        신발
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='strong'>
+                        남성의류
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='strong'>
+                        여성의류
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/' className='strong'>
+                        용품
+                      </Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        BEST 50
+                      </Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        GIFT CARD
+                      </Link>
+                    </li>
+                  </ul>
+                  <div className='adContainer'>
+                    <img src='./nav/img/ad1.png' alt='ad1' />
+                    <img src='./nav/img/ad2.png' alt='ad1' />
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <Link to='/event'>EVENT</Link>
-          </li>
-          <li>
-            <Link to='/'>ARCHIVE</Link>
-            <div className='inner'>
-              <div className='innerContainer'>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      LOOKBOOK
-                    </Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      NEWS
-                    </Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      ISSUE
-                    </Link>
-                  </li>
-                </ul>
-                <div className='adContainer'>
-                  <img src='./nav/img/ad3.png' alt='' />
-                  <img src='./nav/img/ad4.png' alt='' />
+            </li>
+            <li>
+              <Link to='/event'>EVENT</Link>
+            </li>
+            <li>
+              <Link to='/'>ARCHIVE</Link>
+              <div className='inner'>
+                <div className='innerContainer'>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        LOOKBOOK
+                      </Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        NEWS
+                      </Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        ISSUE
+                      </Link>
+                    </li>
+                  </ul>
+                  <div className='adContainer'>
+                    <img src='./nav/img/ad3.png' alt='' />
+                    <img src='./nav/img/ad4.png' alt='' />
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <Link to='/'>SPONSORSHIP</Link>
-            <div className='inner'>
-              <div className='innerContainer'>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      프로스포츠
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/'>LG트윈스</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>FC서울</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>GS칼텍스</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>LG세이커스</Link>
-                  </li>
-                </ul>
-                <ul className='lnb'>
-                  <li>
-                    <Link to='/' className='lnbSubName'>
-                      익스트림 스포츠
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='/'>CAMEL RACE</Link>
-                  </li>
-                  <li>
-                    <Link to='/'>유소년BMX</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li>
-            <Link to='/'>SMART FIT</Link>
-            <div className='inner'>
-              <div className='innerContainer'>
-                <div className='textContainer'>
-                  <h4>SMART FIT</h4>
-                  <p>프로스펙스 스마트핏은 내 발에 완벽한 사이즈와 상품을 추천해 주고, 맞춤신발 제작까지 해 주는 SMART한 서비스입니다.</p>
+            </li>
+            <li>
+              <Link to='/'>SPONSORSHIP</Link>
+              <div className='inner'>
+                <div className='innerContainer'>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        프로스포츠
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/'>LG트윈스</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>FC서울</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>GS칼텍스</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>LG세이커스</Link>
+                    </li>
+                  </ul>
+                  <ul className='lnb'>
+                    <li>
+                      <Link to='/' className='lnbSubName'>
+                        익스트림 스포츠
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/'>CAMEL RACE</Link>
+                    </li>
+                    <li>
+                      <Link to='/'>유소년BMX</Link>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+            <li>
+              <Link to='/'>SMART FIT</Link>
+              <div className='inner'>
+                <div className='innerContainer'>
+                  <div className='textContainer'>
+                    <h4>SMART FIT</h4>
+                    <p>프로스펙스 스마트핏은 내 발에 완벽한 사이즈와 상품을 추천해 주고, 맞춤신발 제작까지 해 주는 SMART한 서비스입니다.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
 
-        <ul className='gnb2'>
-          <li>
-            <img src='./nav/icon//icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
-          </li>
-          <li>
-            <img src='./nav/icon//icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
-          </li>
-          <li>
-            <p>LOGIN</p>
-          </li>
-        </ul>
-      </div>
-      <div className='searchContainer'>
-        <div className='search'>
-          <form onSubmit={e => e.preventDefault()}>
-            <div className='inputContainer'>
-              <input
-                //
-                ref={input}
-                onChange={e => setInputValue(e.target.value)}
-                type='text'
-                placeholder='구매 상품평 작성하면 최대 3천 포인트'
-              />
-              {inputValue && <img src='./nav/icon//icon_search_close.svg' alt='close' onClick={clearHandler} />}
-            </div>
-            <button>검색</button>
-          </form>
+          <ul className='gnb2'>
+            <li>
+              <img src='./nav/icon//icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
+            </li>
+            <li>
+              <img src='./nav/icon//icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
+            </li>
+            <li onClick={() => setModal(true)}>
+              <p>LOGIN</p>
+            </li>
+          </ul>
+        </div>
+        <div className='searchContainer'>
+          <div className='search'>
+            <form onSubmit={e => e.preventDefault()}>
+              <div className='inputContainer'>
+                <input
+                  //
+                  ref={input}
+                  onChange={e => setInputValue(e.target.value)}
+                  type='text'
+                  placeholder='구매 상품평 작성하면 최대 3천 포인트'
+                />
+                {inputValue && <img src='./nav/icon//icon_search_close.svg' alt='close' onClick={clearHandler} />}
+              </div>
+              <button>검색</button>
+            </form>
 
-          <h2>추천검색어</h2>
-          <div className='down'>
-            <ul className='searchList'>
-              <li>2022 S/S</li>
-              <li>오리지널</li>
-              <li>샌들</li>
-              <li>슬리퍼</li>
-              <li>스니커즈</li>
-              <li>반팔</li>
-              <li>반바지</li>
-              <li>트레이닝</li>
-              <li>냉감</li>
-              <li>원더 쿨</li>
-              <li>모자</li>
-            </ul>
-            <img src='./nav/img/search_add.png' alt='search banner' />
+            <h2>추천검색어</h2>
+            <div className='down'>
+              <ul className='searchList'>
+                <li>2022 S/S</li>
+                <li>오리지널</li>
+                <li>샌들</li>
+                <li>슬리퍼</li>
+                <li>스니커즈</li>
+                <li>반팔</li>
+                <li>반바지</li>
+                <li>트레이닝</li>
+                <li>냉감</li>
+                <li>원더 쿨</li>
+                <li>모자</li>
+              </ul>
+              <img src='./nav/img/search_add.png' alt='search banner' />
+            </div>
           </div>
         </div>
-      </div>
-    </StyledNav>
+      </StyledNav>
+    </>
   );
 };
 
