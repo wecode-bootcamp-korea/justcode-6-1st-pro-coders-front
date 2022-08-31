@@ -1,6 +1,7 @@
 import GlobalStyle from './styles/GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
 import Event from './pages/event/Event';
+import Archive from './pages/archive/Archive';
 import MainPage from './pages/main/Main';
 import ShopMain from './pages/Shop/ShopMain';
 import { ThemeProvider } from 'styled-components';
@@ -22,7 +23,6 @@ const App = () => {
         <GlobalStyle />
         <Nav />
         <Routes>
-          <Route path='/event' element={<Event />} />
           <Route path='/' element={<MainPage />} />
           <Route path='/shop' element={<ShopMain />}>
             <Route path='/shop/shoes/all' element={<ShopMain />}></Route>
@@ -36,6 +36,8 @@ const App = () => {
           </Route>
           <Route path='/shop' element={<ShopMain />} />
           <Route path='/shop/:id' element={<ShopMain />} />
+          <Route path='/event' element={<Event />} />
+          <Route path='/archive' element={<Archive />} />
         </Routes>
         <Footer />
       </ThemeProvider>
