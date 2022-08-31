@@ -11,11 +11,18 @@ const StyledHeader = styled.header`
 
   div.navigator {
     position: absolute;
-    bottom: 100px;
-    left: 20px;
+    bottom: 140px;
+    left: calc(50% - 820px);
+    max-width: 1640px;
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 30px;
+    padding: 0 20px;
+
+    @media screen and (max-width: 1640px) {
+      left: 0;
+    }
 
     div.pageNav {
       display: flex;
@@ -78,15 +85,25 @@ const StyledHeader = styled.header`
       font-size: 30px;
       position: relative;
 
-      h2 {
+      div.content {
         position: absolute;
-        bottom: 160px;
-        left: 20px;
-        font-size: 40px;
-        font-weight: 900;
-        color: white;
-        width: 500px;
-        line-height: 1.3;
+        bottom: 200px;
+        left: calc(50% - 820px);
+        max-width: 1640px;
+        width: 100%;
+        padding: 0 20px;
+
+        @media screen and (max-width: 1640px) {
+          left: 0;
+        }
+
+        h2 {
+          width: 500px;
+          font-size: 40px;
+          font-weight: 900;
+          color: white;
+          line-height: 1.3;
+        }
       }
 
       img {
@@ -101,7 +118,7 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
-  const { page, setNextButton, setPrevButton, swipedTarget } = useInfiniteSwiper([1, 2, 3, 4, 5]);
+  const { page, setNextButton, setPrevButton, swipedTarget } = useInfiniteSwiper(5, true);
   const [disabled, setDisabled] = useState(false);
 
   const clickHandler = () => {
@@ -115,23 +132,33 @@ const Header = () => {
         <ul ref={swipedTarget}>
           <li>
             <img src='./main/img/title3.jfif' alt='' />
-            <h2>치킨 먹고싶다</h2>
+            <div className='content'>
+              <h2>PRO-SPECS SPONSORSHIP</h2>
+            </div>
           </li>
           <li>
             <img src='./main/img/title1.jfif' alt='' />
-            <h2>PRO-SPECS SPONSORSHIP</h2>
+            <div className='content'>
+              <h2>PRO-SPECS SPONSORSHIP</h2>
+            </div>
           </li>
           <li>
             <img src='./main/img/title2.jfif' alt='' />
-            <h2>HOW TO PLAY THIS CITY 22FW PERFORMANCE</h2>
+            <div className='content'>
+              <h2>HOW TO PLAY THIS CITY 22FW PERFORMANCE</h2>
+            </div>
           </li>
           <li>
             <img src='./main/img/title3.jfif' alt='' />
-            <h2>치킨 먹고싶다</h2>
+            <div className='content'>
+              <h2>PRO-SPECS SPONSORSHIP</h2>
+            </div>
           </li>
           <li>
             <img src='./main/img/title1.jfif' alt='' />
-            <h2>PRO-SPECS SPONSORSHIP</h2>
+            <div className='content'>
+              <h2>PRO-SPECS SPONSORSHIP</h2>
+            </div>
           </li>
         </ul>
 
