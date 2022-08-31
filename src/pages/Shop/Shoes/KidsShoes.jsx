@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import Item from '../Item';
+import ShopHeader from '../ShopHeader';
 
 const StyledkidsShoes = styled.div``;
 
 function KidsShoes() {
-	return(
-     <StyledKidsShoes>
-		
+	return (
+		<StyledKidsShoes>
+			<ShopHeader />
 			<Item />
-
-    </StyledKidsShoes>
-    )
+		</StyledKidsShoes>
+	);
 }
 
 export default KidsShoes;
