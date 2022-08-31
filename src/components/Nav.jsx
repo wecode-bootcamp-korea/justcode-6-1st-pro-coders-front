@@ -354,7 +354,7 @@ const StyledNav = styled.nav`
 const Nav = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const [isMain, setIsMain] = useState(pathname === '/');
+  const [isMain, setIsMain] = useState(pathname === '/' || pathname === '/shop');
   const { isScrollDown, isScrolled } = useScroll();
 
   const input = useRef();
@@ -368,7 +368,7 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    setIsMain(pathname === '/');
+    setIsMain(pathname === '/' || pathname === '/shop');
   }, [pathname]);
 
   // 나중에 링크 추가
@@ -383,7 +383,7 @@ const Nav = () => {
         isMain={isMain}
       >
         <div className='container'>
-          <img src='./images/logo-white.svg' className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
+          <img src='/images/logo-white.svg' className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
 
           <ul className='gnb'>
             <li>
@@ -392,7 +392,7 @@ const Nav = () => {
                 <div className='innerContainer'>
                   <ul className='lnb'>
                     <li>
-                      <Link to='/' className='lnbSubName'>
+                      <Link to='/shop/shoes' className='lnbSubName'>
                         SHOES
                       </Link>
                     </li>
@@ -725,10 +725,10 @@ const Nav = () => {
 
           <ul className='gnb2'>
             <li>
-              <img src='./nav/icon//icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
+              <img src='./images/logo-white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
             </li>
             <li>
-              <img src='./nav/icon//icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
+              <img src='./nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
             </li>
             <li onClick={() => setModal(true)}>
               <p>LOGIN</p>

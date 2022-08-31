@@ -10,23 +10,25 @@ import theme from './styles/theme';
 
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import ShopPage from './pages/Shop/ShopPage';
 
 const App = () => {
-	return (
-		<>
-			<ThemeProvider theme={theme}>
-				<GlobalStyle />
-				<Nav />
-				<Routes>
-					<Route path='/' element={<MainPage />} />
-					<Route path='/shop/shoes' element={<AllShoes />} />
-					<Route path='/event' element={<Event />} />
-					<Route path='/archive' element={<Archive />} />
-				</Routes>
-				<Footer />
-			</ThemeProvider>
-		</>
-	);
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Nav />
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/shop' element={<ShopPage />} />
+          <Route path='/shop/shoes' element={<AllShoes />} />
+          <Route path='/event' element={<Event />} />
+          <Route path='/archive' element={<Archive />} />
+        </Routes>
+        <Footer />
+      </ThemeProvider>
+    </>
+  );
 };
 
 export default App;
