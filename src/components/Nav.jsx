@@ -725,7 +725,7 @@ const Nav = () => {
               </div>
             </li>
             <li>
-              <Link to='/'>SMART FIT</Link>
+              <Link to='/smartfit'>SMART FIT</Link>
               <div className='inner'>
                 <div className='innerContainer'>
                   <div className='textContainer'>

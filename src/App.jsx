@@ -2,6 +2,7 @@ import GlobalStyle from './styles/GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
 import Event from './pages/event/Event';
 import Archive from './pages/archive/Archive';
+import SmartFit from './pages/smartfit/SmartFit';
 import MainPage from './pages/main/Main';
 import ShopMain from './pages/Shop/ShopMain';
 import { ThemeProvider } from 'styled-components';
@@ -26,18 +27,34 @@ const App = () => {
           <Route path='/' element={<MainPage />} />
           <Route path='/shop' element={<ShopMain />}>
             <Route path='/shop/shoes/all' element={<ShopMain />}></Route>
-            <Route path='/shop/shoes/running' element={<RunningShoes />}></Route>
-            <Route path='/shop/shoes/working' element={<WorkingShoes />}></Route>
+            <Route
+              path='/shop/shoes/running'
+              element={<RunningShoes />}
+            ></Route>
+            <Route
+              path='/shop/shoes/working'
+              element={<WorkingShoes />}
+            ></Route>
             <Route path='/shop/shoes/sport' element={<SportShoes />}></Route>
-            <Route path='/shop/shoes/trekking' element={<TrekkingShoes />}></Route>
-            <Route path='/shop/shoes/snikers' element={<SnikersShoes />}></Route>
-            <Route path='/shop/shoes/slipper' element={<SlipperShoes />}></Route>
+            <Route
+              path='/shop/shoes/trekking'
+              element={<TrekkingShoes />}
+            ></Route>
+            <Route
+              path='/shop/shoes/snikers'
+              element={<SnikersShoes />}
+            ></Route>
+            <Route
+              path='/shop/shoes/slipper'
+              element={<SlipperShoes />}
+            ></Route>
             <Route path='/shop/shoes/kids' element={<KidsShoes />}></Route>
           </Route>
           <Route path='/shop' element={<ShopMain />} />
           <Route path='/shop/:id' element={<ShopMain />} />
           <Route path='/event' element={<Event />} />
           <Route path='/archive' element={<Archive />} />
+          <Route path='/smartfit' element={<SmartFit />} />
         </Routes>
         <Footer />
       </ThemeProvider>
