@@ -362,7 +362,9 @@ const StyledNav = styled.nav`
 const Nav = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const [isMain, setIsMain] = useState(pathname === '/');
+  const [isMain, setIsMain] = useState(
+    pathname === '/' || pathname === '/shop'
+  );
   const { isScrollDown, isScrolled } = useScroll();
 
   const input = useRef();
@@ -376,7 +378,7 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    setIsMain(pathname === '/');
+    setIsMain(pathname === '/' || pathname === '/shop');
   }, [pathname]);
 
   // 나중에 링크 추가
@@ -392,7 +394,7 @@ const Nav = () => {
       >
         <div className='container'>
           <img
-            src='./images/logo-white.svg'
+            src='/images/logo-white.svg'
             className='logo'
             alt='logo'
             width={110}
@@ -406,7 +408,7 @@ const Nav = () => {
                 <div className='innerContainer'>
                   <ul className='lnb'>
                     <li>
-                      <Link to='/' className='lnbSubName'>
+                      <Link to='/shop/shoes' className='lnbSubName'>
                         SHOES
                       </Link>
                     </li>
@@ -654,7 +656,7 @@ const Nav = () => {
               <Link to='/event'>EVENT</Link>
             </li>
             <li>
-              <Link to='/archive'>ARCHIVE</Link>
+              <Link to='/'>ARCHIVE</Link>
               <div className='inner'>
                 <div className='innerContainer'>
                   <ul className='lnb'>
@@ -725,7 +727,7 @@ const Nav = () => {
               </div>
             </li>
             <li>
-              <Link to='/smartfit'>SMART FIT</Link>
+              <Link to='/'>SMART FIT</Link>
               <div className='inner'>
                 <div className='innerContainer'>
                   <div className='textContainer'>
@@ -744,7 +746,7 @@ const Nav = () => {
           <ul className='gnb2'>
             <li>
               <img
-                src='./nav/icon//icon_search_white.svg'
+                src='./images/logo-white.svg'
                 className='logo'
                 alt='logo'
                 onClick={() => setSearch(!search)}
@@ -752,7 +754,7 @@ const Nav = () => {
             </li>
             <li>
               <img
-                src='./nav/icon//icon_cart_white.svg'
+                src='./nav/icon/icon_cart_white.svg'
                 className='logo'
                 alt='logo'
                 onClick={() => navigate('/')}

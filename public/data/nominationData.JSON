@@ -1,0 +1,68 @@
+{
+    "data": [
+        {
+            "id" : 0 ,
+            "img" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0WW22S303_w.png/dims/optimize",
+            "name" : "원더풀 MJ 3",
+            "price" : "79,000원",
+            "sale" : false,
+            "salePercent" : " ",
+            "salePrice" : " ",
+            "gender" : "female"
+        },        {
+            "id" : 1 ,
+            "img" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0UW22S344_w.png/dims/optimize",
+            "name" : "수퍼쿠션 4",
+            "price" : "89,000원",
+            "sale" : false,
+            "salePercent" : " ",
+            "salePrice" : " ",
+            "gender" : "unisex"
+        },        {
+            "id" : 2 ,
+            "img" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PS0MP22S551_w.png/dims/optimize",
+            "name" : "ODX 113",
+            "price" : "109,000원",
+            "sale" : true,
+            "salePercent" : "20%",
+            "salePrice" : "87,200원",
+            "gender" : "male"
+        },        {
+            "id" : 3 ,
+            "img" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PS0WP22S412_w.png/dims/optimize",
+            "name" : "SPB 212",
+            "price" : "99,000",
+            "sale" : true,
+            "salePercent" : "20%",
+            "salePrice" : "79,200원",
+            "gender" : "female"
+        },        {
+            "id" : 4 ,
+            "img" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PR0UR22S211_w.png/dims/optimize",
+            "name" : "에너젯 111",
+            "price" : "119,000원",
+            "sale" : true,
+            "salePercent" : "10%",
+            "salePrice" : "107,100원",
+            "gender" : "unisex"
+        },        {
+            "id" : 5 ,
+            "img" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0UW22S331_w.png/dims/optimize",
+            "name" : "브리즈 1",
+            "price" : "79,000원",
+            "sale" : false,
+            "salePercent" : " ",
+            "salePrice" : " ",
+            "gender" : "unisex"
+        },        {
+            "id" : 6 ,
+            "img" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0UW22S552_w.png/dims/optimize",
+            "name" : "블레이드 BX 212",
+            "price" : "199,000원",
+            "sale" : true,
+            "salePercent" : "10%",
+            "salePrice" : "179,000원",
+            "gender" : "unisex"
+        }
+    ]
+}
