@@ -2,53 +2,57 @@ import styled from 'styled-components';
 import { useEffect, useRef, useState } from 'react';
 
 const StyledSection = styled.section`
-  display: flex;
-  gap: 20px;
-  width: 100%;
+  div.container {
+    display: flex;
+    gap: 20px;
+    max-width: 2000px;
+    width: 100%;
+    margin: 0 auto;
 
-  div.imgContainer {
-    position: relative;
-    width: calc(50% - 10px);
-    height: 100%;
-    overflow: hidden;
-    cursor: pointer;
-
-    img {
-      display: block;
-      width: 100%;
+    div.imgContainer {
+      position: relative;
+      width: calc(50% - 10px);
       height: 100%;
-    }
+      overflow: hidden;
+      cursor: pointer;
 
-    div.textContainer {
-      position: absolute;
-      bottom: 5%;
-      left: 5%;
-      color: white;
-      font-weight: 900;
-
-      h2 {
-        font-size: 40px;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
 
-      p {
-        margin-top: 10px;
+      div.textContainer {
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        color: white;
+        font-weight: 900;
+
+        h2 {
+          font-size: 40px;
+        }
+
+        p {
+          margin-top: 10px;
+        }
       }
-    }
 
-    &::after {
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      background-color: ${({ theme }) => theme.colors.mainImgBg};
-      transition: 0.3s;
-      transform: skewY(-10deg) scaleY(1.3) translateY(${({ isFirstInView }) => (isFirstInView ? '-100%' : '0')});
-    }
+      &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: ${({ theme }) => theme.colors.mainImgBg};
+        transition: 0.3s;
+        transform: skewY(-10deg) scaleY(1.3) translateY(${({ isFirstInView }) => (isFirstInView ? '-100%' : '0')});
+      }
 
-    &:last-of-type::after {
-      transition-delay: 0.3s;
+      &:last-of-type::after {
+        transition-delay: 0.3s;
+      }
     }
   }
 `;
@@ -80,18 +84,20 @@ const FirstSection = () => {
 
   return (
     <StyledSection isFirstInView={isFirstInView} ref={firstSection}>
-      <div className='imgContainer'>
-        <img src='https://image.prospecs.com/files/upload/display/202208/202208301117241.jpg/dims/optimize' alt='' />
-        <div className='textContainer'>
-          <h2>HOW TO PLAY CITY</h2>
-          <p>22FW PERFORMANCE</p>
+      <div className='container'>
+        <div className='imgContainer'>
+          <img src='https://image.prospecs.com/files/upload/display/202208/202208301117241.jpg/dims/optimize' alt='' />
+          <div className='textContainer'>
+            <h2>HOW TO PLAY CITY</h2>
+            <p>22FW PERFORMANCE</p>
+          </div>
         </div>
-      </div>
-      <div className='imgContainer'>
-        <img src='https://image.prospecs.com/files/upload/display/202205/202205191805182.jpg/dims/optimize' alt='' />
-        <div className='textContainer'>
-          <h2>Original Surf Club</h2>
-          <p>2022 HOT SUMMER COLLECTION</p>
+        <div className='imgContainer'>
+          <img src='https://image.prospecs.com/files/upload/display/202205/202205191805182.jpg/dims/optimize' alt='' />
+          <div className='textContainer'>
+            <h2>Original Surf Club</h2>
+            <p>2022 HOT SUMMER COLLECTION</p>
+          </div>
         </div>
       </div>
     </StyledSection>

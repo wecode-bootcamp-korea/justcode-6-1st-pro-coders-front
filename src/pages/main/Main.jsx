@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import Header from './Header';
 import FirstSection from './Sections/FirstSection';
+import SecondSection from './Sections/SecondSection';
+import ThirdSection from './Sections/ThirdSection';
+import FourthSection from './Sections/FourthSection';
+import FifthSection from './Sections/FifthSection';
 
 const StyledMain = styled.main`
   section {
@@ -14,7 +18,10 @@ const MainPage = () => {
       <Header />
       <StyledMain>
         <FirstSection />
-        <section className='second'></section>
+        <SecondSection />
+        <ThirdSection />
+        <FourthSection />
+        <FifthSection />
       </StyledMain>
     </>
   );
