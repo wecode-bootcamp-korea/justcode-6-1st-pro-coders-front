@@ -2,24 +2,44 @@ import { useState, useRef, useEffect } from 'react';
 
 /**
  *
- * @param {any[]} list 캐러셀 슬라이드 요소로 이루어진 배열, 크기만 같으면 됨
- * @returns
+ * @param {any[]} size 캐러셀 슬라이드 요소 개수
+ * 양 끝에 복제하여 만들어주세요.
+ * li 사이에 gap이 없어야 합니다.
  */
 
-const useInfiniteSwiper = () => {
+const useInfiniteSwiper = (size, autoSlide = false) => {
   const [page, setPage] = useState(0);
   const swipedTarget = useRef(null);
   // swipedTarget은 ul임
   const [prevButton, setPrevButton] = useState(null);
   const [nextButton, setNextButton] = useState(null);
   const oldTrans = useRef(0);
-  const start = useRef(0);
   const trans = useRef(0);
+  const start = useRef(0);
   const clicked = useRef(false);
+  const debounce = useRef();
+  const interval = useRef();
+
+  useEffect(() => {
+    if (swipedTarget.current) {
+      const width = swipedTarget.current.getBoundingClientRect().width / size;
+
+      (() => {
+        setPage(1);
+        swipedTarget.current.style.transition = '0s';
+        trans.current = -width;
+        swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+        oldTrans.current = trans.current;
+      })();
+    }
+  }, []);
 
   useEffect(() => {
     // click
+
     const clickStart = ({ clientX }) => {
+      clearTimeout(debounce.current);
+
       clicked.current = true;
       start.current = clientX;
 
@@ -42,15 +62,24 @@ const useInfiniteSwiper = () => {
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0.3s';
 
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        const width = swipedTarget.current.getBoundingClientRect().width / size;
 
         if (trans.current > -width * 0.5) {
           trans.current = 0;
-          setPage(0);
+          setPage(size - 2);
+
+          const getLast = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width * (size - 2);
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getLast, 300);
         }
 
-        list.forEach((_, i) => {
-          if (i < list.length - 2) {
+        [...Array(size)].forEach((_, i) => {
+          if (i < size - 2) {
             if (trans.current <= -width * (i + 0.5) && trans.current > -width * (i + 1.5)) {
               trans.current = -width * (i + 1);
               setPage(i + 1);
@@ -58,9 +87,18 @@ const useInfiniteSwiper = () => {
           }
         });
 
-        if (trans.current <= -width * (list.length - 1.5)) {
-          trans.current = -width * (list.length - 1);
-          setPage(list.length - 1);
+        if (trans.current <= -width * (size - 1.5)) {
+          trans.current = -width * (size - 1);
+          setPage(1);
+
+          const getFirst = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width;
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getFirst, 300);
         }
       }
 
@@ -99,15 +137,24 @@ const useInfiniteSwiper = () => {
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0.3s';
 
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        const width = swipedTarget.current.getBoundingClientRect().width / size;
 
         if (trans.current > -width * 0.5) {
           trans.current = 0;
-          setPage(0);
+          setPage(size - 2);
+
+          const getLast = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width * (size - 2);
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getLast, 300);
         }
 
-        list.forEach((_, i) => {
-          if (i < list.length - 2) {
+        [...Array(size)].forEach((_, i) => {
+          if (i < size - 2) {
             if (trans.current <= -width * (i + 0.5) && trans.current > -width * (i + 1.5)) {
               trans.current = -width * (i + 1);
               setPage(i + 1);
@@ -115,9 +162,18 @@ const useInfiniteSwiper = () => {
           }
         });
 
-        if (trans.current <= -width * (list.length - 1.5)) {
-          trans.current = -width * (list.length - 1);
-          setPage(list.length - 1);
+        if (trans.current <= -width * (size - 1.5)) {
+          trans.current = -width * (size - 1);
+          setPage(1);
+
+          const getFirst = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width;
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getFirst, 300);
         }
       }
 
@@ -129,26 +185,57 @@ const useInfiniteSwiper = () => {
 
     const prev = () => {
       if (swipedTarget.current) {
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        swipedTarget.current.style.transition = '0.3s';
+        const width = swipedTarget.current.getBoundingClientRect().width / size;
 
-        trans.current = -width * (page - 1);
-        swipedTarget.current.style.transform = `translateX(${-width * (page - 1)}px)`;
-        oldTrans.current = -width * (page - 1);
+        if (page === 1) {
+          trans.current = 0;
+          oldTrans.current = trans.current;
+          swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+          setPage(size - 2);
+
+          const getLast = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width * (size - 2);
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getLast, 300);
+        } else {
+          trans.current = -width * (page - 1);
+          swipedTarget.current.style.transform = `translateX(${-width * (page - 1)}px)`;
+          oldTrans.current = -width * (page - 1);
+          setPage(page - 1);
+        }
       }
-
-      setPage(page - 1);
     };
 
     const next = () => {
       if (swipedTarget.current) {
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        swipedTarget.current.style.transition = '0.3s';
+        const width = swipedTarget.current.getBoundingClientRect().width / size;
 
-        trans.current = -width * (page + 1);
-        swipedTarget.current.style.transform = `translateX(${-width * (page + 1)}px)`;
-        oldTrans.current = -width * (page + 1);
+        if (page === 3) {
+          trans.current = -width * (size - 1);
+          swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+          setPage(1);
+
+          const getFirst = () => {
+            swipedTarget.current.style.transition = '0s';
+            trans.current = -width;
+            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+            oldTrans.current = trans.current;
+          };
+
+          debounce.current = setTimeout(getFirst, 300);
+        } else {
+          trans.current = -width * (page + 1);
+          swipedTarget.current.style.transform = `translateX(${-width * (page + 1)}px)`;
+          oldTrans.current = -width * (page + 1);
+          setPage(page + 1);
+        }
       }
-
-      setPage(page + 1);
     };
 
     if (swipedTarget.current) {
@@ -157,13 +244,17 @@ const useInfiniteSwiper = () => {
       swipedTarget.current.addEventListener('mouseup', clickEnd);
       swipedTarget.current.addEventListener('mouseleave', clickEnd);
 
-      swipedTarget.current.addEventListener('touchstart', touchStart);
-      swipedTarget.current.addEventListener('touchmove', touchMove);
-      swipedTarget.current.addEventListener('touchend', touchEnd);
+      swipedTarget.current.addEventListener('touchstart', touchStart, { passive: true });
+      swipedTarget.current.addEventListener('touchmove', touchMove, { passive: true });
+      swipedTarget.current.addEventListener('touchend', touchEnd, { passive: true });
     }
 
     prevButton?.addEventListener('click', prev);
     nextButton?.addEventListener('click', next);
+
+    if (autoSlide) {
+      interval.current = setInterval(next, 5000);
+    }
 
     return () => {
       if (swipedTarget.current) {
@@ -179,8 +270,10 @@ const useInfiniteSwiper = () => {
 
       prevButton?.removeEventListener('click', prev);
       nextButton?.removeEventListener('click', next);
+
+      clearInterval(interval.current);
     };
-  }, [list, page, prevButton, nextButton, swipedTarget]);
+  }, [size, page, prevButton, nextButton, swipedTarget]);
 
   return { swipedTarget, page, setPrevButton, setNextButton };
 };

@@ -2,26 +2,38 @@ import { useState, useRef, useEffect } from 'react';
 
 /**
  *
- * @param {any[]} list 캐러셀 슬라이드 요소로 이루어진 배열, 크기만 같으면 됨
- * @returns
+ * @param {any[]} list 캐러셀 슬라이드 요소로 이루어진 배열, 크기만 같으면 됨.
+ * li 사이에 gap이 없어야 합니다.
  */
 
-const useSwiper = list => {
+const useSwiper = (size, perView = 1) => {
   const [page, setPage] = useState(0);
   const swipedTarget = useRef(null);
-  // swipedTarget은 ul임
+  // swipedTarget은 ul
   const [prevButton, setPrevButton] = useState(null);
   const [nextButton, setNextButton] = useState(null);
   const oldTrans = useRef(0);
   const start = useRef(0);
   const trans = useRef(0);
   const clicked = useRef(false);
+  const debounce = useRef();
+
+  useEffect(() => {
+    if (swipedTarget.current) {
+      setPage(0);
+      swipedTarget.current.style.transition = '0s';
+      trans.current = 0;
+      swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+      oldTrans.current = trans.current;
+    }
+  }, [size]);
 
   useEffect(() => {
     // click
     const clickStart = ({ clientX }) => {
       clicked.current = true;
       start.current = clientX;
+      clearTimeout(debounce.current);
 
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0s';
@@ -41,16 +53,17 @@ const useSwiper = list => {
     const clickEnd = () => {
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0.3s';
+        debounce.current = setTimeout(() => (swipedTarget.current.style.transition = '0s'), 300);
 
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / size;
 
         if (trans.current > -width * 0.5) {
           trans.current = 0;
           setPage(0);
         }
 
-        list.forEach((_, i) => {
-          if (i < list.length - 2) {
+        [...Array(size)].forEach((_, i) => {
+          if (i < size - (2 + (perView - 1))) {
             if (trans.current <= -width * (i + 0.5) && trans.current > -width * (i + 1.5)) {
               trans.current = -width * (i + 1);
               setPage(i + 1);
@@ -58,9 +71,9 @@ const useSwiper = list => {
           }
         });
 
-        if (trans.current <= -width * (list.length - 1.5)) {
-          trans.current = -width * (list.length - 1);
-          setPage(list.length - 1);
+        if (trans.current <= -width * (size - (perView + 0.5))) {
+          trans.current = -width * (size - perView);
+          setPage(size - 1);
         }
       }
 
@@ -77,6 +90,7 @@ const useSwiper = list => {
       },
     }) => {
       start.current = clientX;
+      clearTimeout(debounce.current);
 
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0s';
@@ -98,16 +112,17 @@ const useSwiper = list => {
     const touchEnd = () => {
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0.3s';
+        debounce.current = setTimeout(() => (swipedTarget.current.style.transition = '0s'), 300);
 
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / size;
 
         if (trans.current > -width * 0.5) {
           trans.current = 0;
           setPage(0);
         }
 
-        list.forEach((_, i) => {
-          if (i < list.length - 2) {
+        [...Array(size)].forEach((_, i) => {
+          if (i < size - (2 + (perView - 1))) {
             if (trans.current <= -width * (i + 0.5) && trans.current > -width * (i + 1.5)) {
               trans.current = -width * (i + 1);
               setPage(i + 1);
@@ -115,9 +130,9 @@ const useSwiper = list => {
           }
         });
 
-        if (trans.current <= -width * (list.length - 1.5)) {
-          trans.current = -width * (list.length - 1);
-          setPage(list.length - 1);
+        if (trans.current <= -width * (size - (perView + 0.5))) {
+          trans.current = -width * (size - perView);
+          setPage(size - 1);
         }
       }
 
@@ -129,7 +144,7 @@ const useSwiper = list => {
 
     const prev = () => {
       if (swipedTarget.current) {
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / size;
 
         trans.current = -width * (page - 1);
         swipedTarget.current.style.transform = `translateX(${-width * (page - 1)}px)`;
@@ -141,7 +156,7 @@ const useSwiper = list => {
 
     const next = () => {
       if (swipedTarget.current) {
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / list.length;
+        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / size;
 
         trans.current = -width * (page + 1);
         swipedTarget.current.style.transform = `translateX(${-width * (page + 1)}px)`;
@@ -151,19 +166,22 @@ const useSwiper = list => {
       setPage(page + 1);
     };
 
-    if (swipedTarget.current) {
+    if (size > perView) {
+    }
+
+    if (swipedTarget.current && size > perView) {
       swipedTarget.current.addEventListener('mousedown', clickStart);
       swipedTarget.current.addEventListener('mousemove', clickMove);
       swipedTarget.current.addEventListener('mouseup', clickEnd);
       swipedTarget.current.addEventListener('mouseleave', clickEnd);
 
-      swipedTarget.current.addEventListener('touchstart', touchStart);
-      swipedTarget.current.addEventListener('touchmove', touchMove);
-      swipedTarget.current.addEventListener('touchend', touchEnd);
-    }
+      swipedTarget.current.addEventListener('touchstart', touchStart, { passive: true });
+      swipedTarget.current.addEventListener('touchmove', touchMove, { passive: true });
+      swipedTarget.current.addEventListener('touchend', touchEnd, { passive: true });
 
-    prevButton?.addEventListener('click', prev);
-    nextButton?.addEventListener('click', next);
+      prevButton?.addEventListener('click', prev);
+      nextButton?.addEventListener('click', next);
+    }
 
     return () => {
       if (swipedTarget.current) {
@@ -175,14 +193,14 @@ const useSwiper = list => {
         swipedTarget.current.removeEventListener('touchstart', touchStart);
         swipedTarget.current.removeEventListener('touchmove', touchMove);
         swipedTarget.current.removeEventListener('touchend', touchEnd);
+
+        prevButton?.removeEventListener('click', prev);
+        nextButton?.removeEventListener('click', next);
       }
-
-      prevButton?.removeEventListener('click', prev);
-      nextButton?.removeEventListener('click', next);
     };
-  }, [list, page, prevButton, nextButton, swipedTarget]);
+  }, [size, page, prevButton, nextButton, swipedTarget]);
 
-  return { swipedTarget, page, setPrevButton, setNextButton };
+  return { swipedTarget, page, setPrevButton, setNextButton, trans };
 };
 
 export default useSwiper;
