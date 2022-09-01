@@ -3,14 +3,15 @@ import Event from './pages/event/Event';
 import Archive from './pages/archive/Archive';
 import MainPage from './pages/main/Main';
 import AllShoes from './pages/Shop/Shoes/AllShoes';
-import GlobalStyle from '../src/styles/GlobalStyle'
+import GlobalStyle from '../src/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import ShopPage from './pages/Shop/ShopPage';
 import Store from './pages/store/Store';
-import SmartFit from './pages/smartfit/SmartFit'
+import SmartFit from './pages/smartfit/SmartFit';
+import TopButton from './components/TopButton';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/smartfit' element={<SmartFit />} />
           <Route path='/store' element={<Store />} />
         </Routes>
+        <TopButton />
         <Footer />
       </ThemeProvider>
     </>

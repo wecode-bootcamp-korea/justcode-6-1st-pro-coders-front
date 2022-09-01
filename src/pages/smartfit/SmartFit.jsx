@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronUp,
-  faCommentsDollar,
-} from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../../components/LoginModal';
+import TopButton from '../../components/TopButton';
 
 const Main = styled.div`
   width: 1280px;
@@ -222,76 +218,39 @@ const Main = styled.div`
       }
     }
   }
-  .topButton {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    right: 15%;
-    bottom: 8%;
-    border: 3px solid ${(props) => props.theme.colors.footerBg};
-    opacity: 100%;
-    transition: visibility 400ms ease-in-out, opacity 400ms;
-    cursor: pointer;
-    z-index: 10;
-  }
-
-  .topButton.hide {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    right: 15%;
-    bottom: 8%;
-    border: 3px solid ${(props) => props.theme.colors.footerBg};
-    opacity: 0%;
-    visibility: hidden;
-    transition: visibility 400ms ease-in-out, opacity 400ms;
-    cursor: pointer;
-    z-index: 10;
-  }
 `;
 
 const SmartFit = (props) => {
   const [modal, setModal] = useState(false);
-  const [button, setButton] = useState(false);
   const openLogin = () => {
     setModal((prev) => !prev);
   };
 
-  useEffect(() => {
-    const handleShowButton = () => {
-      if (window.scrollY > 750) {
-        setButton(true);
-      } else {
-        setButton(false);
-      }
-    };
-    window.addEventListener('scroll', handleShowButton);
-    return () => {
-      window.removeEventListener('scroll', handleShowButton);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleShowButton = () => {
+  //     if (window.scrollY > 750) {
+  //       setButton(true);
+  //     } else {
+  //       setButton(false);
+  //     }
+  //   };
+  //   window.addEventListener('scroll', handleShowButton);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleShowButton);
+  //   };
+  // }, []);
 
-  const handleScrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-    setButton(false);
-  };
+  // const handleScrollTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth',
+  //   });
+  //   setButton(false);
+  // };
 
   return (
     <Main>
       {modal && <LoginModal setModal={setModal} />}
-
-      {button ? (
-        <button className='topButton' onClick={handleScrollTop}>
-          <FontAwesomeIcon icon={faChevronUp} size='xl' />
-        </button>
-      ) : (
-        <button className='topButton hide' onClick={handleScrollTop}>
-          <FontAwesomeIcon icon={faChevronUp} size='xl' />
-        </button>
-      )}
       <h3>SMART FIT</h3>
       <section className='banner'>
         <h4>
