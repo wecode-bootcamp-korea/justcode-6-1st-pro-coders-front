@@ -72,7 +72,7 @@ const StyledSection = styled.section`
 
     div.line {
       height: 6px;
-      margin-top: 20px;
+      margin-top: 100px;
       background-color: black;
     }
   }
