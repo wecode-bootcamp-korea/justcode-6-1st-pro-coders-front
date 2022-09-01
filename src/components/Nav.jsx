@@ -12,7 +12,8 @@ const StyledNav = styled.nav`
   left: 0;
   width: 100%;
   transition: 0.3s;
-  background-color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'white' : 'transparent')};
+  background-color: ${({ search, isScrolled, isMain }) => 
+    (search || isScrolled || !isMain ? 'white' : 'transparent')};
   z-index: 10;
   transform: translateY(${({ isScrollDown }) => (isScrollDown ? '-100px' : '0')});
 

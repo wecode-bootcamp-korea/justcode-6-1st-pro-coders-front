@@ -1,13 +1,10 @@
-import GlobalStyle from './styles/GlobalStyle';
 import { Routes, Route } from 'react-router-dom';
 import Event from './pages/event/Event';
 import Archive from './pages/archive/Archive';
 import MainPage from './pages/main/Main';
 import AllShoes from './pages/Shop/Shoes/AllShoes';
-
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
-
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import ShopPage from './pages/Shop/ShopPage';
@@ -24,6 +21,7 @@ const App = () => {
           <Route path='/shop/shoes' element={<AllShoes />} />
           <Route path='/event' element={<Event />} />
           <Route path='/archive' element={<Archive />} />
+          <Route path='/smartfit' element={<SmartFit />} />
         </Routes>
         <Footer />
       </ThemeProvider>
