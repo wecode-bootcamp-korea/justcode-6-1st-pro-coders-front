@@ -11,6 +11,11 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+
+  input {
+    border: none;
+    outline: none;
+  }
 `;
 
 export default GlobalStyle;
