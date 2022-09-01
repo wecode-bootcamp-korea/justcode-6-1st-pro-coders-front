@@ -269,6 +269,51 @@
       "salePrice": "63,200",
       "gender": "female",
       "coupon": true
+    },
+    {
+      "id": "18",
+      "maincategory": "shoes",
+      "subcategory": "아동화",
+      "img": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S112/PS0WP22S112_01.jpg/dims/resizef/530x530/optimize",
+      "hoverimg": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S112/PS0WP22S112_02.jpg/dims/resizef/530x530/optimize",
+      "cate": "[2022 S/S신상]",
+      "name": "CAE 222",
+      "price": "79,000원",
+      "sale": true,
+      "salePercent": "20%",
+      "salePrice": "63,200",
+      "gender": "female",
+      "coupon": true
+    },
+    {
+      "id": "19",
+      "maincategory": "shoes",
+      "subcategory": "아동화",
+      "img": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S112/PS0WP22S112_01.jpg/dims/resizef/530x530/optimize",
+      "hoverimg": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S112/PS0WP22S112_02.jpg/dims/resizef/530x530/optimize",
+      "cate": "[2022 S/S신상]",
+      "name": "CAE 222",
+      "price": "79,000원",
+      "sale": true,
+      "salePercent": "20%",
+      "salePrice": "63,200",
+      "gender": "female",
+      "coupon": true
+    },
+    {
+      "id": "20",
+      "maincategory": "shoes",
+      "subcategory": "아동화",
+      "img": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S112/PS0WP22S112_01.jpg/dims/resizef/530x530/optimize",
+      "hoverimg": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S112/PS0WP22S112_02.jpg/dims/resizef/530x530/optimize",
+      "cate": "[2022 S/S신상]",
+      "name": "CAE 222",
+      "price": "79,000원",
+      "sale": true,
+      "salePercent": "20%",
+      "salePrice": "63,200",
+      "gender": "female",
+      "coupon": true
     }
   ]
 }
