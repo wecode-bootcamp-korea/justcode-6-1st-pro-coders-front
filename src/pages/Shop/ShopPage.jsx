@@ -3,6 +3,7 @@ import useInfiniteSwiper from '../../hooks/useInfiniteSwiper';
 import FirstSection from './sections/FirstSection';
 import SecondSection from './sections/SecondSection';
 import ThirdSection from './sections/ThirdSection';
+import FourthSection from './sections/FourthSection';
 
 const StyledHeader = styled.header`
   height: 860px;
@@ -193,6 +194,7 @@ const ShopPage = () => {
         <FirstSection />
         <SecondSection />
         <ThirdSection />
+        <FourthSection />
       </StyledPage>
     </>
   );
