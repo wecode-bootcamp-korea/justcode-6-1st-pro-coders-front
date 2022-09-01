@@ -1,12 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 
-/**
- *
- * @param {any[]} size 캐러셀 슬라이드 요소 개수
- * 양 끝에 복제하여 만들어주세요.
- * li 사이에 gap이 없어야 합니다.
- */
-
 const useInfiniteSwiper = (size, autoSlide = false) => {
   const [page, setPage] = useState(0);
   const swipedTarget = useRef(null);
@@ -216,7 +209,7 @@ const useInfiniteSwiper = (size, autoSlide = false) => {
         swipedTarget.current.style.transition = '0.3s';
         const width = swipedTarget.current.getBoundingClientRect().width / size;
 
-        if (page === 3) {
+        if (page === size - 2) {
           trans.current = -width * (size - 1);
           swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
           setPage(1);

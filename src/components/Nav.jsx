@@ -726,7 +726,7 @@ const Nav = () => {
 
           <ul className='gnb2'>
             <li>
-              <img src='./images/logo-white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
+              <img src='./nav/icon/icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
             </li>
             <li>
               <img src='./nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
@@ -747,7 +747,7 @@ const Nav = () => {
                   type='text'
                   placeholder='구매 상품평 작성하면 최대 3천 포인트'
                 />
-                {inputValue && <img src='./nav/icon//icon_search_close.svg' alt='close' onClick={clearHandler} />}
+                {inputValue && <img src='./nav/icon/icon_search_close.svg' alt='close' onClick={clearHandler} />}
               </div>
               <button>검색</button>
             </form>

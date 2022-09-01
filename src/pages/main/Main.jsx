@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import Header from './Header';
-import FirstSection from './Sections/FirstSection';
-import SecondSection from './Sections/SecondSection';
-import ThirdSection from './Sections/ThirdSection';
-import FourthSection from './Sections/FourthSection';
-import FifthSection from './Sections/FifthSection';
+import FirstSection from './sections/FirstSection';
+import SecondSection from './sections/SecondSection';
+import ThirdSection from './sections/ThirdSection';
+import FourthSection from './sections/FourthSection';
+import FifthSection from './sections/FifthSection';
 
 const StyledMain = styled.main`
   section {
