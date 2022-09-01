@@ -641,7 +641,7 @@ const Nav = () => {
               <Link to='/event'>EVENT</Link>
             </li>
             <li>
-              <Link to='/'>ARCHIVE</Link>
+              <Link to='/archive'>ARCHIVE</Link>
               <div className='inner'>
                 <div className='innerContainer'>
                   <ul className='lnb'>
@@ -673,7 +673,7 @@ const Nav = () => {
               </div>
             </li>
             <li>
-              <Link to='/'>SPONSORSHIP</Link>
+              <Link to='/store'>STORE</Link>
               <div className='inner'>
                 <div className='innerContainer'>
                   <ul className='lnb'>
@@ -712,7 +712,7 @@ const Nav = () => {
               </div>
             </li>
             <li>
-              <Link to='/'>SMART FIT</Link>
+              <Link to='/smartfit'>SMART FIT</Link>
               <div className='inner'>
                 <div className='innerContainer'>
                   <div className='textContainer'>

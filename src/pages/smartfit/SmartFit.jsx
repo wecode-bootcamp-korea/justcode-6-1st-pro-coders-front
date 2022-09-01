@@ -258,7 +258,6 @@ const SmartFit = (props) => {
   };
 
   useEffect(() => {
-    console.log('useEffect 실행');
     const handleShowButton = () => {
       if (window.scrollY > 750) {
         setButton(true);

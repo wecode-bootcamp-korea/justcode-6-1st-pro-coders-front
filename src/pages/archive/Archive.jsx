@@ -71,7 +71,6 @@ const Main = styled.div`
   section {
     position: relative;
     width: 100%;
-    background-color: ${props => props.theme.colors.disabledTitle};
     overflow: hidden;
 
     .chevron {
