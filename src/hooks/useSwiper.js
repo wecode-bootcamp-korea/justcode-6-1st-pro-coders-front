@@ -1,11 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 
-/**
- *
- * @param {any[]} list 캐러셀 슬라이드 요소로 이루어진 배열, 크기만 같으면 됨.
- * li 사이에 gap이 없어야 합니다.
- */
-
 const useSwiper = (size, perView = 1) => {
   const [page, setPage] = useState(0);
   const swipedTarget = useRef(null);
@@ -165,9 +159,6 @@ const useSwiper = (size, perView = 1) => {
 
       setPage(page + 1);
     };
-
-    if (size > perView) {
-    }
 
     if (swipedTarget.current && size > perView) {
       swipedTarget.current.addEventListener('mousedown', clickStart);

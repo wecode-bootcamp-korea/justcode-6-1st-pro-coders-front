@@ -165,6 +165,14 @@ const StyledLogin = styled.div`
 const LoginModal = ({ setModal }) => {
   const [isSave, setIsSave] = useState(false);
 
+  const signInHandler = e => {
+    console.log(1);
+  };
+
+  const signUpHandler = () => {
+    setModal(false);
+  };
+
   return (
     <StyledLogin>
       <div className='container'>
@@ -183,15 +191,19 @@ const LoginModal = ({ setModal }) => {
               <p>아이디 저장</p>
             </div>
 
-            <div className='find'>
+            <div className='find' onClick={() => setModal(false)}>
               <Link to='/'>아이디</Link>
               <Link to='/'>비밀번호 찾기</Link>
             </div>
           </div>
 
           <div className='buttonContainer'>
-            <button className='signIn'>로그인</button>
-            <button className='signUp'>회원가입</button>
+            <button className='signIn' onClick={signInHandler}>
+              로그인
+            </button>
+            <button className='signUp' onClick={signUpHandler}>
+              회원가입
+            </button>
           </div>
         </form>
 
