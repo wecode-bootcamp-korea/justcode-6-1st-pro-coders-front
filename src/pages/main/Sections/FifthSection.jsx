@@ -51,8 +51,8 @@ const FifthSection = () => {
     <StyledSection>
       <div className='container'>
         <ItemBrand>
-          <img src='https://image.prospecs.com/front/images/renewal/icon_quick_01.svg' alt='' />
-          <Link to='/'>
+          <img src='/images/logo-black.svg' alt='' />
+          <Link to='/archive'>
             LOOKBOOK
             <BiChevronRight size={40} />
           </Link>
