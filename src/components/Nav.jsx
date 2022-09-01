@@ -12,7 +12,8 @@ const StyledNav = styled.nav`
   left: 0;
   width: 100%;
   transition: 0.3s;
-  background-color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'white' : 'transparent')};
+  background-color: ${({ search, isScrolled, isMain }) => 
+    (search || isScrolled || !isMain ? 'white' : 'transparent')};
   z-index: 10;
   transform: translateY(${({ isScrollDown }) => (isScrollDown ? '-100px' : '0')});
 
@@ -640,7 +641,7 @@ const Nav = () => {
               <Link to='/event'>EVENT</Link>
             </li>
             <li>
-              <Link to='/'>ARCHIVE</Link>
+              <Link to='/archive'>ARCHIVE</Link>
               <div className='inner'>
                 <div className='innerContainer'>
                   <ul className='lnb'>
@@ -672,7 +673,7 @@ const Nav = () => {
               </div>
             </li>
             <li>
-              <Link to='/'>SPONSORSHIP</Link>
+              <Link to='/store'>STORE</Link>
               <div className='inner'>
                 <div className='innerContainer'>
                   <ul className='lnb'>
@@ -711,7 +712,7 @@ const Nav = () => {
               </div>
             </li>
             <li>
-              <Link to='/'>SMART FIT</Link>
+              <Link to='/smartfit'>SMART FIT</Link>
               <div className='inner'>
                 <div className='innerContainer'>
                   <div className='textContainer'>
