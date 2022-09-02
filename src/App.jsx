@@ -23,6 +23,7 @@ const App = () => {
     phone_number: '',
     date_of_birth: '',
     gender: '',
+    access_token: '',
   });
 
   return (

@@ -321,6 +321,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
             phone_number: data.phone_number,
             date_of_birth: data.date_of_birth,
             gender: data.gender,
+            access_token: data.access_token,
           });
         } catch (error) {
           console.log(error);
