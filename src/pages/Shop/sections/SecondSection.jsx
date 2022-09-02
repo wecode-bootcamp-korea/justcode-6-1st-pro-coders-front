@@ -18,6 +18,7 @@ const StyledSection = styled.section`
       ul.list {
         display: flex;
         width: calc(100% * 18 / 4);
+        cursor: pointer;
 
         li {
           width: calc(100% / 18);
@@ -45,8 +46,21 @@ const StyledSection = styled.section`
 
       div.line {
         height: 4px;
-        background-color: black;
+        background-color: #00000050;
         margin-top: 40px;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: calc(100% / ${({ length, perView }) => length - perView - 2});
+          height: 100%;
+          left: 0;
+          top: 0;
+          background-color: black;
+          transition: 0.3s;
+          transform: translateX(calc(100% * ${({ page }) => page}));
+        }
       }
     }
   }
@@ -55,7 +69,7 @@ const StyledSection = styled.section`
 const SecondSection = () => {
   const [list, setList] = useState();
   const [loading, setLoading] = useState(true);
-  const { swipedTarget } = useSwiper(18, 4);
+  const { swipedTarget, page } = useSwiper(18, 4);
 
   useEffect(() => {
     fetch('/data/shoesData.json') //
@@ -67,7 +81,7 @@ const SecondSection = () => {
   }, []);
 
   return (
-    <StyledSection>
+    <StyledSection page={page} perView={4} length={list?.length ? list.length : null}>
       <div className='container'>
         <h2>
           일상을 자유롭고 경쾌하게 <br /> FW 스타일링

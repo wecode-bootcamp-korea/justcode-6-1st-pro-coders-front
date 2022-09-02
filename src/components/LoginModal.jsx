@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineClose, AiOutlineCheck } from 'react-icons/ai';
 import { useState } from 'react';
+import axios from 'axios';
 
 const StyledCheckBox = styled.span`
   display: block;
@@ -134,11 +135,20 @@ const StyledLogin = styled.div`
             background-color: ${({ theme }) => theme.colors.footerBg};
             color: white;
           }
+        }
 
-          &.signUp {
-            background-color: white;
-            color: ${({ theme }) => theme.colors.footerBg};
-          }
+        div.signUp {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          border: 2px solid ${({ theme }) => theme.colors.footerBg};
+          width: 50%;
+          padding: 10px;
+          font-weight: 900;
+          cursor: pointer;
+          background-color: white;
+          color: ${({ theme }) => theme.colors.footerBg};
         }
       }
     }
@@ -164,13 +174,42 @@ const StyledLogin = styled.div`
 
 const LoginModal = ({ setModal }) => {
   const [isSave, setIsSave] = useState(false);
+  const navigate = useNavigate();
+  const [disabled, setDisabled] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const signInHandler = e => {
-    console.log(1);
+  const signInHandler = async () => {
+    setDisabled(true);
+
+    try {
+      // 나중에 signin url
+      const { data } = await axios.post('', {
+        email,
+        password,
+      });
+
+      setUserInfo({
+        isLogin: true,
+        email: data.email,
+        name: data.name,
+        phone_number: data.phone_number,
+        date_of_birth: data.date_of_birth,
+        gender: data.gender,
+        access_token: data.access_token,
+      });
+
+      setDisabled(false);
+      setModal(false);
+    } catch (error) {
+      console.log(error);
+      setDisabled(false);
+    }
   };
 
   const signUpHandler = () => {
     setModal(false);
+    navigate('/signup');
   };
 
   return (
@@ -180,8 +219,8 @@ const LoginModal = ({ setModal }) => {
         <h2>로그인</h2>
         <form onSubmit={e => e.preventDefault()}>
           <div className='inputContainer'>
-            <input type='email' autoComplete='false' placeholder='아이디를 이메일 형식으로 입력해 주세요.' />
-            <input type='password' autoComplete='false' placeholder='비밀번호를 입력해주세요.' />
+            <input type='email' autoComplete='false' placeholder='아이디를 이메일 형식으로 입력해 주세요.' onChange={e => setEmail(e.target.value)} />
+            <input type='password' autoComplete='false' placeholder='비밀번호를 입력해주세요.' onChange={e => setPassword(e.target.value)} />
           </div>
           <div className='option'>
             <div className='saveId' onClick={() => setIsSave(!isSave)}>
@@ -198,12 +237,12 @@ const LoginModal = ({ setModal }) => {
           </div>
 
           <div className='buttonContainer'>
-            <button className='signIn' onClick={signInHandler}>
-              로그인
+            <button className='signIn' onClick={signInHandler} disabled={disabled}>
+              {disabled ? '로그인 중' : '로그인'}
             </button>
-            <button className='signUp' onClick={signUpHandler}>
+            <div className='signUp' onClick={signUpHandler}>
               회원가입
-            </button>
+            </div>
           </div>
         </form>
 

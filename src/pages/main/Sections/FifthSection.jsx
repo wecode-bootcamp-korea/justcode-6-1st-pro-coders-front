@@ -60,7 +60,7 @@ const FifthSection = () => {
         </ItemBrand>
         <ItemBrand>
           <img src='https://image.prospecs.com/front/images/renewal/icon_quick_02.svg' alt='' />
-          <Link to='/'>
+          <Link to='/store'>
             STORE
             <BiChevronRight size={40} />
           </Link>

@@ -12,8 +12,7 @@ const StyledNav = styled.nav`
   left: 0;
   width: 100%;
   transition: 0.3s;
-  background-color: ${({ search, isScrolled, isMain }) => 
-    (search || isScrolled || !isMain ? 'white' : 'transparent')};
+  background-color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'white' : 'transparent')};
   z-index: 10;
   transform: translateY(${({ isScrollDown }) => (isScrollDown ? '-100px' : '0')});
 
@@ -352,7 +351,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Nav = () => {
+const Nav = ({ usefInfo: { isLogin } }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [isMain, setIsMain] = useState(pathname === '/' || pathname === '/shop');
@@ -371,6 +370,20 @@ const Nav = () => {
   useEffect(() => {
     setIsMain(pathname === '/' || pathname === '/shop');
   }, [pathname]);
+
+  const signOut = () => {
+    setUserInfo({
+      isLogin: false,
+      email: '',
+      name: '',
+      phone_number: '',
+      date_of_birth: '',
+      gender: '',
+      access_token: '',
+    });
+
+    navigate('/');
+  };
 
   // 나중에 링크 추가
 
@@ -731,8 +744,12 @@ const Nav = () => {
             <li>
               <img src='./nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
             </li>
-            <li onClick={() => setModal(true)}>
-              <p>LOGIN</p>
+            <li>
+              {isLogin ? ( //
+                <p onClick={signOut}>LOGOUT</p>
+              ) : (
+                <p onClick={() => setModal(true)}>LOGIN</p>
+              )}
             </li>
           </ul>
         </div>
