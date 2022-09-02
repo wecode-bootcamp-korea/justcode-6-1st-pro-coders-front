@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import LoginModal from '../../components/LoginModal';
 
@@ -14,6 +14,8 @@ const Main = styled.div`
     font-weight: 700;
     font-size: 40px;
     color: ${props => props.theme.colors.text};
+    max-width: 1640px;
+    width: 100%;
   }
 
   section.banner {
