@@ -73,7 +73,20 @@ const StyledSection = styled.section`
     div.line {
       height: 6px;
       margin-top: 100px;
-      background-color: black;
+      background-color: #00000050;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: calc(${({ itemList, menu, perView }) => (itemList[menu].length > 5 ? `100% / ${itemList[menu].length - perView + 1}` : '100%')});
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: black;
+        transition: 0.3s;
+        transform: translateX(calc(100% * ${({ page }) => page}));
+      }
     }
   }
 `;
@@ -104,7 +117,7 @@ const ThirdSection = () => {
   const [menu, setMenu] = useState(0);
   const [keywordList, setKeywordList] = useState();
   const [itemList, setItemList] = useState();
-  const { swipedTarget } = useSwiper(itemList ? itemList[menu].length : 5, 5);
+  const { swipedTarget, page } = useSwiper(itemList ? itemList[menu].length : 5, 5);
 
   useEffect(() => {
     (async () => {
@@ -129,7 +142,7 @@ const ThirdSection = () => {
   }
 
   return (
-    <StyledSection menu={menu} itemList={itemList}>
+    <StyledSection menu={menu} itemList={itemList} page={page} perView={5}>
       <div className='container'>
         <ul className='keywordList'>
           {keywordList.map((keyword, i) => (

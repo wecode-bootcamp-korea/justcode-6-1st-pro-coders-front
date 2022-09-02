@@ -54,6 +54,7 @@ const StyledSection = styled.section`
             display: flex;
             width: 25%;
             user-select: none;
+            -webkit-user-drag: none;
 
             div.imgContainer {
               width: 40%;
@@ -66,6 +67,17 @@ const StyledSection = styled.section`
 
             div.text {
               padding: 30px;
+              position: relative;
+
+              &::after {
+                content: '';
+                position: absolute;
+                left: 30px;
+                top: calc(50% - 10px);
+                height: 20px;
+                width: 50px;
+                background-color: black;
+              }
 
               h2 {
                 margin-bottom: 30px;
@@ -78,6 +90,39 @@ const StyledSection = styled.section`
 
                 &.tag {
                   margin-top: 30px;
+                }
+              }
+
+              div.item {
+                position: absolute;
+                left: 30px;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+
+                div.itemImgContainer {
+                  width: 25%;
+
+                  img {
+                    width: 100%;
+                  }
+                }
+
+                div.des {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  padding: 0 30px;
+
+                  h2 {
+                    margin: 0;
+                    margin-top: 20px;
+                    font-size: 24px;
+                  }
+
+                  h3 {
+                    margin-top: 10px;
+                  }
                 }
               }
             }
@@ -95,16 +140,29 @@ const StyledSection = styled.section`
     div.line {
       width: 100%;
       height: 6px;
-      background-color: black;
+      background-color: #00000050;
       margin: 100px 0;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: black;
+        transition: 0.3s;
+        transform: translateX(calc(100% * ${({ page }) => page - 1}));
+      }
     }
   }
 `;
 
 const FourthSection = () => {
-  const { swipedTarget, setNextButton } = useInfiniteSwiper(4, true);
+  const { swipedTarget, setNextButton, page } = useInfiniteSwiper(4, true);
   return (
-    <StyledSection>
+    <StyledSection page={page}>
       <div className='container'>
         <div className='content'>
           <h2>
@@ -131,6 +189,17 @@ const FourthSection = () => {
                   </p>
 
                   <p className='tag'>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
+
+                  <div className='item'>
+                    <div className='itemImgContainer'>
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
+                    </div>
+                    <div className='des'>
+                      <p>[2022 신상]</p>
+                      <h3>24H 프로즌 티셔츠</h3>
+                      <h2>63,200원</h2>
+                    </div>
+                  </div>
                 </div>
               </li>
               <li>
@@ -147,6 +216,17 @@ const FourthSection = () => {
                   </p>
 
                   <p>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
+
+                  <div className='item'>
+                    <div className='itemImgContainer'>
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
+                    </div>
+                    <div className='des'>
+                      <p>[2022 신상]</p>
+                      <h3>24H 프로즌 티셔츠</h3>
+                      <h2>63,200원</h2>
+                    </div>
+                  </div>
                 </div>
               </li>
               <li>
@@ -163,6 +243,17 @@ const FourthSection = () => {
                   </p>
 
                   <p>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
+
+                  <div className='item'>
+                    <div className='itemImgContainer'>
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
+                    </div>
+                    <div className='des'>
+                      <p>[2022 신상]</p>
+                      <h3>24H 프로즌 티셔츠</h3>
+                      <h2>63,200원</h2>
+                    </div>
+                  </div>
                 </div>
               </li>
               <li>
@@ -179,6 +270,17 @@ const FourthSection = () => {
                   </p>
 
                   <p>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
+
+                  <div className='item'>
+                    <div className='itemImgContainer'>
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
+                    </div>
+                    <div className='des'>
+                      <p>[2022 신상]</p>
+                      <h3>24H 프로즌 티셔츠</h3>
+                      <h2>63,200원</h2>
+                    </div>
+                  </div>
                 </div>
               </li>
             </ul>

@@ -67,7 +67,7 @@ const useSwiper = (size, perView = 1) => {
 
         if (trans.current <= -width * (size - (perView + 0.5))) {
           trans.current = -width * (size - perView);
-          setPage(size - 1);
+          setPage(size - perView);
         }
       }
 
@@ -126,7 +126,7 @@ const useSwiper = (size, perView = 1) => {
 
         if (trans.current <= -width * (size - (perView + 0.5))) {
           trans.current = -width * (size - perView);
-          setPage(size - 1);
+          setPage(size - perView);
         }
       }
 

@@ -24,43 +24,48 @@ const Main = styled.div`
     background-position: 70%;
     background-size: 130%;
 
-    h4 {
-      p.title {
-        font-family: 'Poppins', 'sans-serif';
-        font-weight: 700;
-        color: ${props => props.theme.colors.text};
-      }
-      p.small {
-        margin-bottom: 15px;
-        font-size: 26px;
-        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-        font-weight: 500;
-      }
-      p.medium {
-        font-size: 78px;
-      }
-      p.large {
-        font-size: 104px;
-      }
-    }
+    div.container {
+      max-width: 1640px;
+      width: 100%;
+      margin: 0 auto;
 
-    div.desc {
-      font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-      &:before {
-        content: '';
-        display: block;
-        width: 35px;
-        height: 13px;
-        margin: 30px 0 45px 0;
-        background-color: ${props => props.theme.colors.text};
-      }
-
-      p {
-        margin: 10px 0;
-        font-size: 20px;
-
-        span.en {
+      h4 {
+        p.title {
           font-family: 'Poppins', 'sans-serif';
+          font-weight: 700;
+          color: ${props => props.theme.colors.text};
+        }
+        p.small {
+          margin-bottom: 15px;
+          font-size: 26px;
+          font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+          font-weight: 500;
+        }
+        p.medium {
+          font-size: 78px;
+        }
+        p.large {
+          font-size: 104px;
+        }
+      }
+      div.desc {
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+        &:before {
+          content: '';
+          display: block;
+          width: 35px;
+          height: 13px;
+          margin: 30px 0 45px 0;
+          background-color: ${props => props.theme.colors.text};
+        }
+
+        p {
+          margin: 10px 0;
+          font-size: 20px;
+
+          span.en {
+            font-family: 'Poppins', 'sans-serif';
+          }
         }
       }
     }
@@ -238,17 +243,19 @@ const SmartFit = props => {
       {modal && <LoginModal setModal={setModal} />}
       <h3>SMART FIT</h3>
       <section className='banner'>
-        <h4>
-          <p className='small'>내 발에 꼭 맞는 신발</p>
-          <p className='title medium'>PROSPECS</p>
-          <p className='title large'>SMART FIT</p>
-        </h4>
-        <div className='desc'>
-          <p>프로스펙스 스마트 핏은</p>
-          <p>내 발에 완벽한 사이즈와 상품을 추천해 주고,</p>
-          <p>
-            맞춤신발 제작까지 해 주는 <span className='en'>SMART</span>한 서비스입니다.
-          </p>
+        <div className='container'>
+          <h4>
+            <p className='small'>내 발에 꼭 맞는 신발</p>
+            <p className='title medium'>PROSPECS</p>
+            <p className='title large'>SMART FIT</p>
+          </h4>
+          <div className='desc'>
+            <p>프로스펙스 스마트 핏은</p>
+            <p>내 발에 완벽한 사이즈와 상품을 추천해 주고,</p>
+            <p>
+              맞춤신발 제작까지 해 주는 <span className='en'>SMART</span>한 서비스입니다.
+            </p>
+          </div>
         </div>
       </section>
       <section className='howto'>
