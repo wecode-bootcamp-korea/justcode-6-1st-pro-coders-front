@@ -112,6 +112,15 @@ export const StyledSpinner = styled.div`
   }
 `;
 
+const categories = [
+  { id: 0, name: '런닝화' },
+  { id: 1, name: '워킹화' },
+  { id: 2, name: '트레킹화' },
+  { id: 3, name: '스니커즈' },
+  { id: 4, name: '아동화' },
+  { id: 5, name: '샌들/슬리퍼' },
+];
+
 const ThirdSection = () => {
   const [loading, setLoading] = useState(true);
   const [menu, setMenu] = useState(0);
@@ -122,8 +131,7 @@ const ThirdSection = () => {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const keywordData = await (await fetch('/data/keyword.json')).json();
-      const shuffledData = keywordData.sort(() => Math.random() - 0.5).slice(0, 4);
+      const shuffledData = categories.sort(() => Math.random() - 0.5).slice(0, 4);
       setKeywordList(shuffledData);
 
       const itemsData = (await (await fetch('/data/shoesData.json')).json()).data;

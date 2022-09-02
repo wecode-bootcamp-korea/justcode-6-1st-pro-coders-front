@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineClose, AiOutlineCheck } from 'react-icons/ai';
 import { useState } from 'react';
 
@@ -164,6 +164,7 @@ const StyledLogin = styled.div`
 
 const LoginModal = ({ setModal }) => {
   const [isSave, setIsSave] = useState(false);
+  const navigate = useNavigate();
 
   const signInHandler = e => {
     console.log(1);
@@ -171,6 +172,7 @@ const LoginModal = ({ setModal }) => {
 
   const signUpHandler = () => {
     setModal(false);
+    navigate('/signup');
   };
 
   return (

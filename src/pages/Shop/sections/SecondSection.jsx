@@ -18,6 +18,7 @@ const StyledSection = styled.section`
       ul.list {
         display: flex;
         width: calc(100% * 18 / 4);
+        cursor: pointer;
 
         li {
           width: calc(100% / 18);

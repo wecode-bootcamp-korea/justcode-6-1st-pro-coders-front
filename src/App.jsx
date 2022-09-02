@@ -12,13 +12,24 @@ import ShopPage from './pages/Shop/ShopPage';
 import Store from './pages/store/Store';
 import SmartFit from './pages/smartfit/SmartFit';
 import TopButton from './components/TopButton';
+import { useState } from 'react';
+import SignUp from './pages/signUp/SignUp';
 
 const App = () => {
+  const [usefInfo, setUserInfo] = useState({
+    isLogin: false,
+    email: '',
+    name: '',
+    phone_number: '',
+    date_of_birth: '',
+    gender: '',
+  });
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Nav />
+        <Nav usefInfo={usefInfo} />
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/shop' element={<ShopPage />} />
@@ -27,6 +38,7 @@ const App = () => {
           <Route path='/archive' element={<Archive />} />
           <Route path='/smartfit' element={<SmartFit />} />
           <Route path='/store' element={<Store />} />
+          <Route path='/signup' element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />} />
         </Routes>
         <TopButton />
         <Footer />
