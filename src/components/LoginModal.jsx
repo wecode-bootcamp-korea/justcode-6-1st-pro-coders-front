@@ -179,31 +179,35 @@ const LoginModal = ({ setModal }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const signInHandler = async () => {
-    setDisabled(true);
+  const signInHandler = async e => {
+    e.preventDefault();
 
-    try {
-      // 나중에 signin url
-      const { data } = await axios.post('', {
-        email,
-        password,
-      });
+    if (email && password.length > 6) {
+      setDisabled(true);
 
-      setUserInfo({
-        isLogin: true,
-        email: data.email,
-        name: data.name,
-        phone_number: data.phone_number,
-        date_of_birth: data.date_of_birth,
-        gender: data.gender,
-        access_token: data.access_token,
-      });
+      try {
+        // 나중에 signin url
+        const { data } = await axios.post('', {
+          email,
+          password,
+        });
 
-      setDisabled(false);
-      setModal(false);
-    } catch (error) {
-      console.log(error);
-      setDisabled(false);
+        setUserInfo({
+          isLogin: true,
+          email: data.email,
+          name: data.name,
+          phone_number: data.phone_number,
+          date_of_birth: data.date_of_birth,
+          gender: data.gender,
+          access_token: data.access_token,
+        });
+
+        setDisabled(false);
+        setModal(false);
+      } catch (error) {
+        console.log(error);
+        setDisabled(false);
+      }
     }
   };
 
@@ -217,7 +221,7 @@ const LoginModal = ({ setModal }) => {
       <div className='container'>
         <AiOutlineClose size={40} onClick={() => setModal(false)} />
         <h2>로그인</h2>
-        <form onSubmit={e => e.preventDefault()}>
+        <form onSubmit={signInHandler}>
           <div className='inputContainer'>
             <input type='email' autoComplete='false' placeholder='아이디를 이메일 형식으로 입력해 주세요.' onChange={e => setEmail(e.target.value)} />
             <input type='password' autoComplete='false' placeholder='비밀번호를 입력해주세요.' onChange={e => setPassword(e.target.value)} />
@@ -237,7 +241,7 @@ const LoginModal = ({ setModal }) => {
           </div>
 
           <div className='buttonContainer'>
-            <button className='signIn' onClick={signInHandler} disabled={disabled}>
+            <button className='signIn' disabled={disabled}>
               {disabled ? '로그인 중' : '로그인'}
             </button>
             <div className='signUp' onClick={signUpHandler}>

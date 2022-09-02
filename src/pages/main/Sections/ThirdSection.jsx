@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import Item from './Item';
 import useSwiper from '../../../hooks/useSwiper';
 import { ImSpinner } from 'react-icons/im';
+import axios from 'axios';
 
 const StyledSection = styled.section`
   display: flex;
@@ -134,7 +135,7 @@ const ThirdSection = () => {
       const shuffledData = categories.sort(() => Math.random() - 0.5).slice(0, 4);
       setKeywordList(shuffledData);
 
-      const itemsData = (await (await fetch('/data/shoesData.json')).json()).data;
+      const itemsData = await (await axios.get('/data/shoesData.json')).data.data;
       setItemList(shuffledData.map(data => itemsData.filter(itemData => itemData.subcategory === data.name)));
 
       setLoading(false);

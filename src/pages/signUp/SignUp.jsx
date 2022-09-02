@@ -282,6 +282,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
   const [agree, setAgree] = useState(false);
   const [gender, setGender] = useState('');
   const [error, setError] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     isLogin && navigate('/');
@@ -302,6 +303,8 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
       setError(false);
 
       (async () => {
+        setDisabled(true);
+
         try {
           // 나중에 signup url 넣어야함
           await axios.post('', {
@@ -327,8 +330,10 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
             gender: data.gender,
             access_token: data.access_token,
           });
+          setDisabled(false);
         } catch (error) {
           console.log(error);
+          setDisabled(false);
         }
       })();
     } else {
@@ -413,7 +418,9 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
               </span>
               동의할게 없지만 동의합니다.
             </p>
-            <button className='signup'>회원가입</button>
+            <button className='signup' disabled={disabled}>
+              {disabled ? '회원가입 중...' : '회원가입'}
+            </button>
           </form>
         </div>
       ) : (
