@@ -26,6 +26,10 @@ const StyledLayout = styled.main`
         text-align: left;
         margin-top: 30px;
         width: 100%;
+
+        &.red {
+          color: ${({ theme }) => theme.colors.textHover};
+        }
       }
 
       div.line {
@@ -354,7 +358,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
                 <div className='text'>
                   <p>비밀번호</p>
                 </div>
-                <input type='password' name='password' />
+                <input type='password' name='password' autoComplete='false' />
               </li>
               <li>
                 <div className='text'>

@@ -371,7 +371,19 @@ const Nav = ({ usefInfo: { isLogin } }) => {
     setIsMain(pathname === '/' || pathname === '/shop');
   }, [pathname]);
 
-  const signOut = () => {};
+  const signOut = () => {
+    setUserInfo({
+      isLogin: false,
+      email: '',
+      name: '',
+      phone_number: '',
+      date_of_birth: '',
+      gender: '',
+      access_token: '',
+    });
+
+    navigate('/');
+  };
 
   // 나중에 링크 추가
 

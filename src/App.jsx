@@ -30,7 +30,7 @@ const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Nav usefInfo={usefInfo} />
+        <Nav usefInfo={usefInfo} setUserInfo={setUserInfo} />
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/shop' element={<ShopPage />} />
