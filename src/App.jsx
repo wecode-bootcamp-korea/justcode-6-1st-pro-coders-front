@@ -23,13 +23,14 @@ const App = () => {
     phone_number: '',
     date_of_birth: '',
     gender: '',
+    access_token: '',
   });
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Nav usefInfo={usefInfo} />
+        <Nav usefInfo={usefInfo} setUserInfo={setUserInfo} />
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/shop' element={<ShopPage />} />

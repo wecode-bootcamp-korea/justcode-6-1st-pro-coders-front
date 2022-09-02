@@ -26,6 +26,10 @@ const StyledLayout = styled.main`
         text-align: left;
         margin-top: 30px;
         width: 100%;
+
+        &.red {
+          color: ${({ theme }) => theme.colors.textHover};
+        }
       }
 
       div.line {
@@ -321,6 +325,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
             phone_number: data.phone_number,
             date_of_birth: data.date_of_birth,
             gender: data.gender,
+            access_token: data.access_token,
           });
         } catch (error) {
           console.log(error);
@@ -353,7 +358,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
                 <div className='text'>
                   <p>비밀번호</p>
                 </div>
-                <input type='password' name='password' />
+                <input type='password' name='password' autoComplete='false' />
               </li>
               <li>
                 <div className='text'>
