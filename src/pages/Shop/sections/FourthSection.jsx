@@ -69,16 +69,6 @@ const StyledSection = styled.section`
               padding: 30px;
               position: relative;
 
-              &::after {
-                content: '';
-                position: absolute;
-                left: 30px;
-                top: calc(50% - 10px);
-                height: 20px;
-                width: 50px;
-                background-color: black;
-              }
-
               h2 {
                 margin-bottom: 30px;
               }
@@ -86,10 +76,21 @@ const StyledSection = styled.section`
               p {
                 line-height: 1.5;
                 font-weight: 900;
-                font-size: 18px;
+                font-size: 2.4vh;
 
                 &.tag {
-                  margin-top: 30px;
+                  margin-top: 4px;
+                  position: relative;
+
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0px;
+                    top: calc(100% + 20px);
+                    height: 20px;
+                    width: 50px;
+                    background-color: black;
+                  }
                 }
               }
 
@@ -215,7 +216,7 @@ const FourthSection = () => {
                     냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에 로고포인트가 있어요. <br />
                   </p>
 
-                  <p>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
+                  <p className='tag'>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
 
                   <div className='item'>
                     <div className='itemImgContainer'>
@@ -242,7 +243,7 @@ const FourthSection = () => {
                     냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에 로고포인트가 있어요. <br />
                   </p>
 
-                  <p>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
+                  <p className='tag'>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
 
                   <div className='item'>
                     <div className='itemImgContainer'>
@@ -269,7 +270,7 @@ const FourthSection = () => {
                     냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에 로고포인트가 있어요. <br />
                   </p>
 
-                  <p>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
+                  <p className='tag'>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
 
                   <div className='item'>
                     <div className='itemImgContainer'>

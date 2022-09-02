@@ -207,7 +207,7 @@ const Main = styled.div`
       }
 
       dd {
-        width: 1280px;
+        width: 100%;
         margin-top: 20px;
         border-top: 3px solid #fff;
 
