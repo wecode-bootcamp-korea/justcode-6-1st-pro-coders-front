@@ -313,6 +313,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
             name,
             phone_number: phone,
             date_of_birth: birth,
+            gender,
           });
 
           // 나중에 signin url
