@@ -271,9 +271,10 @@ const StyledPage = styled.main`
   }
 `;
 
-const Cart = () => {
+const Cart = ({ usefInfo: { access_token } }) => {
   const [cartList, setCartList] = useState();
   const [selectList, setSelectList] = useState([]);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const addSelectHandler = cardId => {
@@ -296,13 +297,14 @@ const Cart = () => {
     axios
       .get('/data/cartData.json', {
         headers: {
-          Authorization: '',
+          Authorization: access_token,
         },
       }) //
       .then(({ data }) => {
         setCartList(data);
         setSelectList(data.map(cart => cart.id));
-      });
+      })
+      .catch(err => setError(true));
   }, []);
 
   const removeOneHandler = async cartId => {
@@ -311,7 +313,7 @@ const Cart = () => {
         data: { result },
       } = await axios.put('/user/cart', [cartId], {
         headers: {
-          Authorization: 'jwt',
+          Authorization: access_token,
         },
       });
 
@@ -331,7 +333,7 @@ const Cart = () => {
           data: { result },
         } = await axios.put('/user/cart', selectList, {
           headers: {
-            Authorization: 'jwt',
+            Authorization: access_token,
           },
         });
 
@@ -374,10 +376,10 @@ const Cart = () => {
         </div>
         <h2>장바구니</h2>
         <h3>
-          총 <span className='red'>2</span>개
+          총 <span className='red'>{cartList && cartList.length}</span>개
         </h3>
         <div className='listHeader'>
-          <div className={selectList.length === cartList?.length ? 'checkboxContainer addAll' : 'checkboxContainer'}>
+          <div className={cartList?.length && selectList.length === cartList?.length ? 'checkboxContainer addAll' : 'checkboxContainer'}>
             <span
               className='checkbox'
               onClick={addAllHandler} //
@@ -389,87 +391,93 @@ const Cart = () => {
           <p className='saleDetail'>판매정보</p>
           <p className='select'>선택</p>
         </div>
-        <ul className='list'>
-          {cartList && cartList.length ? (
-            cartList.map(cart => (
-              <li key={cart.id} className={selectList.includes(cart.id) ? 'picked' : ''}>
-                <div className='checkboxContainer'>
-                  <span className='checkbox' onClick={() => addSelectHandler(cart.id)}>
-                    <BsCheck size={20} />
-                  </span>
-                </div>
-                <div className='itemDetail'>
-                  <img src={cart.product.img} alt='' />
-                  <div className='text'>
-                    <p>{cart.product.name}</p>
-                    <p className='option'>
-                      {cart.size} | 수량: {cart.count}
-                    </p>
-                  </div>
-                </div>
-                <div className='saleDetail'>
-                  <p>{cart.product.salePrice}</p>
-                </div>
-                <div className='select'>
-                  <p onClick={() => removeOneHandler(cart.id)}>삭제</p>
-                </div>
-              </li>
-            ))
-          ) : (
-            <></>
-          )}
-        </ul>
-        <div className='removeContainer'>
-          <button onClick={removeAllHandler}>전체 삭제</button>
-          <button onClick={removePickedHandler}>선택 삭제</button>
-        </div>
-        {cartList && (
-          <div className='total'>
-            <div className='text'>
-              <p>총 상품금액</p>
-              <p>배송비</p>
-              <p>총 주문금액</p>
+        {!error ? (
+          <>
+            <ul className='list'>
+              {cartList && cartList.length ? (
+                cartList.map(cart => (
+                  <li key={cart.id} className={selectList.includes(cart.id) ? 'picked' : ''}>
+                    <div className='checkboxContainer'>
+                      <span className='checkbox' onClick={() => addSelectHandler(cart.id)}>
+                        <BsCheck size={20} />
+                      </span>
+                    </div>
+                    <div className='itemDetail'>
+                      <img src={cart.product.img} alt='' />
+                      <div className='text'>
+                        <p>{cart.product.name}</p>
+                        <p className='option'>
+                          {cart.size} | 수량: {cart.count}
+                        </p>
+                      </div>
+                    </div>
+                    <div className='saleDetail'>
+                      <p>{cart.product.salePrice}</p>
+                    </div>
+                    <div className='select'>
+                      <p onClick={() => removeOneHandler(cart.id)}>삭제</p>
+                    </div>
+                  </li>
+                ))
+              ) : (
+                <></>
+              )}
+            </ul>
+            <div className='removeContainer'>
+              <button onClick={removeAllHandler}>전체 삭제</button>
+              <button onClick={removePickedHandler}>선택 삭제</button>
             </div>
-            <div className='cost'>
-              <h2>
-                {selectList
-                  .map(select => cartList.find(cart => cart.id === select))
-                  .reduce(
-                    (acc, cur) =>
-                      acc +
-                      cur.count *
-                        Number(
-                          cur.product.salePrice
-                            .split('')
-                            .filter(e => e !== ',')
-                            .join('')
-                        ),
-                    0
-                  )
-                  .toLocaleString()}
-                원
-              </h2>
-              <h2>0원</h2>
-              <h2 className='totalCost'>
-                {selectList
-                  .map(select => cartList.find(cart => cart.id === select))
-                  .reduce(
-                    (acc, cur) =>
-                      acc +
-                      cur.count *
-                        Number(
-                          cur.product.salePrice
-                            .split('')
-                            .filter(e => e !== ',')
-                            .join('')
-                        ),
-                    0
-                  )
-                  .toLocaleString()}
-                원
-              </h2>
-            </div>
-          </div>
+            {cartList && (
+              <div className='total'>
+                <div className='text'>
+                  <p>총 상품금액</p>
+                  <p>배송비</p>
+                  <p>총 주문금액</p>
+                </div>
+                <div className='cost'>
+                  <h2>
+                    {selectList
+                      .map(select => cartList.find(cart => cart.id === select))
+                      .reduce(
+                        (acc, cur) =>
+                          acc +
+                          cur.count *
+                            Number(
+                              cur.product.salePrice
+                                .split('')
+                                .filter(e => e !== ',')
+                                .join('')
+                            ),
+                        0
+                      )
+                      .toLocaleString()}
+                    원
+                  </h2>
+                  <h2>0원</h2>
+                  <h2 className='totalCost'>
+                    {selectList
+                      .map(select => cartList.find(cart => cart.id === select))
+                      .reduce(
+                        (acc, cur) =>
+                          acc +
+                          cur.count *
+                            Number(
+                              cur.product.salePrice
+                                .split('')
+                                .filter(e => e !== ',')
+                                .join('')
+                            ),
+                        0
+                      )
+                      .toLocaleString()}
+                    원
+                  </h2>
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          <h2>카트 정보를 불러오는데 실패하였습니다</h2>
         )}
         <div className='des'>
           <div className='left'>
