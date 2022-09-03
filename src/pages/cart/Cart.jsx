@@ -319,6 +319,8 @@ const Cart = () => {
       setSelectList(selectList.filter(id => id !== cartId));
     } catch (error) {
       console.log(error);
+      // setCartList(cartList.filter(cart => cart.id !== cartId));
+      // setSelectList(selectList.filter(id => id !== cartId));
     }
   };
 
@@ -337,6 +339,8 @@ const Cart = () => {
         setSelectList([]);
       } catch (error) {
         console.log(error);
+        // setCartList(cartList.filter(cart => !selectList.includes(cart.id)));
+        // setSelectList([]);
       }
     }
   };
@@ -353,6 +357,8 @@ const Cart = () => {
       setSelectList([]);
     } catch (error) {
       console.log(error);
+      // setCartList([]);
+      // setSelectList([]);
     }
   };
 
@@ -384,7 +390,7 @@ const Cart = () => {
           <p className='select'>선택</p>
         </div>
         <ul className='list'>
-          {cartList &&
+          {cartList && cartList.length ? (
             cartList.map(cart => (
               <li key={cart.id} className={selectList.includes(cart.id) ? 'picked' : ''}>
                 <div className='checkboxContainer'>
@@ -408,7 +414,10 @@ const Cart = () => {
                   <p onClick={() => removeOneHandler(cart.id)}>삭제</p>
                 </div>
               </li>
-            ))}
+            ))
+          ) : (
+            <></>
+          )}
         </ul>
         <div className='removeContainer'>
           <button onClick={removeAllHandler}>전체 삭제</button>
