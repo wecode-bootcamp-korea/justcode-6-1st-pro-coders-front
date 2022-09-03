@@ -7,13 +7,13 @@ import EventCard from './EventCard';
 
 const Main = styled.div`
   width: 1280px;
-  margin: 100px auto 0 auto;
+  margin: 250px auto 0 auto;
 
   div.headerContainer {
     margin: 0 20px;
 
     a {
-      color: ${(props) => props.theme.colors.text};
+      color: ${props => props.theme.colors.text};
     }
 
     h3 {
@@ -21,7 +21,7 @@ const Main = styled.div`
       font-family: 'Poppins', 'sans-serif';
       font-weight: 700;
       font-size: 40px;
-      ${(props) => props.theme.colors.text}
+      ${props => props.theme.colors.text}
     }
 
     ul {
@@ -33,9 +33,9 @@ const Main = styled.div`
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
         font-weight: 700;
         font-size: 26px;
-        color: ${(props) => props.theme.colors.disabledTitle};
+        color: ${props => props.theme.colors.disabledTitle};
         &:hover {
-          color: ${(props) => props.theme.colors.text};
+          color: ${props => props.theme.colors.text};
         }
         &:after {
           content: '';
@@ -43,7 +43,7 @@ const Main = styled.div`
           width: 0;
           height: 7.5px;
           margin-top: 15px;
-          background-color: ${(props) => props.theme.colors.text};
+          background-color: ${props => props.theme.colors.text};
           transition: width 200ms ease-in-out;
         }
         &:hover:after {
@@ -52,7 +52,7 @@ const Main = styled.div`
           width: 100%;
           height: 7.5px;
           margin-top: 15px;
-          background-color: ${(props) => props.theme.colors.text};
+          background-color: ${props => props.theme.colors.text};
           transition: width 200ms ease-in-out;
         }
       }
@@ -62,14 +62,14 @@ const Main = styled.div`
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
         font-weight: 700;
         font-size: 26px;
-        color: ${(props) => props.theme.colors.text};
+        color: ${props => props.theme.colors.text};
         &:after {
           content: '';
           display: block;
           width: 100%;
           height: 7.5px;
           margin-top: 15px;
-          background-color: ${(props) => props.theme.colors.text};
+          background-color: ${props => props.theme.colors.text};
         }
       }
     }
@@ -97,7 +97,7 @@ const Main = styled.div`
       width: 120px;
       padding: 25px 20px;
       background-color: #fff;
-      border: 1px solid ${(props) => props.theme.colors.text};
+      border: 1px solid ${props => props.theme.colors.text};
       font-size: 16px;
       font-weight: 400;
       text-align: left;
@@ -112,7 +112,7 @@ const Main = styled.div`
   }
 `;
 
-const Event = (props) => {
+const Event = props => {
   const [menuList, setMenuList] = useState([
     {
       id: 1,
@@ -132,17 +132,15 @@ const Event = (props) => {
   ]);
   const [arrow, setArrow] = useState(false);
 
-  const handleSelected = (e) => {
-    const newMenu = menuList.map((menu) => {
-      return +e.target.id === menu.id
-        ? { id: menu.id, text: menu.text, selected: true }
-        : { id: menu.id, text: menu.text, selected: false };
+  const handleSelected = e => {
+    const newMenu = menuList.map(menu => {
+      return +e.target.id === menu.id ? { id: menu.id, text: menu.text, selected: true } : { id: menu.id, text: menu.text, selected: false };
     });
     setMenuList(newMenu);
   };
 
   const handleArrow = () => {
-    setArrow((arrow) => !arrow);
+    setArrow(arrow => !arrow);
   };
 
   return (
@@ -152,7 +150,7 @@ const Event = (props) => {
           <h3>EVENT</h3>
         </Link>
         <ul>
-          {menuList.map((menu) => {
+          {menuList.map(menu => {
             return menu.selected ? (
               <Link to='/event' key={menu.id} onClick={handleSelected}>
                 <li className='selected' id={menu.id}>
@@ -169,11 +167,7 @@ const Event = (props) => {
       </div>
       <div className='selectContainer' onClick={handleArrow}>
         <span>진행중</span>
-        {arrow ? (
-          <FontAwesomeIcon icon={faChevronUp} size='xs' />
-        ) : (
-          <FontAwesomeIcon icon={faChevronDown} size='xs' />
-        )}
+        {arrow ? <FontAwesomeIcon icon={faChevronUp} size='xs' /> : <FontAwesomeIcon icon={faChevronDown} size='xs' />}
         {arrow ? <div>진행중</div> : null}
       </div>
       <div className='cardContainer'>

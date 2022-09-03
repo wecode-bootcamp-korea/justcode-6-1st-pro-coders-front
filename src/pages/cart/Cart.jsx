@@ -351,7 +351,7 @@ const Cart = ({ usefInfo: { access_token } }) => {
     try {
       await axios.delete('/user/cart', {
         headers: {
-          Authorization: 'jwt',
+          Authorization: access_token,
         },
       });
 
