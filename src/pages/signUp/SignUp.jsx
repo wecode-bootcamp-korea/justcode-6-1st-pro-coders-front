@@ -307,7 +307,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
 
         try {
           // 나중에 signup url 넣어야함
-          await axios.post('', {
+          await axios.post('/signup', {
             email,
             password,
             name,
@@ -317,7 +317,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
           });
 
           // 나중에 signin url
-          const { data } = await axios.post('', {
+          const { data } = await axios.post('/user', {
             email,
             password,
           });

@@ -294,6 +294,7 @@ const Cart = ({ usefInfo: { access_token } }) => {
   };
 
   useEffect(() => {
+    // url: /user/cart
     axios
       .get('/data/cartData.json', {
         headers: {

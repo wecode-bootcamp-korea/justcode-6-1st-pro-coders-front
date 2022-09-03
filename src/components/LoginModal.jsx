@@ -187,7 +187,7 @@ const LoginModal = ({ setModal }) => {
 
       try {
         // 나중에 signin url
-        const { data } = await axios.post('', {
+        const { data } = await axios.post('/user', {
           email,
           password,
         });

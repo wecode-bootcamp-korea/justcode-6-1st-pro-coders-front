@@ -135,6 +135,7 @@ const ThirdSection = () => {
       const shuffledData = categories.sort(() => Math.random() - 0.5).slice(0, 4);
       setKeywordList(shuffledData);
 
+      // GET /products
       const itemsData = await (await axios.get('/data/shoesData.json')).data.data;
       setItemList(shuffledData.map(data => itemsData.filter(itemData => itemData.subcategory === data.name)));
 
