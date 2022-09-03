@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "size": 250,
+    "count": 2,
+    "product": {
+      "id": "0",
+      "maincategory": "shoes",
+      "subcategory": "런닝화",
+      "img": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S553/PR0UR22S553_02.jpg/dims/resizef/530x530/optimize",
+      "hoverimg": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S553/PR0UR22S553_01.jpg/dims/resizef/240x240/optimize",
+      "cate": "[2022 S/S신상]",
+      "name": "X-FIN 113",
+      "price": "139,000원",
+      "sale": true,
+      "salePercent": "30%",
+      "salePrice": "10,000",
+      "gender": "male",
+      "coupon": true
+    }
+  },
+  {
+    "id": 1,
+    "size": 260,
+    "count": 1,
+    "product": {
+      "id": "3",
+      "maincategory": "shoes",
+      "subcategory": "런닝화",
+      "img": "https://img.prospecs.com/prod/PR0MR21/PR0MR21S142/PR0MR21S142_01.jpg/dims/resizef/530x530/optimize",
+      "hoverimg": "https://img.prospecs.com/prod/PR0MR21/PR0MR21S142/PR0MR21S142_02.jpg/dims/resizef/530x530/optimize",
+      "cate": "[온라인특가]",
+      "name": "스피드 레이서 312",
+      "price": "69,000원",
+      "sale": true,
+      "salePercent": "30%",
+      "salePrice": "48,300",
+      "gender": "male",
+      "coupon": true
+    }
+  },
+  {
+    "id": 2,
+    "size": 270,
+    "count": 3,
+    "product": {
+      "id": "4",
+      "maincategory": "shoes",
+      "subcategory": "워킹화",
+      "img": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S586/PW0UW22S586_01.jpg/dims/resizef/530x530/optimize",
+      "hoverimg": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S586/PW0UW22S586_02.jpg/dims/resizef/530x530/optimize",
+      "cate": "[2022 S/S신상]",
+      "name": "블레이드 BX 116",
+      "price": "199,000원",
+      "sale": true,
+      "salePercent": "10%",
+      "salePrice": "179,100",
+      "gender": "unisex",
+      "coupon": true
+    }
+  }
+]
