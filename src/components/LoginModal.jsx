@@ -187,19 +187,22 @@ const LoginModal = ({ setModal }) => {
 
       try {
         // 나중에 signin url
-        const { data } = await axios.post('/user', {
+        const {
+          data: { user },
+        } = await axios.post('/user', {
           email,
           password,
         });
 
         setUserInfo({
           isLogin: true,
-          email: data.email,
-          name: data.name,
-          phone_number: data.phone_number,
-          date_of_birth: data.date_of_birth,
-          gender: data.gender,
-          access_token: data.access_token,
+          email: user.email,
+          name: user.name,
+          phone_number: user.phone_number,
+          date_of_birth: user.date_of_birth,
+          gender: user.gender,
+          access_token: user.access_token,
+          user_id: user.user_id,
         });
 
         setDisabled(false);

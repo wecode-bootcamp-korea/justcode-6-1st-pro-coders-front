@@ -25,6 +25,7 @@ const App = () => {
     date_of_birth: '',
     gender: '',
     access_token: '',
+    user_id: '',
   });
 
   return (

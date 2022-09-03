@@ -294,7 +294,7 @@ const Cart = ({ usefInfo: { access_token } }) => {
   };
 
   useEffect(() => {
-    // url: /user/cart
+    // url: /cart
     axios
       .get('/data/cartData.json', {
         headers: {
@@ -312,7 +312,7 @@ const Cart = ({ usefInfo: { access_token } }) => {
     try {
       const {
         data: { result },
-      } = await axios.put('/user/cart', [cartId], {
+      } = await axios.put('/cart', [cartId], {
         headers: {
           Authorization: access_token,
         },
@@ -332,7 +332,7 @@ const Cart = ({ usefInfo: { access_token } }) => {
       try {
         const {
           data: { result },
-        } = await axios.put('/user/cart', selectList, {
+        } = await axios.put('/cart', selectList, {
           headers: {
             Authorization: access_token,
           },
@@ -350,7 +350,7 @@ const Cart = ({ usefInfo: { access_token } }) => {
 
   const removeAllHandler = async () => {
     try {
-      await axios.delete('/user/cart', {
+      await axios.delete('/cart', {
         headers: {
           Authorization: access_token,
         },
