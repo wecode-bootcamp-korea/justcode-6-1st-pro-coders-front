@@ -15,6 +15,7 @@ import TopButton from './components/TopButton';
 import { useState } from 'react';
 import SignUp from './pages/signUp/SignUp';
 import Cart from './pages/cart/Cart';
+import Search from './pages/search/Search';
 
 const App = () => {
   const [usefInfo, setUserInfo] = useState({
@@ -41,8 +42,12 @@ const App = () => {
           <Route path='/archive' element={<Archive />} />
           <Route path='/smartfit' element={<SmartFit />} />
           <Route path='/store' element={<Store />} />
-          <Route path='/signup' element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />} />
+          <Route
+            path='/signup'
+            element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />}
+          />
           <Route path='/cart' element={<Cart usefInfo={usefInfo} />} />
+          <Route path='/search' element={<Search />} />
         </Routes>
         <TopButton />
         <Footer />
