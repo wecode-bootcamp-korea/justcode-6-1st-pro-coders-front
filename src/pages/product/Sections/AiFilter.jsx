@@ -19,12 +19,14 @@ const StyledAiFilter = styled.div`
 			font: bold 35px/1 'apple';
 		}
 		.color-filter-box {
-			width: 100%;
+			width: 50%;
+			display: flex;
+			flex-direction: row;
 			.filter-check-list {
 				display: flex;
 				padding: 40px 0px 20px 0px ;
 				li {
-					margin-right: 15px;
+					margin-right: 0px;
 				}
 				input[type='checkbox'] {
 					display: none;

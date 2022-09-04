@@ -4,9 +4,9 @@ import { AiOutlineShareAlt } from 'react-icons/ai';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { AiFillStar } from 'react-icons/ai';
 import { AiOutlineDownload } from 'react-icons/ai';
-import Accordion from './Accordion';
 import { useState } from 'react';
 import Images from './Images';
+import AccordionCard from './AccordionCard';
 
 const StyledPage = styled.main`
 	.product-inner-box {
@@ -365,7 +365,7 @@ const ProductOption = () => {
 							</span>
 						</div>
 						<div className='product-benefits'>
-							<Accordion />
+							<AccordionCard />
 						</div>
 						<div className='product-option'>
 							<div className='product-color'>
