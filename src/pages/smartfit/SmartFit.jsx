@@ -13,7 +13,7 @@ const Main = styled.div`
     font-family: 'Poppins', 'sans-serif';
     font-weight: 700;
     font-size: 40px;
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
     max-width: 1640px;
     width: 100%;
   }
@@ -22,7 +22,8 @@ const Main = styled.div`
     width: 100%;
     height: 590px;
     padding: 140px 50px;
-    background: url('https://image.prospecs.com/front/images/renewal/smartfit/bg_smartfit_top.png') no-repeat;
+    background: url('https://image.prospecs.com/front/images/renewal/smartfit/bg_smartfit_top.png')
+      no-repeat;
     background-position: 70%;
     background-size: 130%;
 
@@ -35,7 +36,7 @@ const Main = styled.div`
         p.title {
           font-family: 'Poppins', 'sans-serif';
           font-weight: 700;
-          color: ${props => props.theme.colors.text};
+          color: ${(props) => props.theme.colors.text};
         }
         p.small {
           margin-bottom: 15px;
@@ -58,7 +59,7 @@ const Main = styled.div`
           width: 35px;
           height: 13px;
           margin: 30px 0 45px 0;
-          background-color: ${props => props.theme.colors.text};
+          background-color: ${(props) => props.theme.colors.text};
         }
 
         p {
@@ -91,7 +92,7 @@ const Main = styled.div`
         width: 10px;
         height: 10px;
         margin: -8px 0 0 3px;
-        background-color: ${props => props.theme.colors.textHover};
+        background-color: ${(props) => props.theme.colors.textHover};
       }
     }
     .listContainer {
@@ -105,7 +106,7 @@ const Main = styled.div`
           justify-content: flex-start;
           padding: 60px 0 0 40px;
           height: 230px;
-          border: 4px solid ${props => props.theme.colors.text};
+          border: 4px solid ${(props) => props.theme.colors.text};
           border-bottom: 0px;
           .number {
             margin-top: -9px;
@@ -124,11 +125,11 @@ const Main = styled.div`
         .imageContainer {
           width: 620px;
           height: 630px;
-          background-color: ${props => props.theme.colors.text};
+          background-color: ${(props) => props.theme.colors.text};
           background-image: url('https://image.prospecs.com/front/images/renewal/smartfit/img_smartfit_guide_frame.png');
           background-repeat: no-repeat;
           background-position: 50% 78%;
-          border: 4px solid ${props => props.theme.colors.text};
+          border: 4px solid ${(props) => props.theme.colors.text};
           border-top: 0px;
           text-align: center;
           overflow: hidden;
@@ -185,7 +186,7 @@ const Main = styled.div`
           width: 40px;
           height: 16px;
           margin: 11px 0 0 10px;
-          background-color: ${props => props.theme.colors.textHover};
+          background-color: ${(props) => props.theme.colors.textHover};
         }
       }
     }
@@ -193,7 +194,7 @@ const Main = styled.div`
   .info {
     height: 350px;
     padding-top: 90px;
-    background-color: ${props => props.theme.colors.footerBg};
+    background-color: ${(props) => props.theme.colors.footerBg};
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     font-weight: 400;
 
@@ -234,10 +235,10 @@ const Main = styled.div`
   }
 `;
 
-const SmartFit = props => {
+const SmartFit = (props) => {
   const [modal, setModal] = useState(false);
   const openLogin = () => {
-    setModal(prev => !prev);
+    setModal((prev) => !prev);
   };
 
   return (
@@ -255,7 +256,8 @@ const SmartFit = props => {
             <p>프로스펙스 스마트 핏은</p>
             <p>내 발에 완벽한 사이즈와 상품을 추천해 주고,</p>
             <p>
-              맞춤신발 제작까지 해 주는 <span className='en'>SMART</span>한 서비스입니다.
+              맞춤신발 제작까지 해 주는 <span className='en'>SMART</span>한
+              서비스입니다.
             </p>
           </div>
         </div>
@@ -273,7 +275,10 @@ const SmartFit = props => {
               </p>
             </div>
             <div className='imageContainer'>
-              <img src='https://image.prospecs.com/front/images/renewal/smartfit/img_smartfit_guide_1.png' alt='how to step 1' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/smartfit/img_smartfit_guide_1.png'
+                alt='how to step 1'
+              />
             </div>
           </li>
           <li className='list'>
@@ -286,7 +291,10 @@ const SmartFit = props => {
               </p>
             </div>
             <div className='imageContainer'>
-              <img src='https://image.prospecs.com/front/images/renewal/smartfit/img_smartfit_guide_2.png' alt='how to step 2' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/smartfit/img_smartfit_guide_2.png'
+                alt='how to step 2'
+              />
             </div>
           </li>
           <li className='list'>
@@ -299,7 +307,10 @@ const SmartFit = props => {
               </p>
             </div>
             <div className='imageContainer'>
-              <img src='https://image.prospecs.com/front/images/renewal/smartfit/img_smartfit_guide_3.png' alt='how to step 3' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/smartfit/img_smartfit_guide_3.png'
+                alt='how to step 3'
+              />
             </div>
           </li>
           <li className='list'>
@@ -314,7 +325,10 @@ const SmartFit = props => {
               </p>
             </div>
             <div className='imageContainer'>
-              <img src='https://image.prospecs.com/front/images/renewal/smartfit/img_smartfit_guide_4.png' alt='how to step 4' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/smartfit/img_smartfit_guide_4.png'
+                alt='how to step 4'
+              />
             </div>
           </li>
         </ol>
@@ -338,10 +352,22 @@ const SmartFit = props => {
             <dt>안내사항</dt>
             <dd>
               <ul>
-                <li className='infoList'>맞춤신발 구매 시 프로스펙스닷컴 쿠폰/포인트 등의 사용은 불가합니다.</li>
-                <li className='infoList'>맞춤신발 구매 시 주문제작부터 배송까지 약 1개월이 소요됩니다.</li>
-                <li className='infoList'>맞춤신발은 고객님만을 위한 주문제작 상품이기 때문에 전자상거래법 제17조 2항 제 6호 및 동법 시행령 제 21조에 의거 결제 후 주문취소가 불가하고, 교환/반품이 불가합니다.</li>
-                <li className='infoList'>13세 미만의 어린이와 발의 상태가 전문 의료진의 진단이 필요한 경우 맞춤 신발 제작이 어려울 수 있습니다.</li>
+                <li className='infoList'>
+                  맞춤신발 구매 시 프로스펙스닷컴 쿠폰/포인트 등의 사용은
+                  불가합니다.
+                </li>
+                <li className='infoList'>
+                  맞춤신발 구매 시 주문제작부터 배송까지 약 1개월이 소요됩니다.
+                </li>
+                <li className='infoList'>
+                  맞춤신발은 고객님만을 위한 주문제작 상품이기 때문에
+                  전자상거래법 제17조 2항 제 6호 및 동법 시행령 제 21조에 의거
+                  결제 후 주문취소가 불가하고, 교환/반품이 불가합니다.
+                </li>
+                <li className='infoList'>
+                  13세 미만의 어린이와 발의 상태가 전문 의료진의 진단이 필요한
+                  경우 맞춤 신발 제작이 어려울 수 있습니다.
+                </li>
               </ul>
             </dd>
           </dl>
