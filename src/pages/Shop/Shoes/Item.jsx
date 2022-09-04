@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import theme from '../../../styles/theme';
 import ItemBox from './ItemBox';
-import Nav from '../../../components/Nav';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import ShopHeader from './ShopHeader';
+import FilterModal from './FilterModal';
+
 // { font-family: 'Poppins Bold', 'sans-serif'; }
 // { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
 
@@ -193,6 +191,8 @@ function Item() {
   const [mainCategory, setMainCategory] = useState('대분류');
   const [subCategory, setSubCategory] = useState('소분류');
   const [product, setProduct] = useState('상품종류');
+  const [toggle,setToggle] = useState(false)
+
 
   useEffect(() => {
     fetch('/data/shoesData.json')
@@ -215,7 +215,7 @@ function Item() {
             <div className='item-filter'>
               <div className='item-filter-serch-box'>
                 {/* 필터검색 버튼 */}
-                <span>필터검색</span>
+                <span onClick={()=>{setToggle(true)}}>필터검색</span>
               </div>
               <div className='item-sort-list-box'>
                 {/* 아이템정렬 버튼 */}
@@ -229,6 +229,7 @@ function Item() {
               </div>
             </div>
           </div>
+            {toggle === true ? <FilterModal toggle={toggle} setToggle={setToggle}/> : null}
           <div className='item-inner-box'>
             {/* 상품전체박스 */}
             {shoes &&
