@@ -14,6 +14,7 @@ import SmartFit from './pages/smartfit/SmartFit';
 import TopButton from './components/TopButton';
 import { useState } from 'react';
 import SignUp from './pages/signUp/SignUp';
+import Cart from './pages/cart/Cart';
 
 const App = () => {
   const [usefInfo, setUserInfo] = useState({
@@ -24,6 +25,7 @@ const App = () => {
     date_of_birth: '',
     gender: '',
     access_token: '',
+    user_id: '',
   });
 
   return (
@@ -40,6 +42,7 @@ const App = () => {
           <Route path='/smartfit' element={<SmartFit />} />
           <Route path='/store' element={<Store />} />
           <Route path='/signup' element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />} />
+          <Route path='/cart' element={<Cart usefInfo={usefInfo} />} />
         </Routes>
         <TopButton />
         <Footer />

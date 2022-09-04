@@ -83,13 +83,13 @@ const Item = ({ item: { name, cate, price, salePercent, salePrice, sale, img, ge
       <h4>{name}</h4>
       {sale ? (
         <>
-          <p className='price'>{price}</p>
+          <p className='price'>{Number(price).toLocaleString()}원</p>
           <p className='realPrice'>
-            <span className='red'>{salePercent}</span> {salePrice}
+            <span className='red'>{salePercent}</span> {Number(salePrice).toLocaleString()}원
           </p>
         </>
       ) : (
-        <p className='realPrice'>{price}</p>
+        <p className='realPrice'>{Number(price).toLocaleString()}원</p>
       )}
       <div className='gender'>
         {gender[0] === 'm' && <span className='male'>남</span>}

@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import Item from './Item';
 import useSwiper from '../../../hooks/useSwiper';
 import { ImSpinner } from 'react-icons/im';
+import axios from 'axios';
 
 const StyledSection = styled.section`
   display: flex;
@@ -149,6 +150,7 @@ const ThirdSection = () => {
         .slice(0, 4);
       setKeywordList(shuffledData);
 
+<<<<<<< HEAD
       const itemsData = (await (await fetch('/data/shoesData.json')).json())
         .data;
       setItemList(
@@ -156,6 +158,12 @@ const ThirdSection = () => {
           itemsData.filter((itemData) => itemData.subcategory === data.name)
         )
       );
+=======
+      // GET /products
+      // url 수정해야함
+      const itemsData = (await axios.get('/data/shoesData.json')).data.data;
+      setItemList(shuffledData.map(data => itemsData.filter(itemData => itemData.subcategory === data.name)));
+>>>>>>> main
 
       setLoading(false);
     })();

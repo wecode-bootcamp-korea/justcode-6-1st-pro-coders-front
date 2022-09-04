@@ -18,6 +18,7 @@ const StyledSection = styled.section`
       div.listContainer {
         width: 80%;
         position: relative;
+        overflow: hidden;
 
         button.next {
           position: absolute;
@@ -33,17 +34,6 @@ const StyledSection = styled.section`
           justify-content: center;
           cursor: pointer;
           z-index: 8;
-        }
-
-        &::before {
-          content: '';
-          position: absolute;
-          right: 100%;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          background-color: white;
-          z-index: 2;
         }
 
         ul.list {
