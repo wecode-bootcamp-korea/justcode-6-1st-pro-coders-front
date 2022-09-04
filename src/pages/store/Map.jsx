@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const { kakao } = window;
@@ -19,9 +19,8 @@ const Main = styled.div`
 const Map = ({ list }) => {
   useEffect(() => {
     if (list && list.length === 1) {
-      // 지도
+      // 마커 1개 일 때
       const container = document.getElementById('map');
-      // 마커
       const markerPosition = new kakao.maps.LatLng(list[0].lat, list[0].lng);
       const marker = new kakao.maps.Marker({
         position: markerPosition,
@@ -34,7 +33,6 @@ const Map = ({ list }) => {
       };
       const kakaoMap = new kakao.maps.Map(container, options);
 
-      // 인포윈도우
       const iwPosition = new kakao.maps.LatLng(list[0].lat, list[0].lng);
 
       const iwContent =
@@ -52,14 +50,14 @@ const Map = ({ list }) => {
       marker.setMap(kakaoMap);
       infowindow.open(kakaoMap, marker);
     } else {
-      // 지도
+      // 마커 여러개 일 때
       const container = document.getElementById('map');
       const options = {
         center: new kakao.maps.LatLng(35.624915, 127.151226),
         level: 13,
       };
       const kakaoMap = new kakao.maps.Map(container, options);
-      // 마커들
+
       list &&
         list.forEach((el) => {
           new kakao.maps.Marker({

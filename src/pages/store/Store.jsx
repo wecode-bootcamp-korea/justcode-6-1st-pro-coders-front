@@ -194,12 +194,6 @@ const Store = (props) => {
   };
 
   const handleResetData = () => {
-    // fetch('data/storeList.json')
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setList(data);
-    //     setMapList(data);
-    //   });
     setList(allList);
     setMapList(allList);
 
