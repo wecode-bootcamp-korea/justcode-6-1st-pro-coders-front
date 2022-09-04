@@ -67,12 +67,7 @@ const StyledSection = styled.section`
       ul.items {
         display: flex;
         padding-top: 40px;
-        width: calc(
-          ${({ itemList, menu }) =>
-            itemList[menu].length > 5
-              ? `20% * ${itemList[menu].length}`
-              : '100%'}
-        );
+        width: calc(${({ itemList, menu }) => (itemList[menu].length > 5 ? `20% * ${itemList[menu].length}` : '100%')});
       }
     }
 
@@ -85,12 +80,7 @@ const StyledSection = styled.section`
       &::after {
         content: '';
         position: absolute;
-        width: calc(
-          ${({ itemList, menu, perView }) =>
-            itemList[menu].length > 5
-              ? `100% / ${itemList[menu].length - perView + 1}`
-              : '100%'}
-        );
+        width: calc(${({ itemList, menu, perView }) => (itemList[menu].length > 5 ? `100% / ${itemList[menu].length - perView + 1}` : '100%')});
         height: 100%;
         left: 0;
         top: 0;
@@ -137,33 +127,18 @@ const ThirdSection = () => {
   const [menu, setMenu] = useState(0);
   const [keywordList, setKeywordList] = useState();
   const [itemList, setItemList] = useState();
-  const { swipedTarget, page } = useSwiper(
-    itemList ? itemList[menu].length : 5,
-    5
-  );
+  const { swipedTarget, page } = useSwiper(itemList ? itemList[menu].length : 5, 5);
 
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const shuffledData = categories
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 4);
+      const shuffledData = categories.sort(() => Math.random() - 0.5).slice(0, 4);
       setKeywordList(shuffledData);
 
-<<<<<<< HEAD
-      const itemsData = (await (await fetch('/data/shoesData.json')).json())
-        .data;
-      setItemList(
-        shuffledData.map((data) =>
-          itemsData.filter((itemData) => itemData.subcategory === data.name)
-        )
-      );
-=======
       // GET /products
       // url 수정해야함
       const itemsData = (await axios.get('/data/shoesData.json')).data.data;
       setItemList(shuffledData.map(data => itemsData.filter(itemData => itemData.subcategory === data.name)));
->>>>>>> main
 
       setLoading(false);
     })();
@@ -189,7 +164,7 @@ const ThirdSection = () => {
         </ul>
         <div className='listContainer'>
           <ul className='items' ref={swipedTarget}>
-            {itemList[menu].map((item) => (
+            {itemList[menu].map(item => (
               <Item key={item.id} item={item} length={itemList[menu].length} />
             ))}
           </ul>
