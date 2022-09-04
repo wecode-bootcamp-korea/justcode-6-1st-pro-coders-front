@@ -742,7 +742,7 @@ const Nav = ({ usefInfo: { isLogin } }) => {
               <img src='./nav/icon/icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
             </li>
             <li>
-              <img src='./nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/')} />
+              <img src='./nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/cart')} />
             </li>
             <li>
               {isLogin ? ( //

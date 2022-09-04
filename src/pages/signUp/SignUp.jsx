@@ -282,6 +282,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
   const [agree, setAgree] = useState(false);
   const [gender, setGender] = useState('');
   const [error, setError] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     isLogin && navigate('/');
@@ -302,33 +303,41 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
       setError(false);
 
       (async () => {
+        setDisabled(true);
+
         try {
           // 나중에 signup url 넣어야함
-          await axios.post('', {
+          await axios.post('/signup', {
             email,
             password,
             name,
             phone_number: phone,
             date_of_birth: birth,
+            gender,
           });
 
           // 나중에 signin url
-          const { data } = await axios.post('', {
+          const {
+            data: { user },
+          } = await axios.post('/user', {
             email,
             password,
           });
 
           setUserInfo({
             isLogin: true,
-            email: data.email,
-            name: data.name,
-            phone_number: data.phone_number,
-            date_of_birth: data.date_of_birth,
-            gender: data.gender,
-            access_token: data.access_token,
+            email: user.email,
+            name: user.name,
+            phone_number: user.phone_number,
+            date_of_birth: user.date_of_birth,
+            gender: user.gender,
+            access_token: user.access_token,
+            user_id: user.user_id,
           });
+          setDisabled(false);
         } catch (error) {
           console.log(error);
+          setDisabled(false);
         }
       })();
     } else {
@@ -413,7 +422,9 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
               </span>
               동의할게 없지만 동의합니다.
             </p>
-            <button className='signup'>회원가입</button>
+            <button className='signup' disabled={disabled}>
+              {disabled ? '회원가입 중...' : '회원가입'}
+            </button>
           </form>
         </div>
       ) : (
