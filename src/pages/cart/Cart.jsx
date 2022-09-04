@@ -271,17 +271,17 @@ const StyledPage = styled.main`
   }
 `;
 
-const Cart = ({ usefInfo: { access_token } }) => {
+const Cart = ({ usefInfo: { access_token, user_id } }) => {
   const [cartList, setCartList] = useState();
   const [selectList, setSelectList] = useState([]);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
-  const addSelectHandler = cardId => {
-    if (selectList.includes(cardId)) {
-      setSelectList(selectList.filter(id => id !== cardId));
+  const addSelectHandler = card_Id => {
+    if (selectList.includes(card_Id)) {
+      setSelectList(selectList.filter(id => id !== card_Id));
     } else {
-      setSelectList([...selectList, cardId].sort());
+      setSelectList([...selectList, card_Id].sort());
     }
   };
 
@@ -289,68 +289,54 @@ const Cart = ({ usefInfo: { access_token } }) => {
     if (selectList.length === cartList?.length) {
       setSelectList([]);
     } else {
-      setSelectList(cartList.map(cart => cart.id));
+      setSelectList(cartList.map(cart => cart.cart_id));
     }
   };
 
   useEffect(() => {
-    // url: /cart
-    axios
-      .get('/data/cartData.json', {
-        headers: {
-          Authorization: access_token,
-        },
-      }) //
-      .then(({ data }) => {
-        setCartList(data);
-        setSelectList(data.map(cart => cart.id));
-      })
-      .catch(err => setError(true));
-  }, []);
-
-  const removeOneHandler = async cartId => {
-    try {
-      const {
-        data: { result },
-      } = await axios.put('/cart', [cartId], {
-        headers: {
-          Authorization: access_token,
-        },
-      });
-
-      setCartList(result);
-      setSelectList(selectList.filter(id => id !== cartId));
-    } catch (error) {
-      console.log(error);
-      // setCartList(cartList.filter(cart => cart.id !== cartId));
-      // setSelectList(selectList.filter(id => id !== cartId));
-    }
-  };
-
-  const removePickedHandler = async () => {
-    if (selectList.length) {
+    (async () => {
       try {
+        // url: http://localhost:8000/cart?user_id=${user_id}
+
         const {
-          data: { result },
-        } = await axios.put('/cart', selectList, {
+          data: { result, cartList: cartData },
+        } = await axios.get('/data/cartData.json', {
           headers: {
             Authorization: access_token,
           },
         });
 
-        setCartList(result);
-        setSelectList([]);
+        setCartList(cartData);
+        setSelectList(cartData.map(cart => cart.cart_id));
       } catch (error) {
         console.log(error);
-        // setCartList(cartList.filter(cart => !selectList.includes(cart.id)));
-        // setSelectList([]);
+        setError(true);
       }
+    })();
+  }, []);
+
+  const removeOneHandler = async cart_Id => {
+    try {
+      const {
+        data: { result, cartList: cartData },
+      } = await axios.delete(`http://localhost:8000/cart?cart_id=${cart_Id}`, {
+        headers: {
+          Authorization: access_token,
+        },
+      });
+
+      setCartList(cartData);
+      setSelectList(selectList.filter(id => id !== cart_Id));
+    } catch (error) {
+      console.log(error);
+      // setCartList(cartList.filter(cart => cart.cart_id !== cartId));
+      // setSelectList(selectList.filter(id => id !== cartId));
     }
   };
 
   const removeAllHandler = async () => {
     try {
-      await axios.delete('/cart', {
+      await axios.delete(`http://localhost:8000/cart/all?user_id=${user_id}`, {
         headers: {
           Authorization: access_token,
         },
@@ -397,26 +383,25 @@ const Cart = ({ usefInfo: { access_token } }) => {
             <ul className='list'>
               {cartList && cartList.length ? (
                 cartList.map(cart => (
-                  <li key={cart.id} className={selectList.includes(cart.id) ? 'picked' : ''}>
+                  <li key={cart.cart_id} className={selectList.includes(cart.cart_id) ? 'picked' : ''}>
                     <div className='checkboxContainer'>
-                      <span className='checkbox' onClick={() => addSelectHandler(cart.id)}>
+                      <span className='checkbox' onClick={() => addSelectHandler(cart.cart_id)}>
                         <BsCheck size={20} />
                       </span>
                     </div>
                     <div className='itemDetail'>
-                      <img src={cart.product.img} alt='' />
                       <div className='text'>
-                        <p>{cart.product.name}</p>
+                        <p>{cart.title}</p>
                         <p className='option'>
-                          {cart.size} | 수량: {cart.count}
+                          {cart.size} | {cart.color} | 수량: {cart.count}
                         </p>
                       </div>
                     </div>
                     <div className='saleDetail'>
-                      <p>{cart.product.salePrice}</p>
+                      <p>{Number(cart.duped_price).toLocaleString()}원</p>
                     </div>
                     <div className='select'>
-                      <p onClick={() => removeOneHandler(cart.id)}>삭제</p>
+                      <p onClick={() => removeOneHandler(cart.cart_id)}>삭제</p>
                     </div>
                   </li>
                 ))
@@ -426,7 +411,6 @@ const Cart = ({ usefInfo: { access_token } }) => {
             </ul>
             <div className='removeContainer'>
               <button onClick={removeAllHandler}>전체 삭제</button>
-              <button onClick={removePickedHandler}>선택 삭제</button>
             </div>
             {cartList && (
               <div className='total'>
@@ -438,38 +422,16 @@ const Cart = ({ usefInfo: { access_token } }) => {
                 <div className='cost'>
                   <h2>
                     {selectList
-                      .map(select => cartList.find(cart => cart.id === select))
-                      .reduce(
-                        (acc, cur) =>
-                          acc +
-                          cur.count *
-                            Number(
-                              cur.product.salePrice
-                                .split('')
-                                .filter(e => e !== ',')
-                                .join('')
-                            ),
-                        0
-                      )
+                      .map(select => cartList.find(cart => cart.cart_id === select))
+                      .reduce((acc, cur) => acc + cur.count * Number(cur.duped_price), 0)
                       .toLocaleString()}
                     원
                   </h2>
                   <h2>0원</h2>
                   <h2 className='totalCost'>
                     {selectList
-                      .map(select => cartList.find(cart => cart.id === select))
-                      .reduce(
-                        (acc, cur) =>
-                          acc +
-                          cur.count *
-                            Number(
-                              cur.product.salePrice
-                                .split('')
-                                .filter(e => e !== ',')
-                                .join('')
-                            ),
-                        0
-                      )
+                      .map(select => cartList.find(cart => cart.cart_id === select))
+                      .reduce((acc, cur) => acc + cur.count * Number(cur.duped_price), 0)
                       .toLocaleString()}
                     원
                   </h2>

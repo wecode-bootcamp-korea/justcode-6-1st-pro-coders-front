@@ -136,6 +136,7 @@ const ThirdSection = () => {
       setKeywordList(shuffledData);
 
       // GET /products
+      // url 수정해야함
       const itemsData = await (await axios.get('/data/shoesData.json')).data.data;
       setItemList(shuffledData.map(data => itemsData.filter(itemData => itemData.subcategory === data.name)));
 
