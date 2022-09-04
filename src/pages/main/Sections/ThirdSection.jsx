@@ -150,20 +150,14 @@ const ThirdSection = () => {
         .slice(0, 4);
       setKeywordList(shuffledData);
 
-<<<<<<< HEAD
-      const itemsData = (await (await fetch('/data/shoesData.json')).json())
-        .data;
+      // GET /products
+      // url 수정해야함
+      const itemsData = (await axios.get('/data/shoesData.json')).data.data;
       setItemList(
         shuffledData.map((data) =>
           itemsData.filter((itemData) => itemData.subcategory === data.name)
         )
       );
-=======
-      // GET /products
-      // url 수정해야함
-      const itemsData = (await axios.get('/data/shoesData.json')).data.data;
-      setItemList(shuffledData.map(data => itemsData.filter(itemData => itemData.subcategory === data.name)));
->>>>>>> main
 
       setLoading(false);
     })();
