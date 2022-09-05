@@ -158,7 +158,6 @@ const ThirdSection = () => {
           itemsData.filter((itemData) => itemData.subcategory === data.name)
         )
       );
-
       setLoading(false);
     })();
   }, []);
