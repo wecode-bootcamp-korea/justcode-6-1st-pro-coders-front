@@ -20,7 +20,7 @@ import Product from './pages/product/Product';
 
 const App = () => {
   const [usefInfo, setUserInfo] = useState({
-    isLogin: true,
+    isLogin: false,
     email: '',
     name: '',
     phone_number: '',

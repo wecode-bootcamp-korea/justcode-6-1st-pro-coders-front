@@ -47,7 +47,7 @@ const useSwiper = (size, perView = 1) => {
     const clickEnd = () => {
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0.3s';
-        debounce.current = setTimeout(() => (swipedTarget.current.style.transition = '0s'), 300);
+        debounce.current = setTimeout(() => swipedTarget.current && (swipedTarget.current.style.transition = '0s'), 300);
 
         const width = (swipedTarget.current.getBoundingClientRect().width + 20) / size;
 

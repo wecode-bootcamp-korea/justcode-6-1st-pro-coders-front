@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import useSwiper from '../../../hooks/useSwiper';
 
@@ -53,7 +54,7 @@ const StyledSection = styled.section`
         &::after {
           content: '';
           position: absolute;
-          width: calc(100% / ${({ length, perView }) => length - perView - 2});
+          width: calc(100% / ${({ length, perView }) => length - perView - 1});
           height: 100%;
           left: 0;
           top: 0;
@@ -70,12 +71,13 @@ const SecondSection = () => {
   const [list, setList] = useState();
   const [loading, setLoading] = useState(true);
   const { swipedTarget, page } = useSwiper(18, 4);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/data/shoesData.json') //
+    fetch('/data/shoesData.json') // localhost:8000/products?type=SHOES
       .then(re => re.json())
-      .then(({ data }) => {
-        setList(data);
+      .then(data => {
+        setList(data.slice(0, 20));
         setLoading(false);
       });
   }, []);
@@ -93,9 +95,9 @@ const SecondSection = () => {
             {!loading &&
               list.map(item => (
                 <li key={item.id}>
-                  <img src={item.img} alt='' />
+                  <img src={item.main_image} alt='' onClick={() => navigate(`/product/${item.id}`)} />
                   <p>{item.title}</p>
-                  <h4>{Number(item.price).toLocaleString()}원</h4>
+                  <h4>{Number(item.discounted_price).toLocaleString()}원</h4>
                 </li>
               ))}
           </ul>
