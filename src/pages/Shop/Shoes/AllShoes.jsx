@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Item from './Item';
-import Nomination from './Nomination';
-import ShopHeader from './ShopHeader';
+import Item from './sections/Item';
+import Nomination from './sections/Nomination';
+import ShopHeader from './sections/ShopHeader';
 
 const StyledAllShoes = styled.div``;
 

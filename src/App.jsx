@@ -1,8 +1,7 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 import Event from './pages/event/Event';
 import Archive from './pages/archive/Archive';
 import MainPage from './pages/main/Main';
-import AllShoes from './pages/Shop/Shoes/AllShoes';
 import GlobalStyle from '../src/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
@@ -17,18 +16,21 @@ import SignUp from './pages/signUp/SignUp';
 import Cart from './pages/cart/Cart';
 import Search from './pages/search/Search';
 import Product from './pages/product/Product';
+import AllShoes from './pages/Shop/Shoes/AllShoes';
+
+
 
 const App = () => {
-  const [usefInfo, setUserInfo] = useState({
-    isLogin: false,
-    email: '',
-    name: '',
-    phone_number: '',
-    date_of_birth: '',
-    gender: '',
-    access_token: '',
-    user_id: '',
-  });
+	const [usefInfo, setUserInfo] = useState({
+		isLogin: false,
+		email: '',
+		name: '',
+		phone_number: '',
+		date_of_birth: '',
+		gender: '',
+		access_token: '',
+		user_id: '',
+	});
 
   return (
     <>
