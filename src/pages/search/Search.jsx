@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Item from '../Shop/Shoes/Item';
-import ItemBox from '../Shop/Shoes/ItemBox';
+import Item from '../Shop/Shoes/sections/Item';
+import ItemBox from '../Shop/Shoes/sections/ItemBox';
+
 
 const Main = styled.div`
   margin: 250px auto 0 auto;

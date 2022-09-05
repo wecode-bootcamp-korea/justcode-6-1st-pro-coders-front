@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import ItemBox from './ItemBox';
 import { useEffect, useState } from 'react';
 import FilterModal from './FilterModal';
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom';
 
 // { font-family: 'Poppins Bold', 'sans-serif'; }
 // { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
@@ -45,7 +46,7 @@ const StyledItem = styled.div`
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: flex-start;
-			width: 1180px;
+			width: 1280px;
 			margin: 0 auto;
 			.item-a-box {
 				display: flex;
@@ -193,14 +194,7 @@ function Item() {
 	const [subCategory, setSubCategory] = useState('소분류');
 	const [product, setProduct] = useState('상품종류');
 	const [toggle, setToggle] = useState(false);
-
-	useEffect(() => {
-	  fetch('/data/shoesData.json')
-	    .then(res => res.json())
-	    .then(res => {
-	      setShoes(res);
-	    });
-	}, []);
+	// const id = useParams();
 
 	useEffect(() => {
 		fetch('/data/product.json')
@@ -209,8 +203,8 @@ function Item() {
 				setProductData(data);
 			});
 	}, []);
-	
-	
+
+	console.log();
 
 	return (
 		<>
@@ -247,11 +241,16 @@ function Item() {
 					{toggle === true ? <FilterModal toggle={toggle} setToggle={setToggle} /> : null}
 					<div className='item-inner-box'>
 						{/* 상품전체박스 */}
+
 						{productdata &&
 							productdata.data.map((item, index) => {
-								return <ItemBox productdata={productdata} item={item} index={index} />;
+								console.log(item);
+								return (
+									<Link to={`/product/${item.id}`}>
+										<ItemBox productdata={productdata} item={item} index={index} />
+									</Link>
+								);
 							})}
-						<ItemBox />
 					</div>
 					<div className='item-more-btn-box'>
 						<button className='item-more-btn'>더보기</button>

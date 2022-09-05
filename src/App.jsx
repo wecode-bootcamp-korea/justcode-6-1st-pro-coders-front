@@ -1,8 +1,7 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 import Event from './pages/event/Event';
 import Archive from './pages/archive/Archive';
 import MainPage from './pages/main/Main';
-import AllShoes from './pages/Shop/Shoes/AllShoes';
 import GlobalStyle from '../src/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
@@ -17,45 +16,45 @@ import SignUp from './pages/signUp/SignUp';
 import Cart from './pages/cart/Cart';
 import Search from './pages/search/Search';
 import Product from './pages/product/Product';
+import AllShoes from './pages/Shop/Shoes/AllShoes';
+
+
 
 const App = () => {
-  const [usefInfo, setUserInfo] = useState({
-    isLogin: false,
-    email: '',
-    name: '',
-    phone_number: '',
-    date_of_birth: '',
-    gender: '',
-    access_token: '',
-    user_id: '',
-  });
+	const [usefInfo, setUserInfo] = useState({
+		isLogin: false,
+		email: '',
+		name: '',
+		phone_number: '',
+		date_of_birth: '',
+		gender: '',
+		access_token: '',
+		user_id: '',
+	});
 
-  return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Nav usefInfo={usefInfo} setUserInfo={setUserInfo} />
-        <Routes>
-          <Route path='/' element={<MainPage />} />
-          <Route path='/shop' element={<ShopPage />} />
-          <Route path='/shop/shoes' element={<AllShoes />} />
-          <Route path='/product/:id' element={<Product />} />
-          <Route path='/event' element={<Event />} />
-          <Route path='/archive' element={<Archive />} />
-          <Route path='/smartfit' element={<SmartFit />} />
-          <Route path='/store' element={<Store />} />
-          <Route
-            path='/signup'
-            element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />}
-          />
-          <Route path='/cart' element={<Cart usefInfo={usefInfo} />} />
-          <Route path='/search' element={<Search />} />
-        </Routes>
-        <TopButton />
-        <Footer />
-      </ThemeProvider>
-    </>
-  );
+	return (
+		<>
+			<ThemeProvider theme={theme}>
+				<GlobalStyle />
+				<Nav usefInfo={usefInfo} setUserInfo={setUserInfo} />
+				<Routes>
+					<Route path='/' element={<MainPage />} />
+					<Route path='/shop' element={<ShopPage />} />
+					<Route path='/shop/shoes' element={<AllShoes />} />
+					<Route path='/product/:id' element={<Product />} />
+					<Route path='/event' element={<Event />} />
+					<Route path='/archive' element={<Archive />} />
+					<Route path='/smartfit' element={<SmartFit />} />
+					<Route path='/store' element={<Store />} />
+					<Route path='/signup' element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />} />
+					<Route path='/cart' element={<Cart usefInfo={usefInfo} />} />
+					<Route path='/search' element={<Search />} />
+				</Routes>
+				<TopButton />
+				<Footer />
+			</ThemeProvider>
+		</>
+	);
 };
 
 export default App;
