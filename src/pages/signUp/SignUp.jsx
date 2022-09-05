@@ -337,6 +337,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
             token,
             isLogin: true,
           });
+
           setDisabled(false);
         } catch (error) {
           console.log(error);
