@@ -162,7 +162,7 @@ const ThirdSection = () => {
           ))}
         </ul>
         <div className='listContainer'>
-          <ul onClick={() => console.log(itemList)} className='items' ref={swipedTarget}>
+          <ul className='items' ref={swipedTarget}>
             {itemList[menu].map(item => (
               <Item key={item.id} item={item} length={itemList[menu].length} />
             ))}
