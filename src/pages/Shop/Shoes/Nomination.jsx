@@ -114,6 +114,8 @@ function Nomination() {
 			});
 	}, []);
 
+
+
 	return (
 		<StyledNomination>
 			<div className='item-nomination-inner-box'>
