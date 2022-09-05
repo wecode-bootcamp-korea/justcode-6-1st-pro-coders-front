@@ -644,8 +644,8 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
                     </li>
                   </ul>
                   <div className='adContainer'>
-                    <img src='./nav/img/ad1.png' alt='ad1' />
-                    <img src='./nav/img/ad2.png' alt='ad1' />
+                    <img src='/nav/img/ad1.png' alt='ad1' />
+                    <img src='/nav/img/ad2.png' alt='ad1' />
                   </div>
                 </div>
               </div>
@@ -679,8 +679,8 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
                     </li>
                   </ul>
                   <div className='adContainer'>
-                    <img src='./nav/img/ad3.png' alt='' />
-                    <img src='./nav/img/ad4.png' alt='' />
+                    <img src='/nav/img/ad3.png' alt='' />
+                    <img src='/nav/img/ad4.png' alt='' />
                   </div>
                 </div>
               </div>
