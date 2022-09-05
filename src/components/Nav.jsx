@@ -351,7 +351,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Nav = ({ usefInfo: { isLogin } }) => {
+const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [isMain, setIsMain] = useState(pathname === '/' || pathname === '/shop');
