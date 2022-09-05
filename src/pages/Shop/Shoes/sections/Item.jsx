@@ -190,9 +190,6 @@ const StyledItem = styled.div`
 function Item() {
 	const [shoes, setShoes] = useState(null);
 	const [productdata, setProductData] = useState(null);
-	const [mainCategory, setMainCategory] = useState('대분류');
-	const [subCategory, setSubCategory] = useState('소분류');
-	const [product, setProduct] = useState('상품종류');
 	const [toggle, setToggle] = useState(false);
 
 
@@ -200,7 +197,7 @@ function Item() {
 		fetch('/data/product.json')
 			.then((res) => res.json())
 			.then((data) => {
-				setProductData(data);
+				setProductData(data.data);
 			});
 	}, []);
 
@@ -242,10 +239,10 @@ function Item() {
 						{/* 상품전체박스 */}
 
 						{productdata &&
-							productdata.data.map((item, index) => {
+							productdata.map((item, index) => {
 								return (
 									<Link to={`/product/${item.id}`}>
-										<ItemBox productdata={productdata} item={item} index={index} />
+										<ItemBox item={item} index={index} />
 									</Link>
 								);
 							})}
