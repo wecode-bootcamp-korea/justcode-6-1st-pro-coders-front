@@ -172,7 +172,7 @@ const StyledLogin = styled.div`
   }
 `;
 
-const LoginModal = ({ setModal }) => {
+const LoginModal = ({ setModal, setUserInfo }) => {
   const [isSave, setIsSave] = useState(false);
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(false);
@@ -189,20 +189,14 @@ const LoginModal = ({ setModal }) => {
         // 나중에 signin url
         const {
           data: { user },
-        } = await axios.post('/user', {
+        } = await axios.post('/data/userInfo.json', {
           email,
           password,
         });
 
         setUserInfo({
+          ...user,
           isLogin: true,
-          email: user.email,
-          name: user.name,
-          phone_number: user.phone_number,
-          date_of_birth: user.date_of_birth,
-          gender: user.gender,
-          access_token: user.access_token,
-          user_id: user.user_id,
         });
 
         setDisabled(false);

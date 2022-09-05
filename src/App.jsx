@@ -32,29 +32,29 @@ const App = () => {
 		user_id: '',
 	});
 
-	return (
-		<>
-			<ThemeProvider theme={theme}>
-				<GlobalStyle />
-				<Nav usefInfo={usefInfo} setUserInfo={setUserInfo} />
-				<Routes>
-					<Route path='/' element={<MainPage />} />
-					<Route path='/shop' element={<ShopPage />} />
-					<Route path='/shop/shoes' element={<AllShoes />} />
-					<Route path='/product/:id' element={<Product />} />
-					<Route path='/event' element={<Event />} />
-					<Route path='/archive' element={<Archive />} />
-					<Route path='/smartfit' element={<SmartFit />} />
-					<Route path='/store' element={<Store />} />
-					<Route path='/signup' element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />} />
-					<Route path='/cart' element={<Cart usefInfo={usefInfo} />} />
-					<Route path='/search' element={<Search />} />
-				</Routes>
-				<TopButton />
-				<Footer />
-			</ThemeProvider>
-		</>
-	);
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Nav usefInfo={usefInfo} setUserInfo={setUserInfo} />
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/shop' element={<ShopPage />} />
+          <Route path='/shop/shoes' element={<AllShoes />} />
+          <Route path='/product/:id' element={<Product />} />
+          <Route path='/event' element={<Event />} />
+          <Route path='/archive' element={<Archive />} />
+          <Route path='/smartfit' element={<SmartFit />} />
+          <Route path='/store' element={<Store />} />
+          <Route path='/signup' element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />} />
+          <Route path='/cart' element={<Cart usefInfo={usefInfo} />} />
+          <Route path='/search' element={<Search />} />
+        </Routes>
+        <TopButton />
+        <Footer />
+      </ThemeProvider>
+    </>
+  );
 };
 
 export default App;
