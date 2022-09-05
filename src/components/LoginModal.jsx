@@ -220,8 +220,18 @@ const LoginModal = ({ setModal, setUserInfo }) => {
         <h2>로그인</h2>
         <form onSubmit={signInHandler}>
           <div className='inputContainer'>
-            <input type='email' autoComplete='false' placeholder='아이디를 이메일 형식으로 입력해 주세요.' onChange={e => setEmail(e.target.value)} />
-            <input type='password' autoComplete='false' placeholder='비밀번호를 입력해주세요.' onChange={e => setPassword(e.target.value)} />
+            <input
+              type='email'
+              autoComplete='false'
+              placeholder='아이디를 이메일 형식으로 입력해 주세요.'
+              onChange={e => setEmail(e.target.value)}
+            />
+            <input
+              type='password'
+              autoComplete='false'
+              placeholder='비밀번호를 입력해주세요.'
+              onChange={e => setPassword(e.target.value)}
+            />
           </div>
           <div className='option'>
             <div className='saveId' onClick={() => setIsSave(!isSave)}>
@@ -250,9 +260,21 @@ const LoginModal = ({ setModal, setUserInfo }) => {
         <p className='sns'>SNS 간편 로그인</p>
 
         <div className='social'>
-          <img src='https://image.prospecs.com/front/images/renewal/icon_naver.png' alt='' width={50} />
-          <img src='https://image.prospecs.com/front/images/renewal/icon_kakao.png  ' alt='' width={50} />
-          <img src='https://image.prospecs.com/front/images/renewal/icon_face.png' alt='' width={50} />
+          <img
+            src='https://image.prospecs.com/front/images/renewal/icon_naver.png'
+            alt=''
+            width={50}
+          />
+          <img
+            src='https://image.prospecs.com/front/images/renewal/icon_kakao.png  '
+            alt=''
+            width={50}
+          />
+          <img
+            src='https://image.prospecs.com/front/images/renewal/icon_face.png'
+            alt=''
+            width={50}
+          />
         </div>
       </div>
     </StyledLogin>
