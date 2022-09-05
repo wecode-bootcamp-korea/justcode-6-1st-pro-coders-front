@@ -295,11 +295,11 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
       email: { value: email },
       password: { value: password },
       name: { value: name },
-      phone: { value: phone },
-      birth: { value: birth },
+      phone: { value: phone_number },
+      birth: { value: date_of_birth },
     } = e.target;
 
-    if (email && password.length > 6 && name && Number(phone) && birth.length >= 8 && Number(birth)) {
+    if (email && password.length > 6 && name && Number(phone_number) && birth.length >= 8 && Number(date_of_birth)) {
       setError(false);
 
       (async () => {
@@ -311,8 +311,8 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
             email,
             password,
             name,
-            phone_number: phone,
-            date_of_birth: birth,
+            phone_number,
+            date_of_birth,
             gender,
           });
 

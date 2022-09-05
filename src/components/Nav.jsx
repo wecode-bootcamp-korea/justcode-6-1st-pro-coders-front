@@ -687,42 +687,6 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
             </li>
             <li>
               <Link to='/store'>STORE</Link>
-              <div className='inner'>
-                <div className='innerContainer'>
-                  <ul className='lnb'>
-                    <li>
-                      <Link to='/' className='lnbSubName'>
-                        프로스포츠
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to='/'>LG트윈스</Link>
-                    </li>
-                    <li>
-                      <Link to='/'>FC서울</Link>
-                    </li>
-                    <li>
-                      <Link to='/'>GS칼텍스</Link>
-                    </li>
-                    <li>
-                      <Link to='/'>LG세이커스</Link>
-                    </li>
-                  </ul>
-                  <ul className='lnb'>
-                    <li>
-                      <Link to='/' className='lnbSubName'>
-                        익스트림 스포츠
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to='/'>CAMEL RACE</Link>
-                    </li>
-                    <li>
-                      <Link to='/'>유소년BMX</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </li>
             <li>
               <Link to='/smartfit'>SMART FIT</Link>

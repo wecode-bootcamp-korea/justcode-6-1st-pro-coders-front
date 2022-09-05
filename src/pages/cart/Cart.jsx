@@ -324,7 +324,7 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
         }
       })();
     }
-  }, []);
+  }, [isLogin]);
 
   const removeOneHandler = async cart_Id => {
     try {
