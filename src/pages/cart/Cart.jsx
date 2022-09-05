@@ -304,24 +304,26 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
   };
 
   useEffect(() => {
-    (async () => {
-      try {
-        // url: http://localhost:8000/cart?user_id=${user_id}
-        const {
-          data: { result, cartList: cartData },
-        } = await axios.get('/data/cartData.json', {
-          headers: {
-            Authorization: access_token,
-          },
-        });
+    if (isLogin) {
+      (async () => {
+        try {
+          // url: http://localhost:8000/cart?user_id=${user_id}
+          const {
+            data: { result, cartList: cartData },
+          } = await axios.get('/data/cartData.json', {
+            headers: {
+              Authorization: access_token,
+            },
+          });
 
-        setCartList(cartData);
-        setSelectList(cartData.map(cart => cart.cart_id));
-      } catch (error) {
-        console.log(error);
-        setError(true);
-      }
-    })();
+          setCartList(cartData);
+          setSelectList(cartData.map(cart => cart.cart_id));
+        } catch (error) {
+          console.log(error);
+          setError(true);
+        }
+      })();
+    }
   }, []);
 
   const removeOneHandler = async cart_Id => {
