@@ -730,7 +730,7 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
                 />
                 {inputValue && <img src={`${import.meta.env.BASE_URL}public/nav/icon/icon_search_close.svg`} alt='close' onClick={clearHandler} />}
               </div>
-              <button>검색</button>
+              <button onClick={()=>navigate(`/search?key=${input.current.value}`)}>검색</button>
             </form>
 
             <h2>추천검색어</h2>

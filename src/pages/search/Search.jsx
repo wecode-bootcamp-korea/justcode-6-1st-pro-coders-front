@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Item from '../Shop/Shoes/Item';
 
@@ -183,6 +184,9 @@ const Main = styled.div`
 `;
 
 const Search = (props) => {
+  const location = useLocation();
+  // const value = new URLSearchParams(location.search).get('key');
+  // const [keyword, setKeyword] = useState(value);
   const [keyword, setKeyword] = useState('X-FIN');
   const [searchList, setSearchList] = useState();
   const [keywordList, setKeywordList] = useState([
@@ -220,7 +224,7 @@ const Search = (props) => {
   const input = useRef();
 
   useEffect(() => {
-    // fetch(`http://localhost:8000/search?key=${keyword}`)
+    // fetch(`http://localhost:8000/${location.pathname+location.search}`)
     //   .then((res) => res.json())
     //   .then((data) => setSearchList(data));
     fetch('data/product.json')
@@ -348,7 +352,7 @@ const Search = (props) => {
         </ul>
       </div>
       <section className='itemContainer'>
-        <Item shose={searchList} />
+        <Item shoes={searchList} />
       </section>
       <section className='promotion'>
         <h4>관련 기획전</h4>
