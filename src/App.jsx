@@ -19,14 +19,9 @@ import Product from './pages/product/Product';
 import AllShoes from './pages/Shop/Shoes/AllShoes';
 
 const App = () => {
-  const [usefInfo, setUserInfo] = useState({
+  const [userInfo, setUserInfo] = useState({
     isLogin: false,
-    email: '',
-    name: '',
-    phone_number: '',
-    date_of_birth: '',
-    gender: '',
-    access_token: '',
+    token: '',
     user_id: '',
   });
 
@@ -34,21 +29,24 @@ const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Nav usefInfo={usefInfo} setUserInfo={setUserInfo} />
+        <Nav userInfo={userInfo} setUserInfo={setUserInfo} />
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/shop' element={<ShopPage />} />
           <Route path='/shop/shoes' element={<AllShoes />} />
-          <Route path='/product/:id' element={<Product />} />
+          <Route
+            path='/product/:id'
+            element={<Product userInfo={userInfo} />}
+          />
           <Route path='/event' element={<Event />} />
           <Route path='/archive' element={<Archive />} />
           <Route path='/smartfit' element={<SmartFit />} />
           <Route path='/store' element={<Store />} />
           <Route
             path='/signup'
-            element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />}
+            element={<SignUp userInfo={userInfo} setUserInfo={setUserInfo} />}
           />
-          <Route path='/cart' element={<Cart usefInfo={usefInfo} />} />
+          <Route path='/cart' element={<Cart userInfo={userInfo} />} />
           <Route path='/search' element={<Search />} />
         </Routes>
         <TopButton />

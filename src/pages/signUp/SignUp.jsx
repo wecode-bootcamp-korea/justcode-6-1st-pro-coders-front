@@ -279,7 +279,7 @@ const StyledLayout = styled.main`
   }
 `;
 
-const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
+const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
   const navigate = useNavigate();
   const [register, setRegister] = useState(false);
   const [agree, setAgree] = useState(false);
@@ -297,7 +297,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
     const {
       email: { value: email },
       password: { value: password },
-      name: { value: name },
+      nickname: { value: nickname },
       phone: { value: phone_number },
       birth: { value: date_of_birth },
     } = e.target;
@@ -305,7 +305,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
     if (
       email &&
       password.length > 6 &&
-      name &&
+      nickname &&
       Number(phone_number) &&
       birth.length >= 8 &&
       Number(date_of_birth)
@@ -317,25 +317,24 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
 
         try {
           // 나중에 signup url 넣어야함
-          await axios.post('/signup', {
+          await axios.post('http://localhost:8000/user/signup', {
             email,
             password,
-            name,
+            nickname,
             phone_number,
-            date_of_birth,
-            gender,
           });
 
           // 나중에 signin url
           const {
-            data: { user },
-          } = await axios.post('/user', {
+            data: { token, user_id },
+          } = await axios.post('http://localhost:8000/user/login', {
             email,
             password,
           });
 
           setUserInfo({
-            ...user,
+            user_id,
+            token,
             isLogin: true,
           });
           setDisabled(false);
@@ -377,7 +376,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
                 <div className='text'>
                   <p>이름</p>
                 </div>
-                <input type='text' name='name' />
+                <input type='text' name='nickname' />
               </li>
               <li>
                 <div className='text'>

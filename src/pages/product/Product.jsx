@@ -1,31 +1,32 @@
-import styled from 'styled-components';
 import ProductOption from './Sections/ProductOption';
 import Aifilter from './Sections/AiFilter';
 import ProductDetail from './Sections/ProductDetail';
 import ProdutcReview from './Sections/ProductReview';
 import Shipping from './Sections/Shipping';
 import { useEffect, useState } from 'react';
-const StyledPage = styled.main``;
+import { useParams } from 'react-router-dom';
 
-const Product = () => {
-	const [product, setProduct] = useState();
-	useEffect(() => {
-		fetch('/data/product.json')
-			.then((res) => res.json())
-			.then((data) => {
-				setProduct(data);
-			});
-	}, []);
+const Product = ({ userInfo }) => {
+  const { id } = useParams();
+  const [product, setProduct] = useState();
 
-	return (
-		<StyledPage>
-			<ProductOption product={product} />
-			<Aifilter />
-			<ProductDetail  />
-			<ProdutcReview />
-			<Shipping />
-		</StyledPage>
-	);
+  // url: localhost:8000/products?product_id=${id}
+
+  useEffect(() => {
+    fetch('/data/product.json')
+      .then(res => res.json())
+      .then(datas => setProduct(datas.find(data => data.id === Number(id))));
+  }, [id]);
+
+  return (
+    <>
+      <ProductOption product={product} userInfo={userInfo} />
+      <Aifilter />
+      <ProductDetail />
+      <ProdutcReview />
+      <Shipping />
+    </>
+  );
 };
 
 export default Product;

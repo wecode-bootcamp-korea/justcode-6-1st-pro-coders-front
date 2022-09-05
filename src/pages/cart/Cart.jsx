@@ -281,7 +281,7 @@ const LoginPage = styled.div`
   }
 `;
 
-const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
+const Cart = ({ userInfo: { access_token, user_id, isLogin } }) => {
   const [cartList, setCartList] = useState();
   const [selectList, setSelectList] = useState([]);
   const [error, setError] = useState(false);
@@ -379,7 +379,13 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
               총 <span className='red'>{cartList && cartList.length}</span>개
             </h3>
             <div className='listHeader'>
-              <div className={cartList?.length && selectList.length === cartList?.length ? 'checkboxContainer addAll' : 'checkboxContainer'}>
+              <div
+                className={
+                  cartList?.length && selectList.length === cartList?.length
+                    ? 'checkboxContainer addAll'
+                    : 'checkboxContainer'
+                }
+              >
                 <span
                   className='checkbox'
                   onClick={addAllHandler} //
@@ -396,9 +402,17 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
                 <ul className='list'>
                   {cartList && cartList.length ? (
                     cartList.map(cart => (
-                      <li key={cart.cart_id} className={selectList.includes(cart.cart_id) ? 'picked' : ''}>
+                      <li
+                        key={cart.cart_id}
+                        className={
+                          selectList.includes(cart.cart_id) ? 'picked' : ''
+                        }
+                      >
                         <div className='checkboxContainer'>
-                          <span className='checkbox' onClick={() => addSelectHandler(cart.cart_id)}>
+                          <span
+                            className='checkbox'
+                            onClick={() => addSelectHandler(cart.cart_id)}
+                          >
                             <BsCheck size={20} />
                           </span>
                         </div>
@@ -414,7 +428,9 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
                           <p>{Number(cart.duped_price).toLocaleString()}원</p>
                         </div>
                         <div className='select'>
-                          <p onClick={() => removeOneHandler(cart.cart_id)}>삭제</p>
+                          <p onClick={() => removeOneHandler(cart.cart_id)}>
+                            삭제
+                          </p>
                         </div>
                       </li>
                     ))
@@ -435,16 +451,28 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
                     <div className='cost'>
                       <h2>
                         {selectList
-                          .map(select => cartList.find(cart => cart.cart_id === select))
-                          .reduce((acc, cur) => acc + cur.count * Number(cur.duped_price), 0)
+                          .map(select =>
+                            cartList.find(cart => cart.cart_id === select)
+                          )
+                          .reduce(
+                            (acc, cur) =>
+                              acc + cur.count * Number(cur.duped_price),
+                            0
+                          )
                           .toLocaleString()}
                         원
                       </h2>
                       <h2>0원</h2>
                       <h2 className='totalCost'>
                         {selectList
-                          .map(select => cartList.find(cart => cart.cart_id === select))
-                          .reduce((acc, cur) => acc + cur.count * Number(cur.duped_price), 0)
+                          .map(select =>
+                            cartList.find(cart => cart.cart_id === select)
+                          )
+                          .reduce(
+                            (acc, cur) =>
+                              acc + cur.count * Number(cur.duped_price),
+                            0
+                          )
                           .toLocaleString()}
                         원
                       </h2>
@@ -460,7 +488,10 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
                 <ul>
                   <li>장바구니에 담긴 상품은 30일간 보관됩니다.</li>
                   <li>쿠폰은 주문/결제 페이지에서 적용됩니다.</li>
-                  <li>재고상황에 따라 사이즈 품절 및 가격/혜택이 변경될 수 있습니다.</li>
+                  <li>
+                    재고상황에 따라 사이즈 품절 및 가격/혜택이 변경될 수
+                    있습니다.
+                  </li>
                 </ul>
               </div>
               <div className='right'>
@@ -469,9 +500,15 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
                   <button>주문하기</button>
                 </div>
                 <div className='naver'>
-                  <img src='https://image.prospecs.com/front/images/renewal/naverpay_text.png' alt='' />
+                  <img
+                    src='https://image.prospecs.com/front/images/renewal/naverpay_text.png'
+                    alt=''
+                  />
                   <button>
-                    <img src='https://image.prospecs.com/front/images/renewal/icon_naverpay.svg' alt='' />
+                    <img
+                      src='https://image.prospecs.com/front/images/renewal/icon_naverpay.svg'
+                      alt=''
+                    />
                   </button>
                 </div>
               </div>
