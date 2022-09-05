@@ -156,10 +156,6 @@ const StyledShopHeader = styled.div`
 
 const ShopHeader = (loaction) => {
 	const [shoes, setShoes] = useState(null);
-	const [mainCategory, setMainCategory] = useState('대분류');
-	const [subCategory, setSubCategory] = useState('소분류');
-	const [product, setProduct] = useState('');
-
 	const [active, setActive] = useState(false);
 	const [categoryMenu, setCategorymenu] = useState([
 		{
@@ -205,14 +201,14 @@ const ShopHeader = (loaction) => {
 	]);
 	const params = new URLSearchParams(location.search)
 	let category = params.get("category")
-
-
-	const handleSelected = (e) => {
-		const newMenu = categoryMenu.map((menu) => {
-			return +e.target.id === menu.id ? { id: menu.id, text: menu.text, selected: true } : { id: menu.id, text: menu.text, selected: false };
+	const filterResult =(catItem)=>{
+		const result = categoryMenu.filter((curData)=>{
+			return curData.text === catItem;
 		});
-		setMenuList(newMenu);
-	};
+		setCategorymenu()
+	}
+
+
 
 	useEffect(() => {
 		fetch('/data/product.json')
@@ -240,19 +236,8 @@ const ShopHeader = (loaction) => {
 						<div className='item-shoes-tab'>
 							{/* 카테고리별 이동 링크 */}
 
-							{categoryMenu.map((menu) => {
-								return menu.selected ? (
-									<Link className='item-shoes-link' to={`/shop/shoes?category=${menu.text}`} key={menu.id} onClick={handleSelected}>
-										<li className='selected' id={menu.id}>
-											{menu.text}
-										</li>
-									</Link>
-								) : (
-									<Link className='item-shoes-link' to={`/shop/shoes?category=${menu.text}`} key={menu.id} onClick={handleSelected}>
-										<li id={menu.id}>{menu.text}</li>
-									</Link>
-								);
-							})}
+			
+		
 						</div>
 					</div>
 				)}
