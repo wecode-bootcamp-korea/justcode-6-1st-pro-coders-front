@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import useInfiniteSwiper from '../../../hooks/useInfiniteSwiper';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const StyledSection = styled.section`
   h3 {
@@ -130,7 +131,6 @@ const StyledSection = styled.section`
 
             h2 {
               font-size: 20px;
-              font-weight: 500;
             }
 
             p {
@@ -197,11 +197,12 @@ const ThirdSection = () => {
   const [loading, setLoading] = useState(true);
   const [performanceList, setPerformanceList] = useState();
   const [originalList, setOriginalList] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/data/shoesData.json') //
+    fetch('/data/shoesData.json') // localhost:8000/products?type=SHOES
       .then(res => res.json())
-      .then(({ data }) => {
+      .then(data => {
         setPerformanceList([data.slice(0, 5), data.slice(5, 10)]);
         setOriginalList([data.slice(10, 15), data.slice(15, 20)]);
         setLoading(false);
@@ -240,22 +241,22 @@ const ThirdSection = () => {
                   ? [performanceList[1], ...performanceList, performanceList[0]].map((perList, i) => (
                       <li key={i}>
                         <div className='firstItem'>
-                          <img src={perList[0].img} alt='' />
-                          <span className='number'>{Number(perList[0].id) + 1}</span>
+                          <img src={perList[0].main_image} alt='' onClick={() => navigate(`/product/${perList[0].id}`)} />
+                          <span className='number'>{Number(perList[0].id)}</span>
                           <div className='text'>
-                            <p>{perList[0].cate}</p>
-                            <h2>{perList[0].name}</h2>
-                            {perList[0].sale ? (
+                            <p>{perList[0].keyword}</p>
+                            <h2>{perList[0].title}</h2>
+                            {perList[0].is_discounted ? (
                               <>
-                                <p className='sale'>{perList[0].price}</p>
+                                <p className='sale'>{Number(perList[0].discounted_price).toLocaleString()}원</p>
                                 <p className='realPrice'>
-                                  <span className='red'>{perList[0].salePercent}</span>
-                                  {Number(perList[0].salePrice).toLocaleString()}원
+                                  <span className='red'>{perList[0].discount_percent}%</span>
+                                  {Number(perList[0].discounted_price).toLocaleString()}원
                                 </p>
                               </>
                             ) : (
                               <>
-                                <p className='realPrice'>{perList[0].price}</p>
+                                <p className='realPrice'>{perList[0].discounted_price}</p>
                               </>
                             )}
                           </div>
@@ -265,22 +266,22 @@ const ThirdSection = () => {
                             (per, idx) =>
                               idx > 0 && (
                                 <div className='item' key={per.id}>
-                                  <img src={per.img} alt='' />
-                                  <span className='number'>{Number(per.id) + 1}</span>
+                                  <img src={per.main_image} alt='' onClick={() => navigate(`/product/${per.id}`)} />
+                                  <span className='number'>{Number(per.id)}</span>
                                   <div className='text'>
-                                    <p>{per.cate}</p>
-                                    <h2>{per.name}</h2>
-                                    {per.sale ? (
+                                    <p>{per.keyword}</p>
+                                    <h2>{per.title}</h2>
+                                    {per.is_discounted ? (
                                       <>
-                                        <p className='sale'>{Number(per.price).toLocaleString()}원</p>
+                                        <p className='sale'>{Number(per.discounted_price).toLocaleString()}원</p>
                                         <p className='realPrice'>
-                                          <span className='red'>{per.salePercent}</span>
-                                          {Number(per.salePrice).toLocaleString()}원
+                                          <span className='red'>{per.discount_percent}%</span>
+                                          {Number(per.discounted_price).toLocaleString()}원
                                         </p>
                                       </>
                                     ) : (
                                       <>
-                                        <p className='realPrice'>{Number(per.price).toLocaleString()}원</p>
+                                        <p className='realPrice'>{Number(per.discounted_price).toLocaleString()}원</p>
                                       </>
                                     )}
                                   </div>
@@ -293,22 +294,22 @@ const ThirdSection = () => {
                   : [originalList[1], ...originalList, originalList[0]].map((perList, i) => (
                       <li key={i}>
                         <div className='firstItem'>
-                          <img src={perList[0].img} alt='' />
-                          <span className='number'>{Number(perList[0].id) + 1}</span>
+                          <img src={perList[0].main_image} alt='' onClick={() => navigate(`/product/${perList[0].id}`)} />
+                          <span className='number'>{Number(perList[0].id)}</span>
                           <div className='text'>
-                            <p>{perList[0].cate}</p>
+                            <p>{perList[0].keyword}</p>
                             <h2>{perList[0].title}</h2>
-                            {perList[0].sale ? (
+                            {perList[0].is_discounted ? (
                               <>
-                                <p className='sale'>{Number(perList[0].price).toLocaleString()}원</p>
+                                <p className='sale'>{Number(perList[0].discounted_price).toLocaleString()}원</p>
                                 <p className='realPrice'>
-                                  <span className='red'>{perList[0].salePercent}</span>
-                                  {Number(perList[0].salePrice).toLocaleString()}원
+                                  <span className='red'>{perList[0].discount_percent}%</span>
+                                  {Number(perList[0].discounted_price).toLocaleString()}원
                                 </p>
                               </>
                             ) : (
                               <>
-                                <p className='realPrice'>{perList[0].price}</p>
+                                <p className='realPrice'>{perList[0].discounted_price}</p>
                               </>
                             )}
                           </div>
@@ -318,22 +319,22 @@ const ThirdSection = () => {
                             (per, idx) =>
                               idx > 0 && (
                                 <div className='item' key={per.id}>
-                                  <img src={per.img} alt='' />
-                                  <span className='number'>{Number(per.id) + 1}</span>
+                                  <img src={per.main_image} alt='' onClick={() => navigate(`/product/${per.id}`)} />
+                                  <span className='number'>{Number(per.id)}</span>
                                   <div className='text'>
-                                    <p>{per.cate}</p>
+                                    <p>{per.keyword}</p>
                                     <h2>{per.title}</h2>
-                                    {per.sale ? (
+                                    {per.is_discounted ? (
                                       <>
-                                        <p className='sale'>{Number(per.price).toLocaleString()}원</p>
+                                        <p className='sale'>{Number(per.discounted_price).toLocaleString()}원</p>
                                         <p className='realPrice'>
-                                          <span className='red'>{per.salePercent}</span>
-                                          {Number(perList[0].salePrice).toLocaleString()}원
+                                          <span className='red'>{per.discount_percent}%</span>
+                                          {Number(perList[0].discounted_price).toLocaleString()}원
                                         </p>
                                       </>
                                     ) : (
                                       <>
-                                        <p className='realPrice'>{per.price}</p>
+                                        <p className='realPrice'>{per.discounted_price}</p>
                                       </>
                                     )}
                                   </div>

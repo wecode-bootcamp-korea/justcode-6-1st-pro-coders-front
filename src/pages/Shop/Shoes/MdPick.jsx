@@ -109,18 +109,18 @@ function MdPick({ nomination, item, index }) {
 						<img src='https://image.prospecs.com/files/upload/display/mdspick/best_badge.png/dims/optimize' alt='' />
 					</div>
 					<div className='nomination-img-box'>
-						<img src={nomination.data[index].img} alt='' />
+						<img src={nomination.data[index].cover_image} alt='' />
 					</div>
 					<div className='nomination-item-content-box'>
 						<div className='badge'>
 							<span className='gender'>
 								{/* 조건부 랜더링 : gender가 unisex면 남여 둘다 출력하고 male이면 남 을 출력해라 그것도 아니면 여를 출력해라 */}
-								{nomination.data[index].gender === 'unisex' ? (
+								{nomination.data[index].gender === 'UNISEX' ? (
 									<>
 										<span className='male'>남</span>
 										<span className='female'>여</span>
 									</>
-								) : nomination.data[index].gender === 'male' ? (
+								) : nomination.data[index].gender === 'MALE' ? (
 									<span className='male'>남</span>
 								) : (
 									<span className='female'>여</span>
@@ -128,19 +128,19 @@ function MdPick({ nomination, item, index }) {
 							</span>
 						</div>
 						<div className='nomination-item-title-box'>
-							<span className='nomination-item-title'>{nomination.data[index].name}</span>
+							<span className='nomination-item-title'>{nomination.data[index].title}</span>
 						</div>
 						<div className='nomination-item-price-box'>
 							{/* 조건부 랜더링 : sale이 false면 정상가 만 출력하고 true면 정상가에 줄을 귿고 할인가와 할인율을 보여주는 조건 */}
-							{nomination.data[index].sale === false ? (
+							{nomination.data[index].is_discounted === 0 ? (
 								<>
-									<span className='nomination-item-price-sale-off'>{nomination.data[index].price}</span>
+									<span className='nomination-item-price-sale-off'>{nomination.data[index].price}원</span>
 								</>
 							) : (
 								<>
-									<span className='nomination-item-price-sale-on'>{nomination.data[index].price}</span>
-									<span className='nomination-item-sale-price'>{nomination.data[index].salePrice}</span>
-									<span className='nomination-item-sale-percent'>{nomination.data[index].salePercent}</span>
+									<span className='nomination-item-price-sale-on'>{nomination.data[index].price}원</span>
+									<span className='nomination-item-sale-price'>{nomination.data[index].discounted_price}원</span>
+									<span className='nomination-item-sale-percent'>{nomination.data[index].discount_percent}%</span>
 								</>
 							)}
 						</div>

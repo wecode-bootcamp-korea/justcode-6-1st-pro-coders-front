@@ -3,7 +3,6 @@ import { BiChevronRight } from 'react-icons/bi';
 import { BsCheck } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { GrClose } from 'react-icons/gr';
 import { useNavigate } from 'react-router-dom';
 
 const StyledPage = styled.main`
@@ -271,7 +270,18 @@ const StyledPage = styled.main`
   }
 `;
 
-const Cart = ({ usefInfo: { access_token, user_id } }) => {
+const LoginPage = styled.div`
+  padding: 200px 0;
+  margin: 100px 0;
+  border: 1px solid black;
+  cursor: pointer;
+
+  h2 {
+    text-align: center;
+  }
+`;
+
+const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
   const [cartList, setCartList] = useState();
   const [selectList, setSelectList] = useState([]);
   const [error, setError] = useState(false);
@@ -294,26 +304,27 @@ const Cart = ({ usefInfo: { access_token, user_id } }) => {
   };
 
   useEffect(() => {
-    (async () => {
-      try {
-        // url: http://localhost:8000/cart?user_id=${user_id}
+    if (isLogin) {
+      (async () => {
+        try {
+          // url: http://localhost:8000/cart?user_id=${user_id}
+          const {
+            data: { result, cartList: cartData },
+          } = await axios.get('/data/cartData.json', {
+            headers: {
+              Authorization: access_token,
+            },
+          });
 
-        const {
-          data: { result, cartList: cartData },
-        } = await axios.get('/data/cartData.json', {
-          headers: {
-            Authorization: access_token,
-          },
-        });
-
-        setCartList(cartData);
-        setSelectList(cartData.map(cart => cart.cart_id));
-      } catch (error) {
-        console.log(error);
-        setError(true);
-      }
-    })();
-  }, []);
+          setCartList(cartData);
+          setSelectList(cartData.map(cart => cart.cart_id));
+        } catch (error) {
+          console.log(error);
+          setError(true);
+        }
+      })();
+    }
+  }, [isLogin]);
 
   const removeOneHandler = async cart_Id => {
     try {
@@ -354,115 +365,125 @@ const Cart = ({ usefInfo: { access_token, user_id } }) => {
   return (
     <StyledPage>
       <div className='container'>
-        <div className='step'>
-          <p>장바구니</p>
-          <BiChevronRight />
-          <p>주문결제</p>
-          <BiChevronRight />
-          <p>주문완료</p>
-        </div>
-        <h2>장바구니</h2>
-        <h3>
-          총 <span className='red'>{cartList && cartList.length}</span>개
-        </h3>
-        <div className='listHeader'>
-          <div className={cartList?.length && selectList.length === cartList?.length ? 'checkboxContainer addAll' : 'checkboxContainer'}>
-            <span
-              className='checkbox'
-              onClick={addAllHandler} //
-            >
-              <BsCheck size={20} />
-            </span>
-          </div>
-          <p className='itemDetail'>상품/옵션 정보</p>
-          <p className='saleDetail'>판매정보</p>
-          <p className='select'>선택</p>
-        </div>
-        {!error ? (
+        {isLogin ? (
           <>
-            <ul className='list'>
-              {cartList && cartList.length ? (
-                cartList.map(cart => (
-                  <li key={cart.cart_id} className={selectList.includes(cart.cart_id) ? 'picked' : ''}>
-                    <div className='checkboxContainer'>
-                      <span className='checkbox' onClick={() => addSelectHandler(cart.cart_id)}>
-                        <BsCheck size={20} />
-                      </span>
-                    </div>
-                    <div className='itemDetail'>
-                      <div className='text'>
-                        <p>{cart.title}</p>
-                        <p className='option'>
-                          {cart.size} | {cart.color} | 수량: {cart.count}
-                        </p>
-                      </div>
-                    </div>
-                    <div className='saleDetail'>
-                      <p>{Number(cart.duped_price).toLocaleString()}원</p>
-                    </div>
-                    <div className='select'>
-                      <p onClick={() => removeOneHandler(cart.cart_id)}>삭제</p>
-                    </div>
-                  </li>
-                ))
-              ) : (
-                <></>
-              )}
-            </ul>
-            <div className='removeContainer'>
-              <button onClick={removeAllHandler}>전체 삭제</button>
+            <div className='step'>
+              <p>장바구니</p>
+              <BiChevronRight />
+              <p>주문결제</p>
+              <BiChevronRight />
+              <p>주문완료</p>
             </div>
-            {cartList && (
-              <div className='total'>
-                <div className='text'>
-                  <p>총 상품금액</p>
-                  <p>배송비</p>
-                  <p>총 주문금액</p>
+            <h2>장바구니</h2>
+            <h3>
+              총 <span className='red'>{cartList && cartList.length}</span>개
+            </h3>
+            <div className='listHeader'>
+              <div className={cartList?.length && selectList.length === cartList?.length ? 'checkboxContainer addAll' : 'checkboxContainer'}>
+                <span
+                  className='checkbox'
+                  onClick={addAllHandler} //
+                >
+                  <BsCheck size={20} />
+                </span>
+              </div>
+              <p className='itemDetail'>상품/옵션 정보</p>
+              <p className='saleDetail'>판매정보</p>
+              <p className='select'>선택</p>
+            </div>
+            {!error ? (
+              <>
+                <ul className='list'>
+                  {cartList && cartList.length ? (
+                    cartList.map(cart => (
+                      <li key={cart.cart_id} className={selectList.includes(cart.cart_id) ? 'picked' : ''}>
+                        <div className='checkboxContainer'>
+                          <span className='checkbox' onClick={() => addSelectHandler(cart.cart_id)}>
+                            <BsCheck size={20} />
+                          </span>
+                        </div>
+                        <div className='itemDetail'>
+                          <div className='text'>
+                            <p>{cart.title}</p>
+                            <p className='option'>
+                              {cart.size} | {cart.color} | 수량: {cart.count}
+                            </p>
+                          </div>
+                        </div>
+                        <div className='saleDetail'>
+                          <p>{Number(cart.duped_price).toLocaleString()}원</p>
+                        </div>
+                        <div className='select'>
+                          <p onClick={() => removeOneHandler(cart.cart_id)}>삭제</p>
+                        </div>
+                      </li>
+                    ))
+                  ) : (
+                    <></>
+                  )}
+                </ul>
+                <div className='removeContainer'>
+                  <button onClick={removeAllHandler}>전체 삭제</button>
                 </div>
-                <div className='cost'>
-                  <h2>
-                    {selectList
-                      .map(select => cartList.find(cart => cart.cart_id === select))
-                      .reduce((acc, cur) => acc + cur.count * Number(cur.duped_price), 0)
-                      .toLocaleString()}
-                    원
-                  </h2>
-                  <h2>0원</h2>
-                  <h2 className='totalCost'>
-                    {selectList
-                      .map(select => cartList.find(cart => cart.cart_id === select))
-                      .reduce((acc, cur) => acc + cur.count * Number(cur.duped_price), 0)
-                      .toLocaleString()}
-                    원
-                  </h2>
+                {cartList && (
+                  <div className='total'>
+                    <div className='text'>
+                      <p>총 상품금액</p>
+                      <p>배송비</p>
+                      <p>총 주문금액</p>
+                    </div>
+                    <div className='cost'>
+                      <h2>
+                        {selectList
+                          .map(select => cartList.find(cart => cart.cart_id === select))
+                          .reduce((acc, cur) => acc + cur.count * Number(cur.duped_price), 0)
+                          .toLocaleString()}
+                        원
+                      </h2>
+                      <h2>0원</h2>
+                      <h2 className='totalCost'>
+                        {selectList
+                          .map(select => cartList.find(cart => cart.cart_id === select))
+                          .reduce((acc, cur) => acc + cur.count * Number(cur.duped_price), 0)
+                          .toLocaleString()}
+                        원
+                      </h2>
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <h2>카트 정보를 불러오는데 실패하였습니다</h2>
+            )}
+            <div className='des'>
+              <div className='left'>
+                <ul>
+                  <li>장바구니에 담긴 상품은 30일간 보관됩니다.</li>
+                  <li>쿠폰은 주문/결제 페이지에서 적용됩니다.</li>
+                  <li>재고상황에 따라 사이즈 품절 및 가격/혜택이 변경될 수 있습니다.</li>
+                </ul>
+              </div>
+              <div className='right'>
+                <div className='up'>
+                  <button onClick={() => navigate('/')}>쇼핑 계속하기</button>
+                  <button>주문하기</button>
+                </div>
+                <div className='naver'>
+                  <img src='https://image.prospecs.com/front/images/renewal/naverpay_text.png' alt='' />
+                  <button>
+                    <img src='https://image.prospecs.com/front/images/renewal/icon_naverpay.svg' alt='' />
+                  </button>
                 </div>
               </div>
-            )}
+            </div>
           </>
         ) : (
-          <h2>카트 정보를 불러오는데 실패하였습니다</h2>
+          <>
+            <LoginPage onClick={() => navigate('/')}>
+              <h2>로그인을 먼저 해주세요!</h2>
+            </LoginPage>
+          </>
         )}
-        <div className='des'>
-          <div className='left'>
-            <ul>
-              <li>장바구니에 담긴 상품은 30일간 보관됩니다.</li>
-              <li>쿠폰은 주문/결제 페이지에서 적용됩니다.</li>
-              <li>재고상황에 따라 사이즈 품절 및 가격/혜택이 변경될 수 있습니다.</li>
-            </ul>
-          </div>
-          <div className='right'>
-            <div className='up'>
-              <button onClick={() => navigate('/')}>쇼핑 계속하기</button>
-              <button>주문하기</button>
-            </div>
-            <div className='naver'>
-              <img src='https://image.prospecs.com/front/images/renewal/naverpay_text.png' alt='' />
-              <button>
-                <img src='https://image.prospecs.com/front/images/renewal/icon_naverpay.svg' alt='' />
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </StyledPage>
   );
