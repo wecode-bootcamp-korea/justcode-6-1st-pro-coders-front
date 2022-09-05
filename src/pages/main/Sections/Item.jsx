@@ -77,8 +77,8 @@ const StyledItem = styled.li`
 const Item = ({ item: { id, title, keyword, discount_percent, discounted_price, is_discounted, main_image, gender }, length }) => {
   const navigate = useNavigate();
   return (
-    <StyledItem length={length} onClick={() => navigate(`/product/${id}`)}>
-      <div className='imgContainer'>
+    <StyledItem length={length}>
+      <div className='imgContainer' onClick={() => navigate(`/product/${id}`)}>
         <img src={main_image} alt='' />
       </div>
       <p className='strong'>{keyword}</p>

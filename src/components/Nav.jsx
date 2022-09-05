@@ -164,7 +164,7 @@ const StyledNav = styled.nav`
 
         &:last-of-type {
           div.inner {
-            background-image: url('./nav/img/gnb_banner_smartfit.png');
+            background-image: url(${`${import.meta.env.BASE_URL}public/nav/img/gnb_banner_smartfit.png`});
             background-size: auto 270px;
 
             div.innerContainer {

@@ -240,8 +240,8 @@ const ThirdSection = () => {
                 (mode === 1
                   ? [performanceList[1], ...performanceList, performanceList[0]].map((perList, i) => (
                       <li key={i}>
-                        <div className='firstItem' onClick={() => navigate(`/product/${perList[0].id}`)}>
-                          <img src={perList[0].main_image} alt='' />
+                        <div className='firstItem'>
+                          <img src={perList[0].main_image} alt='' onClick={() => navigate(`/product/${perList[0].id}`)} />
                           <span className='number'>{Number(perList[0].id)}</span>
                           <div className='text'>
                             <p>{perList[0].keyword}</p>
@@ -265,8 +265,8 @@ const ThirdSection = () => {
                           {perList.map(
                             (per, idx) =>
                               idx > 0 && (
-                                <div className='item' key={per.id} onClick={() => navigate(`/product/${per.id}`)}>
-                                  <img src={per.main_image} alt='' />
+                                <div className='item' key={per.id}>
+                                  <img src={per.main_image} alt='' onClick={() => navigate(`/product/${per.id}`)} />
                                   <span className='number'>{Number(per.id)}</span>
                                   <div className='text'>
                                     <p>{per.keyword}</p>
@@ -293,8 +293,8 @@ const ThirdSection = () => {
                     ))
                   : [originalList[1], ...originalList, originalList[0]].map((perList, i) => (
                       <li key={i}>
-                        <div className='firstItem' onClick={() => navigate(`/product/${perList[0].id}`)}>
-                          <img src={perList[0].main_image} alt='' />
+                        <div className='firstItem'>
+                          <img src={perList[0].main_image} alt='' onClick={() => navigate(`/product/${perList[0].id}`)} />
                           <span className='number'>{Number(perList[0].id)}</span>
                           <div className='text'>
                             <p>{perList[0].keyword}</p>
@@ -318,8 +318,8 @@ const ThirdSection = () => {
                           {perList.map(
                             (per, idx) =>
                               idx > 0 && (
-                                <div className='item' key={per.id} onClick={() => navigate(`/product/${per.id}`)}>
-                                  <img src={per.main_image} alt='' />
+                                <div className='item' key={per.id}>
+                                  <img src={per.main_image} alt='' onClick={() => navigate(`/product/${per.id}`)} />
                                   <span className='number'>{Number(per.id)}</span>
                                   <div className='text'>
                                     <p>{per.keyword}</p>

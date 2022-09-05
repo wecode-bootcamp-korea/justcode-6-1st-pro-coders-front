@@ -94,8 +94,8 @@ const SecondSection = () => {
           <ul className='list' ref={swipedTarget}>
             {!loading &&
               list.map(item => (
-                <li key={item.id} onClick={() => navigate(`/product/${item.id}`)}>
-                  <img src={item.main_image} alt='' />
+                <li key={item.id}>
+                  <img src={item.main_image} alt='' onClick={() => navigate(`/product/${item.id}`)} />
                   <p>{item.title}</p>
                   <h4>{Number(item.discounted_price).toLocaleString()}원</h4>
                 </li>

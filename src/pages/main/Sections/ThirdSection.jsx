@@ -120,8 +120,8 @@ const categories = [
   { id: 3, name: '스니커즈' },
   { id: 4, name: '샌들/슬리퍼' },
   { id: 5, name: '스포츠화' },
-  { id: 5, name: '아동화' },
-  { id: 6, name: '기타' },
+  { id: 6, name: '아동화' },
+  { id: 7, name: '기타' },
 ];
 
 const ThirdSection = () => {
@@ -162,7 +162,7 @@ const ThirdSection = () => {
           ))}
         </ul>
         <div className='listContainer'>
-          <ul className='items' ref={swipedTarget}>
+          <ul onClick={() => console.log(itemList)} className='items' ref={swipedTarget}>
             {itemList[menu].map(item => (
               <Item key={item.id} item={item} length={itemList[menu].length} />
             ))}
