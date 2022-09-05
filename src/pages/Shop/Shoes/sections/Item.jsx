@@ -194,7 +194,7 @@ function Item() {
 	const [subCategory, setSubCategory] = useState('소분류');
 	const [product, setProduct] = useState('상품종류');
 	const [toggle, setToggle] = useState(false);
-	// const id = useParams();
+
 
 	useEffect(() => {
 		fetch('/data/product.json')
@@ -204,7 +204,6 @@ function Item() {
 			});
 	}, []);
 
-	console.log();
 
 	return (
 		<>
@@ -244,7 +243,6 @@ function Item() {
 
 						{productdata &&
 							productdata.data.map((item, index) => {
-								console.log(item);
 								return (
 									<Link to={`/product/${item.id}`}>
 										<ItemBox productdata={productdata} item={item} index={index} />

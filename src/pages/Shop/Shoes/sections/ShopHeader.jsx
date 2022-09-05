@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import AllShoes from '../AllShoes';
+
 
 const StyledShopHeader = styled.div`
 	.item-header-inner-box {
@@ -154,12 +154,12 @@ const StyledShopHeader = styled.div`
 	}
 `;
 
-const ShopHeader = () => {
+const ShopHeader = (loaction) => {
 	const [shoes, setShoes] = useState(null);
 	const [mainCategory, setMainCategory] = useState('대분류');
 	const [subCategory, setSubCategory] = useState('소분류');
 	const [product, setProduct] = useState('');
-	const { category } = useParams();
+
 	const [active, setActive] = useState(false);
 	const [categoryMenu, setCategorymenu] = useState([
 		{
@@ -203,6 +203,9 @@ const ShopHeader = () => {
 			selected: false,
 		},
 	]);
+	const params = new URLSearchParams(location.search)
+	let category = params.get("category")
+
 
 	const handleSelected = (e) => {
 		const newMenu = categoryMenu.map((menu) => {
@@ -227,7 +230,7 @@ const ShopHeader = () => {
 						<div className='item-breadcrumb'>
 							{/* 제품분류 [HOME > 대분류 > 소분류] */}
 							<span className='item-category-home'>HOME</span>
-							<span className='item-main-category'>{shoes.data[0].type}</span>
+							<span className='item-main-category'>SHOES</span>
 							<span className='item-sub-category'>{category}</span>
 						</div>
 						<div className='item-sub-title'>
