@@ -325,14 +325,8 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
           });
 
           setUserInfo({
+            ...user,
             isLogin: true,
-            email: user.email,
-            name: user.name,
-            phone_number: user.phone_number,
-            date_of_birth: user.date_of_birth,
-            gender: user.gender,
-            access_token: user.access_token,
-            user_id: user.user_id,
           });
           setDisabled(false);
         } catch (error) {
