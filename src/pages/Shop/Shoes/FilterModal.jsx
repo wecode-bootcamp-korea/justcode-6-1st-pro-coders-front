@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+
 
 const StyledFilter = styled.div`
 	.filter-modal-inner-box {
@@ -945,13 +947,14 @@ const StyledFilter = styled.div`
 	}
 `;
 
-function FilterModal() {
+function FilterModal({toggle,setToggle}) {
 	return (
 		<StyledFilter>
 			<div className='filter-modal-inner-box'>
 				<div className='filter-modal-header'>
 					<span className='modal-header-text-style'>필터검색</span>
-					<span className='modal-header-close-btn'>X</span>
+					<span className='modal-header-close-btn' onClick={()=>{setToggle(false)}}
+					>X</span>
 				</div>
 				<ul className='filter-modal-list'>
 					{/* 성별 */}

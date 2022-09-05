@@ -16,6 +16,12 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     outline: none;
   }
+  .hidden{
+    position: relative;
+    top: -99999999999px;
+    opacity: 0;
+    overflow: hidden;
+  }
 `;
 
 export default GlobalStyle;
