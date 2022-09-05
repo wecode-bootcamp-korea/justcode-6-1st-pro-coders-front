@@ -94,8 +94,8 @@ const SecondSection = () => {
               list.map(item => (
                 <li key={item.id}>
                   <img src={item.img} alt='' />
-                  <p>{item.name}</p>
-                  <h4>{item.price}</h4>
+                  <p>{item.title}</p>
+                  <h4>{Number(item.price).toLocaleString()}원</h4>
                 </li>
               ))}
           </ul>
