@@ -210,7 +210,6 @@ function Item() {
 			});
 	}, []);
 	
-  console.log(productdata);
 	
 
 	return (

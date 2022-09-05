@@ -14,9 +14,9 @@
             "coupon": 1,
             "main_image": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S211/PR0UR22S211_01.jpg/dims/resizef/1024x1024/optimize",
             "sub_image": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S211/PR0UR22S211_02.jpg/dims/resizef/1024x1024/optimize",
-            "back-image": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S211/PR0UR22S211_04.jpg/dims/resizef/1024x1024/optimize",
-            "high-image": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S211/PR0UR22S211_D01.jpg/dims/resizef/1024x1024/optimize",
-            "cover-image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PR0UR22S211_w.png/dims/optimize"
+            "backimage": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S211/PR0UR22S211_04.jpg/dims/resizef/1024x1024/optimize",
+            "high_image": "https://img.prospecs.com/prod/PR0UR22/PR0UR22S211/PR0UR22S211_D01.jpg/dims/resizef/1024x1024/optimize",
+            "cover_image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PR0UR22S211_w.png/dims/optimize"
         },
         {
             "id": 1,
@@ -32,9 +32,9 @@
             "coupon": 1,
             "main_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S331/PW0UW22S331_01.jpg/dims/resizef/1024x1024/optimize",
             "sub_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S331/PW0UW22S331_02.jpg/dims/resizef/1024x1024/optimize",
-            "back-image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S331/PW0UW22S331_03.jpg/dims/resizef/1024x1024/optimize",
-            "high-image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S331/PW0UW22S331_D01.jpg/dims/resizef/1024x1024/optimize",
-            "cover-image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0UW22S331_w.png/dims/optimize"
+            "back_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S331/PW0UW22S331_03.jpg/dims/resizef/1024x1024/optimize",
+            "high_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S331/PW0UW22S331_D01.jpg/dims/resizef/1024x1024/optimize",
+            "cover_image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0UW22S331_w.png/dims/optimize"
         },
         {
             "id": 2,
@@ -50,9 +50,9 @@
             "coupon": 1,
             "main_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S552/PW0UW22S552_01.jpg/dims/resizef/1024x1024/optimize",
             "sub_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S552/PW0UW22S552_02.jpg/dims/resizef/1024x1024/optimize",
-            "back-image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S552/PW0UW22S552_03.jpg/dims/resizef/1024x1024/optimize",
-            "high-image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S552/PW0UW22S552_D01.jpg/dims/resizef/1024x1024/optimize",
-            "cover-image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0UW22S552_w.png/dims/optimize"
+            "back_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S552/PW0UW22S552_03.jpg/dims/resizef/1024x1024/optimize",
+            "high_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S552/PW0UW22S552_D01.jpg/dims/resizef/1024x1024/optimize",
+            "cover_image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0UW22S552_w.png/dims/optimize"
         },
         {
             "id": 3,
@@ -68,9 +68,9 @@
             "coupon": 1,
             "main_image": "https://img.prospecs.com/prod/PW0WW22/PW0WW22S303/PW0WW22S303_01.jpg/dims/resizef/1024x1024/optimize",
             "sub_image": "https://img.prospecs.com/prod/PW0WW22/PW0WW22S303/PW0WW22S303_02.jpg/dims/resizef/1024x1024/optimize",
-            "back-image": "https://img.prospecs.com/prod/PW0WW22/PW0WW22S303/PW0WW22S303_03.jpg/dims/resizef/1024x1024/optimize",
-            "high-image": "https://img.prospecs.com/prod/PW0WW22/PW0WW22S303/PW0WW22S303_D01.jpg/dims/resizef/1024x1024/optimize",
-            "cover-image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0WW22S303_w.png/dims/optimize"
+            "back_image": "https://img.prospecs.com/prod/PW0WW22/PW0WW22S303/PW0WW22S303_03.jpg/dims/resizef/1024x1024/optimize",
+            "high_image": "https://img.prospecs.com/prod/PW0WW22/PW0WW22S303/PW0WW22S303_D01.jpg/dims/resizef/1024x1024/optimize",
+            "cover_image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0WW22S303_w.png/dims/optimize"
         },
         {
             "id": 4,
@@ -86,9 +86,9 @@
             "coupon": 1,
             "main_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S344/PW0UW22S344_01.jpg/dims/resizef/1024x1024/optimize",
             "sub_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S344/PW0UW22S344_02.jpg/dims/resizef/1024x1024/optimize",
-            "back-image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S344/PW0UW22S344_03.jpg/dims/resizef/1024x1024/optimize",
-            "high-image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S344/PW0UW22S344_D01.jpg/dims/resizef/1024x1024/optimize",
-            "cover-image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0UW22S344_w.png/dims/optimize"
+            "back_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S344/PW0UW22S344_03.jpg/dims/resizef/1024x1024/optimize",
+            "high_image": "https://img.prospecs.com/prod/PW0UW22/PW0UW22S344/PW0UW22S344_D01.jpg/dims/resizef/1024x1024/optimize",
+            "cover_image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PW0UW22S344_w.png/dims/optimize"
         },
         {
             "id": 5,
@@ -104,9 +104,9 @@
             "coupon": 1,
             "main_image": "https://img.prospecs.com/prod/PS0MP22/PS0MP22S551/PS0MP22S551_01.jpg/dims/resizef/1024x1024/optimize",
             "sub_image": "https://img.prospecs.com/prod/PS0MP22/PS0MP22S551/PS0MP22S551_02.jpg/dims/resizef/1024x1024/optimize",
-            "back-image": "https://img.prospecs.com/prod/PS0MP22/PS0MP22S551/PS0MP22S551_03.jpg/dims/resizef/1024x1024/optimize",
-            "high-image": "https://img.prospecs.com/prod/PS0MP22/PS0MP22S551/PS0MP22S551_D01.jpg/dims/resizef/1024x1024/optimize",
-            "cover-image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PS0MP22S551_w.png/dims/optimize"
+            "back_image": "https://img.prospecs.com/prod/PS0MP22/PS0MP22S551/PS0MP22S551_03.jpg/dims/resizef/1024x1024/optimize",
+            "high_image": "https://img.prospecs.com/prod/PS0MP22/PS0MP22S551/PS0MP22S551_D01.jpg/dims/resizef/1024x1024/optimize",
+            "cover_image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PS0MP22S551_w.png/dims/optimize"
         },
         {
             "id": 6,
@@ -122,9 +122,9 @@
             "coupon": 1,
             "main_image": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S412/PS0WP22S412_01.jpg/dims/resizef/1024x1024/optimize",
             "sub_image": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S412/PS0WP22S412_02.jpg/dims/resizef/1024x1024/optimize",
-            "back-image": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S412/PS0WP22S412_03.jpg/dims/resizef/1024x1024/optimize",
-            "high-image": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S412/PS0WP22S412_D01.jpg/dims/resizef/1024x1024/optimize",
-            "cover-image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PS0WP22S412_w.png/dims/optimize"
+            "back_image": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S412/PS0WP22S412_03.jpg/dims/resizef/1024x1024/optimize",
+            "high_image": "https://img.prospecs.com/prod/PS0WP22/PS0WP22S412/PS0WP22S412_D01.jpg/dims/resizef/1024x1024/optimize",
+            "cover_image" : "https://image.prospecs.com/files/upload/display/mdspick/14606/202206/PS0WP22S412_w.png/dims/optimize"
         }
 
     ]
