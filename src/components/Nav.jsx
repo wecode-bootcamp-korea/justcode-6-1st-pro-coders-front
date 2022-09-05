@@ -389,7 +389,7 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
 
   return (
     <>
-      {modal && <LoginModal setModal={setModal} />}
+      {modal && <LoginModal setModal={setModal} setUserInfo={setUserInfo} />}
       <StyledNav //
         search={search}
         isScrollDown={isScrollDown}

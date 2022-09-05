@@ -362,8 +362,6 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
     }
   };
 
-  // 로그인 안했을때 따로 처리해야함
-
   return (
     <StyledPage>
       <div className='container'>
