@@ -73,28 +73,18 @@ const StyledItem = styled.li`
   }
 `;
 
-const Item = ({ item: { name, cate, price, salePercent, salePrice, sale, img, gender }, length }) => {
+const Item = ({ item: { title, category, price, salePercent, salePrice, sale, main_image, gender }, length }) => {
   return (
     <StyledItem length={length}>
       <div className='imgContainer'>
-        <img src={img} alt='' />
+        <img src={main_image} alt='' />
       </div>
-      <p className='strong'>{cate}</p>
-      <h4>{name}</h4>
-      {sale ? (
-        <>
-          <p className='price'>{Number(price).toLocaleString()}원</p>
-          <p className='realPrice'>
-            <span className='red'>{salePercent}</span> {Number(salePrice).toLocaleString()}원
-          </p>
-        </>
-      ) : (
-        <p className='realPrice'>{Number(price).toLocaleString()}원</p>
-      )}
+      <p className='strong'>{category}</p>
+      <h4>{title}</h4>
       <div className='gender'>
-        {gender[0] === 'm' && <span className='male'>남</span>}
-        {gender[0] === 'f' && <span className='female'>여</span>}
-        {gender[0] === 'u' && (
+        {gender[0] === 'M' && <span className='male'>남</span>}
+        {gender[0] === 'F' && <span className='female'>여</span>}
+        {gender[0] === 'U' && (
           <>
             <span className='male'>남</span>
             <span className='female'>여</span>

@@ -201,7 +201,7 @@ const ThirdSection = () => {
   useEffect(() => {
     fetch('/data/shoesData.json') //
       .then(res => res.json())
-      .then(({ data }) => {
+      .then(data => {
         setPerformanceList([data.slice(0, 5), data.slice(5, 10)]);
         setOriginalList([data.slice(10, 15), data.slice(15, 20)]);
         setLoading(false);
@@ -240,14 +240,14 @@ const ThirdSection = () => {
                   ? [performanceList[1], ...performanceList, performanceList[0]].map((perList, i) => (
                       <li key={i}>
                         <div className='firstItem'>
-                          <img src={perList[0].img} alt='' />
+                          <img src={perList[0].main_image} alt='' />
                           <span className='number'>{Number(perList[0].id) + 1}</span>
                           <div className='text'>
-                            <p>{perList[0].cate}</p>
-                            <h2>{perList[0].name}</h2>
+                            <p>{perList[0].category}</p>
+                            <h2>{perList[0].title}</h2>
                             {perList[0].sale ? (
                               <>
-                                <p className='sale'>{perList[0].price}</p>
+                                <p className='sale'>{perList[0].discounted_price}</p>
                                 <p className='realPrice'>
                                   <span className='red'>{perList[0].salePercent}</span>
                                   {Number(perList[0].salePrice).toLocaleString()}원
@@ -255,7 +255,7 @@ const ThirdSection = () => {
                               </>
                             ) : (
                               <>
-                                <p className='realPrice'>{perList[0].price}</p>
+                                <p className='realPrice'>{perList[0].discounted_price}</p>
                               </>
                             )}
                           </div>
@@ -265,24 +265,12 @@ const ThirdSection = () => {
                             (per, idx) =>
                               idx > 0 && (
                                 <div className='item' key={per.id}>
-                                  <img src={per.img} alt='' />
+                                  <img src={per.main_image} alt='' />
                                   <span className='number'>{Number(per.id) + 1}</span>
                                   <div className='text'>
-                                    <p>{per.cate}</p>
-                                    <h2>{per.name}</h2>
-                                    {per.sale ? (
-                                      <>
-                                        <p className='sale'>{Number(per.price).toLocaleString()}원</p>
-                                        <p className='realPrice'>
-                                          <span className='red'>{per.salePercent}</span>
-                                          {Number(per.salePrice).toLocaleString()}원
-                                        </p>
-                                      </>
-                                    ) : (
-                                      <>
-                                        <p className='realPrice'>{Number(per.price).toLocaleString()}원</p>
-                                      </>
-                                    )}
+                                    <p>{per.category}</p>
+                                    <h2>{per.title}</h2>
+                                    <p className='realPrice'>{Number(per.discounted_price).toLocaleString()}원</p>
                                   </div>
                                 </div>
                               )
@@ -293,24 +281,15 @@ const ThirdSection = () => {
                   : [originalList[1], ...originalList, originalList[0]].map((perList, i) => (
                       <li key={i}>
                         <div className='firstItem'>
-                          <img src={perList[0].img} alt='' />
+                          <img src={perList[0].main_image} alt='' />
                           <span className='number'>{Number(perList[0].id) + 1}</span>
                           <div className='text'>
-                            <p>{perList[0].cate}</p>
+                            <p>{perList[0].category}</p>
                             <h2>{perList[0].title}</h2>
-                            {perList[0].sale ? (
-                              <>
-                                <p className='sale'>{Number(perList[0].price).toLocaleString()}원</p>
-                                <p className='realPrice'>
-                                  <span className='red'>{perList[0].salePercent}</span>
-                                  {Number(perList[0].salePrice).toLocaleString()}원
-                                </p>
-                              </>
-                            ) : (
-                              <>
-                                <p className='realPrice'>{perList[0].price}</p>
-                              </>
-                            )}
+
+                            <>
+                              <p className='realPrice'>{perList[0].discounted_price}</p>
+                            </>
                           </div>
                         </div>
                         <div className='otherItems'>
@@ -318,24 +297,12 @@ const ThirdSection = () => {
                             (per, idx) =>
                               idx > 0 && (
                                 <div className='item' key={per.id}>
-                                  <img src={per.img} alt='' />
+                                  <img src={per.main_image} alt='' />
                                   <span className='number'>{Number(per.id) + 1}</span>
                                   <div className='text'>
-                                    <p>{per.cate}</p>
+                                    <p>{per.category}</p>
                                     <h2>{per.title}</h2>
-                                    {per.sale ? (
-                                      <>
-                                        <p className='sale'>{Number(per.price).toLocaleString()}원</p>
-                                        <p className='realPrice'>
-                                          <span className='red'>{per.salePercent}</span>
-                                          {Number(perList[0].salePrice).toLocaleString()}원
-                                        </p>
-                                      </>
-                                    ) : (
-                                      <>
-                                        <p className='realPrice'>{per.price}</p>
-                                      </>
-                                    )}
+                                    <p className='realPrice'>{per.discounted_price}</p>
                                   </div>
                                 </div>
                               )
