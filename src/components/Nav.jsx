@@ -164,7 +164,7 @@ const StyledNav = styled.nav`
 
         &:last-of-type {
           div.inner {
-            background-image: url(${`${import.meta.env.BASE_URL}public/nav/img/gnb_banner_smartfit.png`});
+            background-image: url('/nav/img/gnb_banner_smartfit.png');
             background-size: auto 270px;
 
             div.innerContainer {
@@ -397,7 +397,7 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
         isMain={isMain}
       >
         <div className='container'>
-          <img src={`${import.meta.env.BASE_URL}public/images/logo-white.svg`} className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
+          <img src='/images/logo-white.svg' className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
 
           <ul className='gnb'>
             <li>
@@ -703,10 +703,10 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
 
           <ul className='gnb2'>
             <li>
-              <img src={`${import.meta.env.BASE_URL}public/nav/icon/icon_search_white.svg`} className='logo' alt='logo' onClick={() => setSearch(!search)} />
+              <img src='/nav/icon/icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
             </li>
             <li>
-              <img src={`${import.meta.env.BASE_URL}public/nav/icon/icon_cart_white.svg`} className='logo' alt='logo' onClick={() => navigate('/cart')} />
+              <img src='/nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/cart')} />
             </li>
             <li>
               {isLogin ? ( //
@@ -728,7 +728,7 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
                   type='text'
                   placeholder='구매 상품평 작성하면 최대 3천 포인트'
                 />
-                {inputValue && <img src={`${import.meta.env.BASE_URL}public/nav/icon/icon_search_close.svg`} alt='close' onClick={clearHandler} />}
+                {inputValue && <img src='/nav/icon/icon_search_close.svg' alt='close' onClick={clearHandler} />}
               </div>
               <button>검색</button>
             </form>
@@ -748,7 +748,7 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
                 <li>원더 쿨</li>
                 <li>모자</li>
               </ul>
-              <img src={`${import.meta.env.BASE_URL}public/nav/img/search_add.png`} alt='search banner' />
+              <img src='/nav/img/search_add.png' alt='search banner' />
             </div>
           </div>
         </div>
