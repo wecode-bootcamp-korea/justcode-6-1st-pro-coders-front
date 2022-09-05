@@ -18,19 +18,17 @@ import Search from './pages/search/Search';
 import Product from './pages/product/Product';
 import AllShoes from './pages/Shop/Shoes/AllShoes';
 
-
-
 const App = () => {
-	const [usefInfo, setUserInfo] = useState({
-		isLogin: false,
-		email: '',
-		name: '',
-		phone_number: '',
-		date_of_birth: '',
-		gender: '',
-		access_token: '',
-		user_id: '',
-	});
+  const [usefInfo, setUserInfo] = useState({
+    isLogin: false,
+    email: '',
+    name: '',
+    phone_number: '',
+    date_of_birth: '',
+    gender: '',
+    access_token: '',
+    user_id: '',
+  });
 
   return (
     <>
@@ -46,7 +44,10 @@ const App = () => {
           <Route path='/archive' element={<Archive />} />
           <Route path='/smartfit' element={<SmartFit />} />
           <Route path='/store' element={<Store />} />
-          <Route path='/signup' element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />} />
+          <Route
+            path='/signup'
+            element={<SignUp usefInfo={usefInfo} setUserInfo={setUserInfo} />}
+          />
           <Route path='/cart' element={<Cart usefInfo={usefInfo} />} />
           <Route path='/search' element={<Search />} />
         </Routes>
