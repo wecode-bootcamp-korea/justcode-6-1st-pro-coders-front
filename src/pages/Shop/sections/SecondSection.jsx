@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import useSwiper from '../../../hooks/useSwiper';
 
@@ -70,9 +71,10 @@ const SecondSection = () => {
   const [list, setList] = useState();
   const [loading, setLoading] = useState(true);
   const { swipedTarget, page } = useSwiper(18, 4);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/data/shoesData.json') //
+    fetch('/data/shoesData.json') // localhost:8000/products?type=SHOES
       .then(re => re.json())
       .then(data => {
         setList(data.slice(0, 20));
@@ -92,7 +94,7 @@ const SecondSection = () => {
           <ul className='list' ref={swipedTarget}>
             {!loading &&
               list.map(item => (
-                <li key={item.id}>
+                <li key={item.id} onClick={() => navigate(`/product/${item.id}`)}>
                   <img src={item.main_image} alt='' />
                   <p>{item.title}</p>
                   <h4>{Number(item.discounted_price).toLocaleString()}원</h4>

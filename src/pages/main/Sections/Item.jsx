@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledItem = styled.li`
@@ -73,18 +74,29 @@ const StyledItem = styled.li`
   }
 `;
 
-const Item = ({ item: { title, category, price, salePercent, salePrice, sale, main_image, gender }, length }) => {
+const Item = ({ item: { id, title, keyword, discount_percent, discounted_price, is_discounted, main_image, gender }, length }) => {
+  const navigate = useNavigate();
   return (
-    <StyledItem length={length}>
+    <StyledItem length={length} onClick={() => navigate(`/product/${id}`)}>
       <div className='imgContainer'>
         <img src={main_image} alt='' />
       </div>
-      <p className='strong'>{category}</p>
+      <p className='strong'>{keyword}</p>
       <h4>{title}</h4>
+      {is_discounted ? (
+        <>
+          <p className='price'>{Number(discounted_price).toLocaleString()}원</p>
+          <p className='realPrice'>
+            <span className='red'>{discount_percent}%</span> {Number(discounted_price).toLocaleString()}원
+          </p>
+        </>
+      ) : (
+        <p className='realPrice'>{Number(discounted_price).toLocaleString()}원</p>
+      )}
       <div className='gender'>
-        {gender[0] === 'M' && <span className='male'>남</span>}
-        {gender[0] === 'F' && <span className='female'>여</span>}
-        {gender[0] === 'U' && (
+        {gender[0] === 'm' && <span className='male'>남</span>}
+        {gender[0] === 'f' && <span className='female'>여</span>}
+        {gender[0] === 'u' && (
           <>
             <span className='male'>남</span>
             <span className='female'>여</span>

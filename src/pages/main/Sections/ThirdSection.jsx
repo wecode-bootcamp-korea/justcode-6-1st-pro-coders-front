@@ -137,9 +137,7 @@ const ThirdSection = () => {
       const shuffledData = categories.sort(() => Math.random() - 0.5).slice(0, 4);
       setKeywordList(shuffledData);
 
-      // GET /products
-      // url 수정해야함
-      const itemsData = (await axios.get('/data/shoesData.json')).data;
+      const itemsData = (await axios.get('/data/shoesData.json')).data; // url localhost:8000/products?type=SHOES
       setItemList(shuffledData.map(data => itemsData.filter(itemData => itemData.category === data.name)));
       setLoading(false);
     })();

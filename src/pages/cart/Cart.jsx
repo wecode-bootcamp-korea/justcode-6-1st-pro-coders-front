@@ -307,7 +307,6 @@ const Cart = ({ usefInfo: { access_token, user_id, isLogin } }) => {
     (async () => {
       try {
         // url: http://localhost:8000/cart?user_id=${user_id}
-
         const {
           data: { result, cartList: cartData },
         } = await axios.get('/data/cartData.json', {
