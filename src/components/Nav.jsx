@@ -351,7 +351,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Nav = ({ usefInfo: { isLogin } }) => {
+const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [isMain, setIsMain] = useState(pathname === '/' || pathname === '/shop');
@@ -397,7 +397,7 @@ const Nav = ({ usefInfo: { isLogin } }) => {
         isMain={isMain}
       >
         <div className='container'>
-          <img src='/images/logo-white.svg' className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
+          <img src={`${import.meta.env.BASE_URL}public/images/logo-white.svg`} className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
 
           <ul className='gnb'>
             <li>
@@ -739,10 +739,10 @@ const Nav = ({ usefInfo: { isLogin } }) => {
 
           <ul className='gnb2'>
             <li>
-              <img src='./nav/icon/icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
+              <img src={`${import.meta.env.BASE_URL}public/nav/icon/icon_search_white.svg`} className='logo' alt='logo' onClick={() => setSearch(!search)} />
             </li>
             <li>
-              <img src='./nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/cart')} />
+              <img src={`${import.meta.env.BASE_URL}public/nav/icon/icon_cart_white.svg`} className='logo' alt='logo' onClick={() => navigate('/cart')} />
             </li>
             <li>
               {isLogin ? ( //
@@ -764,7 +764,7 @@ const Nav = ({ usefInfo: { isLogin } }) => {
                   type='text'
                   placeholder='구매 상품평 작성하면 최대 3천 포인트'
                 />
-                {inputValue && <img src='./nav/icon/icon_search_close.svg' alt='close' onClick={clearHandler} />}
+                {inputValue && <img src={`${import.meta.env.BASE_URL}public/nav/icon/icon_search_close.svg`} alt='close' onClick={clearHandler} />}
               </div>
               <button>검색</button>
             </form>
@@ -784,7 +784,7 @@ const Nav = ({ usefInfo: { isLogin } }) => {
                 <li>원더 쿨</li>
                 <li>모자</li>
               </ul>
-              <img src='./nav/img/search_add.png' alt='search banner' />
+              <img src={`${import.meta.env.BASE_URL}public/nav/img/search_add.png`} alt='search banner' />
             </div>
           </div>
         </div>
