@@ -2,7 +2,8 @@ import { useRef } from 'react';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import Item from '../Shop/Shoes/Item';
+import Item from '../Shop/Shoes/sections/Item';
+import ItemBox from '../Shop/Shoes/sections/ItemBox';
 
 const Main = styled.div`
   width: 1280px;

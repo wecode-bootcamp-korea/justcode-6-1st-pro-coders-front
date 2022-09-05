@@ -7,6 +7,7 @@ import { AiOutlineDownload } from 'react-icons/ai';
 import { useState } from 'react';
 import Images from './Images';
 import AccordionCard from './AccordionCard';
+import { useParams } from 'react-router-dom';
 
 const StyledPage = styled.main`
 	.product-inner-box {
@@ -22,13 +23,22 @@ const StyledPage = styled.main`
 			.product-img-box {
 				width: 50%;
 				height: 100%;
-
 				.product-item-picture {
 					width: 100%;
 					height: 60%;
 					img {
 						width: 100%;
 						height: 100%;
+					}
+				}
+				.img-container {
+					display: flex;
+					justify-content: space-between;
+					width: 100%;
+					height: 100%;
+					img {
+						width: 150px;
+						height: 150px;
 					}
 				}
 				.imgContainer {
@@ -288,168 +298,171 @@ const StyledPage = styled.main`
 	}
 `;
 
-const ProductOption = () => {
+const ProductOption = ({ product }) => {
 	const [active, setActive] = useState(false);
 	const [selectedImg, setSelectedImg] = useState(Images[0]);
+	const  {id}  = useParams();
+
 
 	return (
 		<StyledPage>
-			<div className='product-inner-box'>
-				<div className='product-detail-box'>
-					{/* 이미지 박스 */}
-					<div className='product-img-box'>
-						{/* ⬇️ 이미지 슬라이드 들어갈 자리 */}
-						<div className='product-item-picture'>
-							<img src={selectedImg} alt='Selected' className='selected' />
-						</div>
-						{/* ⬇️ 이미지 클릭시 메인 화면에 보여줌 */}
-						<div className='imgContainer'>
-							{Images.map((img, index) => {
-								return (
-									<img
-										onClick={() => {
-											setSelectedImg(img);
-										}}
-										style={{ border: selectedImg === img ? '4px solid #000' : null }}
-										key={index}
-										src={img}
-									/>
-								);
-							})}
-						</div>
-					</div>
-					{/*상품 소개 및 주문버튼 */}
-					<div className='product-order-box'>
-						<div className='product-information-box'>
-							<div className='product-information'>
-								<span className='product-cate'>[2022 F/W 신상]</span>
-								<span className='product-name'>투어링 WB1</span>
+			{product && (
+				<div className='product-inner-box'>
+					<div className='product-detail-box'>
+						{/* 이미지 박스 */}
+						<div className='product-img-box'>
+							{/* ⬇️ 이미지 슬라이드 들어갈 자리 */}
+							<div className='product-item-picture'>
+								<img src={product.data[id].main_image} alt='Selected' className='selected' />
 							</div>
-							<div className='product-unit'>
-								<span className='like-btn'>
-									<AiOutlineHeart />
-								</span>
-								<span className='share-btn'>
-									<AiOutlineShareAlt />
-								</span>
+							{/* ⬇️ 이미지 클릭시 메인 화면에 보여줌 */}
+							<div className='img-container'>
+								{/* 앞면사진 */}
+								<img src={product.data[id].main_image} />
+								{/* 옆면사진 */}
+								<img src={product.data[id].sub_image} />
+								{/* 뒷면사진 */}
+								<img src={product.data[id].back_image} />
+								{/* 하이앵글사진 */}
+								<img src={product.data[id].high_image} />
 							</div>
 						</div>
-						<div className='product-price-box'>
-							<div className='product-price-sale-on'>
-								<span className='price'>119,000원</span>
-								<span className='sale-percent'>17%</span>
-								<span className='sale-price'>98,900원</span>
-								<div className='tooltip'>
-									<AiOutlineQuestionCircle />
+						{/*상품 소개 및 주문버튼 */}
+						<div className='product-order-box'>
+							<div className='product-information-box'>
+								<div className='product-information'>
+									<span className='product-cate'>{product.data[id].keyword}</span>
+									<span className='product-name'>{product.data[id].title}</span>
+								</div>
+								<div className='product-unit'>
+									<span className='like-btn'>
+										<AiOutlineHeart />
+									</span>
+									<span className='share-btn'>
+										<AiOutlineShareAlt />
+									</span>
 								</div>
 							</div>
-							{/* <div className='product-price-sale-off'>
-								<span className='price'>119,000원</span>
-                		<div className='tooltip'>
-								<AiOutlineQuestionCircle />
+							<div className='product-price-box'>
+								{product.data[id].is_discounted === 1 ? (
+									<div className='product-price-sale-on'>
+										<span className='price'>{product.data[id].price}원</span>
+										<span className='sale-percent'>{product.data[id].discount_percent}%</span>
+										<span className='sale-price'>{product.data[id].discounted_price}원</span>
+										<div className='tooltip'>
+											<AiOutlineQuestionCircle />
+										</div>
+									</div>
+								) : (
+									<div className='product-price-sale-off'>
+										<span className='price'>{product.data[id].price}원</span>
+										<div className='tooltip'>
+											<AiOutlineQuestionCircle />
+										</div>
+									</div>
+								)}
 							</div>
-							</div> */}
-						</div>
-						<div className='coupon-box'>
-							<a className='review-score' href='#'>
-								<AiFillStar />
-								<AiFillStar />
-								<AiFillStar />
-								<AiFillStar />
-								<AiFillStar />
-								<span>0개의 리뷰 보기</span>
-							</a>
-							<span className='coupon-download'>
-								쿠폰받기
-								<AiOutlineDownload />
-							</span>
-						</div>
-						<div className='product-benefits'>
-							<AccordionCard />
-						</div>
-						<div className='product-option'>
-							<div className='product-color'>
-								<span className='product-color-title'>색상</span>
-								<a href='#' className='product-color-picture-box'>
-									<img src='https://img.prospecs.com/prod/PW0UW22/PW0UW22F122/PW0UW22F122_01.jpg/dims/resizef/1024x1024/optimize' alt='' />
+							<div className='coupon-box'>
+								<a className='review-score' href='#'>
+									<AiFillStar />
+									<AiFillStar />
+									<AiFillStar />
+									<AiFillStar />
+									<AiFillStar />
+									<span>0개의 리뷰 보기</span>
 								</a>
+								<span className='coupon-download'>
+									쿠폰받기
+									<AiOutlineDownload />
+								</span>
 							</div>
-							<div className='product-size'>
-								<select name='product-size' id='product-size-unisex'>
-									<option value='init'>사이즈선택</option>
-									<option value='230'>230</option>
-									<option value='235'>235</option>
-									<option value='240'>240</option>
-									<option value='245'>245</option>
-									<option value='250'>250</option>
-									<option value='255'>255</option>
-									<option value='260'>260</option>
-									<option value='265'>265</option>
-									<option value='270'>270</option>
-									<option value='275'>275</option>
-									<option value='280'>280</option>
-									<option value='285'>285</option>
-									<option value='290'>290</option>
-								</select>
-
-								<select name='product-size' id='product-size-male'>
-									<option value='init'>사이즈선택</option>
-									<option value='250'>250</option>
-									<option value='255'>255</option>
-									<option value='260'>260</option>
-									<option value='265'>265</option>
-									<option value='270'>270</option>
-									<option value='275'>275</option>
-									<option value='280'>280</option>
-									<option value='285'>285</option>
-									<option value='290'>290</option>
-								</select>
-
-								<select name='product-size' id='product-size-female'>
-									<option value='init'>사이즈선택</option>
-									<option value='230'>230</option>
-									<option value='235'>235</option>
-									<option value='240'>240</option>
-									<option value='245'>245</option>
-									<option value='250'>250</option>
-								</select>
+							<div className='product-benefits'>
+								<AccordionCard />
 							</div>
-						</div>
-						<div className='product-order-btn'>
-							<div className='order-btn-inner-box'>
-								<a href='#' className='purchase'>
-									구매하기
-								</a>
-								<a href='#' className='basket'>
-									장바구니
-								</a>
-								<a href='#' className='stock'>
-									오프라인 매장 재고 확인 &#62;
-								</a>
-							</div>
-						</div>
-						<div className='naver-btn-inner-box'>
-							<div className='npay-inner-box'>
-								<div className='npay-text'>
-									<span className='naver-logo'>NAVER</span>
-									<span>네이버 ID로 간편구매</span>
-									<span>네이버페이</span>
+							<div className='product-option'>
+								<div className='product-color'>
+									<span className='product-color-title'>색상</span>
+									<a href='#' className='product-color-picture-box'>
+										<img src={product.data[id].main_image} />
+									</a>
 								</div>
-								<div className='npay-btn'>
-									<a href='#' className='npay-img'>
-										<img src='https://image.prospecs.com/front/images/renewal/icon_naverpay.svg' alt='N-pay 구매' />
-										<span className='hidden'>N-pay 구매</span>
+								<div className='product-size'>
+									<select name='product-size' id='product-size-unisex'>
+										<option value='init'>사이즈선택</option>
+										<option value='230'>230</option>
+										<option value='235'>235</option>
+										<option value='240'>240</option>
+										<option value='245'>245</option>
+										<option value='250'>250</option>
+										<option value='255'>255</option>
+										<option value='260'>260</option>
+										<option value='265'>265</option>
+										<option value='270'>270</option>
+										<option value='275'>275</option>
+										<option value='280'>280</option>
+										<option value='285'>285</option>
+										<option value='290'>290</option>
+									</select>
+
+									<select name='product-size' id='product-size-male'>
+										<option value='init'>사이즈선택</option>
+										<option value='250'>250</option>
+										<option value='255'>255</option>
+										<option value='260'>260</option>
+										<option value='265'>265</option>
+										<option value='270'>270</option>
+										<option value='275'>275</option>
+										<option value='280'>280</option>
+										<option value='285'>285</option>
+										<option value='290'>290</option>
+									</select>
+
+									<select name='product-size' id='product-size-female'>
+										<option value='init'>사이즈선택</option>
+										<option value='230'>230</option>
+										<option value='235'>235</option>
+										<option value='240'>240</option>
+										<option value='245'>245</option>
+										<option value='250'>250</option>
+									</select>
+								</div>
+							</div>
+							<div className='product-order-btn'>
+								<div className='order-btn-inner-box'>
+									<a href='#' className='purchase'>
+										구매하기
+									</a>
+									<a href='#' className='basket'>
+										장바구니
+									</a>
+									<a href='#' className='stock'>
+										오프라인 매장 재고 확인 &#62;
 									</a>
 								</div>
 							</div>
-						</div>
-						<div className='npay-banner'>
-							<span>[네이버포인트]</span>
-							<span>포인트 100% 활용 방법</span>
+							<div className='naver-btn-inner-box'>
+								<div className='npay-inner-box'>
+									<div className='npay-text'>
+										<span className='naver-logo'>NAVER</span>
+										<span>네이버 ID로 간편구매</span>
+										<span>네이버페이</span>
+									</div>
+									<div className='npay-btn'>
+										<a href='#' className='npay-img'>
+											<img src='https://image.prospecs.com/front/images/renewal/icon_naverpay.svg' alt='N-pay 구매' />
+											<span className='hidden'>N-pay 구매</span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div className='npay-banner'>
+								<span>[네이버포인트]</span>
+								<span>포인트 100% 활용 방법</span>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			)}
 		</StyledPage>
 	);
 };
