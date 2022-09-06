@@ -172,7 +172,6 @@ const StyledNav = styled.nav`
 
         &:last-of-type {
           div.inner {
-
             background-image: url('/nav/img/gnb_banner_smartfit.png');
 
             background-size: auto 270px;
@@ -403,7 +402,6 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
         isScrollDown={isScrollDown}
         isScrolled={isScrolled}
         isMain={isMain}
-        onClick={() => console.log(userInfo)}
       >
         <div className='container'>
           <img
@@ -766,7 +764,11 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                   />
                 )}
               </div>
-              <button onClick={()=>navigate(`/search?key=${input.current.value}`)}>검색</button>
+              <button
+                onClick={() => navigate(`/search?key=${input.current.value}`)}
+              >
+                검색
+              </button>
             </form>
 
             <h2>추천검색어</h2>
@@ -786,7 +788,6 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
               </ul>
 
               <img src='/nav/img/search_add.png' alt='search banner' />
-
             </div>
           </div>
         </div>
