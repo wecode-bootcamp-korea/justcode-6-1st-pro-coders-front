@@ -1,8 +1,6 @@
-import { useRef } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import Item from '../Shop/Shoes/sections/Item';
 import ItemBox from '../Shop/Shoes/sections/ItemBox';
 
 const Main = styled.div`
@@ -132,9 +130,150 @@ const Main = styled.div`
     }
   }
 
-  .itemContainer {
-    margin-top: 35px;
-  }
+  .item-inner-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      width: 1280px;
+      margin: 50px auto 150px auto;
+
+      .item-a-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 280px;
+        height: 100%;
+        margin-right: 20px;
+        &:nth-of-type(4n) {
+          margin-right: 0;
+        }
+        .item-img {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+
+          &:hover .item-main-img {
+            opacity: 0;
+            transition: 1s;
+          }
+          &:hover .item-hover-img {
+            opacity: 1;
+            transition: 1s;
+          }
+
+          .item-main-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            right: 0px;
+            opacity: 1;
+            transition: 1s;
+          }
+          .item-hover-img {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: 1s;
+          }
+        }
+        .item-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          width: 100%;
+          height: 100%;
+          padding-left: 10px;
+          color: #000;
+
+          .item-cate {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font: bold 18px/1 'Poppins';
+          }
+          .item-title {
+            margin-bottom: 20px;
+            font: 20px/1 'Poppins';
+          }
+          .item-price-box {
+            .item-price-sale-off {
+              margin-bottom: 10px;
+              font: bold 22px/1 'Poppins';
+            }
+            .item-price-sale-on {
+              margin-bottom: 10px;
+              font: 15px/1 'Spoqa Han Sans Neo', 'sans-serif';
+              text-decoration: line-through;
+              text-align: left;
+              color: #ccc;
+            }
+            .item-sale-box {
+              margin-bottom: 10px;
+              .item-sale-percent {
+                font: bold 22px/1 'Poppins';
+                color: #ff0052;
+              }
+              .item-sale-price {
+                font: bold 22px/1 'Poppins';
+              }
+            }
+          }
+          .item-badge-box {
+            margin-bottom: 15px;
+            .item-gender-box {
+              margin-right: 20px;
+              .male {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: #000;
+                line-height: 20px;
+                text-align: center;
+                color: #fff;
+              }
+              .female {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: #ff0052;
+                line-height: 20px;
+                text-align: center;
+                color: #fff;
+              }
+            }
+            .item-coupon-box {
+              .coupon {
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+                padding: 2px;
+                line-height: 14px;
+                text-align: center;
+                font-weight: bold;
+                border: 2px solid #000;
+              }
+            }
+          }
+        }
+      }
+    }
+    .item-more-btn-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 100px;
+      .item-more-btn {
+        width: 260px;
+        height: 60px;
+        background: #fff;
+        border: 2px solid #000;
+        font: bold 18px/60px 'apple';
+        cursor: pointer;
+      }
+    }
 
   .btnContainer {
     display: flex;
@@ -186,9 +325,7 @@ const Main = styled.div`
 
 const Search = (props) => {
   const location = useLocation();
-  const value = new URLSearchParams(location.search).get('key');
-  const [keyword, setKeyword] = useState(value);
-  // const [keyword, setKeyword] = useState('X-FIN');
+  const [keyword, setKeyword] = useState();
   const [searchList, setSearchList] = useState();
   const [keywordList, setKeywordList] = useState([
     {
@@ -221,53 +358,35 @@ const Search = (props) => {
     { id: 9, title: '양말' },
     { id: 10, title: '오리지널' },
   ]);
-  const [inputValue, setInputValue] = useState(keyword);
+  const [inputValue, setInputValue] = useState('');
   const input = useRef();
 
   useEffect(() => {
-    fetch(`http://localhost:8000/${location.pathname+location.search}`)
+    const value = new URLSearchParams(location.search).get('key');
+    setKeyword(value)
+    setInputValue(value)
+    fetch(`http://localhost:8000/search${location.search}`)
       .then((res) => res.json())
-      .then((data) => {setSearchList(data); console.log(data)});
-    // fetch('data/product.json')
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     const filteredData = data.data.filter((el) => {
-    //       return el.title.includes(keyword);
-    //     });
-    //     setSearchList(filteredData);
-    //   });
-  }, []);
-
-  const onSearch = () => {
-    setKeyword(input.current.value);
-    fetch(`http://localhost:8000/search?key=${input.current.value}`)
-      .then((res) => res.json())
-      .then((data) => setSearchList(data.data));
-    // fetch('data/product.json')
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     const filteredData = data.data.filter((el) => {
-    //       return el.title.includes(input.current.value);
-    //     });
-    //     setSearchList(filteredData);
-    //   });
-  };
-
-  const onSearchPopular = (e) => {
-    setInputValue(e.target.textContent);
-    setKeyword(e.target.textContent);
-    fetch(`http://localhost:8000/search?key=${e.target.textContent}`)
-      .then((res) => res.json())
-      .then((data) => setSearchList(datat.data));
-    // fetch('data/product.json')
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     const filteredData = data.data.filter((el) => {
-    //       return el.title.includes(e.target.textContent);
-    //     });
-    //     setSearchList(filteredData);
-    //   });
-  };
+      .then((data) => setSearchList(data))
+      .catch((err)=> setSearchList([]));
+  }, [location]);
+  
+    const onSearch = () => {
+      setKeyword(input.current.value);
+      fetch(`http://localhost:8000/search?key=${input.current.value}`)
+        .then((res) => res.json())
+        .then((data) => {setSearchList(data)})
+        .catch((err)=> setSearchList([]));
+      };
+      
+      const onSearchPopular = (e) => { 
+        setInputValue(e.target.textContent);
+        setKeyword(e.target.textContent);
+        fetch(`http://localhost:8000/search?key=${e.target.textContent}`)
+        .then((res) => res.json())
+        .then((data) => setSearchList(data))
+        .catch((err)=> setSearchList([]));
+    };
 
   const clearHandler = () => {
     input.current.value = '';
@@ -352,8 +471,10 @@ const Search = (props) => {
           })}
         </ul>
       </div>
-      <section className='itemContainer'>
-        <Item shoes={searchList} />
+      <section className='item-inner-box'>
+        {searchList && searchList.map((item)=>{
+          return <ItemBox item={item} key={item.id} />
+        })}
       </section>
       <section className='promotion'>
         <h4>관련 기획전</h4>
