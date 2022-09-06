@@ -26,6 +26,7 @@ const App = () => {
     user_id: '',
   });
 
+
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -61,6 +62,7 @@ const App = () => {
       </ThemeProvider>
     </>
   );
+
 };
 
 export default App;

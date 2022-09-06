@@ -302,6 +302,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
       birth: { value: date_of_birth },
     } = e.target;
 
+
     if (
       email &&
       password.length > 6 &&
@@ -310,6 +311,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
       birth.length >= 8 &&
       Number(date_of_birth)
     ) {
+
       setError(false);
 
       (async () => {
