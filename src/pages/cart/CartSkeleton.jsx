@@ -107,36 +107,6 @@ const CartSkeleton = () => (
         <div className='text' />
       </div>
     </div>
-    <div>
-      <div className='checkbox'>
-        <div className='box' />
-      </div>
-      <div className='content'>
-        <div className='title' />
-        <div className='option' />
-      </div>
-      <div className='info'>
-        <div className='text' />
-      </div>
-      <div className='remove'>
-        <div className='text' />
-      </div>
-    </div>
-    <div>
-      <div className='checkbox'>
-        <div className='box' />
-      </div>
-      <div className='content'>
-        <div className='title' />
-        <div className='option' />
-      </div>
-      <div className='info'>
-        <div className='text' />
-      </div>
-      <div className='remove'>
-        <div className='text' />
-      </div>
-    </div>
   </StyledSkeleton>
 );
 
