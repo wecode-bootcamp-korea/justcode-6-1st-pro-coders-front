@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import FilterModal from './FilterModal';
 import { Link, NavLink, useNavigate, useParams } from 'react-router-dom';
 import Nomination from './Nomination';
+import axios from 'axios';
 
 // { font-family: 'Poppins Bold', 'sans-serif'; }
 // { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
@@ -631,7 +632,16 @@ function Item() {
               : null}
           </div>
           <div className='item-more-btn-box'>
-            <button className='item-more-btn'>더보기</button>
+            <button className='item-more-btn'
+            onClick={()=>{
+              // axios.get('http://localhost:8000/products?type=SHOES')
+              axios.get('/data/product.json/')
+              .then((res)=>{
+                const copy = [...product, ...res.data]
+                setProduct(copy)
+              })
+            }}
+            >더보기</button>
           </div>
         </div>
       </StyledItem>
