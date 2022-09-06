@@ -391,25 +391,34 @@ function Item() {
   const { category } = useParams();
   const params = useParams();
 
-  const filterItem = categItem => {
-    const updatedItems = product.filter(itemCategory => {
-      return itemCategory.category === categItem;
-    });
-    setShoesCategory(updatedItems);
+  const filterItem = async categItem => {
+    const { data } = await axios.get('/data/product.json/');
+
+    setShoesCategory(data.filter(item => item.category === categItem));
   };
 
   const [shoes, setShoes] = useState(null);
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState([]);
   const [toggle, setToggle] = useState(false);
+  const [page, setPage] = useState(0);
+  const [end, setEnd] = useState(false);
 
   useEffect(() => {
-    // fetch('http://localhost:8000/products?type=SHOES')
-    fetch('/data/product.json/')
-      .then(res => res.json())
-      .then(data => {
-        setProduct(data);
-      });
-  }, []);
+    if (!end) {
+      // fetch('http://localhost:8000/products?type=SHOES')
+      fetch('/data/product.json/')
+        .then(res => res.json())
+        .then(data => {
+          const slicedData = data.slice(page, page + 8);
+
+          if (slicedData.length < 8) {
+            setEnd(true);
+          }
+
+          setProduct([...product, ...slicedData]);
+        });
+    }
+  }, [page]);
 
   return (
     <>
@@ -430,13 +439,7 @@ function Item() {
               {/* 카테고리별 이동 링크 */}
               <ul className='item-shoes-tab'>
                 {/* 전체 */}
-                <li
-                  className={
-                    params.category == '전체'
-                      ? 'item-shoes-link-on'
-                      : 'item-shoes-link'
-                  }
-                >
+                <li className={params.category == '전체' ? 'item-shoes-link-on' : 'item-shoes-link'}>
                   <Link
                     to='/shop/shoes/전체'
                     onClick={() => {
@@ -448,13 +451,7 @@ function Item() {
                 </li>
 
                 {/* 러닝화 */}
-                <li
-                  className={
-                    params.category == '러닝화'
-                      ? 'item-shoes-link-on'
-                      : 'item-shoes-link'
-                  }
-                >
+                <li className={params.category == '러닝화' ? 'item-shoes-link-on' : 'item-shoes-link'}>
                   <Link
                     to='/shop/shoes/러닝화'
                     onClick={() => {
@@ -466,13 +463,7 @@ function Item() {
                 </li>
 
                 {/* 워킹화 */}
-                <li
-                  className={
-                    params.category == '워킹화'
-                      ? 'item-shoes-link-on'
-                      : 'item-shoes-link'
-                  }
-                >
+                <li className={params.category == '워킹화' ? 'item-shoes-link-on' : 'item-shoes-link'}>
                   <Link
                     to='/shop/shoes/워킹화'
                     onClick={() => {
@@ -484,13 +475,7 @@ function Item() {
                 </li>
 
                 {/* 트레킹화 */}
-                <li
-                  className={
-                    params.category == '트레킹화'
-                      ? 'item-shoes-link-on'
-                      : 'item-shoes-link'
-                  }
-                >
+                <li className={params.category == '트레킹화' ? 'item-shoes-link-on' : 'item-shoes-link'}>
                   <Link
                     to='/shop/shoes/트레킹화'
                     onClick={() => {
@@ -502,13 +487,7 @@ function Item() {
                 </li>
 
                 {/* 스니커즈 */}
-                <li
-                  className={
-                    params.category == '스니커즈'
-                      ? 'item-shoes-link-on'
-                      : 'item-shoes-link'
-                  }
-                >
+                <li className={params.category == '스니커즈' ? 'item-shoes-link-on' : 'item-shoes-link'}>
                   <Link
                     to='/shop/shoes/스니커즈'
                     onClick={() => {
@@ -520,13 +499,7 @@ function Item() {
                 </li>
 
                 {/* 샌들/슬리퍼 */}
-                <li
-                  className={
-                    params.category == '샌들'
-                      ? 'item-shoes-link-on'
-                      : 'item-shoes-link'
-                  }
-                >
+                <li className={params.category == '샌들' ? 'item-shoes-link-on' : 'item-shoes-link'}>
                   <Link
                     to='/shop/shoes/샌들'
                     onClick={() => {
@@ -538,13 +511,7 @@ function Item() {
                 </li>
 
                 {/* 아동화 */}
-                <li
-                  className={
-                    params.category == '아동화'
-                      ? 'item-shoes-link-on'
-                      : 'item-shoes-link'
-                  }
-                >
+                <li className={params.category == '아동화' ? 'item-shoes-link-on' : 'item-shoes-link'}>
                   <Link
                     to='/shop/shoes/아동화'
                     onClick={() => {
@@ -556,13 +523,7 @@ function Item() {
                 </li>
 
                 {/* 기타 */}
-                <li
-                  className={
-                    params.category == '기타'
-                      ? 'item-shoes-link-on'
-                      : 'item-shoes-link'
-                  }
-                >
+                <li className={params.category == '기타' ? 'item-shoes-link-on' : 'item-shoes-link'}>
                   <Link
                     to='/shop/shoes/기타'
                     onClick={() => {
@@ -578,7 +539,6 @@ function Item() {
         </div>
       </StyledShopHeader>
       {params.category == '전체' ? <Nomination /> : null}
-
 
       <StyledItem>
         <div className='itme-box'>
@@ -611,37 +571,28 @@ function Item() {
               </div>
             </div>
           </div>
-          {toggle === true ? (
-            <FilterModal toggle={toggle} setToggle={setToggle} />
-          ) : null}
+          {toggle === true ? <FilterModal toggle={toggle} setToggle={setToggle} /> : null}
           <div className='item-inner-box'>
             {/* 상품전체박스 */}
 
-            {params.category === '전체'
-              ? product &&
-                product.map(item => {
-                  return <ItemBox item={item} key={item.id} />;
-                })
-              : null}
+            {params.category === '전체' &&
+              product.length &&
+              product.map(item => {
+                return <ItemBox item={item} key={item.id} />;
+              })}
 
-            {params.category === params.category
-              ? shoesCategory &&
-                shoesCategory.map(item => {
-                  return <ItemBox item={item} key={item.id} />;
-                })
-              : null}
+            {params.category !== '전체' &&
+              shoesCategory &&
+              shoesCategory.map(item => {
+                return <ItemBox item={item} key={item.id} />;
+              })}
           </div>
           <div className='item-more-btn-box'>
-            <button className='item-more-btn'
-            onClick={()=>{
-              // axios.get('http://localhost:8000/products?type=SHOES')
-              axios.get('/data/product.json/')
-              .then((res)=>{
-                const copy = [...product, ...res.data]
-                setProduct(copy)
-              })
-            }}
-            >더보기</button>
+            {params.category === '전체' && !end && (
+              <button className='item-more-btn' onClick={() => setPage(page => page + 8)}>
+                더보기
+              </button>
+            )}
           </div>
         </div>
       </StyledItem>
