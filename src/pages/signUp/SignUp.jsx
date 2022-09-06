@@ -279,7 +279,7 @@ const StyledLayout = styled.main`
   }
 `;
 
-const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
+const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
   const navigate = useNavigate();
   const [register, setRegister] = useState(false);
   const [agree, setAgree] = useState(false);
@@ -297,16 +297,16 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
     const {
       email: { value: email },
       password: { value: password },
-      name: { value: name },
-      phone: { value: phone },
-      birth: { value: birth },
+      nickname: { value: nickname },
+      phone: { value: phone_number },
+      birth: { value: date_of_birth },
     } = e.target;
 
 
     if (
       email &&
       password.length > 6 &&
-      name &&
+      nickname &&
       Number(phone_number) &&
       birth.length >= 8 &&
       Number(date_of_birth)
@@ -319,33 +319,27 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
 
         try {
           // 나중에 signup url 넣어야함
-          await axios.post('/signup', {
+          await axios.post('http://localhost:8000/user/signup', {
             email,
             password,
-            name,
-            phone_number: phone,
-            date_of_birth: birth,
-            gender,
+            nickname,
+            phone_number,
           });
 
           // 나중에 signin url
           const {
-            data: { user },
-          } = await axios.post('/user', {
+            data: { token, user_id },
+          } = await axios.post('http://localhost:8000/user/login', {
             email,
             password,
           });
 
           setUserInfo({
+            user_id,
+            token,
             isLogin: true,
-            email: user.email,
-            name: user.name,
-            phone_number: user.phone_number,
-            date_of_birth: user.date_of_birth,
-            gender: user.gender,
-            access_token: user.access_token,
-            user_id: user.user_id,
           });
+
           setDisabled(false);
         } catch (error) {
           console.log(error);
@@ -385,7 +379,7 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
                 <div className='text'>
                   <p>이름</p>
                 </div>
-                <input type='text' name='name' />
+                <input type='text' name='nickname' />
               </li>
               <li>
                 <div className='text'>

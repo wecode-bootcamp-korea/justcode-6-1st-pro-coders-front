@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledItem = styled.li`
@@ -73,23 +74,24 @@ const StyledItem = styled.li`
   }
 `;
 
-const Item = ({ item: { name, cate, price, salePercent, salePrice, sale, img, gender }, length }) => {
+const Item = ({ item: { id, title, keyword, discount_percent, discounted_price, is_discounted, main_image, gender }, length }) => {
+  const navigate = useNavigate();
   return (
     <StyledItem length={length}>
-      <div className='imgContainer'>
-        <img src={img} alt='' />
+      <div className='imgContainer' onClick={() => navigate(`/product/${id}`)}>
+        <img src={main_image} alt='' />
       </div>
-      <p className='strong'>{cate}</p>
-      <h4>{name}</h4>
-      {sale ? (
+      <p className='strong'>{keyword}</p>
+      <h4>{title}</h4>
+      {is_discounted ? (
         <>
-          <p className='price'>{Number(price).toLocaleString()}원</p>
+          <p className='price'>{Number(discounted_price).toLocaleString()}원</p>
           <p className='realPrice'>
-            <span className='red'>{salePercent}</span> {Number(salePrice).toLocaleString()}원
+            <span className='red'>{discount_percent}%</span> {Number(discounted_price).toLocaleString()}원
           </p>
         </>
       ) : (
-        <p className='realPrice'>{Number(price).toLocaleString()}원</p>
+        <p className='realPrice'>{Number(discounted_price).toLocaleString()}원</p>
       )}
       <div className='gender'>
         {gender[0] === 'm' && <span className='male'>남</span>}
