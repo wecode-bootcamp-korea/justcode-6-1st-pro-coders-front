@@ -74,7 +74,20 @@ const StyledItem = styled.li`
   }
 `;
 
-const Item = ({ item: { id, title, keyword, discount_percent, discounted_price, is_discounted, main_image, gender }, length }) => {
+const Item = ({
+  item: {
+    id,
+    title,
+    keyword,
+    discount_percent,
+    price,
+    discounted_price,
+    is_discounted,
+    main_image,
+    gender,
+  },
+  length,
+}) => {
   const navigate = useNavigate();
   return (
     <StyledItem length={length}>
@@ -85,13 +98,14 @@ const Item = ({ item: { id, title, keyword, discount_percent, discounted_price, 
       <h4>{title}</h4>
       {is_discounted ? (
         <>
-          <p className='price'>{Number(discounted_price).toLocaleString()}원</p>
+          <p className='price'>{price}원</p>
           <p className='realPrice'>
-            <span className='red'>{discount_percent}%</span> {Number(discounted_price).toLocaleString()}원
+            <span className='red'>{discount_percent}%</span> {discounted_price}
+            원
           </p>
         </>
       ) : (
-        <p className='realPrice'>{Number(discounted_price).toLocaleString()}원</p>
+        <p className='realPrice'>{price}원</p>
       )}
       <div className='gender'>
         {gender[0] === 'm' && <span className='male'>남</span>}
