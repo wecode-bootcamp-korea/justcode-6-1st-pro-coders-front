@@ -186,9 +186,9 @@ const Main = styled.div`
 
 const Search = (props) => {
   const location = useLocation();
-  // const value = new URLSearchParams(location.search).get('key');
-  // const [keyword, setKeyword] = useState(value);
-  const [keyword, setKeyword] = useState('X-FIN');
+  const value = new URLSearchParams(location.search).get('key');
+  const [keyword, setKeyword] = useState(value);
+  // const [keyword, setKeyword] = useState('X-FIN');
   const [searchList, setSearchList] = useState();
   const [keywordList, setKeywordList] = useState([
     {
@@ -225,48 +225,48 @@ const Search = (props) => {
   const input = useRef();
 
   useEffect(() => {
-    // fetch(`http://localhost:8000/${location.pathname+location.search}`)
-    //   .then((res) => res.json())
-    //   .then((data) => setSearchList(data));
-    fetch('data/product.json')
+    fetch(`http://localhost:8000/${location.pathname+location.search}`)
       .then((res) => res.json())
-      .then((data) => {
-        const filteredData = data.data.filter((el) => {
-          return el.title.includes(keyword);
-        });
-        setSearchList(filteredData);
-      });
+      .then((data) => {setSearchList(data); console.log(data)});
+    // fetch('data/product.json')
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     const filteredData = data.data.filter((el) => {
+    //       return el.title.includes(keyword);
+    //     });
+    //     setSearchList(filteredData);
+    //   });
   }, []);
 
   const onSearch = () => {
     setKeyword(input.current.value);
-    // fetch(`http://localhost:8000/search?key=${input.current.value}`)
-    //   .then((res) => res.json())
-    //   .then((data) => setSearchList(data.data));
-    fetch('data/product.json')
+    fetch(`http://localhost:8000/search?key=${input.current.value}`)
       .then((res) => res.json())
-      .then((data) => {
-        const filteredData = data.data.filter((el) => {
-          return el.title.includes(input.current.value);
-        });
-        setSearchList(filteredData);
-      });
+      .then((data) => setSearchList(data.data));
+    // fetch('data/product.json')
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     const filteredData = data.data.filter((el) => {
+    //       return el.title.includes(input.current.value);
+    //     });
+    //     setSearchList(filteredData);
+    //   });
   };
 
   const onSearchPopular = (e) => {
     setInputValue(e.target.textContent);
     setKeyword(e.target.textContent);
-    // fetch(`http://localhost:8000/search?key=${e.target.textContent}`)
-    //   .then((res) => res.json())
-    //   .then((data) => setSearchList(datat.data));
-    fetch('data/product.json')
+    fetch(`http://localhost:8000/search?key=${e.target.textContent}`)
       .then((res) => res.json())
-      .then((data) => {
-        const filteredData = data.data.filter((el) => {
-          return el.title.includes(e.target.textContent);
-        });
-        setSearchList(filteredData);
-      });
+      .then((data) => setSearchList(datat.data));
+    // fetch('data/product.json')
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     const filteredData = data.data.filter((el) => {
+    //       return el.title.includes(e.target.textContent);
+    //     });
+    //     setSearchList(filteredData);
+    //   });
   };
 
   const clearHandler = () => {
