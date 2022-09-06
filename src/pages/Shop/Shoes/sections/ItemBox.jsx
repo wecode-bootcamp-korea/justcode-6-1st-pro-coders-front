@@ -7,7 +7,7 @@ function ItemBox({ item }) {
     <>
       {/* 상품전체박스 */}
       {item && (
-        <NavLink to={`/product/${item.id - 1}`} className='item-a-box'>
+        <NavLink to={`/product/${item.id}`} className='item-a-box'>
           <div className='item-img'>
             {/* Hover 전 */}
             <img className='item-main-img' src={item.main_image} alt='' />
