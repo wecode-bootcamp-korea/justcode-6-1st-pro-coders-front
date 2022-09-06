@@ -1,12 +1,5 @@
 {
   "message": "success",
-  "user": {
-    "email": "asd@asd",
-    "name": "asd",
-    "phone_number": 123123123,
-    "date_of_birth": "asd",
-    "gender": "MALE",
-    "user_id": 2,
-    "access_token": "exJwt"
-  }
+  "user_id": 2,
+  "token": "exJwt"
 }

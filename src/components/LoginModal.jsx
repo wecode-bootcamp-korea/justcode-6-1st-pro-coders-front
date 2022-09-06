@@ -186,16 +186,17 @@ const LoginModal = ({ setModal, setUserInfo }) => {
       setDisabled(true);
 
       try {
-        // 나중에 signin url
+        // 나중에 signin url http://localhost:8000/user/login
         const {
-          data: { user },
+          data: { token, user_id },
         } = await axios.post('/data/userInfo.json', {
           email,
           password,
         });
 
         setUserInfo({
-          ...user,
+          token,
+          user_id,
           isLogin: true,
         });
 

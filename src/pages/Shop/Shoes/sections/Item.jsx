@@ -196,7 +196,7 @@ function Item() {
     fetch('/data/product.json')
       .then(res => res.json())
       .then(data => {
-        setProductData(data.data);
+        setProductData(data);
       });
   }, []);
 
@@ -233,7 +233,9 @@ function Item() {
               </div>
             </div>
           </div>
-          {toggle === true ? <FilterModal toggle={toggle} setToggle={setToggle} /> : null}
+          {toggle === true ? (
+            <FilterModal toggle={toggle} setToggle={setToggle} />
+          ) : null}
           <div className='item-inner-box'>
             {/* 상품전체박스 */}
 

@@ -12,9 +12,12 @@ const StyledNav = styled.nav`
   left: 0;
   width: 100%;
   transition: 0.3s;
-  background-color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'white' : 'transparent')};
+  background-color: ${({ search, isScrolled, isMain }) =>
+    search || isScrolled || !isMain ? 'white' : 'transparent'};
   z-index: 10;
-  transform: translateY(${({ isScrollDown }) => (isScrollDown ? '-100px' : '0')});
+  transform: translateY(
+    ${({ isScrollDown }) => (isScrollDown ? '-100px' : '0')}
+  );
 
   div.container {
     max-width: 1640px;
@@ -26,7 +29,10 @@ const StyledNav = styled.nav`
 
     img {
       transition: 0.2s;
-      filter: invert(${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? '1' : '0')});
+      filter: invert(
+        ${({ search, isScrolled, isMain }) =>
+          search || isScrolled || !isMain ? '1' : '0'}
+      );
       cursor: pointer;
     }
 
@@ -35,14 +41,16 @@ const StyledNav = styled.nav`
       font-weight: 900;
       font-size: 20px;
       transition: 0.2s;
-      color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'black' : 'white')};
+      color: ${({ search, isScrolled, isMain }) =>
+        search || isScrolled || !isMain ? 'black' : 'white'};
     }
 
     p {
       font-size: 20px;
       font-weight: 900;
       cursor: pointer;
-      color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'black' : 'white')};
+      color: ${({ search, isScrolled, isMain }) =>
+        search || isScrolled || !isMain ? 'black' : 'white'};
       transition: 0.2s;
     }
 
@@ -351,10 +359,12 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
+const Nav = ({ userInfo: { isLogin }, setUserInfo }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const [isMain, setIsMain] = useState(pathname === '/' || pathname === '/shop');
+  const [isMain, setIsMain] = useState(
+    pathname === '/' || pathname === '/shop'
+  );
   const { isScrollDown, isScrolled } = useScroll();
 
   const input = useRef();
@@ -374,12 +384,8 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
   const signOut = () => {
     setUserInfo({
       isLogin: false,
-      email: '',
-      name: '',
-      phone_number: '',
-      date_of_birth: '',
-      gender: '',
-      access_token: '',
+      token: '',
+      user_id: '',
     });
 
     navigate('/');
@@ -397,7 +403,13 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
         isMain={isMain}
       >
         <div className='container'>
-          <img src='/images/logo-white.svg' className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
+          <img
+            src='/images/logo-white.svg'
+            className='logo'
+            alt='logo'
+            width={110}
+            onClick={() => navigate('/')}
+          />
 
           <ul className='gnb'>
             <li>
@@ -694,7 +706,11 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
                 <div className='innerContainer'>
                   <div className='textContainer'>
                     <h4>SMART FIT</h4>
-                    <p>프로스펙스 스마트핏은 내 발에 완벽한 사이즈와 상품을 추천해 주고, 맞춤신발 제작까지 해 주는 SMART한 서비스입니다.</p>
+                    <p>
+                      프로스펙스 스마트핏은 내 발에 완벽한 사이즈와 상품을
+                      추천해 주고, 맞춤신발 제작까지 해 주는 SMART한
+                      서비스입니다.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -703,10 +719,20 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
 
           <ul className='gnb2'>
             <li>
-              <img src='/nav/icon/icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
+              <img
+                src='/nav/icon/icon_search_white.svg'
+                className='logo'
+                alt='logo'
+                onClick={() => setSearch(!search)}
+              />
             </li>
             <li>
-              <img src='/nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/cart')} />
+              <img
+                src='/nav/icon/icon_cart_white.svg'
+                className='logo'
+                alt='logo'
+                onClick={() => navigate('/cart')}
+              />
             </li>
             <li>
               {isLogin ? ( //
@@ -728,7 +754,13 @@ const Nav = ({ usefInfo: { isLogin }, setUserInfo }) => {
                   type='text'
                   placeholder='구매 상품평 작성하면 최대 3천 포인트'
                 />
-                {inputValue && <img src='/nav/icon/icon_search_close.svg' alt='close' onClick={clearHandler} />}
+                {inputValue && (
+                  <img
+                    src='/nav/icon/icon_search_close.svg'
+                    alt='close'
+                    onClick={clearHandler}
+                  />
+                )}
               </div>
               <button>검색</button>
             </form>
