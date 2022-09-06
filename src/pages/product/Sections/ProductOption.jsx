@@ -482,6 +482,7 @@ const ProductOption = ({
                     name='product-size'
                     id='product-size-unisex' //
                     onChange={e => setSize(e.target.value)}
+                    defaultValue='250'
                   >
                     <option value='init'>사이즈선택</option>
                     <option value='230'>230</option>
@@ -503,6 +504,7 @@ const ProductOption = ({
                     name='product-size'
                     id='product-size-male'
                     onChange={e => setSize(e.target.value)}
+                    defaultValue='250'
                   >
                     <option value='init'>사이즈선택</option>
                     <option value='250'>250</option>
@@ -520,6 +522,7 @@ const ProductOption = ({
                     name='product-size'
                     id='product-size-female'
                     onChange={e => setSize(e.target.value)}
+                    defaultValue='250'
                   >
                     <option value='init'>사이즈선택</option>
                     <option value='230'>230</option>

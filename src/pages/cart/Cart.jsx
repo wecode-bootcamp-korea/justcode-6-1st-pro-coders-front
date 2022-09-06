@@ -281,7 +281,7 @@ const LoginPage = styled.div`
   }
 `;
 
-const Cart = ({ userInfo: { access_token, user_id, isLogin } }) => {
+const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
   const [cartList, setCartList] = useState();
   const [selectList, setSelectList] = useState([]);
   const [error, setError] = useState(false);
@@ -312,7 +312,7 @@ const Cart = ({ userInfo: { access_token, user_id, isLogin } }) => {
             data: { result, cartList: cartData },
           } = await axios.get('/data/cartData.json', {
             headers: {
-              Authorization: access_token,
+              Authorization: token,
             },
           });
 
@@ -332,12 +332,12 @@ const Cart = ({ userInfo: { access_token, user_id, isLogin } }) => {
         data: { result, cartList: cartData },
       } = await axios.delete(`http://localhost:8000/cart?cart_id=${cart_Id}`, {
         headers: {
-          Authorization: access_token,
+          Authorization: token,
         },
       });
 
       setCartList(cartData);
-      setSelectList(selectList.filter(id => id !== cart_Id));
+      setSelectList(cartData.map(data => data.cart_id));
     } catch (error) {
       console.log(error);
       // setCartList(cartList.filter(cart => cart.cart_id !== cartId));
@@ -349,7 +349,7 @@ const Cart = ({ userInfo: { access_token, user_id, isLogin } }) => {
     try {
       await axios.delete(`http://localhost:8000/cart/all?user_id=${user_id}`, {
         headers: {
-          Authorization: access_token,
+          Authorization: token,
         },
       });
 

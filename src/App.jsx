@@ -1,4 +1,4 @@
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Routes, Route, useParams, useLocation } from 'react-router-dom';
 import Event from './pages/event/Event';
 import Archive from './pages/archive/Archive';
 import MainPage from './pages/main/Main';
@@ -17,6 +17,7 @@ import Cart from './pages/cart/Cart';
 import Search from './pages/search/Search';
 import Product from './pages/product/Product';
 import AllShoes from './pages/Shop/Shoes/AllShoes';
+import { useEffect } from 'react';
 
 const App = () => {
   const [userInfo, setUserInfo] = useState({
@@ -24,6 +25,12 @@ const App = () => {
     token: '',
     user_id: '',
   });
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [pathname]);
 
   return (
     <>
