@@ -287,6 +287,8 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
   const [selectList, setSelectList] = useState([]);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const [count, setCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
   const [loading, setLoading] = useState(true);
 
   const addSelectHandler = card_Id => {
@@ -319,6 +321,9 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
             },
           });
 
+          setCount(result.total_count);
+          setTotalPrice(result.total_price);
+
           setCartList(cartData);
           setSelectList(cartData.map(cart => cart.cart_id));
           setLoading(false);
@@ -342,6 +347,9 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
         },
       });
 
+      setCount(result.total_count);
+      setTotalPrice(result.total_price);
+
       setCartList(cartData);
       setSelectList(cartData.map(data => data.cart_id));
       setLoading(false);
@@ -361,6 +369,9 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
           Authorization: token,
         },
       });
+
+      setCount(0);
+      setTotalPrice(0);
 
       setCartList([]);
       setSelectList([]);
@@ -387,7 +398,7 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
             </div>
             <h2>장바구니</h2>
             <h3>
-              총 <span className='red'>{cartList && cartList.length}</span>개
+              총 <span className='red'>{count}</span>개
             </h3>
             <div className='listHeader'>
               <div
@@ -462,32 +473,10 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
                       <p>총 주문금액</p>
                     </div>
                     <div className='cost'>
-                      <h2>
-                        {selectList
-                          .map(select =>
-                            cartList.find(cart => cart.cart_id === select)
-                          )
-                          .reduce(
-                            (acc, cur) =>
-                              acc + cur.count * Number(cur.duped_price),
-                            0
-                          )
-                          .toLocaleString()}
-                        원
-                      </h2>
+                      <h2>{totalPrice.toLocaleString()}원</h2>
                       <h2>0원</h2>
                       <h2 className='totalCost'>
-                        {selectList
-                          .map(select =>
-                            cartList.find(cart => cart.cart_id === select)
-                          )
-                          .reduce(
-                            (acc, cur) =>
-                              acc + cur.count * Number(cur.duped_price),
-                            0
-                          )
-                          .toLocaleString()}
-                        원
+                        {totalPrice.toLocaleString()}원
                       </h2>
                     </div>
                   </div>

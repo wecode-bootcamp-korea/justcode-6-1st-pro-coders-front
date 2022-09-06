@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Item from './Item';
 import useSwiper from '../../../hooks/useSwiper';
-import Spinner from '../../../components/Spinner';
+import SwiperSkeleton from '../../../components/Skeleton/SwiperSkeleton';
 import axios from 'axios';
 
 const StyledSection = styled.section`
@@ -144,7 +144,7 @@ const ThirdSection = () => {
   }, []);
 
   if (loading) {
-    return <Spinner />;
+    return <SwiperSkeleton />;
   }
 
   return (

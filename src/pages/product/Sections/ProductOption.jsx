@@ -7,7 +7,7 @@ import { AiOutlineDownload } from 'react-icons/ai';
 import { useState } from 'react';
 import Images from './Images';
 import AccordionCard from './AccordionCard';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const StyledPage = styled.main`
@@ -242,6 +242,8 @@ const StyledPage = styled.main`
             border: 1px solid #222;
             color: #000;
             font: 18px/1 'apple';
+            background-color: white;
+            cursor: pointer;
           }
           .stock {
             display: inline-flex;
@@ -335,17 +337,66 @@ const StyledPage = styled.main`
   }
 `;
 
+const StyledModal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000050;
+  z-index: 10;
+
+  div.modalContainer {
+    background-color: white;
+    max-width: 800px;
+    width: 100%;
+    border: 1px solid black;
+    padding: 20px;
+
+    h2 {
+      font-weight: 900;
+      font-size: 24px;
+      line-height: 1.5;
+      word-break: keep-all;
+      text-align: center;
+    }
+
+    div.btnContainer {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 2px solid black;
+
+      button {
+        width: 50%;
+        padding: 20px;
+        border: 1px solid black;
+        background-color: white;
+      }
+    }
+  }
+`;
+
 const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
   const [active, setActive] = useState(false);
   const [selectedImg, setSelectedImg] = useState(Images[0]);
   const [error, setError] = useState(false);
+  const [overlapError, setOverlapError] = useState(false);
   const [size, setSize] = useState('250');
   const [count, setCount] = useState(1);
+  const [disabled, setDisabled] = useState(false);
+  const navigate = useNavigate();
 
   const addCartHandler = async (e, itemId) => {
     e.preventDefault();
 
     if (isLogin && !error) {
+      setDisabled(true);
       try {
         await axios.post(
           'http://localhost:8000/cart',
@@ -361,8 +412,11 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
             },
           }
         );
+        setDisabled(false);
       } catch (error) {
         console.log(error);
+        setDisabled(false);
+        setOverlapError(true);
       }
     }
   };
@@ -382,6 +436,17 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
 
   return (
     <StyledPage>
+      {overlapError && (
+        <StyledModal>
+          <div className='modalContainer'>
+            <h2>같은 사이즈와 옵션은 중복해서 추가할 수 없습니다.</h2>
+            <div className='btnContainer'>
+              <button onClick={() => setOverlapError(false)}>돌아가기</button>
+              <button onClick={() => navigate('/cart')}>장바구니</button>
+            </div>
+          </div>
+        </StyledModal>
+      )}
       {product && (
         <div className='product-inner-box'>
           <div className='product-detail-box'>
@@ -479,17 +544,11 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   >
                     <option value='init'>사이즈선택</option>
                     <option value='230'>230</option>
-                    <option value='235'>235</option>
                     <option value='240'>240</option>
-                    <option value='245'>245</option>
                     <option value='250'>250</option>
-                    <option value='255'>255</option>
                     <option value='260'>260</option>
-                    <option value='265'>265</option>
                     <option value='270'>270</option>
-                    <option value='275'>275</option>
                     <option value='280'>280</option>
-                    <option value='285'>285</option>
                     <option value='290'>290</option>
                   </select>
 
@@ -501,13 +560,9 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   >
                     <option value='init'>사이즈선택</option>
                     <option value='250'>250</option>
-                    <option value='255'>255</option>
                     <option value='260'>260</option>
-                    <option value='265'>265</option>
                     <option value='270'>270</option>
-                    <option value='275'>275</option>
                     <option value='280'>280</option>
-                    <option value='285'>285</option>
                     <option value='290'>290</option>
                   </select>
 
@@ -519,9 +574,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   >
                     <option value='init'>사이즈선택</option>
                     <option value='230'>230</option>
-                    <option value='235'>235</option>
                     <option value='240'>240</option>
-                    <option value='245'>245</option>
                     <option value='250'>250</option>
                   </select>
                 </div>
@@ -553,12 +606,13 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
               <div className='product-order-btn'>
                 <div className='order-btn-inner-box'>
                   <a className='purchase'>구매하기</a>
-                  <a
+                  <button
                     className='basket'
                     onClick={e => addCartHandler(e, product.id)}
+                    disabled={disabled}
                   >
-                    장바구니
-                  </a>
+                    {disabled ? '기다려주세요' : '장바구니'}
+                  </button>
                   <a className='stock'>오프라인 매장 재고 확인 &#62;</a>
                 </div>
               </div>

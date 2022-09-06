@@ -11,6 +11,7 @@ const useSwiper = (size, perView = 1) => {
   const trans = useRef(0);
   const clicked = useRef(false);
   const debounce = useRef();
+  const [render, setRender] = useState();
 
   useEffect(() => {
     if (swipedTarget.current) {
@@ -47,9 +48,15 @@ const useSwiper = (size, perView = 1) => {
     const clickEnd = () => {
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0.3s';
-        debounce.current = setTimeout(() => swipedTarget.current && (swipedTarget.current.style.transition = '0s'), 300);
+        debounce.current = setTimeout(
+          () =>
+            swipedTarget.current &&
+            (swipedTarget.current.style.transition = '0s'),
+          300
+        );
 
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / size;
+        const width =
+          (swipedTarget.current.getBoundingClientRect().width + 20) / size;
 
         if (trans.current > -width * 0.5) {
           trans.current = 0;
@@ -58,7 +65,10 @@ const useSwiper = (size, perView = 1) => {
 
         [...Array(size)].forEach((_, i) => {
           if (i < size - (2 + (perView - 1))) {
-            if (trans.current <= -width * (i + 0.5) && trans.current > -width * (i + 1.5)) {
+            if (
+              trans.current <= -width * (i + 0.5) &&
+              trans.current > -width * (i + 1.5)
+            ) {
               trans.current = -width * (i + 1);
               setPage(i + 1);
             }
@@ -106,9 +116,13 @@ const useSwiper = (size, perView = 1) => {
     const touchEnd = () => {
       if (swipedTarget.current) {
         swipedTarget.current.style.transition = '0.3s';
-        debounce.current = setTimeout(() => (swipedTarget.current.style.transition = '0s'), 300);
+        debounce.current = setTimeout(
+          () => (swipedTarget.current.style.transition = '0s'),
+          300
+        );
 
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / size;
+        const width =
+          (swipedTarget.current.getBoundingClientRect().width + 20) / size;
 
         if (trans.current > -width * 0.5) {
           trans.current = 0;
@@ -117,7 +131,10 @@ const useSwiper = (size, perView = 1) => {
 
         [...Array(size)].forEach((_, i) => {
           if (i < size - (2 + (perView - 1))) {
-            if (trans.current <= -width * (i + 0.5) && trans.current > -width * (i + 1.5)) {
+            if (
+              trans.current <= -width * (i + 0.5) &&
+              trans.current > -width * (i + 1.5)
+            ) {
               trans.current = -width * (i + 1);
               setPage(i + 1);
             }
@@ -138,10 +155,13 @@ const useSwiper = (size, perView = 1) => {
 
     const prev = () => {
       if (swipedTarget.current) {
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / size;
+        const width =
+          (swipedTarget.current.getBoundingClientRect().width + 20) / size;
 
         trans.current = -width * (page - 1);
-        swipedTarget.current.style.transform = `translateX(${-width * (page - 1)}px)`;
+        swipedTarget.current.style.transform = `translateX(${
+          -width * (page - 1)
+        }px)`;
         oldTrans.current = -width * (page - 1);
       }
 
@@ -150,10 +170,13 @@ const useSwiper = (size, perView = 1) => {
 
     const next = () => {
       if (swipedTarget.current) {
-        const width = (swipedTarget.current.getBoundingClientRect().width + 20) / size;
+        const width =
+          (swipedTarget.current.getBoundingClientRect().width + 20) / size;
 
         trans.current = -width * (page + 1);
-        swipedTarget.current.style.transform = `translateX(${-width * (page + 1)}px)`;
+        swipedTarget.current.style.transform = `translateX(${
+          -width * (page + 1)
+        }px)`;
         oldTrans.current = -width * (page + 1);
       }
 
@@ -166,9 +189,15 @@ const useSwiper = (size, perView = 1) => {
       swipedTarget.current.addEventListener('mouseup', clickEnd);
       swipedTarget.current.addEventListener('mouseleave', clickEnd);
 
-      swipedTarget.current.addEventListener('touchstart', touchStart, { passive: true });
-      swipedTarget.current.addEventListener('touchmove', touchMove, { passive: true });
-      swipedTarget.current.addEventListener('touchend', touchEnd, { passive: true });
+      swipedTarget.current.addEventListener('touchstart', touchStart, {
+        passive: true,
+      });
+      swipedTarget.current.addEventListener('touchmove', touchMove, {
+        passive: true,
+      });
+      swipedTarget.current.addEventListener('touchend', touchEnd, {
+        passive: true,
+      });
 
       prevButton?.addEventListener('click', prev);
       nextButton?.addEventListener('click', next);
@@ -189,9 +218,9 @@ const useSwiper = (size, perView = 1) => {
         nextButton?.removeEventListener('click', next);
       }
     };
-  }, [size, page, prevButton, nextButton, swipedTarget]);
+  }, [size, page, prevButton, nextButton, swipedTarget, render]);
 
-  return { swipedTarget, page, setPrevButton, setNextButton, trans };
+  return { swipedTarget, page, setPrevButton, setNextButton, trans, setRender };
 };
 
 export default useSwiper;
