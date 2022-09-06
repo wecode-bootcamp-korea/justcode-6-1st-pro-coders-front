@@ -170,7 +170,8 @@ const Store = (props) => {
   ]);
 
   useEffect(() => {
-    fetch('data/storeList.json')
+    // fetch('data/storeList.json')
+    fetch('http://localhost:8000/store')
       .then((res) => res.json())
       .then((data) => {
         setList(data);

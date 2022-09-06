@@ -763,7 +763,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                   />
                 )}
               </div>
-              <button>검색</button>
+              <button onClick={()=>navigate(`/search?key=${input.current.value}`)}>검색</button>
             </form>
 
             <h2>추천검색어</h2>
