@@ -359,7 +359,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Nav = ({ userInfo: { isLogin }, setUserInfo }) => {
+const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [isMain, setIsMain] = useState(
@@ -401,6 +401,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo }) => {
         isScrollDown={isScrollDown}
         isScrolled={isScrolled}
         isMain={isMain}
+        onClick={() => console.log(userInfo)}
       >
         <div className='container'>
           <img

@@ -310,7 +310,7 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
           // url: http://localhost:8000/cart?user_id=${user_id}
           const {
             data: { result, cartList: cartData },
-          } = await axios.get('/data/cartData.json', {
+          } = await axios.get(`http://localhost:8000/cart?user_id=${user_id}`, {
             headers: {
               Authorization: token,
             },

@@ -335,10 +335,7 @@ const StyledPage = styled.main`
   }
 `;
 
-const ProductOption = ({
-  product,
-  userInfo: { isLogin, user_id, access_token },
-}) => {
+const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
   const [active, setActive] = useState(false);
   const [selectedImg, setSelectedImg] = useState(Images[0]);
   const [error, setError] = useState(false);
@@ -355,12 +352,12 @@ const ProductOption = ({
           {
             user_id,
             product_id: itemId,
-            size, // 백엔드에 물어봐야함 size_id 대신에 size
+            size,
             count,
           },
           {
             headers: {
-              Authorization: access_token,
+              Authorization: token,
             },
           }
         );
