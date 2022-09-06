@@ -494,7 +494,9 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
                 )}
               </>
             ) : (
-              <h2>카트 정보를 불러오는데 실패하였습니다</h2>
+              <h2 style={{ textAlign: 'center' }}>
+                카트 정보를 불러오는데 실패하였습니다
+              </h2>
             )}
             {}
             <div className='des'>
