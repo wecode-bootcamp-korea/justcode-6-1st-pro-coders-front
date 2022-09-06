@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import ItemBox from './ItemBox';
 import { useEffect, useState } from 'react';
 import FilterModal from './FilterModal';
-import { Link, NavLink, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Nomination from './Nomination';
 import axios from 'axios';
+import ShoesSkeleton from '../../../../components/Skeleton/ShoesSkeleton';
 
 // { font-family: 'Poppins Bold', 'sans-serif'; }
 // { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
@@ -386,25 +387,37 @@ const StyledItem = styled.div`
   }
 `;
 
-function Item() {
+const Item = () => {
   const [shoesCategory, setShoesCategory] = useState('');
   const { category } = useParams();
   const params = useParams();
-
-  const filterItem = async categItem => {
-    const { data } = await axios.get('/data/product.json/');
-
-    setShoesCategory(data.filter(item => item.category === categItem));
-  };
-
   const [shoes, setShoes] = useState(null);
   const [product, setProduct] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [page, setPage] = useState(0);
   const [end, setEnd] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const filterItem = async categItem => {
+    setLoading(true);
+    const { data } = await axios.get('/data/product.json/');
+
+    setShoesCategory(data.filter(item => item.category === categItem));
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    if (category === '샌들') {
+      filterItem('샌들/슬리퍼');
+    } else if (category !== '전체') {
+      filterItem(category);
+    }
+  }, [category]);
 
   useEffect(() => {
     if (!end) {
+      setLoading(true);
+
       // fetch('http://localhost:8000/products?type=SHOES')
       fetch('/data/product.json/')
         .then(res => res.json())
@@ -416,6 +429,7 @@ function Item() {
           }
 
           setProduct([...product, ...slicedData]);
+          setLoading(false);
         });
     }
   }, [page]);
@@ -438,107 +452,27 @@ function Item() {
             <div className='item-shoes-tab'>
               {/* 카테고리별 이동 링크 */}
               <ul className='item-shoes-tab'>
-                {/* 전체 */}
-                <li className={params.category == '전체' ? 'item-shoes-link-on' : 'item-shoes-link'}>
-                  <Link
-                    to='/shop/shoes/전체'
-                    onClick={() => {
-                      filterItem('러닝화');
-                    }}
-                  >
-                    전체
-                  </Link>
-                </li>
+                {['전체', '러닝화', '워킹화', '트레킹화', '스니커즈', '샌들', '아동화', '기타'].map(cate => {
+                  if (cate === '샌들') {
+                    return (
+                      <li key={cate} className={category === cate ? 'item-shoes-link-on' : 'item-shoes-link'}>
+                        <Link to={`/shop/shoes/${cate}`}>샌들/슬리퍼</Link>
+                      </li>
+                    );
+                  }
 
-                {/* 러닝화 */}
-                <li className={params.category == '러닝화' ? 'item-shoes-link-on' : 'item-shoes-link'}>
-                  <Link
-                    to='/shop/shoes/러닝화'
-                    onClick={() => {
-                      filterItem('러닝화');
-                    }}
-                  >
-                    러닝화
-                  </Link>
-                </li>
-
-                {/* 워킹화 */}
-                <li className={params.category == '워킹화' ? 'item-shoes-link-on' : 'item-shoes-link'}>
-                  <Link
-                    to='/shop/shoes/워킹화'
-                    onClick={() => {
-                      filterItem('워킹화');
-                    }}
-                  >
-                    워킹화
-                  </Link>
-                </li>
-
-                {/* 트레킹화 */}
-                <li className={params.category == '트레킹화' ? 'item-shoes-link-on' : 'item-shoes-link'}>
-                  <Link
-                    to='/shop/shoes/트레킹화'
-                    onClick={() => {
-                      filterItem('트레킹화');
-                    }}
-                  >
-                    트레킹화
-                  </Link>
-                </li>
-
-                {/* 스니커즈 */}
-                <li className={params.category == '스니커즈' ? 'item-shoes-link-on' : 'item-shoes-link'}>
-                  <Link
-                    to='/shop/shoes/스니커즈'
-                    onClick={() => {
-                      filterItem('스니커즈');
-                    }}
-                  >
-                    스니커즈
-                  </Link>
-                </li>
-
-                {/* 샌들/슬리퍼 */}
-                <li className={params.category == '샌들' ? 'item-shoes-link-on' : 'item-shoes-link'}>
-                  <Link
-                    to='/shop/shoes/샌들'
-                    onClick={() => {
-                      filterItem('샌들/슬리퍼');
-                    }}
-                  >
-                    샌들/슬리퍼
-                  </Link>
-                </li>
-
-                {/* 아동화 */}
-                <li className={params.category == '아동화' ? 'item-shoes-link-on' : 'item-shoes-link'}>
-                  <Link
-                    to='/shop/shoes/아동화'
-                    onClick={() => {
-                      filterItem('아동화');
-                    }}
-                  >
-                    아동화
-                  </Link>
-                </li>
-
-                {/* 기타 */}
-                <li className={params.category == '기타' ? 'item-shoes-link-on' : 'item-shoes-link'}>
-                  <Link
-                    to='/shop/shoes/기타'
-                    onClick={() => {
-                      filterItem('기타');
-                    }}
-                  >
-                    기타
-                  </Link>
-                </li>
+                  return (
+                    <li key={cate} className={category === cate ? 'item-shoes-link-on' : 'item-shoes-link'}>
+                      <Link to={`/shop/shoes/${cate}`}>{cate}</Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
         </div>
       </StyledShopHeader>
-      {params.category == '전체' ? <Nomination /> : null}
+      {params.category === '전체' && <Nomination />}
 
       <StyledItem>
         <div className='itme-box'>
@@ -571,25 +505,29 @@ function Item() {
               </div>
             </div>
           </div>
-          {toggle === true ? <FilterModal toggle={toggle} setToggle={setToggle} /> : null}
+          {toggle === true && <FilterModal toggle={toggle} setToggle={setToggle} />}
           <div className='item-inner-box'>
             {/* 상품전체박스 */}
 
-            {params.category === '전체' &&
-              product.length &&
+            {params.category === '전체' && product.length ? (
               product.map(item => {
                 return <ItemBox item={item} key={item.id} />;
-              })}
+              })
+            ) : (
+              <></>
+            )}
 
-            {params.category !== '전체' &&
-              shoesCategory &&
-              shoesCategory.map(item => {
-                return <ItemBox item={item} key={item.id} />;
-              })}
+            {loading ||
+              (params.category !== '전체' &&
+                shoesCategory &&
+                shoesCategory.map(item => {
+                  return <ItemBox item={item} key={item.id} />;
+                }))}
           </div>
+          {loading && <ShoesSkeleton />}
           <div className='item-more-btn-box'>
             {params.category === '전체' && !end && (
-              <button className='item-more-btn' onClick={() => setPage(page => page + 8)}>
+              <button className='item-more-btn' disabled={loading} onClick={() => setPage(page => page + 8)}>
                 더보기
               </button>
             )}
@@ -598,6 +536,6 @@ function Item() {
       </StyledItem>
     </>
   );
-}
+};
 
 export default Item;
