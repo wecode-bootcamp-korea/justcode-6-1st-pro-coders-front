@@ -351,7 +351,7 @@ function Item() {
     });
     setShoesCategory(updatedItems)
   }
-  console.log("슈즈카테고리 아이템",shoesCategory);
+
 
   const [shoes, setShoes] = useState(null);
   const [product, setProduct] = useState(null);
