@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Item from './Item';
 import useSwiper from '../../../hooks/useSwiper';
-import { ImSpinner } from 'react-icons/im';
+import Spinner from '../../../components/Spinner';
 import axios from 'axios';
 
 const StyledSection = styled.section`
@@ -67,7 +67,12 @@ const StyledSection = styled.section`
       ul.items {
         display: flex;
         padding-top: 40px;
-        width: calc(${({ itemList, menu }) => (itemList[menu].length > 5 ? `20% * ${itemList[menu].length}` : '100%')});
+        width: calc(
+          ${({ itemList, menu }) =>
+            itemList[menu].length > 5
+              ? `20% * ${itemList[menu].length}`
+              : '100%'}
+        );
       }
     }
 
@@ -80,7 +85,12 @@ const StyledSection = styled.section`
       &::after {
         content: '';
         position: absolute;
-        width: calc(${({ itemList, menu, perView }) => (itemList[menu].length > 5 ? `100% / ${itemList[menu].length - perView + 1}` : '100%')});
+        width: calc(
+          ${({ itemList, menu, perView }) =>
+            itemList[menu].length > 5
+              ? `100% / ${itemList[menu].length - perView + 1}`
+              : '100%'}
+        );
         height: 100%;
         left: 0;
         top: 0;
@@ -89,27 +99,6 @@ const StyledSection = styled.section`
         transform: translateX(calc(100% * ${({ page }) => page}));
       }
     }
-  }
-`;
-
-const spin = keyframes`
-  0% {
-      transform: rotate(0);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-`;
-
-export const StyledSpinner = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-
-  svg {
-    animation: ${spin} infinite 1s;
   }
 `;
 
@@ -129,26 +118,33 @@ const ThirdSection = () => {
   const [menu, setMenu] = useState(0);
   const [keywordList, setKeywordList] = useState();
   const [itemList, setItemList] = useState();
-  const { swipedTarget, page } = useSwiper(itemList ? itemList[menu].length : 5, 5);
+  const { swipedTarget, page } = useSwiper(
+    itemList ? itemList[menu].length : 5,
+    5
+  );
 
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const shuffledData = categories.sort(() => Math.random() - 0.5).slice(0, 4);
+      const shuffledData = categories
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 4);
       setKeywordList(shuffledData);
 
-      const itemsData = (await axios.get('/data/shoesData.json')).data; // url localhost:8000/products?type=SHOES
-      setItemList(shuffledData.map(data => itemsData.filter(itemData => itemData.category === data.name)));
+      const itemsData = (
+        await axios.get(`http://localhost:8000/products?type=SHOES`)
+      ).data;
+      setItemList(
+        shuffledData.map(data =>
+          itemsData.filter(itemData => itemData.category === data.name)
+        )
+      );
       setLoading(false);
     })();
   }, []);
 
   if (loading) {
-    return (
-      <StyledSpinner>
-        <ImSpinner size={40} />
-      </StyledSpinner>
-    );
+    return <Spinner />;
   }
 
   return (

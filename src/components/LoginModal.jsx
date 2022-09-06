@@ -189,7 +189,7 @@ const LoginModal = ({ setModal, setUserInfo }) => {
         // 나중에 signin url http://localhost:8000/user/login
         const {
           data: { token, user_id },
-        } = await axios.post('/data/userInfo.json', {
+        } = await axios.post('http://localhost:8000/user/login', {
           email,
           password,
         });
