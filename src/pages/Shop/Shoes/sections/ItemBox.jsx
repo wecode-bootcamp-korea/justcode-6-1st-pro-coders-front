@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function ItemBox({ item }) {
   return (
     <>
       {/* 상품전체박스 */}
       {item && (
-        <Link to={`/product/${item.id}`} className='item-a-box'>
+        <NavLink to={`/product/${item.id}`} className='item-a-box'>
           <div className='item-img'>
             {/* Hover 전 */}
             <img className='item-main-img' src={item.main_image} alt='' />
@@ -62,10 +63,9 @@ function ItemBox({ item }) {
               </span>
             </div>
           </div>
-        </Link>
+        </NavLink>
       )}
     </>
   );
 }
-
 export default ItemBox;

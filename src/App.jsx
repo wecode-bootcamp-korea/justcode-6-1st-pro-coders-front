@@ -29,7 +29,7 @@ const App = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname]);
 
   return (
@@ -40,7 +40,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/shop' element={<ShopPage />} />
-          <Route path='/shop/shoes' element={<AllShoes />} />
+          <Route path='/shop/shoes/:category' element={<AllShoes />} />
           <Route
             path='/product/:id'
             element={<Product userInfo={userInfo} />}

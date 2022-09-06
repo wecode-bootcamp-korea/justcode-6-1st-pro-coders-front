@@ -4,6 +4,7 @@ import { BsCheck } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import CartSkeleton from './CartSkeleton';
 
 const StyledPage = styled.main`
   padding-top: 250px;
@@ -286,6 +287,9 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
   const [selectList, setSelectList] = useState([]);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const [count, setCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const addSelectHandler = card_Id => {
     if (selectList.includes(card_Id)) {
@@ -305,28 +309,35 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
 
   useEffect(() => {
     if (isLogin) {
+      setLoading(true);
       (async () => {
         try {
           // url: http://localhost:8000/cart?user_id=${user_id}
           const {
             data: { result, cartList: cartData },
-          } = await axios.get('/data/cartData.json', {
+          } = await axios.get(`http://localhost:8000/cart?user_id=${user_id}`, {
             headers: {
               Authorization: token,
             },
           });
 
+          setCount(result.total_count);
+          setTotalPrice(result.total_price);
+
           setCartList(cartData);
           setSelectList(cartData.map(cart => cart.cart_id));
+          setLoading(false);
         } catch (error) {
           console.log(error);
           setError(true);
+          setLoading(false);
         }
       })();
     }
   }, [isLogin]);
 
   const removeOneHandler = async cart_Id => {
+    setLoading(true);
     try {
       const {
         data: { result, cartList: cartData },
@@ -336,16 +347,22 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
         },
       });
 
+      setCount(result.total_count);
+      setTotalPrice(result.total_price);
+
       setCartList(cartData);
       setSelectList(cartData.map(data => data.cart_id));
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
       // setCartList(cartList.filter(cart => cart.cart_id !== cartId));
       // setSelectList(selectList.filter(id => id !== cartId));
     }
   };
 
   const removeAllHandler = async () => {
+    setLoading(true);
     try {
       await axios.delete(`http://localhost:8000/cart/all?user_id=${user_id}`, {
         headers: {
@@ -353,10 +370,15 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
         },
       });
 
+      setCount(0);
+      setTotalPrice(0);
+
       setCartList([]);
       setSelectList([]);
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
       // setCartList([]);
       // setSelectList([]);
     }
@@ -376,7 +398,7 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
             </div>
             <h2>장바구니</h2>
             <h3>
-              총 <span className='red'>{cartList && cartList.length}</span>개
+              총 <span className='red'>{count}</span>개
             </h3>
             <div className='listHeader'>
               <div
@@ -397,7 +419,9 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
               <p className='saleDetail'>판매정보</p>
               <p className='select'>선택</p>
             </div>
-            {!error ? (
+            {loading ? (
+              <CartSkeleton />
+            ) : !error ? (
               <>
                 <ul className='list'>
                   {cartList && cartList.length ? (
@@ -449,40 +473,21 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
                       <p>총 주문금액</p>
                     </div>
                     <div className='cost'>
-                      <h2>
-                        {selectList
-                          .map(select =>
-                            cartList.find(cart => cart.cart_id === select)
-                          )
-                          .reduce(
-                            (acc, cur) =>
-                              acc + cur.count * Number(cur.duped_price),
-                            0
-                          )
-                          .toLocaleString()}
-                        원
-                      </h2>
+                      <h2>{totalPrice.toLocaleString()}원</h2>
                       <h2>0원</h2>
                       <h2 className='totalCost'>
-                        {selectList
-                          .map(select =>
-                            cartList.find(cart => cart.cart_id === select)
-                          )
-                          .reduce(
-                            (acc, cur) =>
-                              acc + cur.count * Number(cur.duped_price),
-                            0
-                          )
-                          .toLocaleString()}
-                        원
+                        {totalPrice.toLocaleString()}원
                       </h2>
                     </div>
                   </div>
                 )}
               </>
             ) : (
-              <h2>카트 정보를 불러오는데 실패하였습니다</h2>
+              <h2 style={{ textAlign: 'center' }}>
+                카트 정보를 불러오는데 실패하였습니다
+              </h2>
             )}
+            {}
             <div className='des'>
               <div className='left'>
                 <ul>

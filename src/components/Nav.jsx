@@ -173,6 +173,7 @@ const StyledNav = styled.nav`
         &:last-of-type {
           div.inner {
             background-image: url('/nav/img/gnb_banner_smartfit.png');
+
             background-size: auto 270px;
 
             div.innerContainer {
@@ -359,7 +360,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Nav = ({ userInfo: { isLogin }, setUserInfo }) => {
+const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [isMain, setIsMain] = useState(
@@ -418,7 +419,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo }) => {
                 <div className='innerContainer'>
                   <ul className='lnb'>
                     <li>
-                      <Link to='/shop/shoes' className='lnbSubName'>
+                      <Link to='/shop/shoes/전체' className='lnbSubName'>
                         SHOES
                       </Link>
                     </li>
@@ -754,6 +755,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo }) => {
                   type='text'
                   placeholder='구매 상품평 작성하면 최대 3천 포인트'
                 />
+
                 {inputValue && (
                   <img
                     src='/nav/icon/icon_search_close.svg'
@@ -762,7 +764,15 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo }) => {
                   />
                 )}
               </div>
-              <button onClick={()=>{navigate(`/search?key=${input.current.value}`); clearHandler(); setSearch(false)}}>검색</button>
+              <button
+                onClick={() => {
+                  navigate(`/search?key=${input.current.value}`);
+                  clearHandler();
+                  setSearch(false);
+                }}
+              >
+                검색
+              </button>
             </form>
 
             <h2>추천검색어</h2>
@@ -780,6 +790,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo }) => {
                 <li>원더 쿨</li>
                 <li>모자</li>
               </ul>
+
               <img src='/nav/img/search_add.png' alt='search banner' />
             </div>
           </div>

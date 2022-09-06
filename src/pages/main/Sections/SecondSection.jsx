@@ -68,23 +68,38 @@ const SecondSection = () => {
     <StyledSection>
       <ul ref={swipedTarget}>
         <li>
-          <img src='https://image.prospecs.com/files/upload/display/202205/202205191808123.png/dims/optimize' alt='' />
+          <img
+            src='https://image.prospecs.com/files/upload/display/202205/202205191808123.png/dims/optimize'
+            alt=''
+          />
           <h2>PRO-SPECS PERFORMANCE</h2>
         </li>
         <li>
-          <img src='https://image.prospecs.com/files/upload/display/202208/202208301120141.png/dims/optimize' alt='' />
+          <img
+            src='https://image.prospecs.com/files/upload/display/202208/202208301120141.png/dims/optimize'
+            alt=''
+          />
           <h2>PRO-SPECS PERFORMANCE</h2>
         </li>
         <li>
-          <img src='https://image.prospecs.com/files/upload/display/202208/202208301450054.png/dims/optimize' alt='' />
+          <img
+            src='https://image.prospecs.com/files/upload/display/202208/202208301450054.png/dims/optimize'
+            alt=''
+          />
           <h2>PRO-SPECS ORIGINAL</h2>
         </li>
         <li>
-          <img src='https://image.prospecs.com/files/upload/display/202205/202205191808123.png/dims/optimize' alt='' />
+          <img
+            src='https://image.prospecs.com/files/upload/display/202205/202205191808123.png/dims/optimize'
+            alt=''
+          />
           <h2>PRO-SPECS PERFORMANCE</h2>
         </li>
         <li>
-          <img src='https://image.prospecs.com/files/upload/display/202208/202208301120141.png/dims/optimize' alt='' />
+          <img
+            src='https://image.prospecs.com/files/upload/display/202208/202208301120141.png/dims/optimize'
+            alt=''
+          />
           <h2>PRO-SPECS PERFORMANCE</h2>
         </li>
       </ul>
