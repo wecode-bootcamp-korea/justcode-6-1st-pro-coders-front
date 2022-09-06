@@ -1,8 +1,6 @@
-import { useRef } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import Item from '../Shop/Shoes/sections/Item';
 import ItemBox from '../Shop/Shoes/sections/ItemBox';
 
 const Main = styled.div`
@@ -327,9 +325,7 @@ const Main = styled.div`
 
 const Search = (props) => {
   const location = useLocation();
-  const value = new URLSearchParams(location.search).get('key');
-  const [keyword, setKeyword] = useState(value);
-  // const [keyword, setKeyword] = useState('X-FIN');
+  const [keyword, setKeyword] = useState();
   const [searchList, setSearchList] = useState();
   const [keywordList, setKeywordList] = useState([
     {
@@ -366,48 +362,29 @@ const Search = (props) => {
   const input = useRef();
 
   useEffect(() => {
+    const value = new URLSearchParams(location.search).get('key');
+    setKeyword(value)
     fetch(`http://localhost:8000/search${location.search}`)
       .then((res) => res.json())
-      .then((data) => setSearchList(data));
-    // fetch('data/product.json')
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     const filteredData = data.data.filter((el) => {
-    //       return el.title.includes(keyword);
-    //     });
-    //     setSearchList(filteredData);
-    //   });
-  }, []);
+      .then((data) => setSearchList(data))
+      .catch((err)=> setSearchList([]));
+  }, [location]);
   
     const onSearch = () => {
       setKeyword(input.current.value);
       fetch(`http://localhost:8000/search?key=${input.current.value}`)
         .then((res) => res.json())
-        .then((data) => setSearchList(data));
-      // fetch('data/product.json')
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     const filteredData = data.data.filter((el) => {
-      //       return el.title.includes(input.current.value);
-      //     });
-      //     setSearchList(filteredData);
-      //   });
-    };
-
-    const onSearchPopular = (e) => {
-      setInputValue(e.target.textContent);
-      setKeyword(e.target.textContent);
-      fetch(`http://localhost:8000/search?key=${e.target.textContent}`)
+        .then((data) => {setSearchList(data)})
+        .catch((err)=> setSearchList([]));
+      };
+      
+      const onSearchPopular = (e) => {
+        setInputValue(e.target.textContent);
+        setKeyword(e.target.textContent);
+        fetch(`http://localhost:8000/search?key=${e.target.textContent}`)
         .then((res) => res.json())
-        .then((data) => setSearchList(data));
-      // fetch('data/product.json')
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     const filteredData = data.data.filter((el) => {
-      //       return el.title.includes(e.target.textContent);
-      //     });
-      //     setSearchList(filteredData);
-      //   });
+        .then((data) => setSearchList(data))
+        .catch((err)=> setSearchList([]));
     };
 
   const clearHandler = () => {
@@ -495,7 +472,7 @@ const Search = (props) => {
       </div>
       <section className='item-inner-box'>
         {searchList && searchList.map((item)=>{
-          return <ItemBox item={item} />
+          return <ItemBox item={item} key={item.id} />
         })}
       </section>
       <section className='promotion'>
