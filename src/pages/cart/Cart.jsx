@@ -332,6 +332,7 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
   }, [isLogin]);
 
   const removeOneHandler = async cart_Id => {
+    setLoading(true);
     try {
       const {
         data: { result, cartList: cartData },
@@ -343,14 +344,17 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
 
       setCartList(cartData);
       setSelectList(cartData.map(data => data.cart_id));
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
       // setCartList(cartList.filter(cart => cart.cart_id !== cartId));
       // setSelectList(selectList.filter(id => id !== cartId));
     }
   };
 
   const removeAllHandler = async () => {
+    setLoading(true);
     try {
       await axios.delete(`http://localhost:8000/cart/all?user_id=${user_id}`, {
         headers: {
@@ -360,8 +364,10 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
 
       setCartList([]);
       setSelectList([]);
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
       // setCartList([]);
       // setSelectList([]);
     }
