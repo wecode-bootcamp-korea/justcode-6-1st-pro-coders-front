@@ -7,8 +7,9 @@ import { AiOutlineDownload } from 'react-icons/ai';
 import { useState } from 'react';
 import Images from './Images';
 import AccordionCard from './AccordionCard';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import ProductSkeleton from '../../../components/Skeleton/ProductSkeleton';
 
 const StyledPage = styled.main`
   .product-inner-box {
@@ -447,7 +448,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
           </div>
         </StyledModal>
       )}
-      {product && (
+      {product ? (
         <div className='product-inner-box'>
           <div className='product-detail-box'>
             {/* 이미지 박스 */}
@@ -641,6 +642,8 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
             </div>
           </div>
         </div>
+      ) : (
+        <ProductSkeleton />
       )}
     </StyledPage>
   );
