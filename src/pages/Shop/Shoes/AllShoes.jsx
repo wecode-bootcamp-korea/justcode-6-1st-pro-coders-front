@@ -9,8 +9,6 @@ const StyledAllShoes = styled.div``;
 const AllShoes = () => {
   return (
     <StyledAllShoes>
-      <ShopHeader />
-      <Nomination />
       <Item />
     </StyledAllShoes>
   );

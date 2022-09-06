@@ -154,69 +154,36 @@ const StyledShopHeader = styled.div`
 	}
 `;
 
-const ShopHeader = (loaction) => {
-	const [shoes, setShoes] = useState(null);
-	const [active, setActive] = useState(false);
-	const [categoryMenu, setCategorymenu] = useState([
-		{
-			id: 1,
-			text: '전체',
-			selected: true,
-		},
-		{
-			id: 2,
-			text: '런닝화',
-			selected: false,
-		},
-		{
-			id: 3,
-			text: '워킹화',
-			selected: false,
-		},
-		{
-			id: 4,
-			text: '스포츠화',
-			selected: false,
-		},
-		{
-			id: 5,
-			text: '트레킹화',
-			selected: false,
-		},
-		{
-			id: 6,
-			text: '스니커즈',
-			selected: false,
-		},
-		{
-			id: 7,
-			text: '샌들슬리퍼',
-			selected: false,
-		},
-		{
-			id: 8,
-			text: '기타',
-			selected: false,
-		},
-	]);
+const ShopHeader = () => {
+	const [shoes, setShoes] = useState('');
+	const [shoesCategory,setShoesCategory] = useState('');
 	const params = new URLSearchParams(location.search)
 	let category = params.get("category")
-	const filterResult =(catItem)=>{
-		const result = categoryMenu.filter((curData)=>{
-			return curData.text === catItem;
-		});
-		setCategorymenu()
-	}
+
 
 
 
 	useEffect(() => {
+		    // fetch('http://localhost:8000/products?type=SHOES')
 		fetch('/data/product.json')
 			.then((res) => res.json())
 			.then((res) => {
 				setShoes(res);
 			});
 	}, []);
+
+
+	// 제품데이터에서 카테고리 별로 배열 만드는 함수
+		const filterItem=(categItem)=>{
+			const updatedItems = shoes.filter((itemCategory) => {
+				return itemCategory.category === categItem;
+			});
+			setShoesCategory(updatedItems)
+		}
+		console.log(shoesCategory);
+
+
+
 
 	return (
 		<StyledShopHeader>
@@ -234,10 +201,17 @@ const ShopHeader = (loaction) => {
 							<h3 className='item-category-title'>{category}</h3>
 						</div>
 						<div className='item-shoes-tab'>
-							{/* 카테고리별 이동 링크 */}
+							{/* 카테고리별 이동 링크 */}	
+<button className='categoryBtn btn-warning' ><Link to="/shop/shoes/전체" onClick={()=>{filterItem('')}}>전체</Link></button>
+<button className='categoryBtn btn-warning' onClick={()=>{filterItem('러닝화')}}><Link to="/shop/shoes/러닝화">러닝화</Link></button>
+<button className='categoryBtn btn-warning' onClick={()=>{filterItem('워킹화')}}><Link to="/shop/shoes/워킹화">워킹화</Link></button>
+<button className='categoryBtn btn-warning' onClick={()=>{filterItem('트레킹화')}}><Link to="/shop/shoes/트레킹화">트레킹화</Link></button>
+<button className='categoryBtn btn-warning' onClick={()=>{filterItem('스니커즈')}}><Link to="/shop/shoes/스니커즈">스니커즈</Link></button>
+<button className='categoryBtn btn-warning' onClick={()=>{filterItem('샌들/슬리퍼')}}><Link to="/shop/shoes/샌들">샌들/슬리퍼</Link></button>
+<button className='categoryBtn btn-warning' onClick={()=>{filterItem('아동화')}}><Link to="/shop/shoes/아동화">아동화</Link></button>
+<button className='categoryBtn btn-warning' onClick={()=>{filterItem('기타')}}><Link to="/shop/shoes/기타">기타</Link></button>
 
 			
-		
 						</div>
 					</div>
 				)}

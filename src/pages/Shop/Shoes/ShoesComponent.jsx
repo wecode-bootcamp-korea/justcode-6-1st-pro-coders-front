@@ -9,7 +9,6 @@ const ShoesComponent = () => {
   return (
     <StyledAllShoesComponent>
       <ShopHeader />
-      <MdPick/>
       <Item />
     </StyledAllShoesComponent>
   );
