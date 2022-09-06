@@ -367,7 +367,7 @@ const Search = (props) => {
     setInputValue(value)
     fetch(`http://localhost:8000/search${location.search}`)
       .then((res) => res.json())
-      .then((data) => setSearchList(data))
+      .then((data) => {data.message ? setSearchList([]) : setSearchList(data)})
       .catch((err)=> setSearchList([]));
   }, [location]);
   
@@ -375,7 +375,7 @@ const Search = (props) => {
       setKeyword(input.current.value);
       fetch(`http://localhost:8000/search?key=${input.current.value}`)
         .then((res) => res.json())
-        .then((data) => {setSearchList(data)})
+        .then((data) => {data.message ? setSearchList([]) : setSearchList(data)})
         .catch((err)=> setSearchList([]));
       };
       
