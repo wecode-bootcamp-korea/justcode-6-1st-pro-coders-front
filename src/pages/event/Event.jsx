@@ -7,7 +7,7 @@ import EventCard from './EventCard';
 
 const Main = styled.div`
   width: 1280px;
-  margin: 250px auto 0 auto;
+  margin: 250px auto 200px auto;
 
   div.headerContainer {
     margin: 0 20px;

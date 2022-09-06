@@ -5,7 +5,7 @@ import { faChevronUp, faChevronDown, faChevronLeft, faChevronRight } from '@fort
 
 const Main = styled.div`
   width: 1280px;
-  margin: 250px auto 140px auto;
+  margin: 250px auto 200px auto;
   padding: 0 20px;
 
   h3 {
