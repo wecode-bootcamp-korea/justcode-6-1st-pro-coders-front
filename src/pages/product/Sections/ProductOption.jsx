@@ -10,6 +10,7 @@ import AccordionCard from './AccordionCard';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ProductSkeleton from '../../../components/Skeleton/ProductSkeleton';
+import { useEffect } from 'react';
 
 const StyledPage = styled.main`
   .product-inner-box {
@@ -394,6 +395,10 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
 
+  useEffect(() => {
+    product && product.sizes === 'FREE' && setSize('FREE');
+  }, [product]);
+
   const addCartHandler = async (e, itemId) => {
     e.preventDefault();
 
@@ -544,49 +549,52 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                     <img src={product.main_image} />
                   </a>
                 </div>
-                <div className='product-size'>
-                  <select
-                    name='product-size'
-                    id='product-size-unisex' //
-                    onChange={e => setSize(e.target.value)}
-                    defaultValue='250'
-                  >
-                    <option value='init'>사이즈선택</option>
-                    <option value='230'>230</option>
-                    <option value='240'>240</option>
-                    <option value='250'>250</option>
-                    <option value='260'>260</option>
-                    <option value='270'>270</option>
-                    <option value='280'>280</option>
-                    <option value='290'>290</option>
-                  </select>
+                {product?.sizes !== 'FREE' && (
+                  <div className='product-size'>
+                    <select
+                      name='product-size'
+                      id='product-size-unisex' //
+                      onChange={e => setSize(e.target.value)}
+                      defaultValue='250'
+                    >
+                      <option value='init'>사이즈선택</option>
+                      <option value='230'>230</option>
+                      <option value='240'>240</option>
+                      <option value='250'>250</option>
+                      <option value='260'>260</option>
+                      <option value='270'>270</option>
+                      <option value='280'>280</option>
+                      <option value='290'>290</option>
+                    </select>
 
-                  <select
-                    name='product-size'
-                    id='product-size-male'
-                    onChange={e => setSize(e.target.value)}
-                    defaultValue='250'
-                  >
-                    <option value='init'>사이즈선택</option>
-                    <option value='250'>250</option>
-                    <option value='260'>260</option>
-                    <option value='270'>270</option>
-                    <option value='280'>280</option>
-                    <option value='290'>290</option>
-                  </select>
+                    <select
+                      name='product-size'
+                      id='product-size-male'
+                      onChange={e => setSize(e.target.value)}
+                      defaultValue='250'
+                    >
+                      <option value='init'>사이즈선택</option>
+                      <option value='250'>250</option>
+                      <option value='260'>260</option>
+                      <option value='270'>270</option>
+                      <option value='280'>280</option>
+                      <option value='290'>290</option>
+                    </select>
 
-                  <select
-                    name='product-size'
-                    id='product-size-female'
-                    onChange={e => setSize(e.target.value)}
-                    defaultValue='250'
-                  >
-                    <option value='init'>사이즈선택</option>
-                    <option value='230'>230</option>
-                    <option value='240'>240</option>
-                    <option value='250'>250</option>
-                  </select>
-                </div>
+                    <select
+                      name='product-size'
+                      id='product-size-female'
+                      onChange={e => setSize(e.target.value)}
+                      defaultValue='250'
+                    >
+                      <option value='init'>사이즈선택</option>
+                      <option value='230'>230</option>
+                      <option value='240'>240</option>
+                      <option value='250'>250</option>
+                    </select>
+                  </div>
+                )}
+
                 <div className='product-count'>
                   <div>
                     <p>수량</p>
