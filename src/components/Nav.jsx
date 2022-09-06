@@ -172,7 +172,9 @@ const StyledNav = styled.nav`
 
         &:last-of-type {
           div.inner {
+
             background-image: url('/nav/img/gnb_banner_smartfit.png');
+
             background-size: auto 270px;
 
             div.innerContainer {
@@ -755,6 +757,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                   type='text'
                   placeholder='구매 상품평 작성하면 최대 3천 포인트'
                 />
+
                 {inputValue && (
                   <img
                     src='/nav/icon/icon_search_close.svg'
@@ -781,7 +784,9 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                 <li>원더 쿨</li>
                 <li>모자</li>
               </ul>
+
               <img src='/nav/img/search_add.png' alt='search banner' />
+
             </div>
           </div>
         </div>
