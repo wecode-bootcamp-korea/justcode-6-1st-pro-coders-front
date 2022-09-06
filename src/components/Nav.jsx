@@ -419,7 +419,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                 <div className='innerContainer'>
                   <ul className='lnb'>
                     <li>
-                      <Link to='/shop/shoes' className='lnbSubName'>
+                      <Link to='/shop/shoes/전체' className='lnbSubName'>
                         SHOES
                       </Link>
                     </li>

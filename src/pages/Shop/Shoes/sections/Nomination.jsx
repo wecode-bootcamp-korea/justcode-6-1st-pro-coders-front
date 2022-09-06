@@ -129,10 +129,10 @@ function Nomination() {
             className='mySwiper'
           >
             {nomination &&
-              nomination.data.map((item, index) => {
+              nomination.map(item => {
                 return (
                   <SwiperSlide key={item.id}>
-                    <MdPick nomination={nomination} item={item} index={index} />
+                    <MdPick item={item} />
                   </SwiperSlide>
                 );
               })}

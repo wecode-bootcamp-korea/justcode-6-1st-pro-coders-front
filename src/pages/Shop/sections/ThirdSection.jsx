@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import useInfiniteSwiper from '../../../hooks/useInfiniteSwiper';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import BestSkeleton from '../../../components/Skeleton/BestSkeleton';
 
 const StyledSection = styled.section`
   h3 {
@@ -193,13 +194,14 @@ const StyledSection = styled.section`
 
 const ThirdSection = () => {
   const [mode, setMode] = useState(1);
-  const { swipedTarget, page } = useInfiniteSwiper(4, true);
+  const { swipedTarget, page, setRender } = useInfiniteSwiper(4, true);
   const [loading, setLoading] = useState(true);
   const [performanceList, setPerformanceList] = useState();
   const [originalList, setOriginalList] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true);
     fetch('http://localhost:8000/products?type=SHOES') // localhost:8000/products?type=SHOES
       .then(res => res.json())
       .then(data => {
@@ -234,10 +236,12 @@ const ThirdSection = () => {
               alt=''
             />
           </div>
-          <div className='listContainer'>
-            <ul className='list' ref={swipedTarget}>
-              {!loading &&
-                (mode === 1
+
+          {loading && <BestSkeleton />}
+          {!loading && (
+            <div className='listContainer' ref={setRender}>
+              <ul className='list' ref={swipedTarget}>
+                {mode === 1
                   ? [
                       performanceList[1],
                       ...performanceList,
@@ -395,9 +399,10 @@ const ThirdSection = () => {
                           </div>
                         </li>
                       )
-                    ))}
-            </ul>
-          </div>
+                    )}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </StyledSection>

@@ -26,11 +26,10 @@ const App = () => {
     user_id: '',
   });
 
-
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname]);
 
   return (
@@ -62,7 +61,6 @@ const App = () => {
       </ThemeProvider>
     </>
   );
-
 };
 
 export default App;
