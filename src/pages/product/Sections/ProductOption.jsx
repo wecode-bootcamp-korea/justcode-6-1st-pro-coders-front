@@ -426,14 +426,12 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
               <div className='product-price-box'>
                 {product.is_discounted === 1 ? (
                   <div className='product-price-sale-on'>
-                    <span className='price'>
-                      {Number(product.price).toLocaleString()}원
-                    </span>
+                    <span className='price'>{product.price}원</span>
                     <span className='sale-percent'>
                       {product.discount_percent}%
                     </span>
                     <span className='sale-price'>
-                      {Number(product.discounted_price).toLocaleString()}원
+                      {product.discounted_price}원
                     </span>
                     <div className='tooltip'>
                       <AiOutlineQuestionCircle />
@@ -441,9 +439,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   </div>
                 ) : (
                   <div className='product-price-sale-off'>
-                    <span className='price'>
-                      {Number(product.price).toLocaleString()}원
-                    </span>
+                    <span className='price'>{product.price}원</span>
                     <div className='tooltip'>
                       <AiOutlineQuestionCircle />
                     </div>
@@ -539,7 +535,17 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                       onChange={changeHandler}
                       placeholder={1}
                     />
-                    <p>{(Number(product.price) * count).toLocaleString()}원</p>
+                    <p>
+                      {(
+                        Number(
+                          product.price
+                            .split('')
+                            .filter(e => e !== ',')
+                            .join('')
+                        ) * count
+                      ).toLocaleString()}
+                      원
+                    </p>
                   </div>
                   {error && <p className='error'>숫자만 입력하세요</p>}
                 </div>

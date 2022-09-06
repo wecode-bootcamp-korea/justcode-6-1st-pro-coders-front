@@ -13,7 +13,7 @@ const Product = ({ userInfo }) => {
   // url: localhost:8000/products?product_id=${id}
 
   useEffect(() => {
-    fetch('/data/product.json')
+    fetch(`http://localhost:8000/products?product_id=${id}`)
       .then(res => res.json())
       .then(datas => setProduct(datas.find(data => data.id === Number(id))));
   }, [id]);
