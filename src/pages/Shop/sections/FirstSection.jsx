@@ -73,7 +73,11 @@ const StyledSection = styled.section`
               opacity: 0;
               transition: 0.3s;
               color: white;
-              background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+              background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.5) 0%,
+                rgba(0, 0, 0, 0) 100%
+              );
               display: flex;
               flex-direction: column;
               justify-content: flex-end;
@@ -115,7 +119,10 @@ const FirstSection = () => {
             <li>
               <div className='left'>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253636.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253636.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>샤이너 102</p>
                     <h2>109,000원</h2>
@@ -124,28 +131,40 @@ const FirstSection = () => {
               </div>
               <div className='right'>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253637.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253637.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>트리거런 102</p>
                     <h2>71,200원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253638.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253638.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>샤이너 103</p>
                     <h2>109,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253639.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253639.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>데이토나 101</p>
                     <h2>79,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253640.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253640.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>몬타 102</p>
                     <h2>119,000원</h2>
@@ -156,7 +175,10 @@ const FirstSection = () => {
             <li>
               <div className='left'>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436471.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436471.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>크로스 워커 212(온라인 전용 상품)</p>
                     <h2>89,000원</h2>
@@ -165,28 +187,40 @@ const FirstSection = () => {
               </div>
               <div className='right'>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436482.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436482.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>에어링 513(온라인 전용 상품)</p>
                     <h2>89,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436483.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436483.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>프로위너 112(온라인 전용 상품)</p>
                     <h2>89,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436484.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436484.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>프로위너 114(온라인 전용 상품)</p>
                     <h2>89,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436485.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436485.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>에어링 512(온라인 전용 상품)</p>
                     <h2>89,000원</h2>
@@ -197,7 +231,10 @@ const FirstSection = () => {
             <li>
               <div className='left'>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253636.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253636.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>샤이너 102</p>
                     <h2>109,000원</h2>
@@ -206,28 +243,40 @@ const FirstSection = () => {
               </div>
               <div className='right'>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253637.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253637.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>트리거런 102</p>
                     <h2>71,200원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253638.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253638.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>샤이너 103</p>
                     <h2>109,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253639.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253639.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>데이토나 101</p>
                     <h2>79,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022061016253640.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202206/2022061016253640.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>몬타 102</p>
                     <h2>119,000원</h2>
@@ -238,7 +287,10 @@ const FirstSection = () => {
             <li>
               <div className='left'>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436471.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436471.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>크로스 워커 212(온라인 전용 상품)</p>
                     <h2>89,000원</h2>
@@ -247,28 +299,40 @@ const FirstSection = () => {
               </div>
               <div className='right'>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436482.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436482.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>에어링 513(온라인 전용 상품)</p>
                     <h2>89,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436483.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436483.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>프로위너 112(온라인 전용 상품)</p>
                     <h2>89,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436484.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436484.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>프로위너 114(온라인 전용 상품)</p>
                     <h2>89,000원</h2>
                   </div>
                 </div>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202208/202208161436485.jpg/dims/optimize' alt='' />
+                  <img
+                    src='https://image.prospecs.com/files/upload/display/202208/202208161436485.jpg/dims/optimize'
+                    alt=''
+                  />
                   <div className='des'>
                     <p>에어링 512(온라인 전용 상품)</p>
                     <h2>89,000원</h2>

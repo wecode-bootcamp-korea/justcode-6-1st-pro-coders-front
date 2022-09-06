@@ -164,7 +164,10 @@ const StyledNav = styled.nav`
 
         &:last-of-type {
           div.inner {
-            background-image: url('./nav/img/gnb_banner_smartfit.png');
+
+
+            background-image: url('/nav/img/gnb_banner_smartfit.png');
+
             background-size: auto 270px;
 
             div.innerContainer {
@@ -644,8 +647,8 @@ const Nav = ({ usefInfo: { isLogin } }) => {
                     </li>
                   </ul>
                   <div className='adContainer'>
-                    <img src='./nav/img/ad1.png' alt='ad1' />
-                    <img src='./nav/img/ad2.png' alt='ad1' />
+                    <img src='/nav/img/ad1.png' alt='ad1' />
+                    <img src='/nav/img/ad2.png' alt='ad1' />
                   </div>
                 </div>
               </div>
@@ -679,8 +682,8 @@ const Nav = ({ usefInfo: { isLogin } }) => {
                     </li>
                   </ul>
                   <div className='adContainer'>
-                    <img src='./nav/img/ad3.png' alt='' />
-                    <img src='./nav/img/ad4.png' alt='' />
+                    <img src='/nav/img/ad3.png' alt='' />
+                    <img src='/nav/img/ad4.png' alt='' />
                   </div>
                 </div>
               </div>
@@ -764,7 +767,9 @@ const Nav = ({ usefInfo: { isLogin } }) => {
                   type='text'
                   placeholder='구매 상품평 작성하면 최대 3천 포인트'
                 />
+
                 {inputValue && <img src='./nav/icon/icon_search_close.svg' alt='close' onClick={clearHandler} />}
+
               </div>
               <button>검색</button>
             </form>
@@ -785,6 +790,7 @@ const Nav = ({ usefInfo: { isLogin } }) => {
                 <li>모자</li>
               </ul>
               <img src='./nav/img/search_add.png' alt='search banner' />
+
             </div>
           </div>
         </div>

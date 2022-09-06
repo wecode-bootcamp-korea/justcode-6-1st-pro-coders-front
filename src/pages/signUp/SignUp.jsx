@@ -52,7 +52,8 @@ const StyledLayout = styled.main`
             display: flex;
             align-items: center;
             padding: 20px 0;
-            border-bottom: 1px solid ${({ theme }) => theme.colors.disabledTitle};
+            border-bottom: 1px solid
+              ${({ theme }) => theme.colors.disabledTitle};
 
             div.text {
               width: 240px;
@@ -245,13 +246,15 @@ const StyledLayout = styled.main`
 
         &.male {
           span {
-            background-color: ${({ gender, theme }) => (gender === 'male' ? theme.colors.footerBg : 'white')};
+            background-color: ${({ gender, theme }) =>
+              gender === 'male' ? theme.colors.footerBg : 'white'};
           }
         }
 
         &.female {
           span {
-            background-color: ${({ gender, theme }) => (gender === 'female' ? theme.colors.footerBg : 'white')};
+            background-color: ${({ gender, theme }) =>
+              gender === 'female' ? theme.colors.footerBg : 'white'};
           }
         }
       }
@@ -299,7 +302,16 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
       birth: { value: birth },
     } = e.target;
 
-    if (email && password.length > 6 && name && Number(phone) && birth.length >= 8 && Number(birth)) {
+
+    if (
+      email &&
+      password.length > 6 &&
+      name &&
+      Number(phone_number) &&
+      birth.length >= 8 &&
+      Number(date_of_birth)
+    ) {
+
       setError(false);
 
       (async () => {
@@ -379,7 +391,11 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
                 <div className='text'>
                   <p>휴대폰 번호</p>
                 </div>
-                <input type='text' name='phone' placeholder='숫자만 입력해주세요' />
+                <input
+                  type='text'
+                  name='phone'
+                  placeholder='숫자만 입력해주세요'
+                />
               </li>
               <li>
                 <div className='text'>
@@ -404,7 +420,11 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
                 <div className='text'>
                   <p>생년월일</p>
                 </div>
-                <input type='text' name='birth' placeholder='숫자만 입력해주세요(8글자)' />
+                <input
+                  type='text'
+                  name='birth'
+                  placeholder='숫자만 입력해주세요(8글자)'
+                />
               </li>
             </ul>
 
@@ -438,23 +458,37 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
           </p>
           <ul>
             <li>
-              <img src='https://image.prospecs.com/front/images/renewal/icon_sign_01.svg' alt='' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/icon_sign_01.svg'
+                alt=''
+              />
               <div className='text'>
                 <p>신규가입 금액 쿠폰 5종 패키지</p>
-                <p className='detail'>E-MAIL 및 문자(SMS) 수신 동의 시 장바구니 최대 3만원 할인</p>
+                <p className='detail'>
+                  E-MAIL 및 문자(SMS) 수신 동의 시 장바구니 최대 3만원 할인
+                </p>
               </div>
             </li>
             <li>
-              <img src='https://image.prospecs.com/front/images/renewal/icon_sign_02.svg' alt='' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/icon_sign_02.svg'
+                alt=''
+              />
               <div className='text'>
                 <p>회원 등급별 혜택</p>
               </div>
             </li>
             <li>
-              <img src='https://image.prospecs.com/front/images/renewal/icon_sign_03.svg' alt='' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/icon_sign_03.svg'
+                alt=''
+              />
               <div className='text'>
                 <p>포인트 혜택</p>
-                <p className='detail'>구매 시 최대 5% 적립 일반 리뷰 200포인트 포토 리뷰 1,000포인트 등</p>
+                <p className='detail'>
+                  구매 시 최대 5% 적립 일반 리뷰 200포인트 포토 리뷰 1,000포인트
+                  등
+                </p>
               </div>
             </li>
           </ul>
@@ -464,13 +498,22 @@ const SignUp = ({ usefInfo: { isLogin }, setUserInfo }) => {
 
           <ul className='snsList'>
             <li>
-              <img src='https://image.prospecs.com/front/images/renewal/icon_naver.png' alt='' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/icon_naver.png'
+                alt=''
+              />
             </li>
             <li>
-              <img src='https://image.prospecs.com/front/images/renewal/icon_kakao.png' alt='' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/icon_kakao.png'
+                alt=''
+              />
             </li>
             <li>
-              <img src='https://image.prospecs.com/front/images/renewal/icon_face.png' alt='' />
+              <img
+                src='https://image.prospecs.com/front/images/renewal/icon_face.png'
+                alt=''
+              />
             </li>
           </ul>
         </div>

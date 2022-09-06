@@ -19,7 +19,6 @@ import Product from './pages/product/Product';
 import AllShoes from './pages/Shop/Shoes/AllShoes';
 
 
-
 const App = () => {
 	const [usefInfo, setUserInfo] = useState({
 		isLogin: false,
@@ -31,6 +30,7 @@ const App = () => {
 		access_token: '',
 		user_id: '',
 	});
+
 
 	return (
 		<>
@@ -55,6 +55,7 @@ const App = () => {
 			</ThemeProvider>
 		</>
 	);
+
 };
 
 export default App;
