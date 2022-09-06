@@ -392,9 +392,16 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
   const [count, setCount] = useState(1);
   const [disabled, setDisabled] = useState(false);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const addCartHandler = async (e, itemId) => {
     e.preventDefault();
+
+    if (!isLogin) {
+      setErrorMessage('로그인 해주세요');
+      setOverlapError(true);
+      return;
+    }
 
     if (isLogin && !error) {
       setDisabled(true);
@@ -417,6 +424,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
       } catch (error) {
         console.log(error);
         setDisabled(false);
+        setErrorMessage('중복된 아이템이거나 유효하지 않습니다');
         setOverlapError(true);
       }
     }
@@ -440,7 +448,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
       {overlapError && (
         <StyledModal>
           <div className='modalContainer'>
-            <h2>같은 사이즈와 옵션은 중복해서 추가할 수 없습니다.</h2>
+            <h2>{errorMessage}</h2>
             <div className='btnContainer'>
               <button onClick={() => setOverlapError(false)}>돌아가기</button>
               <button onClick={() => navigate('/cart')}>장바구니</button>
