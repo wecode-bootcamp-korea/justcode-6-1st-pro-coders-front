@@ -358,12 +358,13 @@ const Search = (props) => {
     { id: 9, title: '양말' },
     { id: 10, title: '오리지널' },
   ]);
-  const [inputValue, setInputValue] = useState(keyword);
+  const [inputValue, setInputValue] = useState('');
   const input = useRef();
 
   useEffect(() => {
     const value = new URLSearchParams(location.search).get('key');
     setKeyword(value)
+    setInputValue(value)
     fetch(`http://localhost:8000/search${location.search}`)
       .then((res) => res.json())
       .then((data) => setSearchList(data))
@@ -378,7 +379,7 @@ const Search = (props) => {
         .catch((err)=> setSearchList([]));
       };
       
-      const onSearchPopular = (e) => {
+      const onSearchPopular = (e) => { 
         setInputValue(e.target.textContent);
         setKeyword(e.target.textContent);
         fetch(`http://localhost:8000/search?key=${e.target.textContent}`)
