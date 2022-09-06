@@ -765,7 +765,11 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                 )}
               </div>
               <button
-                onClick={() => navigate(`/search?key=${input.current.value}`)}
+                onClick={() => {
+                  navigate(`/search?key=${input.current.value}`);
+                  clearHandler();
+                  setSearch(false);
+                }}
               >
                 검색
               </button>
