@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Map from './Map';
 import StoreInfo from './StoreInfo';
+import StoreSkeleton from '../../components/Skeleton/StoreSkeleton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronUp,
@@ -155,6 +156,7 @@ const Main = styled.div`
 `;
 
 const Store = (props) => {
+  const [loading, setLoading] = useState(true)
   const [toggle, setToggle] = useState(false);
   const [list, setList] = useState();
   const [allList, setAllList] = useState();
@@ -180,6 +182,7 @@ const Store = (props) => {
         setDepartmentList(data.filter((el) => el.type === '백화점'));
         setAgencyList(data.filter((el) => el.type === '대리점'));
         setMapList(data);
+        setLoading(false)
       });
   }, []);
 
@@ -237,8 +240,10 @@ const Store = (props) => {
   };
 
   return (
-    <Main>
-      <h3>STORE</h3>
+    <>
+    {loading && <StoreSkeleton />}
+      {!loading && (<Main>
+        <h3>STORE</h3>
       <div className='searchContainer'>
         <p className='title'>매장 검색</p>
         <div className='selectRegion'>
@@ -365,7 +370,8 @@ const Store = (props) => {
           <Map list={mapList} />
         </div>
       </section>
-    </Main>
+      </Main>)}
+      </>
   );
 };
 

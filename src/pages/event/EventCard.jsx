@@ -23,7 +23,6 @@ const CardBox = styled.article`
   }
 
   div.desc {
-    margin: 0;
     padding-top: 20px;
 
     p.date {
@@ -35,13 +34,7 @@ const CardBox = styled.article`
   }
 `;
 
-const EventCard = (props) => {
-  const [cardData, setCardData] = useState();
-  useEffect(() => {
-    fetch('data/event.json')
-      .then((res) => res.json())
-      .then((json) => setCardData(json));
-  }, []);
+const EventCard = ({cardData}) => {
 
   return (
     <>
