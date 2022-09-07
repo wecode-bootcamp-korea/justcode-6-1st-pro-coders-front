@@ -1,30 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper';
-
+import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
 import styled from 'styled-components';
 import MdPick from './MdPick';
 
 const StyledNomination = styled.div`
-  .item-nomination-inner-box {
+  .IitemNominationInnerBox {
     margin: 0 auto;
-    width: 1180px;
+    width: 1280px;
     padding-top: 50px;
 
-    .nomination-title {
+    .nominationTitle {
       margin: 0 auto;
       font: bold 40px/1 'Poppins';
     }
-    .nomination-text {
+    .nominationText {
       margin: 0 auto;
       margin-top: 10px;
       font: 20px/1 'apple';
     }
-    .item-nomination-scroll {
+    .itemNominationScroll {
       /* position: relative;
 			right: 400px; */
       width: 100%;
@@ -113,10 +111,10 @@ function Nomination() {
 
   return (
     <StyledNomination>
-      <div className='item-nomination-inner-box'>
-        <p className='nomination-title'>MD'S PICK</p>
-        <p className='nomination-text'>MD가 선정한 추천상품을 소개합니다.</p>
-        <div className='item-nomination-scroll'>
+      <div className='IitemNominationInnerBox'>
+        <p className='nominationTitle'>MD'S PICK</p>
+        <p className='nominationText'>MD가 선정한 추천상품을 소개합니다.</p>
+        <div className='itemNominationScroll'>
           <Swiper
             slidesPerView={4}
             spaceBetween={30}

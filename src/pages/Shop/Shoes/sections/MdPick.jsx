@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledmdPick = styled.div`
-  .nomination-inner-box {
+  .nominationInnerBox {
     position: relative;
     display: block;
     width: 100%;
@@ -19,7 +19,7 @@ const StyledmdPick = styled.div`
       width: 100%;
       height: 100%;
     }
-    .nomination-md-pick-box {
+    .nominationMdPickBox {
       position: absolute;
       width: 40px;
       height: 40px;
@@ -29,7 +29,7 @@ const StyledmdPick = styled.div`
       }
     }
   }
-  .nomination-item-content-box {
+  .nominationItemContentBox {
     position: absolute;
     top: 0;
     left: 0;
@@ -65,34 +65,34 @@ const StyledmdPick = styled.div`
         }
       }
     }
-    .nomination-item-title-box {
-      .nomination-item-title {
+    .nominationItemTitleBox {
+      .nominationItemTitle {
         display: block;
         font: 22px/1 'Poppins';
         margin-bottom: 20px;
         color: #fff;
       }
     }
-    .nomination-item-price-box {
-      .nomination-item-price-sale-off {
+    .nominationItemPriceBox {
+      .nominationItemPriceSaleOff {
         display: block;
         margin-bottom: 10px;
         font: bold 22px/1 'Poppins';
         color: #fff;
       }
-      .nomination-item-price-sale-on {
+      .nominationItemPriceSaleOn {
         display: block;
         margin-bottom: 10px;
         font: 15px/1 'Spoqa Han Sans Neo', 'sans-serif';
         text-decoration: line-through;
         color: #ccc;
       }
-      .nomination-item-sale-price {
+      .nominationItemSalePrice {
         margin-right: 100px;
         font: bold 22px/1 'Poppins Bold', 'sans-serif';
         color: #fff;
       }
-      .nomination-item-sale-percent {
+      .nominationItemSalePercent {
         font: bold 22px/1 'Poppins';
         color: #fff;
       }
@@ -103,17 +103,17 @@ const StyledmdPick = styled.div`
 function MdPick({ item }) {
   return (
     <StyledmdPick>
-      <a href='#' className='nomination-inner-box'>
-        <div className='nomination-md-pick-box'>
+      <a href='#' className='nominationInnerBox'>
+        <div className='nominationMdPickBox'>
           <img
             src='https://image.prospecs.com/files/upload/display/mdspick/best_badge.png/dims/optimize'
-            alt=''
+            alt='MD 추천'
           />
         </div>
-        <div className='nomination-img-box'>
-          <img src={item.cover_image} alt='' />
+        <div className='nominationImgBox'>
+          <img src={item.cover_image} alt='MD 추천 제품' />
         </div>
-        <div className='nomination-item-content-box'>
+        <div className='nominationItemContentBox'>
           <div className='badge'>
             <span className='gender'>
               {/* 조건부 랜더링 : gender가 unisex면 남여 둘다 출력하고 male이면 남 을 출력해라 그것도 아니면 여를 출력해라 */}
@@ -129,26 +129,26 @@ function MdPick({ item }) {
               )}
             </span>
           </div>
-          <div className='nomination-item-title-box'>
-            <span className='nomination-item-title'>{item.title}</span>
+          <div className='nominationItemTitleBox'>
+            <span className='nominationItemTitle'>{item.title}</span>
           </div>
-          <div className='nomination-item-price-box'>
+          <div className='nominationItemPriceBox'>
             {/* 조건부 랜더링 : sale이 false면 정상가 만 출력하고 true면 정상가에 줄을 귿고 할인가와 할인율을 보여주는 조건 */}
             {item.is_discounted === 0 ? (
               <>
-                <span className='nomination-item-price-sale-off'>
+                <span className='nominationItemPriceSaleOff'>
                   {item.price}원
                 </span>
               </>
             ) : (
               <>
-                <span className='nomination-item-price-sale-on'>
+                <span className='nominationItemPriceSaleOn'>
                   {item.price}원
                 </span>
-                <span className='nomination-item-sale-price'>
+                <span className='nominationItemSalePrice'>
                   {item.discounted_price}원
                 </span>
-                <span className='nomination-item-sale-percent'>
+                <span className='nominationItemSalePercent'>
                   {item.discount_percent}%
                 </span>
               </>

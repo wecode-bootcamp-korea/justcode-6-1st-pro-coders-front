@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 const StyledFilter = styled.div`
   .filter-modal-inner-box {
-    width: 1180px;
+    width: 1280px;
     height: 100%;
     margin: 0 auto;
     padding: 20px;

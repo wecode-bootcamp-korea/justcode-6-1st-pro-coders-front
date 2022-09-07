@@ -12,20 +12,20 @@ import ProductSkeleton from '../../../components/Skeleton/ProductSkeleton';
 import { useEffect } from 'react';
 
 const StyledPage = styled.main`
-  .product-inner-box {
+  .productInnerBox {
     width: 1280px;
     height: 100%;
     margin: 0 auto;
     margin-bottom: 100px;
-    .product-detail-box {
+    .productDetailBox {
       display: flex;
       width: 100%;
       height: 100%;
       margin-top: 200px;
-      .product-img-box {
+      .productImgBox {
         width: 50%;
         height: 100%;
-        .product-item-picture {
+        .productItemPicture {
           width: 100%;
           height: 60%;
           img {
@@ -33,7 +33,7 @@ const StyledPage = styled.main`
             height: 100%;
           }
         }
-        .img-container {
+        .imgContainer {
           display: flex;
           justify-content: space-between;
           width: 100%;
@@ -56,38 +56,38 @@ const StyledPage = styled.main`
             margin: 5px 0;
           }
         }
-        .product-item-picture-list {
+        .productItemPictureList {
           display: flex;
           justify-content: space-between;
           margin-top: 20px;
-          .item-picture-list {
+          .itemPictureList {
             width: 130px;
             height: 122px;
             background: blue;
           }
         }
       }
-      .product-order-box {
+      .productOrderBox {
         width: 50%;
         height: 100%;
         padding: 50px;
 
-        .product-information-box {
+        .productInformationBox {
           display: flex;
           justify-content: space-between;
           margin-bottom: 50px;
-          .product-information {
+          .productInformation {
             display: flex;
             flex-direction: column;
-            .product-cate {
+            .productCate {
               font: bold 16px/1 'poppins';
               margin-bottom: 10px;
             }
-            .product-name {
+            .productName {
               font: 30px/1 'apple';
             }
           }
-          .product-unit {
+          .productUnit {
             display: flex;
             align-items: flex-end;
             font-size: 30px;
@@ -97,8 +97,8 @@ const StyledPage = styled.main`
           }
         }
 
-        .product-price-box {
-          .product-price-sale-on {
+        .productPriceBox {
+          .productPriceSaleOn {
             .price {
               display: block;
               margin: 10px;
@@ -106,18 +106,18 @@ const StyledPage = styled.main`
               color: #999;
               text-decoration: line-through;
             }
-            .sale-percent {
+            .salePercent {
               margin-right: 10px;
               font: bold 30px/1 'poppins';
               color: #ff0052;
             }
-            .sale-price {
+            .salePrice {
               margin-right: 10px;
               font: bold 30px/1 'poppins';
               color: #000;
             }
           }
-          .product-price-sale-off {
+          .productPriceSaleOff {
             .price {
               margin-right: 10px;
               font: bold 30px/1 'poppins';
@@ -131,7 +131,7 @@ const StyledPage = styled.main`
           }
         }
 
-        .coupon-box {
+        .couponBox {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -140,7 +140,7 @@ const StyledPage = styled.main`
           border-bottom: 2px solid #000;
 
           padding-bottom: 50px;
-          .review-score {
+          .reviewScore {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -153,7 +153,7 @@ const StyledPage = styled.main`
               text-decoration: underline;
             }
           }
-          .coupon-download {
+          .couponDownload {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -164,18 +164,15 @@ const StyledPage = styled.main`
             color: #999;
           }
         }
-
-        .product-benefits {
-        }
-        .product-option {
+        .productOption {
           margin-top: 50px;
-          .product-color {
-            .product-color-title {
+          .productColor {
+            .productColorTitle {
               display: block;
               font: bold 18px 'apple';
               margin-bottom: 10px;
             }
-            .product-color-picture-box {
+            .productColorPictureBox {
               display: block;
               width: 130px;
               height: 130px;
@@ -186,7 +183,7 @@ const StyledPage = styled.main`
               }
             }
           }
-          .product-size {
+          .productSize {
             #product-size-unisex {
               display: block;
             }
@@ -209,7 +206,7 @@ const StyledPage = styled.main`
             }
           }
         }
-        .product-order-btn {
+        .productOrderBtn {
           display: flex;
           justify-content: center;
           flex-direction: column;
@@ -257,40 +254,41 @@ const StyledPage = styled.main`
             font: 16px/1 'apple';
           }
         }
-        .naver-btn-inner-box {
+        .naverBtnInnerBox {
           display: flex;
-          .npay-inner-box {
+          .npayInnerBox {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
             border-bottom: 1px solid #ddd;
-            .npay-text {
+            .npayText {
               display: flex;
               flex-direction: column;
               width: 100%;
               padding: 15px 10px;
               font: 12px/1 'apple';
-              .naver-logo {
+              .naverLogo {
                 font: bold 14px/1 'poppins';
                 color: #19b419;
               }
             }
-            .npay-btn {
+            .npayBtn {
               width: 100%;
               height: 70%;
               background-color: #19b419;
-              .npay-img {
+              .npayImg {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding-left: 50px;
                 width: 100%;
                 height: 100%;
               }
             }
           }
         }
-        .npay-banner {
+        .npayBanner {
           span {
             &:nth-of-type(1) {
               margin-right: 10px;
@@ -306,7 +304,7 @@ const StyledPage = styled.main`
     }
   }
 
-  .product-count {
+  .productCount {
     padding: 20px 0px;
     p {
       font-weight: 900;
@@ -460,16 +458,16 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
         </StyledModal>
       )}
       {product ? (
-        <div className='product-inner-box'>
-          <div className='product-detail-box'>
+        <div className='productInnerBox'>
+          <div className='productDetailBox'>
             {/* 이미지 박스 */}
-            <div className='product-img-box'>
+            <div className='productImgBox'>
               {/* ⬇️ 이미지 슬라이드 들어갈 자리 */}
-              <div className='product-item-picture'>
+              <div className='productItemPicture'>
                 <img src={product.main_image} alt='Selected' className='selected' />
               </div>
               {/* ⬇️ 이미지 클릭시 메인 화면에 보여줌 */}
-              <div className='img-container'>
+              <div className='imgContainer'>
                 {/* 앞면사진 */}
                 <img src={product.main_image} />
                 {/* 옆면사진 */}
@@ -481,33 +479,33 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
               </div>
             </div>
             {/*상품 소개 및 주문버튼 */}
-            <div className='product-order-box'>
-              <div className='product-information-box'>
-                <div className='product-information'>
-                  <span className='product-cate'>{product.keyword}</span>
-                  <span className='product-name'>{product.title}</span>
+            <div className='productOrderBox'>
+              <div className='productInformationBox'>
+                <div className='productInformation'>
+                  <span className='productCate'>{product.keyword}</span>
+                  <span className='productName'>{product.title}</span>
                 </div>
-                <div className='product-unit'>
-                  <span className='like-btn'>
+                <div className='productUnit'>
+                  <span className='likeBtn'>
                     <AiOutlineHeart />
                   </span>
-                  <span className='share-btn'>
+                  <span className='shareBtn'>
                     <AiOutlineShareAlt />
                   </span>
                 </div>
               </div>
-              <div className='product-price-box'>
+              <div className='productPriceBox'>
                 {product.is_discounted === 1 ? (
-                  <div className='product-price-sale-on'>
+                  <div className='productPriceSaleOn'>
                     <span className='price'>{product.price}원</span>
-                    <span className='sale-percent'>{product.discount_percent}%</span>
-                    <span className='sale-price'>{product.discounted_price}원</span>
+                    <span className='salePercent'>{product.discount_percent}%</span>
+                    <span className='salePrice'>{product.discounted_price}원</span>
                     <div className='tooltip'>
                       <AiOutlineQuestionCircle />
                     </div>
                   </div>
                 ) : (
-                  <div className='product-price-sale-off'>
+                  <div className='productPriceSaleOff'>
                     <span className='price'>{product.price}원</span>
                     <div className='tooltip'>
                       <AiOutlineQuestionCircle />
@@ -515,8 +513,8 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   </div>
                 )}
               </div>
-              <div className='coupon-box'>
-                <a className='review-score' href='#'>
+              <div className='couponBox'>
+                <a className='reviewScore' href='#'>
                   <AiFillStar />
                   <AiFillStar />
                   <AiFillStar />
@@ -524,25 +522,25 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   <AiFillStar />
                   <span>0개의 리뷰 보기</span>
                 </a>
-                <span className='coupon-download'>
+                <span className='couponDownload'>
                   쿠폰받기
                   <AiOutlineDownload />
                 </span>
               </div>
-              <div className='product-benefits'>
+              <div className='productBenefits'>
                 <AccordionCard />
               </div>
-              <div className='product-option'>
-                <div className='product-color'>
-                  <span className='product-color-title'>색상</span>
-                  <a href='#' className='product-color-picture-box'>
+              <div className='productOption'>
+                <div className='productColor'>
+                  <span className='productColorTitle'>색상</span>
+                  <a href='#' className='productColorPictureBox'>
                     <img src={product.main_image} />
                   </a>
                 </div>
                 {product?.sizes !== 'FREE' && (
-                  <div className='product-size'>
+                  <div className='productSize'>
                     <select
-                      name='product-size'
+                      name='productSize'
                       id='product-size-unisex' //
                       onChange={e => setSize(e.target.value)}
                       defaultValue='250'
@@ -575,7 +573,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   </div>
                 )}
 
-                <div className='product-count'>
+                <div className='productCount'>
                   <div>
                     <p>수량</p>
                     <input type='text' id='count' name='count' onChange={changeHandler} placeholder={1} />
@@ -594,8 +592,8 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   {error && <p className='error'>숫자만 입력하세요</p>}
                 </div>
               </div>
-              <div className='product-order-btn'>
-                <div className='order-btn-inner-box'>
+              <div className='productOrderBtn'>
+                <div className='orderBtnInnerBox'>
                   <a className='purchase'>구매하기</a>
                   <button className='basket' onClick={e => addCartHandler(e, product.id)} disabled={disabled}>
                     {disabled ? '기다려주세요' : '장바구니'}
@@ -603,22 +601,22 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   <a className='stock'>오프라인 매장 재고 확인 &#62;</a>
                 </div>
               </div>
-              <div className='naver-btn-inner-box'>
-                <div className='npay-inner-box'>
-                  <div className='npay-text'>
-                    <span className='naver-logo'>NAVER</span>
+              <div className='naverBtnInnerBox'>
+                <div className='npayInnerBox'>
+                  <div className='npayText'>
+                    <span className='naverLogo'>NAVER</span>
                     <span>네이버 ID로 간편구매</span>
                     <span>네이버페이</span>
                   </div>
-                  <div className='npay-btn'>
-                    <a href='#' className='npay-img'>
+                  <div className='npayBtn'>
+                    <a href='#' className='npayImg'>
                       <img src='https://image.prospecs.com/front/images/renewal/icon_naverpay.svg' alt='N-pay 구매' />
                       <span className='hidden'>N-pay 구매</span>
                     </a>
                   </div>
                 </div>
               </div>
-              <div className='npay-banner'>
+              <div className='npayBanner'>
                 <span>[네이버포인트]</span>
                 <span>포인트 100% 활용 방법</span>
               </div>

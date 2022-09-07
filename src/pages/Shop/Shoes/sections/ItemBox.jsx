@@ -9,9 +9,9 @@ function ItemBox({ item }) {
         <NavLink to={`/product/${item.id}`} className='item-a-box'>
           <div className='item-img'>
             {/* Hover 전 */}
-            <img className='item-main-img' src={item.main_image} alt='' />
+            <img className='item-main-img' src={item.main_image} alt='마우스 올리기 전 제품사진' />
             {/*Hover 후 */}
-            <img className='item-hover-img' src={item.sub_image} alt='' />
+            <img className='item-hover-img' src={item.sub_image} alt='마우스 올린 휴 제품사진' />
           </div>
           {/* 상품 분류, 이름, 가격 */}
           <div className='item-content'>

@@ -13,7 +13,7 @@ import ShoesSkeleton from '../../../../components/Skeleton/ShoesSkeleton';
 /* SHOP HEADER */
 const StyledShopHeader = styled.div`
   .item-header-inner-box {
-    width: 1180px;
+    width: 1280px;
     height: 100%;
     margin: 0 auto;
     margin-top: 50px;
@@ -209,7 +209,7 @@ const StyledShopHeader = styled.div`
 /* SHOP ITEM */
 const StyledItem = styled.div`
   .itme-box {
-    width: 1180px;
+    width: 1280px;
     margin: 0 auto;
     .item-filter-box {
       display: flex;
