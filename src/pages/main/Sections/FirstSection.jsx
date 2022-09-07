@@ -20,7 +20,8 @@ const StyledSection = styled.section`
       img {
         display: block;
         width: 100%;
-        height: 100%;
+        height: 800px;
+        object-fit: cover;
       }
 
       div.textContainer {
@@ -87,14 +88,14 @@ const FirstSection = () => {
     <StyledSection isFirstInView={isFirstInView} ref={firstSection}>
       <div className='container'>
         <div className='imgContainer'>
-          <img src='https://image.prospecs.com/files/upload/display/202208/202208301117241.jpg/dims/optimize' alt='' />
+          <img src='https://images.unsplash.com/photo-1589992896387-140e940257d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80' alt='' />
           <div className='textContainer'>
             <h2>HOW TO PLAY CITY</h2>
             <p>22FW PERFORMANCE</p>
           </div>
         </div>
         <div className='imgContainer'>
-          <img src='https://image.prospecs.com/files/upload/display/202205/202205191805182.jpg/dims/optimize' alt='' />
+          <img src='https://images.unsplash.com/photo-1600574691453-499962cc0611?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
           <div className='textContainer'>
             <h2>Original Surf Club</h2>
             <p>2022 HOT SUMMER COLLECTION</p>

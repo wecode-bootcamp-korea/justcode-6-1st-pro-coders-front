@@ -676,8 +676,8 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                     </li>
                   </ul>
                   <div className='adContainer'>
-                    <img src='/nav/img/ad3.png' alt='' />
-                    <img src='/nav/img/ad4.png' alt='' />
+                    <img src='https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1372&q=80' alt='' />
+                    <img src='https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1372&q=80' alt='' />
                   </div>
                 </div>
               </div>

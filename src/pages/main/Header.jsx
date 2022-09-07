@@ -131,31 +131,31 @@ const Header = () => {
       <StyledHeader page={page}>
         <ul ref={swipedTarget}>
           <li>
-            <img src='./main/img/title3.jfif' alt='' />
+            <img src='https://images.unsplash.com/photo-1564400143768-2f8ea3f310f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1394&q=80' alt='' />
             <div className='content'>
               <h2>PRO-SPECS SPONSORSHIP</h2>
             </div>
           </li>
           <li>
-            <img src='./main/img/title1.jfif' alt='' />
+            <img src='https://images.unsplash.com/photo-1629426958003-35a5583b2977?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='' />
             <div className='content'>
               <h2>PRO-SPECS SPONSORSHIP</h2>
             </div>
           </li>
           <li>
-            <img src='./main/img/title2.jfif' alt='' />
+            <img src='https://images.unsplash.com/photo-1624222244232-5f1ae13bbd53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='' />
             <div className='content'>
               <h2>HOW TO PLAY THIS CITY 22FW PERFORMANCE</h2>
             </div>
           </li>
           <li>
-            <img src='./main/img/title3.jfif' alt='' />
+            <img src='https://images.unsplash.com/photo-1564400143768-2f8ea3f310f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1394&q=80' alt='' />
             <div className='content'>
               <h2>PRO-SPECS SPONSORSHIP</h2>
             </div>
           </li>
           <li>
-            <img src='./main/img/title1.jfif' alt='' />
+            <img src='https://images.unsplash.com/photo-1629426958003-35a5583b2977?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='' />
             <div className='content'>
               <h2>PRO-SPECS SPONSORSHIP</h2>
             </div>

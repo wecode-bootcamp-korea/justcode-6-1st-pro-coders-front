@@ -88,6 +88,7 @@ const StyledSection = styled.section`
         img {
           width: 100%;
           height: 100%;
+          object-fit: cover;
         }
       }
 
@@ -230,8 +231,8 @@ const ThirdSection = () => {
             <img
               src={
                 mode === 1 //
-                  ? 'https://image.prospecs.com/files/upload/display/202205/202205171814251.jpg/dims/optimize'
-                  : 'https://image.prospecs.com/files/upload/display/202205/202205200917262.jpg/dims/optimize'
+                  ? 'https://images.unsplash.com/photo-1624375812928-106472d9ddb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=655&q=80'
+                  : 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80'
               }
               alt=''
             />

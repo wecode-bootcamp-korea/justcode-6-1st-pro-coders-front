@@ -20,7 +20,7 @@ const StyledPage = styled.main`
   }
 
   div.container {
-    max-width: 1640px;
+    max-width: 1280px;
     width: 100%;
     margin: 0 auto;
 
