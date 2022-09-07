@@ -7,12 +7,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const StyledProductDetail = styled.main`
-  .product-detail-main-box {
+  .productDetailMainBox {
     width: 100%;
     border-top: 4px solid #000;
     border-bottom: 4px solid #ccc;
     padding: 150px 0px;
-    .product-detail-inner-box {
+    .proproductDetailInnerBox {
       display: flex;
       flex-direction: column;
       margin: 0 auto;
@@ -20,10 +20,10 @@ const StyledProductDetail = styled.main`
       height: 100%;
 
       /* Tab버튼 Style */
-      .detail-tab-inner {
+      .detailTabInner {
         width: 100%;
         margin-bottom: 50px;
-        .tab-menu {
+        .tabMenu {
           span {
             position: relative;
             margin-right: 20px;
@@ -65,7 +65,7 @@ const StyledProductDetail = styled.main`
       }
 
       /* Tab버튼 Fixed Style */
-      .detail-tab-inner-fixed {
+      .detailTabInnerFixed {
         position: fixed;
         top: 0px;
         left: 0;
@@ -74,7 +74,7 @@ const StyledProductDetail = styled.main`
         padding: 100px;
         background: #fff;
         z-index: 4;
-        .tab-menu {
+        .tabMenu {
           span {
             position: relative;
             margin-right: 20px;
@@ -116,26 +116,25 @@ const StyledProductDetail = styled.main`
       }
 
       /* 제품상세정보 Style */
-      .detail-content-inner {
+      .detailContentInner  {
         display: flex;
         flex-direction: column;
         width: 100%;
-		animation: smoothAppear 1s;
 		
         /* Point Style */
-        .detail-content-point {
+        .detailContentPoint {
           margin-left: 150px;
           margin-bottom: 30px;
           font: bold 20px/1 'poppins';
         }
         /* 제품상세 text 박스 style */
-        .detail-content-text {
+        .detailContentText {
           margin: 0 auto;
           margin-bottom: 30px;
           font: 20px/2 'poppins';
         }
         /* 아코디언 Style */
-        .accordion-inner {
+        .accordionInner {
           .accordion {
             color: #000;
             .accordion-item {
@@ -201,15 +200,6 @@ const StyledProductDetail = styled.main`
           }
         }
       }
-	  @keyframes smoothAppear{
-		from{
-			opacity: 0;
-			transform: translateY(-5%)
-		} to {
-			opacity: 1;
-			transform: translateY(0%)
-		}
-	  }
     }
   }
 `;
@@ -624,22 +614,22 @@ const ProductDetail = () => {
   return (
     <>
       <StyledProductDetail>
-        <div className='product-detail-main-box'>
-          <div className='product-detail-inner-box'>
+        <div className='productDetailMainBox'>
+          <div className='proproductDetailInnerBox'>
             {/* 상품정보 네비게이션 바 */}
-            <div ref={itemDetail} className={scrollActive ? 'detail-tab-inner-fixed' : 'detail-tab-inner'}>
-              <div className='tab-menu'>
+            <div ref={itemDetail} className={scrollActive ? 'detailTabInnerFixed' : 'detailTabInner'}>
+              <div className='tabMenu'>
                 <span onClick={() => scrollToSection(itemDetail)}>상품정보</span>
                 <span onClick={() => scrollToSection(itemReview)}>리뷰</span>
                 <span onClick={() => scrollToSection(itemShipping)}>배송안내</span>
               </div>
             </div>
             {/* 상품정보 */}
-            <div className='detail-content-inner'>
-              <span ref={itemDetail} className='detail-content-point'>
+            <div className='detailContentInner '>
+              <span ref={itemDetail} className='detailContentPoint'>
                 POINT
               </span>
-              <span className='detail-content-text'>
+              <span className='detailContentText'>
                 • PEBAX(고기능 탄성 소재) 사용하여 에너지 리턴이 우수한 고기능성 러닝화
                 <br />
                 • 모노메쉬를 적용하여 경량성과 통기성이 우수
@@ -653,7 +643,7 @@ const ProductDetail = () => {
                 • 제품출시일 2022.09.01
                 <br />
               </span>
-              <div className='accordion-inner'>
+              <div className='accordionInner'>
                 <Accordion defaultActiveKey='0'>
                   <Accordion.Item eventKey='0'>
                     <Accordion.Header>상품 상세정보</Accordion.Header>
