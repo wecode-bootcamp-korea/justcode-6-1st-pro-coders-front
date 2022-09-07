@@ -91,6 +91,8 @@ npm run dev
 
 ## ✅ 메인페이지 및 Shop페이지 레이아웃 및 swiper 구현
 
+클릭 시작시의 clientX값을 저장해서 이동시의 clientX값과의 차이를 이용해 transform속성을 직접 조작하는 방식을 이용하였습니다.
+
 ![swiper1](https://user-images.githubusercontent.com/102274941/188801806-03921d8b-f60a-408e-9666-1b2c4590ecc5.png)
 
 ![swiper2](https://user-images.githubusercontent.com/102274941/188801958-b043f477-48a8-49ed-9b5a-653bd7cf37a2.png)
@@ -99,24 +101,32 @@ npm run dev
 
 ![swiper4](https://user-images.githubusercontent.com/102274941/188801962-1d15f3b0-dc9c-468a-b973-587eeebbacb9.png)
 
-## Nav bar 구현
+## ✅ 메인페이지 스크롤효과 구현
+
+Intersection observer를 활용하였습니다.
+
+![intersection-observer](https://user-images.githubusercontent.com/102274941/188809862-a437974c-15f8-462e-b5fe-6f001909a2b8.png)
+
+## ✅ Nav bar 구현
+
+원본 사이트의 메뉴가 너무 좁다는 느낌이 들어서 위아래로 스크롤 할 수 있도록 분리하였습니다.
 
 ![nav1](https://user-images.githubusercontent.com/102274941/188806927-e2336f33-05cf-4e2a-adf6-96590d3aa567.png)
 ![nav2](https://user-images.githubusercontent.com/102274941/188806933-a3a45f88-7f94-4747-a1dc-8a9c5a186134.png)
 
-## 로그인, 회원가입 레이아웃 및 로직 구현
-
-![signup](https://user-images.githubusercontent.com/102274941/188804448-66113b40-6cb2-47f1-a6b5-978a5714d4fb.png)
+## ✅ 로그인, 회원가입 레이아웃 및 로직 구현, 유효성 로직 구현
 
 ![login2](https://user-images.githubusercontent.com/102274941/188804459-9256a662-7076-449c-bd14-6ec6cb1c1b86.png)
 
-## Shoes 페이지 Pagination 구현 및 Skeleton 구현
+![signup](https://user-images.githubusercontent.com/102274941/188804448-66113b40-6cb2-47f1-a6b5-978a5714d4fb.png)
+
+## ✅ Shoes 페이지 Pagination 구현 및 Skeleton 구현
 
 ![pagination](https://user-images.githubusercontent.com/102274941/188805683-d9256905-9db5-4083-af9d-5d4295f9aeeb.png)
 
 ![pagination-skeleton](https://user-images.githubusercontent.com/102274941/188805836-486dd20f-7902-4b0d-aaf9-e2a64f24d0bc.png)
 
-## 상품 상세페이지 Skeleton구현 및 카트 추가 로직 구현
+## ✅ 상품 상세페이지 Skeleton구현 및 카트 추가 로직 구현
 
 ![cart-skeleton](https://user-images.githubusercontent.com/102274941/188807081-abb47f2b-7bb4-41a2-9d01-9119d30a7283.png)
 
@@ -126,9 +136,11 @@ npm run dev
 
 ![cart-validation](https://user-images.githubusercontent.com/102274941/188807092-edb9262b-1659-4c43-89f3-5c72fc4ecafd.png)
 
-## 카트 페이지 레이아웃 및 삭제 등 로직 구현
+## ✅ 카트 페이지 레이아웃 및 카트 제품 삭제 등 로직 구현
 
-## 상품
+![cart-skeleton2](https://user-images.githubusercontent.com/102274941/188808671-a98e117f-1f1f-463a-9787-9b69cc2bb4d3.png)
+
+![cart](https://user-images.githubusercontent.com/102274941/188808444-683d9d62-fc23-4980-b53e-e59ca348d8a9.png)
 
 # 정보
 
