@@ -591,7 +591,7 @@ const ProductDetail = () => {
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
-  });
+  }, []);
 
   const scrollToSection = elementRef => {
     window.scrollTo({
