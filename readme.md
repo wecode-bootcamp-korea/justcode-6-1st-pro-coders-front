@@ -99,7 +99,34 @@ npm run dev
 
 ![swiper4](https://user-images.githubusercontent.com/102274941/188801962-1d15f3b0-dc9c-468a-b973-587eeebbacb9.png)
 
-## 로그인, 회원가입 레이아웃 및 유효성 검사, 로직 구현
+## Nav bar 구현
+
+![nav1](https://user-images.githubusercontent.com/102274941/188806927-e2336f33-05cf-4e2a-adf6-96590d3aa567.png)
+![nav2](https://user-images.githubusercontent.com/102274941/188806933-a3a45f88-7f94-4747-a1dc-8a9c5a186134.png)
+
+## 로그인, 회원가입 레이아웃 및 로직 구현
+
+![signup](https://user-images.githubusercontent.com/102274941/188804448-66113b40-6cb2-47f1-a6b5-978a5714d4fb.png)
+
+![login2](https://user-images.githubusercontent.com/102274941/188804459-9256a662-7076-449c-bd14-6ec6cb1c1b86.png)
+
+## Shoes 페이지 Pagination 구현 및 Skeleton 구현
+
+![pagination](https://user-images.githubusercontent.com/102274941/188805683-d9256905-9db5-4083-af9d-5d4295f9aeeb.png)
+
+![pagination-skeleton](https://user-images.githubusercontent.com/102274941/188805836-486dd20f-7902-4b0d-aaf9-e2a64f24d0bc.png)
+
+## 상품 상세페이지 Skeleton구현 및 카트 추가 로직 구현
+
+![cart-skeleton](https://user-images.githubusercontent.com/102274941/188807081-abb47f2b-7bb4-41a2-9d01-9119d30a7283.png)
+
+![cart-validation2](https://user-images.githubusercontent.com/102274941/188807975-d77758a3-f839-4ab7-80ab-d8a9fa533e1f.png)
+
+![cart-add](https://user-images.githubusercontent.com/102274941/188807088-840022f0-683e-4a07-b8a9-809d2bebd4d3.png)
+
+![cart-validation](https://user-images.githubusercontent.com/102274941/188807092-edb9262b-1659-4c43-89f3-5c72fc4ecafd.png)
+
+## 카트 페이지 레이아웃 및 삭제 등 로직 구현
 
 ## 상품
 
