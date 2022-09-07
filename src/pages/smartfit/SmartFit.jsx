@@ -235,7 +235,7 @@ const Main = styled.div`
   }
 `;
 
-const SmartFit = (props) => {
+const SmartFit = ({userInfo, setUserInfo}) => {
   const [modal, setModal] = useState(false);
   const openLogin = () => {
     setModal((prev) => !prev);
@@ -243,7 +243,7 @@ const SmartFit = (props) => {
 
   return (
     <Main>
-      {modal && <LoginModal setModal={setModal} />}
+      {modal && <LoginModal setModal={setModal} setUserInfo={setUserInfo} />}
       <h3>SMART FIT</h3>
       <section className='banner'>
         <div className='container'>
