@@ -460,7 +460,6 @@ const Item = () => {
                       </li>
                     );
                   }
-
                   return (
                     <li key={cate} className={category === cate ? 'itemShoesLinkOn' : 'itemShoesLink'}>
                       <Link to={`/shop/shoes/${cate}`}>{cate}</Link>
