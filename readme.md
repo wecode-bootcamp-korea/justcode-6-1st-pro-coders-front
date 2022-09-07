@@ -22,6 +22,8 @@
 
 > styled-components
 
+> Git
+
 <br/>
 
 # 프로젝트 설치 및 실행 방법
@@ -127,7 +129,7 @@ Intersection observer를 활용하였습니다.
 
 ![pagination-skeleton](https://user-images.githubusercontent.com/102274941/188805836-486dd20f-7902-4b0d-aaf9-e2a64f24d0bc.png)
 
-## ✅ 상품 상세페이지 Skeleton구현 및 카트 추가 로직 구현
+## ✅ 상품 상세페이지 Skeleton 구현 및 카트 추가 로직 구현
 
 ![cart-skeleton](https://user-images.githubusercontent.com/102274941/188807081-abb47f2b-7bb4-41a2-9d01-9119d30a7283.png)
 
@@ -137,11 +139,21 @@ Intersection observer를 활용하였습니다.
 
 ![cart-validation](https://user-images.githubusercontent.com/102274941/188807092-edb9262b-1659-4c43-89f3-5c72fc4ecafd.png)
 
-## ✅ 카트 페이지 레이아웃 및 카트 제품 삭제 등 로직 구현
+## ✅ Cart 페이지 레이아웃 및 카트 제품 삭제 등 로직 구현
 
 ![cart-skeleton2](https://user-images.githubusercontent.com/102274941/188808671-a98e117f-1f1f-463a-9787-9b69cc2bb4d3.png)
 
 ![cart](https://user-images.githubusercontent.com/102274941/188808444-683d9d62-fc23-4980-b53e-e59ca348d8a9.png)
+
+## ✅ Event 페이지 레이아웃 및 Skeleton 구현
+
+## ✅ Archive 페이지 레이아웃 및 Skeleton 구현
+
+## ✅ Store 페이지 레이아웃 및 Skeleton 구현
+
+## ✅ Smartfit 페이지 레이아웃 및 로그인 기능 추가
+
+## ✅ 검색 기능 구현 및 Skeleton 구현
 
 # 정보
 
