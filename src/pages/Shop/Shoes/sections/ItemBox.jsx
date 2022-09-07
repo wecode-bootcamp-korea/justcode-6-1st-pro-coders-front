@@ -20,12 +20,12 @@ function ItemBox({ item }) {
             {/* 상품가격박스 */}
             <div className='item-price-box'>
               {/* 할인 유/무 여부 */}
-              <div>{item.is_discounted === 1 ? <p className='item-price-sale-on'>{Number(item.price).toLocaleString()}원</p> : <p className='item-price-sale-off'>{Number(item.price).toLocaleString()}원</p>}</div>
+              <div>{item.is_discounted === 1 ? <p className='item-price-sale-on'>{item.price}원</p> : <p className='item-price-sale-off'>{item.price}원</p>}</div>
               {/* 정가 */}
               {item.is_discounted === 1 ? (
                 <p className='item-sale-box'>
                   <span className='item-sale-percent'>{item.discount_percent}%</span> {/* 할인 % */}
-                  <span className='item-sale-price'>{Number(item.discounted_price).toLocaleString()}원</span> {/* 할인된 가격 */}
+                  <span className='item-sale-price'>{item.discounted_price}원</span> {/* 할인된 가격 */}
                 </p>
               ) : null}
             </div>
