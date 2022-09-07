@@ -460,7 +460,7 @@ const Search = props => {
                       }}
                       type='text'
                     />
-                    {inputValue && <img src='nav/icon/icon_search_close.svg' alt='close-icon' onClick={clearHandler} />}
+                    {inputValue && <img src='images/nav/icon/icon_search_close.svg' alt='close-icon' onClick={clearHandler} />}
                   </div>
                   <button className='searchBtn' onClick={onSearch}>
                     검색
