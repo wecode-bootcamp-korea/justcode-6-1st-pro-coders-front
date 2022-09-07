@@ -12,15 +12,12 @@ const StyledNav = styled.nav`
   left: 0;
   width: 100%;
   transition: 0.3s;
-  background-color: ${({ search, isScrolled, isMain }) =>
-    search || isScrolled || !isMain ? 'white' : 'transparent'};
+  background-color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'white' : 'transparent')};
   z-index: 10;
-  transform: translateY(
-    ${({ isScrollDown }) => (isScrollDown ? '-100px' : '0')}
-  );
+  transform: translateY(${({ isScrollDown }) => (isScrollDown ? '-100px' : '0')});
 
   div.container {
-    max-width: 1640px;
+    max-width: 1280px;
     width: 100%;
     padding: 0 20px;
     display: flex;
@@ -29,10 +26,7 @@ const StyledNav = styled.nav`
 
     img {
       transition: 0.2s;
-      filter: invert(
-        ${({ search, isScrolled, isMain }) =>
-          search || isScrolled || !isMain ? '1' : '0'}
-      );
+      filter: invert(${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? '1' : '0')});
       cursor: pointer;
     }
 
@@ -41,16 +35,14 @@ const StyledNav = styled.nav`
       font-weight: 900;
       font-size: 20px;
       transition: 0.2s;
-      color: ${({ search, isScrolled, isMain }) =>
-        search || isScrolled || !isMain ? 'black' : 'white'};
+      color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'black' : 'white')};
     }
 
     p {
       font-size: 20px;
       font-weight: 900;
       cursor: pointer;
-      color: ${({ search, isScrolled, isMain }) =>
-        search || isScrolled || !isMain ? 'black' : 'white'};
+      color: ${({ search, isScrolled, isMain }) => (search || isScrolled || !isMain ? 'black' : 'white')};
       transition: 0.2s;
     }
 
@@ -87,7 +79,7 @@ const StyledNav = styled.nav`
           }
 
           div.innerContainer {
-            max-width: 1640px;
+            max-width: 1280px;
             width: 100%;
             height: fit-content;
             padding: 40px 0px;
@@ -363,9 +355,7 @@ const StyledNav = styled.nav`
 const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const [isMain, setIsMain] = useState(
-    pathname === '/' || pathname === '/shop'
-  );
+  const [isMain, setIsMain] = useState(pathname === '/' || pathname === '/shop');
   const { isScrollDown, isScrolled } = useScroll();
 
   const input = useRef();
@@ -404,13 +394,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
         isMain={isMain}
       >
         <div className='container'>
-          <img
-            src='/images/logo-white.svg'
-            className='logo'
-            alt='logo'
-            width={110}
-            onClick={() => navigate('/')}
-          />
+          <img src='/images/logo-white.svg' className='logo' alt='logo' width={110} onClick={() => navigate('/')} />
 
           <ul className='gnb'>
             <li>
@@ -424,28 +408,28 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link to='/'>러닝화</Link>
+                      <Link to='/shop/shoes/러닝화'>러닝화</Link>
                     </li>
                     <li>
-                      <Link to='/'>워킹화</Link>
+                      <Link to='/shop/shoes/워킹화'>워킹화</Link>
                     </li>
                     <li>
-                      <Link to='/'>스포츠화</Link>
+                      <Link to='/shop/shoes/스포츠화'>스포츠화</Link>
                     </li>
                     <li>
-                      <Link to='/'>트레킹화</Link>
+                      <Link to='/shop/shoes/트레킹화'>트레킹화</Link>
                     </li>
                     <li>
-                      <Link to='/'>스니커즈</Link>
+                      <Link to='/shop/shoes/스니커즈'>스니커즈</Link>
                     </li>
                     <li>
-                      <Link to='/'>샌들/슬리퍼</Link>
+                      <Link to='/shop/shoes/샌들'>샌들/슬리퍼</Link>
                     </li>
                     <li>
-                      <Link to='/'>아동화</Link>
+                      <Link to='/shop/shoes/아동화'>아동화</Link>
                     </li>
                     <li>
-                      <Link to='/'>기타</Link>
+                      <Link to='/shop/shoes/기타'>기타</Link>
                     </li>
                   </ul>
                   <ul className='lnb'>
@@ -707,11 +691,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                 <div className='innerContainer'>
                   <div className='textContainer'>
                     <h4>SMART FIT</h4>
-                    <p>
-                      프로스펙스 스마트핏은 내 발에 완벽한 사이즈와 상품을
-                      추천해 주고, 맞춤신발 제작까지 해 주는 SMART한
-                      서비스입니다.
-                    </p>
+                    <p>프로스펙스 스마트핏은 내 발에 완벽한 사이즈와 상품을 추천해 주고, 맞춤신발 제작까지 해 주는 SMART한 서비스입니다.</p>
                   </div>
                 </div>
               </div>
@@ -720,20 +700,10 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
 
           <ul className='gnb2'>
             <li>
-              <img
-                src='/nav/icon/icon_search_white.svg'
-                className='logo'
-                alt='logo'
-                onClick={() => setSearch(!search)}
-              />
+              <img src='/nav/icon/icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
             </li>
             <li>
-              <img
-                src='/nav/icon/icon_cart_white.svg'
-                className='logo'
-                alt='logo'
-                onClick={() => navigate('/cart')}
-              />
+              <img src='/nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/cart')} />
             </li>
             <li>
               {isLogin ? ( //
@@ -756,13 +726,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                   placeholder='구매 상품평 작성하면 최대 3천 포인트'
                 />
 
-                {inputValue && (
-                  <img
-                    src='/nav/icon/icon_search_close.svg'
-                    alt='close'
-                    onClick={clearHandler}
-                  />
-                )}
+                {inputValue && <img src='/nav/icon/icon_search_close.svg' alt='close' onClick={clearHandler} />}
               </div>
               <button
                 onClick={() => {

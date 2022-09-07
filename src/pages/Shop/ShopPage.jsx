@@ -32,7 +32,9 @@ const StyledHeader = styled.header`
         background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
 
         div.textContainer {
-          padding: 18% 0 0 5%;
+          position: absolute;
+          left: calc(50% - 640px);
+          top: calc(50% - 100px);
           user-select: none;
 
           p {
@@ -86,7 +88,7 @@ const StyledPage = styled.main`
     }
 
     div.container {
-      max-width: 1640px;
+      max-width: 1280px;
       width: 100%;
       padding: 0 20px;
     }
