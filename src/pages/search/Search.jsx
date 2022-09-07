@@ -131,14 +131,14 @@ const Main = styled.div`
     }
   }
 
-  .item-inner-box {
+  .itemInnerBox {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       width: 1280px;
       margin: 50px auto 150px auto;
 
-      .item-a-box {
+      .itemABox {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -149,22 +149,22 @@ const Main = styled.div`
         &:nth-of-type(4n) {
           margin-right: 0;
         }
-        .item-img {
+        .itemImg {
           position: relative;
           width: 100%;
           height: 100%;
           opacity: 1;
 
-          &:hover .item-main-img {
+          &:hover .itemMainImg {
             opacity: 0;
             transition: 1s;
           }
-          &:hover .item-hover-img {
+          &:hover .itemHoverImg {
             opacity: 1;
             transition: 1s;
           }
 
-          .item-main-img {
+          .itemMainImg {
             width: 100%;
             height: 100%;
             position: absolute;
@@ -172,14 +172,14 @@ const Main = styled.div`
             opacity: 1;
             transition: 1s;
           }
-          .item-hover-img {
+          .itemHoverImg {
             width: 100%;
             height: 100%;
             opacity: 0;
             transition: 1s;
           }
         }
-        .item-content {
+        .itemContent {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -189,41 +189,41 @@ const Main = styled.div`
           padding-left: 10px;
           color: #000;
 
-          .item-cate {
+          .itemCate {
             margin-top: 15px;
             margin-bottom: 10px;
             font: bold 18px/1 'Poppins';
           }
-          .item-title {
+          .itemTitle {
             margin-bottom: 20px;
             font: 20px/1 'Poppins';
           }
-          .item-price-box {
-            .item-price-sale-off {
+          .itemPriceBox {
+            .itemPriceSaleOff {
               margin-bottom: 10px;
               font: bold 22px/1 'Poppins';
             }
-            .item-price-sale-on {
+            .itemPriceSaleOn {
               margin-bottom: 10px;
               font: 15px/1 'Spoqa Han Sans Neo', 'sans-serif';
               text-decoration: line-through;
               text-align: left;
               color: #ccc;
             }
-            .item-sale-box {
+            .itemSaleBox {
               margin-bottom: 10px;
-              .item-sale-percent {
+              .itemSalePercent {
                 font: bold 22px/1 'Poppins';
                 color: #ff0052;
               }
-              .item-sale-price {
+              .itemSalePrice {
                 font: bold 22px/1 'Poppins';
               }
             }
           }
-          .item-badge-box {
+          .itemBadgeBox {
             margin-bottom: 15px;
-            .item-gender-box {
+            .itemGenderBox {
               margin-right: 20px;
               .male {
                 display: inline-block;
@@ -244,7 +244,7 @@ const Main = styled.div`
                 color: #fff;
               }
             }
-            .item-coupon-box {
+            .itemCouponBox {
               .coupon {
                 display: inline-block;
                 width: 40px;
@@ -260,13 +260,13 @@ const Main = styled.div`
         }
       }
     }
-    .item-more-btn-box {
+    .itemMoreBtnBox {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       padding: 100px;
-      .item-more-btn {
+      .itemMoreBtn {
         width: 260px;
         height: 60px;
         background: #fff;
@@ -476,7 +476,7 @@ const Search = (props) => {
           })}
         </ul>
       </div>
-      <section className='item-inner-box'>
+      <section className='itemInnerBox'>
         {searchList && searchList.map((item)=>{
           return <ItemBox item={item} key={item.id} />
         })}

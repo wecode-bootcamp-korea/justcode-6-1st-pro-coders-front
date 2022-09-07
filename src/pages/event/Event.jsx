@@ -159,7 +159,6 @@ const Event = () => {
   },[])
 
   const handleSelected = e => {
-    console.log(e.target, 'e')
     const newMenu = menuList.map(menu => {
       return +e.target.id === menu.id ? { id: menu.id, text: menu.text, selected: true } : { id: menu.id, text: menu.text, selected: false };
     });
@@ -172,9 +171,6 @@ const Event = () => {
   const handleArrow = () => {
     setArrow(arrow => !arrow);
   };
-
-  console.log('FilteredCardData', filteredCardData)
-  console.log('cardData', cardData)
 
   return (
     <>

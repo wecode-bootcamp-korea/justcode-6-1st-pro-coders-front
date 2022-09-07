@@ -12,27 +12,27 @@ import ShoesSkeleton from '../../../../components/Skeleton/ShoesSkeleton';
 
 /* SHOP HEADER */
 const StyledShopHeader = styled.div`
-  .item-header-inner-box {
-    width: 1280px;
+  .itemHeaderInnerBox {
+    width: 1180px;
     height: 100%;
     margin: 0 auto;
     margin-top: 50px;
     padding-top: 200px;
-    .item-breadcrumb {
+    .itemBreadcrumb {
       font: 14px/1 'Spoqa Han Sans Neo', 'sans-serif';
       color: #999;
       margin-bottom: 20px;
-      .item-category-home {
+      .itemCategoryHome {
         margin-right: 10px;
       }
-      .item-main-category {
+      .itemMainCategory {
         margin-right: 10px;
         &::before {
           content: '>';
           margin-right: 10px;
         }
       }
-      .item-sub-category {
+      .itemSubCategory {
         margin-right: 10px;
         font-weight: bold;
         color: #000;
@@ -44,18 +44,18 @@ const StyledShopHeader = styled.div`
         }
       }
     }
-    .item-sub-title {
-      .item-category-title {
+    .itemSubTitle {
+      .itemCategoryTitle {
         font: bold 40px/1 'Spoqa Han Sans Neo', 'sans-serif';
         margin-bottom: 40px;
       }
     }
-    .item-shoes-tab {
+    .itemShoesTab {
       display: flex;
       width: 100%;
       height: 100%;
       margin-bottom: 50px;
-      .item-shoes-link {
+      .itemShoesLink {
         position: relative;
         margin-right: 20px;
         font: bold 26px/1 'Spoqa Han Sans Neo', 'sans-serif';
@@ -97,7 +97,7 @@ const StyledShopHeader = styled.div`
         }
       }
 
-      .item-shoes-link-on {
+      .itemShoesLinkOn {
         position: relative;
         margin-right: 20px;
         font: bold 26px/1 'Spoqa Han Sans Neo', 'sans-serif';
@@ -138,11 +138,11 @@ const StyledShopHeader = styled.div`
         }
       }
     }
-    .item-shoes-li {
+    .itemShoesLi {
       width: 100%;
       height: 100%;
       margin-bottom: 100px;
-      .item-shoes-link {
+      .itemShoesLink {
         position: relative;
         margin-right: 20px;
         font: bold 26px/1 'Spoqa Han Sans Neo', 'sans-serif';
@@ -179,7 +179,7 @@ const StyledShopHeader = styled.div`
       }
     }
 
-    .item-filter-box {
+    .itemFilterBox {
       display: flex;
       justify-content: right;
       width: 100%;
@@ -187,14 +187,14 @@ const StyledShopHeader = styled.div`
       p {
         width: 80%;
       }
-      .item-filter {
+      .itemFilter {
         display: flex;
-        .item-filter-serch-box {
+        .itemFilterSerchBox {
           span {
             margin-right: 10px;
           }
         }
-        .item-sort-list-box {
+        .itemSortListBox {
           position: relative;
           #sort-list {
             position: absolute;
@@ -208,10 +208,10 @@ const StyledShopHeader = styled.div`
 
 /* SHOP ITEM */
 const StyledItem = styled.div`
-  .itme-box {
-    width: 1280px;
+  .itmeBox {
+    width: 1180px;
     margin: 0 auto;
-    .item-filter-box {
+    .itemFilterBox {
       display: flex;
       justify-content: flex-end;
       width: 100%;
@@ -223,14 +223,14 @@ const StyledItem = styled.div`
       p {
         width: 87%;
       }
-      .item-filter {
+      .itemFilter {
         display: flex;
-        .item-filter-serch-box {
+        .itemFilterSerchBox {
           span {
             margin-right: 10px;
           }
         }
-        .item-sort-list-box {
+        .itemSortListBox {
           position: relative;
           #sort-list {
             position: absolute;
@@ -242,13 +242,13 @@ const StyledItem = styled.div`
         }
       }
     }
-    .item-inner-box {
+    .itemInnerBox {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       width: 1280px;
       margin: 0 auto;
-      .item-a-box {
+      .itemABox {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -259,22 +259,22 @@ const StyledItem = styled.div`
         &:nth-of-type(4n) {
           margin-right: 0;
         }
-        .item-img {
+        .itemImg {
           position: relative;
           width: 100%;
           height: 100%;
           opacity: 1;
 
-          &:hover .item-main-img {
+          &:hover .itemMainImg {
             opacity: 0;
             transition: 1s;
           }
-          &:hover .item-hover-img {
+          &:hover .itemHoverImg {
             opacity: 1;
             transition: 1s;
           }
 
-          .item-main-img {
+          .itemMainImg {
             width: 100%;
             height: 100%;
             position: absolute;
@@ -282,14 +282,14 @@ const StyledItem = styled.div`
             opacity: 1;
             transition: 1s;
           }
-          .item-hover-img {
+          .itemHoverImg {
             width: 100%;
             height: 100%;
             opacity: 0;
             transition: 1s;
           }
         }
-        .item-content {
+        .itemContent {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -299,40 +299,40 @@ const StyledItem = styled.div`
           padding-left: 10px;
           color: #000;
 
-          .item-cate {
+          .itemCate {
             margin-top: 15px;
             margin-bottom: 10px;
             font: bold 18px/1 'Poppins';
           }
-          .item-title {
+          .itemTitle {
             margin-bottom: 20px;
             font: 20px/1 'Poppins';
           }
-          .item-price-box {
-            .item-price-sale-off {
+          .itemPriceBox {
+            .itemPriceSaleOff {
               margin-bottom: 10px;
               font: bold 22px/1 'Poppins';
             }
-            .item-price-sale-on {
+            .itemPriceSaleOn {
               margin-bottom: 10px;
               font: 15px/1 'Spoqa Han Sans Neo', 'sans-serif';
               text-decoration: line-through;
               color: #ccc;
             }
-            .item-sale-box {
+            .itemSaleBox {
               margin-bottom: 10px;
-              .item-sale-percent {
+              .itemSalePercent {
                 font: bold 22px/1 'Poppins';
                 color: #ff0052;
               }
-              .item-sale-price {
+              .itemSalePrice {
                 font: bold 22px/1 'Poppins';
               }
             }
           }
-          .item-badge-box {
+          .itemBadgeBox {
             margin-bottom: 15px;
-            .item-gender-box {
+            .itemGenderBox {
               margin-right: 20px;
               .male {
                 display: inline-block;
@@ -353,7 +353,7 @@ const StyledItem = styled.div`
                 color: #fff;
               }
             }
-            .item-coupon-box {
+            .itemCouponBox {
               .coupon {
                 display: inline-block;
                 width: 40px;
@@ -369,13 +369,13 @@ const StyledItem = styled.div`
         }
       }
     }
-    .item-more-btn-box {
+    .itemMoreBtnBox {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
       padding: 100px;
-      .item-more-btn {
+      .itemMoreBtn {
         width: 260px;
         height: 60px;
         background: #fff;
@@ -437,31 +437,31 @@ const Item = () => {
   return (
     <>
       <StyledShopHeader>
-        <div className='header-inner'>
-          <div className='item-header-inner-box'>
-            <div className='item-breadcrumb'>
+        <div className='headerInner'>
+          <div className='itemHeaderInnerBox'>
+            <div className='itemBreadcrumb'>
               {/* 제품분류 [HOME > 대분류 > 소분류] */}
-              <span className='item-category-home'>HOME</span>
-              <span className='item-main-category'>SHOES</span>
-              <span className='item-sub-category'>{category}</span>
+              <span className='itemCategoryHome'>HOME</span>
+              <span className='itemMainCategory'>SHOES</span>
+              <span className='itemSubCategory'>{category}</span>
             </div>
-            <div className='item-sub-title'>
+            <div className='itemSubTitle'>
               {/* 제품 카테고리 (SHOES MAN WOMAN ..) */}
-              <h3 className='item-category-title'>{category}</h3>
+              <h3 className='itemCategoryTitle'>{category}</h3>
             </div>
-            <div className='item-shoes-tab'>
+            <div className='itemShoesTab'>
               {/* 카테고리별 이동 링크 */}
-              <ul className='item-shoes-tab'>
+              <ul className='itemShoesTab'>
                 {['전체', '러닝화', '워킹화', '트레킹화', '스니커즈', '샌들', '아동화', '기타'].map(cate => {
                   if (cate === '샌들') {
                     return (
-                      <li key={cate} className={category === cate ? 'item-shoes-link-on' : 'item-shoes-link'}>
+                      <li key={cate} className={category === cate ? 'itemShoesLinkOn' : 'itemShoesLink'}>
                         <Link to={`/shop/shoes/${cate}`}>샌들/슬리퍼</Link>
                       </li>
                     );
                   }
                   return (
-                    <li key={cate} className={category === cate ? 'item-shoes-link-on' : 'item-shoes-link'}>
+                    <li key={cate} className={category === cate ? 'itemShoesLinkOn' : 'itemShoesLink'}>
                       <Link to={`/shop/shoes/${cate}`}>{cate}</Link>
                     </li>
                   );
@@ -474,15 +474,15 @@ const Item = () => {
       {params.category === '전체' && <Nomination />}
 
       <StyledItem>
-        <div className='itme-box'>
-          <div className='item-filter-box'>
+        <div className='itmeBox'>
+          <div className='itemFilterBox'>
             {shoes && (
               <p>
                 <span>{Object.keys(shoes.data).length}</span>개의 상품
               </p>
             )}
-            <div className='item-filter'>
-              <div className='item-filter-serch-box'>
+            <div className='itemFilter'>
+              <div className='itemFilterSerchBox'>
                 {/* 필터검색 버튼 */}
                 <span
                   onClick={() => {
@@ -492,7 +492,7 @@ const Item = () => {
                   필터검색
                 </span>
               </div>
-              <div className='item-sort-list-box'>
+              <div className='itemSortListBox'>
                 {/* 아이템정렬 버튼 */}
                 <select name='sort-list' id='sort-list'>
                   <option value='recent'>최근등록순</option>
@@ -505,7 +505,7 @@ const Item = () => {
             </div>
           </div>
           {toggle === true && <FilterModal toggle={toggle} setToggle={setToggle} />}
-          <div className='item-inner-box'>
+          <div className='itemInnerBox'>
             {/* 상품전체박스 */}
 
             {params.category === '전체' && product.length ? (
@@ -524,13 +524,12 @@ const Item = () => {
                 }))}
           </div>
           {loading && <ShoesSkeleton />}
-          <div className='item-more-btn-box'>
+          <div className='itemMoreBtnBox'>
             {params.category === '전체' && !end && (
-              <button className='item-more-btn' disabled={loading} onClick={() => setPage(page => page + 8)}>
+              <button className='itemMoreBtn' disabled={loading} onClick={() => setPage(page => page + 8)}>
                 더보기
               </button>
             )}
-
           </div>
         </div>
       </StyledItem>
