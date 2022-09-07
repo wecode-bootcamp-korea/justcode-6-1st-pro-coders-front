@@ -461,7 +461,13 @@ const Cart = ({ userInfo: { token, user_id, isLogin } }) => {
                         원
                       </h2>
                       <h2>0원</h2>
-                      <h2 className='totalCost'>{totalPrice.toLocaleString()}원</h2>
+                      <h2 className='totalCost'>
+                        {selectList //
+                          .map(id => cartList.find(cart => cart.cart_id === id))
+                          .reduce((acc, cur) => acc + Number(cur.duped_price), 0)
+                          .toLocaleString()}
+                        원
+                      </h2>
                     </div>
                   </div>
                 )}

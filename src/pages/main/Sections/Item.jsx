@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledItem = styled.li`
-  width: calc(${({ length }) => (length > 5 ? '20%' * length : '20%')});
+  width: calc(${({ length }) => (length > 5 ? `${20 * length}%` : '20%')});
   padding: 20px;
   cursor: pointer;
 
@@ -10,6 +10,7 @@ const StyledItem = styled.li`
     display: flex;
     align-items: center;
     height: 280px;
+    width: 100%;
 
     img {
       width: 100%;
@@ -74,20 +75,7 @@ const StyledItem = styled.li`
   }
 `;
 
-const Item = ({
-  item: {
-    id,
-    title,
-    keyword,
-    discount_percent,
-    price,
-    discounted_price,
-    is_discounted,
-    main_image,
-    gender,
-  },
-  length,
-}) => {
+const Item = ({ item: { id, title, keyword, discount_percent, price, discounted_price, is_discounted, main_image, gender }, length }) => {
   const navigate = useNavigate();
   return (
     <StyledItem length={length}>
@@ -100,8 +88,7 @@ const Item = ({
         <>
           <p className='price'>{price}원</p>
           <p className='realPrice'>
-            <span className='red'>{discount_percent}%</span> {discounted_price}
-            원
+            <span className='red'>{discount_percent}%</span> {discounted_price}원
           </p>
         </>
       ) : (

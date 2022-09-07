@@ -408,28 +408,28 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link to='/'>러닝화</Link>
+                      <Link to='/shop/shoes/러닝화'>러닝화</Link>
                     </li>
                     <li>
-                      <Link to='/'>워킹화</Link>
+                      <Link to='/shop/shoes/워킹화'>워킹화</Link>
                     </li>
                     <li>
-                      <Link to='/'>스포츠화</Link>
+                      <Link to='/shop/shoes/스포츠화'>스포츠화</Link>
                     </li>
                     <li>
-                      <Link to='/'>트레킹화</Link>
+                      <Link to='/shop/shoes/트레킹화'>트레킹화</Link>
                     </li>
                     <li>
-                      <Link to='/'>스니커즈</Link>
+                      <Link to='/shop/shoes/스니커즈'>스니커즈</Link>
                     </li>
                     <li>
-                      <Link to='/'>샌들/슬리퍼</Link>
+                      <Link to='/shop/shoes/샌들'>샌들/슬리퍼</Link>
                     </li>
                     <li>
-                      <Link to='/'>아동화</Link>
+                      <Link to='/shop/shoes/아동화'>아동화</Link>
                     </li>
                     <li>
-                      <Link to='/'>기타</Link>
+                      <Link to='/shop/shoes/기타'>기타</Link>
                     </li>
                   </ul>
                   <ul className='lnb'>

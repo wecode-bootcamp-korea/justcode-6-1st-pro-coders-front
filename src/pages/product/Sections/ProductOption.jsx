@@ -5,7 +5,6 @@ import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { AiFillStar } from 'react-icons/ai';
 import { AiOutlineDownload } from 'react-icons/ai';
 import { useState } from 'react';
-import Images from './Images';
 import AccordionCard from './AccordionCard';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -384,8 +383,6 @@ const StyledModal = styled.div`
 `;
 
 const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
-  const [active, setActive] = useState(false);
-  const [selectedImg, setSelectedImg] = useState(Images[0]);
   const [error, setError] = useState(false);
   const [overlapError, setOverlapError] = useState(false);
   const [size, setSize] = useState('250');
