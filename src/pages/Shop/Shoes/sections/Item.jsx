@@ -460,7 +460,6 @@ const Item = () => {
                       </li>
                     );
                   }
-
                   return (
                     <li key={cate} className={category === cate ? 'item-shoes-link-on' : 'item-shoes-link'}>
                       <Link to={`/shop/shoes/${cate}`}>{cate}</Link>
@@ -531,6 +530,7 @@ const Item = () => {
                 더보기
               </button>
             )}
+
           </div>
         </div>
       </StyledItem>
