@@ -47,7 +47,7 @@ const App = () => {
           />
           <Route path='/event' element={<Event />} />
           <Route path='/archive' element={<Archive />} />
-          <Route path='/smartfit' element={<SmartFit />} />
+          <Route path='/smartfit' element={<SmartFit userInfo={userInfo} setUserInfo={setUserInfo} />} />
           <Route path='/store' element={<Store />} />
           <Route
             path='/signup'

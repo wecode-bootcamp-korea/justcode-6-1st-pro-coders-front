@@ -656,21 +656,21 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                 <div className='innerContainer'>
                   <ul className='lnb'>
                     <li>
-                      <Link to='/' className='lnbSubName'>
+                      <Link to='/archive' className='lnbSubName'>
                         LOOKBOOK
                       </Link>
                     </li>
                   </ul>
                   <ul className='lnb'>
                     <li>
-                      <Link to='/' className='lnbSubName'>
+                      <Link to='/archive' className='lnbSubName'>
                         NEWS
                       </Link>
                     </li>
                   </ul>
                   <ul className='lnb'>
                     <li>
-                      <Link to='/' className='lnbSubName'>
+                      <Link to='/archive' className='lnbSubName'>
                         ISSUE
                       </Link>
                     </li>
