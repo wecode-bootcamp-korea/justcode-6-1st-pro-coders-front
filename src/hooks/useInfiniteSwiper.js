@@ -89,7 +89,7 @@ const useInfiniteSwiper = (size, autoSlide = false) => {
           setPage(1);
 
           const getFirst = () => {
-            swipedTarget.current.style.transition = '0s';
+            swipedTarget.current?.style.transition = '0s';
             trans.current = -width;
             swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
             oldTrans.current = trans.current;
