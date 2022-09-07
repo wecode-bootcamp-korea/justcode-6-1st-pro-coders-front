@@ -70,7 +70,7 @@ const Skeletion = styled.div`
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    margin: 0 0 150px 0;
+    margin: 0 0 25px 0;
 
     .filter1 {
       width: 70px;

@@ -131,27 +131,33 @@ const Main = styled.div`
     }
   }
 
-  .itemInnerBox {
+  .itemFilterContainer {
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
-    margin: 50px 0 150px 0;
+    margin: 25px 0 25px 0;
+    font: bold 17px/1 'Spoqa Han Sans Neo', 'sans-serif';
 
     .itemFilter {
       display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
       align-items: center;
-      width: 100%;
-      font: bold 17px/1 'Spoqa Han Sans Neo', 'sans-serif';
 
-      .itemFilterSearchBox {
-        div {
-          margin-right: 10px;
-        }
+      .itemFilterSerchBox {
+        margin-right: 15px;
       }
+
       .itemSortListBox {
         margin-right: 30px;
       }
     }
+  }
+
+  .itemInnerBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 1280px;
+    margin: 50px auto 150px auto;
 
     .itemABox {
       display: flex;
@@ -489,10 +495,9 @@ const Search = props => {
               })}
             </ul>
           </div>
-          <section className='itemInnerBox'>
+          <section className='itemFilterContainer'>
             <div className='itemFilter'>
-              <div className='itemFilterSearchBox'>
-                {/* 필터검색 버튼 */}
+              <div className='itemFilterSerchBox'>
                 <div
                   onClick={() => {
                     setToggle(true);
@@ -502,7 +507,6 @@ const Search = props => {
                 </div>
               </div>
               <div className='itemSortListBox'>
-                {/* 아이템정렬 버튼 */}
                 <select name='sort-list' id='sort-list'>
                   <option value='recent'>최근등록순</option>
                   <option value='sale'>판매순</option>
@@ -512,6 +516,8 @@ const Search = props => {
                 </select>
               </div>
             </div>
+          </section>
+          <section className='itemInnerBox'>
             {searchList &&
               searchList.map(item => {
                 return <ItemBox item={item} key={item.id} />;
