@@ -238,6 +238,7 @@ const Main = styled.div`
 const SmartFit = ({userInfo, setUserInfo}) => {
   const [modal, setModal] = useState(false);
   const openLogin = () => {
+    if(userInfo.isLogin) {alert('로그인 중입니다.'); return};
     setModal((prev) => !prev);
   };
 
