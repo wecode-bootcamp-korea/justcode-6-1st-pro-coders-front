@@ -234,7 +234,7 @@ const ThirdSection = () => {
                   ? 'https://images.unsplash.com/photo-1624375812928-106472d9ddb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=655&q=80'
                   : 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80'
               }
-              alt=''
+              alt='라인'
             />
           </div>
 
@@ -246,7 +246,7 @@ const ThirdSection = () => {
                   ? [performanceList[1], ...performanceList, performanceList[0]].map((perList, i) => (
                       <li key={i}>
                         <div className='firstItem'>
-                          <img src={perList[0].main_image} alt='' onClick={() => navigate(`/product/${perList[0].id}`)} />
+                          <img src={perList[0].main_image} alt='상품 이미지' onClick={() => navigate(`/product/${perList[0].id}`)} />
                           <span className='number'>{Number(perList[0].id)}</span>
                           <div className='text'>
                             <p>{perList[0].keyword}</p>
@@ -271,7 +271,7 @@ const ThirdSection = () => {
                             (per, idx) =>
                               idx > 0 && (
                                 <div className='item' key={per.id}>
-                                  <img src={per.main_image} alt='' onClick={() => navigate(`/product/${per.id}`)} />
+                                  <img src={per.main_image} alt='상품 이미지' onClick={() => navigate(`/product/${per.id}`)} />
                                   <span className='number'>{Number(per.id)}</span>
                                   <div className='text'>
                                     <p>{per.keyword}</p>
@@ -299,7 +299,7 @@ const ThirdSection = () => {
                   : [originalList[1], ...originalList, originalList[0]].map((perList, i) => (
                       <li key={i}>
                         <div className='firstItem'>
-                          <img src={perList[0].main_image} alt='' onClick={() => navigate(`/product/${perList[0].id}`)} />
+                          <img src={perList[0].main_image} alt='상품 이미지' onClick={() => navigate(`/product/${perList[0].id}`)} />
                           <span className='number'>{Number(perList[0].id)}</span>
                           <div className='text'>
                             <p>{perList[0].keyword}</p>
@@ -324,7 +324,7 @@ const ThirdSection = () => {
                             (per, idx) =>
                               idx > 0 && (
                                 <div className='item' key={per.id}>
-                                  <img src={per.main_image} alt='' onClick={() => navigate(`/product/${per.id}`)} />
+                                  <img src={per.main_image} alt='상품 이미지' onClick={() => navigate(`/product/${per.id}`)} />
                                   <span className='number'>{Number(per.id)}</span>
                                   <div className='text'>
                                     <p>{per.keyword}</p>

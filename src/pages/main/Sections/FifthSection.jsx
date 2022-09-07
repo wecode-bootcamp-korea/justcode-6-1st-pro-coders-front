@@ -51,7 +51,7 @@ const FifthSection = () => {
     <StyledSection>
       <div className='container'>
         <ItemBrand>
-          <img src='/images/logo-black.svg' alt='' />
+          <img src='/images/logo-black.svg' alt='LOOKBOOK' />
           <Link to='/archive'>
             LOOKBOOK
             <BiChevronRight size={40} />
@@ -59,7 +59,7 @@ const FifthSection = () => {
           <p>22 F/W 시즌 룩북을 만나보세요.</p>
         </ItemBrand>
         <ItemBrand>
-          <img src='https://image.prospecs.com/front/images/renewal/icon_quick_02.svg' alt='' />
+          <img src='https://image.prospecs.com/front/images/renewal/icon_quick_02.svg' alt='STORE' />
           <Link to='/store'>
             STORE
             <BiChevronRight size={40} />
@@ -67,7 +67,7 @@ const FifthSection = () => {
           <p>가장 가까운 프로스펙스 매장을 검색해보세요.</p>
         </ItemBrand>
         <ItemBrand>
-          <img src='https://image.prospecs.com/front/images/renewal/icon_quick_03.svg' alt='' />
+          <img src='https://image.prospecs.com/front/images/renewal/icon_quick_03.svg' alt='GIFTCARD' />
           <Link to='/'>
             GIFTCARD
             <BiChevronRight size={40} />

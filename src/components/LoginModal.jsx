@@ -263,9 +263,9 @@ const LoginModal = ({ setModal, setUserInfo }) => {
         <p className='sns'>SNS 간편 로그인</p>
 
         <div className='social'>
-          <img src='https://image.prospecs.com/front/images/renewal/icon_naver.png' alt='' width={50} />
-          <img src='https://image.prospecs.com/front/images/renewal/icon_kakao.png  ' alt='' width={50} />
-          <img src='https://image.prospecs.com/front/images/renewal/icon_face.png' alt='' width={50} />
+          <img src='https://image.prospecs.com/front/images/renewal/icon_naver.png' alt='naver' width={50} />
+          <img src='https://image.prospecs.com/front/images/renewal/icon_kakao.png  ' alt='kakao' width={50} />
+          <img src='https://image.prospecs.com/front/images/renewal/icon_face.png' alt='facebook' width={50} />
         </div>
       </div>
     </StyledLogin>

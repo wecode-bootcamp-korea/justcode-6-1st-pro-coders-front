@@ -168,7 +168,7 @@ const FourthSection = () => {
             <ul className='list' ref={swipedTarget}>
               <li>
                 <div className='imgContainer'>
-                  <img src='https://images.unsplash.com/photo-1597892657493-6847b9640bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
+                  <img src='https://images.unsplash.com/photo-1597892657493-6847b9640bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='일상 이미지' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
@@ -183,7 +183,7 @@ const FourthSection = () => {
 
                   <div className='item'>
                     <div className='itemImgContainer'>
-                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='일상 이미지' />
                     </div>
                     <div className='des'>
                       <p>[2022 신상]</p>
@@ -195,7 +195,7 @@ const FourthSection = () => {
               </li>
               <li>
                 <div className='imgContainer'>
-                  <img src='https://images.unsplash.com/photo-1639416292376-695d1f7fb53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
+                  <img src='https://images.unsplash.com/photo-1639416292376-695d1f7fb53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='일상 이미지' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
@@ -210,7 +210,7 @@ const FourthSection = () => {
 
                   <div className='item'>
                     <div className='itemImgContainer'>
-                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='일상 이미지' />
                     </div>
                     <div className='des'>
                       <p>[2022 신상]</p>
@@ -222,7 +222,7 @@ const FourthSection = () => {
               </li>
               <li>
                 <div className='imgContainer'>
-                  <img src='https://images.unsplash.com/photo-1597892657493-6847b9640bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
+                  <img src='https://images.unsplash.com/photo-1597892657493-6847b9640bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='일상 이미지' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
@@ -237,7 +237,7 @@ const FourthSection = () => {
 
                   <div className='item'>
                     <div className='itemImgContainer'>
-                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='일상 이미지' />
                     </div>
                     <div className='des'>
                       <p>[2022 신상]</p>
@@ -249,7 +249,7 @@ const FourthSection = () => {
               </li>
               <li>
                 <div className='imgContainer'>
-                  <img src='https://images.unsplash.com/photo-1639416292376-695d1f7fb53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
+                  <img src='https://images.unsplash.com/photo-1639416292376-695d1f7fb53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='일상 이미지' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
@@ -264,7 +264,7 @@ const FourthSection = () => {
 
                   <div className='item'>
                     <div className='itemImgContainer'>
-                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='일상 이미지' />
                     </div>
                     <div className='des'>
                       <p>[2022 신상]</p>

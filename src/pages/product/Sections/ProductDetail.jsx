@@ -116,11 +116,11 @@ const StyledProductDetail = styled.main`
       }
 
       /* 제품상세정보 Style */
-      .detailContentInner  {
+      .detailContentInner {
         display: flex;
         flex-direction: column;
         width: 100%;
-		
+
         /* Point Style */
         .detailContentPoint {
           margin-left: 150px;
@@ -582,27 +582,16 @@ const ProductDetail = () => {
   const itemReview = useRef(null);
   const itemShipping = useRef(null);
   const [scrollActive, setScrollActive] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-
-  const handleScroll = () => {
-    if (scrollY > 2300) {
-      setScrollY(window.pageYOffset);
-      setScrollActive(true);
-    } else {
-      setScrollY(window.pageYOffset);
-      setScrollActive(false);
-    }
-  };
 
   useEffect(() => {
-    function scrollListener() {
-      window.addEventListener('scroll', handleScroll);
-    }
-    scrollListener();
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      window.scrollY > 2300 ? setScrollActive(true) : setScrollActive(false);
     };
-  });
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = elementRef => {
     window.scrollTo({

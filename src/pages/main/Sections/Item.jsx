@@ -80,7 +80,7 @@ const Item = ({ item: { id, title, keyword, discount_percent, price, discounted_
   return (
     <StyledItem length={length}>
       <div className='imgContainer' onClick={() => navigate(`/product/${id}`)}>
-        <img src={main_image} alt='' />
+        <img src={main_image} alt={title} />
       </div>
       <p className='strong'>{keyword}</p>
       <h4>{title}</h4>

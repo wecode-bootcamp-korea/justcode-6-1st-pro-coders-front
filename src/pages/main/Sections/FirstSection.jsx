@@ -88,14 +88,14 @@ const FirstSection = () => {
     <StyledSection isFirstInView={isFirstInView} ref={firstSection}>
       <div className='container'>
         <div className='imgContainer'>
-          <img src='https://images.unsplash.com/photo-1589992896387-140e940257d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80' alt='' />
+          <img src='https://images.unsplash.com/photo-1589992896387-140e940257d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80' alt='HOW TO PLAY CITY' />
           <div className='textContainer'>
             <h2>HOW TO PLAY CITY</h2>
             <p>22FW PERFORMANCE</p>
           </div>
         </div>
         <div className='imgContainer'>
-          <img src='https://images.unsplash.com/photo-1600574691453-499962cc0611?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
+          <img src='https://images.unsplash.com/photo-1600574691453-499962cc0611?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='Original Surf Club' />
           <div className='textContainer'>
             <h2>Original Surf Club</h2>
             <p>2022 HOT SUMMER COLLECTION</p>
