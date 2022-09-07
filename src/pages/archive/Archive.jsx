@@ -134,19 +134,6 @@ const Archive = props => {
       });
   }, []);
 
-useEffect(()=>{
-  setLoading(true)
-
-  setTimeout(() => {
-    setLoading(false);
-  }, 500)
-
-  return () => {clearTimeout(() => {
-    setLoading(false);
-  }, 500)}
-
-},[toggleTitle])
-
   const handleToggle = () => {
     setToggleShow(prev => !prev);
   };
