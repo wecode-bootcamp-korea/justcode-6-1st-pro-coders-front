@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import EventCard from './EventCard';
+import EventSkeleton from '../../components/Skeleton/EventSkeleton';
+import { useEffect } from 'react';
 
 const Main = styled.div`
   width: 1280px;
@@ -112,7 +114,8 @@ const Main = styled.div`
   }
 `;
 
-const Event = props => {
+const Event = () => {
+  const [loading, setLoading] = useState(true)
   const [menuList, setMenuList] = useState([
     {
       id: 1,
@@ -131,6 +134,27 @@ const Event = props => {
     },
   ]);
   const [arrow, setArrow] = useState(false);
+  const [cardData, setCardData] = useState();
+
+  useEffect(() => {
+    fetch('data/event.json')
+      .then((res) => res.json())
+      .then((json) => {
+        setCardData(json); 
+      });
+  }, []);
+
+  useEffect(()=>{
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false);
+    }, 700)
+
+    return () => {clearTimeout(() => {
+      setLoading(false);
+    }, 700)}
+
+  },[])
 
   const handleSelected = e => {
     const newMenu = menuList.map(menu => {
@@ -144,7 +168,9 @@ const Event = props => {
   };
 
   return (
-    <Main>
+    <>
+    {loading && <EventSkeleton />}
+    {!loading && (<Main>
       <div className='headerContainer'>
         <Link to='/event'>
           <h3>EVENT</h3>
@@ -171,9 +197,10 @@ const Event = props => {
         {arrow ? <div>진행중</div> : null}
       </div>
       <div className='cardContainer'>
-        <EventCard />
+        <EventCard cardData={cardData} />
       </div>
-    </Main>
+    </Main>)}
+    </>
   );
 };
 

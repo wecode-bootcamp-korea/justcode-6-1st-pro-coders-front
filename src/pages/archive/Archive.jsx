@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import LookbookSkeleton from '../../components/Skeleton/LookbookSkeleton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faChevronDown, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -107,6 +108,7 @@ const Main = styled.div`
 `;
 
 const Archive = props => {
+  const [loading, setLoading] = useState(true)
   const [toggleList, setToggleList] = useState([
     { id: 1, text: '22FW PERFORMANCE LOOKBOOK', selected: true },
     { id: 2, text: '22 SUMMER LOOKBOOK', selected: false },
@@ -128,8 +130,22 @@ const Archive = props => {
       .then(json => {
         setWomenData(json.women);
         setMenData(json.men);
+        setLoading(false);
       });
   }, []);
+
+useEffect(()=>{
+  setLoading(true)
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 800)
+
+  return () => {clearTimeout(() => {
+    setLoading(false);
+  }, 800)}
+
+},[toggleTitle])
 
   const handleToggle = () => {
     setToggleShow(prev => !prev);
@@ -145,8 +161,8 @@ const Archive = props => {
   };
 
   useEffect(() => {
-    slideRef.current.style.transition = 'all 300ms ease-in-out';
-    slideRef.current.style.transform = `translateX(${slide}px)`;
+    if(!loading) {slideRef.current.style.transition = 'all 300ms ease-in-out';
+    slideRef.current.style.transform = `translateX(${slide}px)`}
   }, [slide]);
 
   const handleSwipe = e => {
@@ -167,7 +183,9 @@ const Archive = props => {
   };
 
   return (
-    <Main>
+    <>
+    {loading && <LookbookSkeleton/>}
+    {!loading && (<Main>
       <h3>LOOKBOOK</h3>
       <div className='titleContainer'>
         <h4>22FW PERFORMANCE LOOKBOOK</h4>
@@ -224,7 +242,8 @@ const Archive = props => {
                 }))}
         </ul>
       </section>
-    </Main>
+    </Main>)}
+    </>
   );
 };
 
