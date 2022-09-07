@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import ItemBox from '../Shop/Shoes/sections/ItemBox';
+import SearchSkeleton from '../../components/Skeleton/SearchSkeleton';
 
 const Main = styled.div`
   width: 1280px;
@@ -325,6 +326,7 @@ const Main = styled.div`
 
 const Search = (props) => {
   const location = useLocation();
+  const [loading, setLoading] = useState(true)
   const [keyword, setKeyword] = useState();
   const [searchList, setSearchList] = useState();
   const [keywordList, setKeywordList] = useState([
@@ -367,16 +369,17 @@ const Search = (props) => {
     setInputValue(value)
     fetch(`http://localhost:8000/search${location.search}`)
       .then((res) => res.json())
-      .then((data) => {data.message ? setSearchList([]) : setSearchList(data)})
+      .then((data) => {data.message ? setSearchList([]) : setSearchList(data); setLoading(false)})
       .catch((err)=> setSearchList([]));
   }, [location]);
   
     const onSearch = () => {
+      setLoading(true)
       setKeyword(input.current.value);
       fetch(`http://localhost:8000/search?key=${input.current.value}`)
         .then((res) => res.json())
-        .then((data) => {data.message ? setSearchList([]) : setSearchList(data)})
-        .catch((err)=> setSearchList([]));
+        .then((data) => {data.message ? setSearchList([]) : setSearchList(data); setLoading(false) })
+        .catch((err)=> {setSearchList([]); setLoading(false);});
       };
       
       const onSearchPopular = (e) => { 
@@ -384,8 +387,8 @@ const Search = (props) => {
         setKeyword(e.target.textContent);
         fetch(`http://localhost:8000/search?key=${e.target.textContent}`)
         .then((res) => res.json())
-        .then((data) => setSearchList(data))
-        .catch((err)=> setSearchList([]));
+        .then((data) => {setSearchList(data); setLoading(false)})
+        .catch((err)=> {setSearchList([]); setLoading(false);});
     };
 
   const clearHandler = () => {
@@ -394,7 +397,9 @@ const Search = (props) => {
   };
 
   return (
-    <Main>
+    <>
+    {loading && <SearchSkeleton />}
+    {!loading && (<Main>
       <section className='searchInputContainer'>
         {searchList && searchList.length !== 0 ? (
           <p>
@@ -481,25 +486,26 @@ const Search = (props) => {
         <div className='promotionCardContainer'>
           <div className='promotionCard'>
             <img
-              src='images/event/images/img8.png'
+              src='https://image.prospecs.com/files/upload/display/202208/202208111603071_4.png/dims/optimize'
               alt='2022 FW HOW TO PLAY THIS CITY'
             />
             <h5>2022 FW HOW TO PLAY THIS CITY</h5>
           </div>
           <div className='promotionCard'>
             <img
-              src='images/event/images/img3.png'
+              src='https://image.prospecs.com/files/upload/display/202206/202206171021471_4.png/dims/optimize'
               alt='LG트윈스 구매고객 대상 이벤트'
             />
             <h5>LG트윈스 구매고객 대상 이벤트</h5>
           </div>
           <div className='promotionCard'>
-            <img src='images/event/images/img1.png' alt='랭킹100' />
+            <img src='https://image.prospecs.com/files/upload/display/202208/202208171353281_4.png/dims/optimize' alt='랭킹100' />
             <h5>랭킹100</h5>
           </div>
         </div>
       </section>
-    </Main>
+    </Main>)}
+    </>
   );
 };
 
