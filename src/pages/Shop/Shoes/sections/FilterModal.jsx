@@ -2,13 +2,13 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 const StyledFilter = styled.div`
-  .filter-modal-inner-box {
+  .filterModalInnerBox {
     width: 1180px;
     height: 100%;
     margin: 0 auto;
     padding: 20px;
     border: 2px solid #000;
-    .filter-modal-header {
+    .filterModalHeader {
       position: relative;
       display: flex;
       justify-content: space-between;
@@ -24,24 +24,24 @@ const StyledFilter = styled.div`
         height: 4px;
         background: #000;
       }
-      .modal-header-text-style {
+      .modalHeaderTextStyle {
         display: block;
         font: bold 20px/1 'apple';
       }
-      .modal-header-close-btn {
+      .modalHeaderCloseBtn {
         display: flex;
         display: block;
         font: bold 20px/1 'apple';
         cursor: pointer;
       }
     }
-    .filter-modal-list {
+    .filterModalList {
       width: 100%;
-      .filter-modal-list-box {
+      .filterModalListBox {
         display: flex;
         width: 100%;
         margin-bottom: 50px;
-        .modal-list-text-style {
+        .modalListTextStyle {
           width: 10%;
           margin-right: 50px;
           padding: 15px;
@@ -51,10 +51,10 @@ const StyledFilter = styled.div`
           display: flex;
           align-items: center;
           width: 100%;
-          .filter-check-list {
+          .filterCheckList {
             display: flex;
             flex-wrap: wrap;
-            .fiter-price-input-box {
+            .fiterPriceInputBox {
               display: flex;
               width: 100%;
               margin-bottom: 20px;
@@ -62,7 +62,7 @@ const StyledFilter = styled.div`
                 font: 20px/2 'apple';
                 margin: 0 10px;
               }
-              .filter-check-input-box {
+              .filterCheckInputBox {
                 display: flex;
                 input[type='text'] {
                   display: inline-block;
@@ -75,7 +75,7 @@ const StyledFilter = styled.div`
               width: 150px;
               margin-right: 50px;
               font: 18px/1 'apple';
-              .filter-check-box {
+              .filterCheckBox {
                 display: flex;
                 flex-wrap: wrap;
                 span {
@@ -949,11 +949,11 @@ const StyledFilter = styled.div`
 function FilterModal({ toggle, setToggle }) {
   return (
     <StyledFilter>
-      <div className='filter-modal-inner-box'>
-        <div className='filter-modal-header'>
-          <span className='modal-header-text-style'>필터검색</span>
+      <div className='filterModalInnerBox'>
+        <div className='filterModalHeader'>
+          <span className='modalHeaderTextStyle'>필터검색</span>
           <span
-            className='modal-header-close-btn'
+            className='modalHeaderCloseBtn'
             onClick={() => {
               setToggle(false);
             }}
@@ -961,15 +961,15 @@ function FilterModal({ toggle, setToggle }) {
             X
           </span>
         </div>
-        <ul className='filter-modal-list'>
+        <ul className='filterModalList'>
           {/* 성별 */}
-          <li className='filter-modal-list-box'>
-            <sapn className='modal-list-text-style'>성별</sapn>
+          <li className='filterModalListBox'>
+            <sapn className='modalListTextStyle'>성별</sapn>
             <div className='filters'>
-              <ul className='filter-check-list'>
+              <ul className='filterCheckList'>
                 {/* 전체 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_gender-all' id='gender_all' />
                     <label for='gender_all'></label>
                     <span className='text'>전체</span>
@@ -977,7 +977,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 남성 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_gender-male' id='gender_male' />
                     <label for='gender_male'></label>
                     <span className='text'>남성</span>
@@ -985,7 +985,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 여성 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_gender-female' id='gender_female' />
                     <label for='gender_female'></label>
                     <span className='text'>여성</span>
@@ -993,7 +993,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 아동 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_gender-kid' id='gender_kid' />
                     <label for='gender_kid'></label>
                     <span className='text'>아동</span>
@@ -1004,13 +1004,13 @@ function FilterModal({ toggle, setToggle }) {
           </li>
 
           {/* 컬러 */}
-          <li className='filter-modal-list-box'>
-            <sapn className='modal-list-text-style'>컬러</sapn>
+          <li className='filterModalListBox'>
+            <sapn className='modalListTextStyle'>컬러</sapn>
             <div className='filters'>
-              <ul className='filter-check-list'>
+              <ul className='filterCheckList'>
                 {/* 전체 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-all' id='color_all' />
                     <label for='color_all'></label>
                     <span className='text'>전체</span>
@@ -1018,7 +1018,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 화이트 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-white' id='color_white' />
                     <label for='color_white'></label>
                     <span className='text'>화이트</span>
@@ -1026,7 +1026,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 오렌지 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-orange' id='color_orange' />
                     <label for='color_orange'></label>
                     <span className='text'>오렌지</span>
@@ -1034,7 +1034,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 베이지 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-beige' id='color_beige' />
                     <label for='color_beige'></label>
                     <span className='text'>베이지</span>
@@ -1042,7 +1042,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 골드 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-gold' id='color_gold' />
                     <label for='color_gold'></label>
                     <span className='text'>골드</span>
@@ -1050,7 +1050,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 핑크 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-pink' id='color_pink' />
                     <label for='color_pink'></label>
                     <span className='text'>핑크</span>
@@ -1058,7 +1058,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 레드 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-red' id='color_red' />
                     <label for='color_red'></label>
                     <span className='text'>레드</span>
@@ -1066,7 +1066,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 브라운 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-brown' id='color_brown' />
                     <label for='color_brown'></label>
                     <span className='text'>브라운</span>
@@ -1074,7 +1074,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 그레이 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-gray' id='color_gray' />
                     <label for='color_gray'></label>
                     <span className='text'>그레이</span>
@@ -1082,7 +1082,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 퍼플 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-purple' id='color_purple' />
                     <label for='color_purple'></label>
                     <span className='text'>퍼플</span>
@@ -1090,7 +1090,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 블루 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-blue' id='color_blue' />
                     <label for='color_blue'></label>
                     <span className='text'>블루</span>
@@ -1098,7 +1098,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 네이비 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-navy' id='color_navy' />
                     <label for='color_navy'></label>
                     <span className='text'>네이비</span>
@@ -1106,7 +1106,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 블랙 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_color-black' id='color_black' />
                     <label for='color_black'></label>
                     <span className='text'>블랙</span>
@@ -1117,13 +1117,13 @@ function FilterModal({ toggle, setToggle }) {
           </li>
 
           {/* 가격 */}
-          <li className='filter-modal-list-box'>
-            <sapn className='modal-list-text-style'>가격</sapn>
+          <li className='filterModalListBox'>
+            <sapn className='modalListTextStyle'>가격</sapn>
             <div className='filters'>
-              <ul className='filter-check-list'>
+              <ul className='filterCheckList'>
                 {/* 가격작성 */}
-                <li className='fiter-price-input-box'>
-                  <div className='filter-check-input-box'>
+                <li className='fiterPriceInputBox'>
+                  <div className='filterCheckInputBox'>
                     <div className='filter-input'>
                       <input type='text' name='price_from' maxLength='11' />
                     </div>
@@ -1136,7 +1136,7 @@ function FilterModal({ toggle, setToggle }) {
 
                 {/* 0~3만원 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_price' id='price0-3' />
                     <label for='price0-3'></label>
                     <span className='text'>0~3만원</span>
@@ -1145,7 +1145,7 @@ function FilterModal({ toggle, setToggle }) {
 
                 {/* 3~5만원 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_price' id='price3-5' />
                     <label for='price3-5'></label>
                     <span className='text'>3~5만원</span>
@@ -1153,7 +1153,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 5~10만원 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_price' id='price5-10' />
                     <label for='price5-10'></label>
                     <span className='text'>5~10만원</span>
@@ -1161,7 +1161,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 10~20만원 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_price' id='price10-20' />
                     <label for='price10-20'></label>
                     <span className='text'>10~20만원</span>
@@ -1169,7 +1169,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 20만원~30만원 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_price' id='price20-30' />
                     <label for='price20-30'></label>
                     <span className='text'>20~30만원</span>
@@ -1177,7 +1177,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 30만원 ~ */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_price' id='price30' />
                     <label for='price30'></label>
                     <span className='text'>30만원~</span>
@@ -1188,13 +1188,13 @@ function FilterModal({ toggle, setToggle }) {
           </li>
 
           {/* 사이즈 */}
-          <li className='filter-modal-list-box'>
-            <sapn className='modal-list-text-style'>사이즈</sapn>
+          <li className='filterModalListBox'>
+            <sapn className='modalListTextStyle'>사이즈</sapn>
             <div className='filters'>
-              <ul className='filter-check-list'>
+              <ul className='filterCheckList'>
                 {/* 전체 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_all' id='size_all' />
                     <label for='size_all'></label>
                     <span className='text'>전체</span>
@@ -1202,7 +1202,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 230 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_230' id='size_230' />
                     <label for='size_230'></label>
                     <span className='text'>230</span>
@@ -1210,7 +1210,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 235 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_235' id='size_235' />
                     <label for='size_235'></label>
                     <span className='text'>235</span>
@@ -1218,7 +1218,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 240 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_240' id='size_240' />
                     <label for='size_240'></label>
                     <span className='text'>240</span>
@@ -1226,7 +1226,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 245 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_245' id='size_245' />
                     <label for='size_245'></label>
                     <span className='text'>245</span>
@@ -1234,7 +1234,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 250 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_250' id='size_250' />
                     <label for='size_250'></label>
                     <span className='text'>250</span>
@@ -1242,7 +1242,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 255 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_255' id='size_255' />
                     <label for='size_255'></label>
                     <span className='text'>255</span>
@@ -1250,7 +1250,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 260 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_260' id='size_260' />
                     <label for='size_260'></label>
                     <span className='text'>260</span>
@@ -1258,7 +1258,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 265 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_265' id='size_265' />
                     <label for='size_265'></label>
                     <span className='text'>265</span>
@@ -1266,7 +1266,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 270 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_270' id='size_270' />
                     <label for='size_270'></label>
                     <span className='text'>270</span>
@@ -1274,7 +1274,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 275 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_275' id='size_275' />
                     <label for='size_275'></label>
                     <span className='text'>275</span>
@@ -1282,7 +1282,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 280 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_280' id='size_280' />
                     <label for='size_280'></label>
                     <span className='text'>280</span>
@@ -1290,7 +1290,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 285 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_285' id='size_285' />
                     <label for='size_285'></label>
                     <span className='text'>285</span>
@@ -1298,7 +1298,7 @@ function FilterModal({ toggle, setToggle }) {
                 </li>
                 {/* 290 */}
                 <li>
-                  <div className='filter-check-box'>
+                  <div className='filterCheckBox'>
                     <input type='checkbox' name='check_size_290' id='size_290' />
                     <label for='size_290'></label>
                     <span className='text'>290</span>
