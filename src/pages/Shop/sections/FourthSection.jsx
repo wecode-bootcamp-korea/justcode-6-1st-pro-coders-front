@@ -66,7 +66,7 @@ const StyledSection = styled.section`
               p {
                 line-height: 1.5;
                 font-weight: 900;
-                font-size: 2.4vh;
+                font-size: 1.6vh;
 
                 &.tag {
                   margin-top: 4px;
@@ -168,32 +168,22 @@ const FourthSection = () => {
             <ul className='list' ref={swipedTarget}>
               <li>
                 <div className='imgContainer'>
-                  <img
-                    src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize'
-                    alt=''
-                  />
+                  <img src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize' alt='' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
                   <h2>냉감소재라 착용감이 시원</h2>
 
                   <p>
-                    이번 러닝에는 #프로스펙스 #원더쿨티셔츠 를 입었습니다!!{' '}
-                    <br />
-                    냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에
-                    로고포인트가 있어요. <br />
+                    이번 러닝에는 #프로스펙스 #원더쿨티셔츠 를 입었습니다!! <br />
+                    냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에 로고포인트가 있어요. <br />
                   </p>
 
-                  <p className='tag'>
-                    #러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠
-                  </p>
+                  <p className='tag'>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
 
                   <div className='item'>
                     <div className='itemImgContainer'>
-                      <img
-                        src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize'
-                        alt=''
-                      />
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
                     </div>
                     <div className='des'>
                       <p>[2022 신상]</p>
@@ -205,32 +195,22 @@ const FourthSection = () => {
               </li>
               <li>
                 <div className='imgContainer'>
-                  <img
-                    src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize'
-                    alt=''
-                  />
+                  <img src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize' alt='' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
                   <h2>냉감소재라 착용감이 시원</h2>
 
                   <p>
-                    이번 러닝에는 #프로스펙스 #원더쿨티셔츠 를 입었습니다!!{' '}
-                    <br />
-                    냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에
-                    로고포인트가 있어요. <br />
+                    이번 러닝에는 #프로스펙스 #원더쿨티셔츠 를 입었습니다!! <br />
+                    냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에 로고포인트가 있어요. <br />
                   </p>
 
-                  <p className='tag'>
-                    #러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠
-                  </p>
+                  <p className='tag'>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
 
                   <div className='item'>
                     <div className='itemImgContainer'>
-                      <img
-                        src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize'
-                        alt=''
-                      />
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
                     </div>
                     <div className='des'>
                       <p>[2022 신상]</p>
@@ -242,32 +222,22 @@ const FourthSection = () => {
               </li>
               <li>
                 <div className='imgContainer'>
-                  <img
-                    src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize'
-                    alt=''
-                  />
+                  <img src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize' alt='' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
                   <h2>냉감소재라 착용감이 시원</h2>
 
                   <p>
-                    이번 러닝에는 #프로스펙스 #원더쿨티셔츠 를 입었습니다!!{' '}
-                    <br />
-                    냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에
-                    로고포인트가 있어요. <br />
+                    이번 러닝에는 #프로스펙스 #원더쿨티셔츠 를 입었습니다!! <br />
+                    냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에 로고포인트가 있어요. <br />
                   </p>
 
-                  <p className='tag'>
-                    #러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠
-                  </p>
+                  <p className='tag'>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
 
                   <div className='item'>
                     <div className='itemImgContainer'>
-                      <img
-                        src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize'
-                        alt=''
-                      />
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
                     </div>
                     <div className='des'>
                       <p>[2022 신상]</p>
@@ -279,32 +249,22 @@ const FourthSection = () => {
               </li>
               <li>
                 <div className='imgContainer'>
-                  <img
-                    src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize'
-                    alt=''
-                  />
+                  <img src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize' alt='' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
                   <h2>냉감소재라 착용감이 시원</h2>
 
                   <p>
-                    이번 러닝에는 #프로스펙스 #원더쿨티셔츠 를 입었습니다!!{' '}
-                    <br />
-                    냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에
-                    로고포인트가 있어요. <br />
+                    이번 러닝에는 #프로스펙스 #원더쿨티셔츠 를 입었습니다!! <br />
+                    냉감소재라 착용감이 시원해요. 기본스타일 티셔츠에 로고포인트가 있어요. <br />
                   </p>
 
-                  <p className='tag'>
-                    #러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠
-                  </p>
+                  <p className='tag'>#러닝하는여자 #기능성티 #기능성티추천 #냉감티셔츠</p>
 
                   <div className='item'>
                     <div className='itemImgContainer'>
-                      <img
-                        src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize'
-                        alt=''
-                      />
+                      <img src='https://img.prospecs.com/prod/PW3WT22/PW3WT22M411/PW3WT22M411_01.jpg/dims/resizef/530x530/optimize' alt='' />
                     </div>
                     <div className='des'>
                       <p>[2022 신상]</p>

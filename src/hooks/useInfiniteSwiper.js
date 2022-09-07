@@ -74,10 +74,7 @@ const useInfiniteSwiper = (size, autoSlide = false) => {
 
         [...Array(size)].forEach((_, i) => {
           if (i < size - 2) {
-            if (
-              trans.current <= -width * (i + 0.5) &&
-              trans.current > -width * (i + 1.5)
-            ) {
+            if (trans.current <= -width * (i + 0.5) && trans.current > -width * (i + 1.5)) {
               trans.current = -width * (i + 1);
               setPage(i + 1);
             }
@@ -89,10 +86,12 @@ const useInfiniteSwiper = (size, autoSlide = false) => {
           setPage(1);
 
           const getFirst = () => {
-            swipedTarget.current.style.transition = '0s';
-            trans.current = -width;
-            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
-            oldTrans.current = trans.current;
+            if (swipedTarget.current) {
+              swipedTarget.current.style.transition = '0s';
+              trans.current = -width;
+              swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+              oldTrans.current = trans.current;
+            }
           };
 
           debounce.current = setTimeout(getFirst, 300);
@@ -152,10 +151,7 @@ const useInfiniteSwiper = (size, autoSlide = false) => {
 
         [...Array(size)].forEach((_, i) => {
           if (i < size - 2) {
-            if (
-              trans.current <= -width * (i + 0.5) &&
-              trans.current > -width * (i + 1.5)
-            ) {
+            if (trans.current <= -width * (i + 0.5) && trans.current > -width * (i + 1.5)) {
               trans.current = -width * (i + 1);
               setPage(i + 1);
             }
@@ -204,9 +200,7 @@ const useInfiniteSwiper = (size, autoSlide = false) => {
           debounce.current = setTimeout(getLast, 300);
         } else {
           trans.current = -width * (page - 1);
-          swipedTarget.current.style.transform = `translateX(${
-            -width * (page - 1)
-          }px)`;
+          swipedTarget.current.style.transform = `translateX(${-width * (page - 1)}px)`;
           oldTrans.current = -width * (page - 1);
           setPage(page - 1);
         }
@@ -224,18 +218,18 @@ const useInfiniteSwiper = (size, autoSlide = false) => {
           setPage(1);
 
           const getFirst = () => {
-            swipedTarget.current.style.transition = '0s';
-            trans.current = -width;
-            swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
-            oldTrans.current = trans.current;
+            if (swipedTarget) {
+              swipedTarget.current.style.transition = '0s';
+              trans.current = -width;
+              swipedTarget.current.style.transform = `translateX(${trans.current}px)`;
+              oldTrans.current = trans.current;
+            }
           };
 
           debounce.current = setTimeout(getFirst, 300);
         } else {
           trans.current = -width * (page + 1);
-          swipedTarget.current.style.transform = `translateX(${
-            -width * (page + 1)
-          }px)`;
+          swipedTarget.current.style.transform = `translateX(${-width * (page + 1)}px)`;
           oldTrans.current = -width * (page + 1);
           setPage(page + 1);
         }
