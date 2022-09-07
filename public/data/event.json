@@ -2,7 +2,7 @@
   {
     "id": 1,
     "date": "~ 2022.09.30 fri 09:59",
-    "img": "images/event/images/img1.png",
+    "img": "https://image.prospecs.com/files/upload/display/202208/202208171353281_4.png/dims/optimize",
     "title": [
       {
         "contentKR": "랭킹"
@@ -14,21 +14,24 @@
   },
   {
     "id": 2,
-    "date": "~ 2022.08.31 wed 23:59",
-    "img": "images/event/images/img2.png",
+    "date": "~ 2022.09.30 wed 23:59",
+    "img": "https://image.prospecs.com/files/upload/display/202203/202203250143221_4.png/dims/optimize",
     "title": [
       {
-        "contentEN": 8
+        "contentKR": "구매 상품평 남기면, 최대 "
       },
       {
-        "contentKR": "월 카드사 즉시할인 프로모션"
+        "contentEN": 3
+      },
+      {
+        "contentKR": "천 포인트!"
       }
     ]
   },
   {
     "id": 3,
     "date": "~ 2022.09.12 mon 23:59",
-    "img": "images/event/images/img8.png",
+    "img": "https://image.prospecs.com/files/upload/display/202208/202208111603071_4.png/dims/optimize",
     "title": [
       {
         "contentKR": "추석연휴 특집 이벤트"
@@ -38,7 +41,7 @@
   {
     "id": 4,
     "date": "~ 2022.12.31 sat 09:59",
-    "img": "images/event/images/img3.png",
+    "img": "https://image.prospecs.com/files/upload/display/202203/202203250017551_4.png/dims/optimize",
     "title": [
       {
         "contentKR": "온라인단독기획 | "
@@ -48,11 +51,11 @@
   },
   {
     "id": 5,
-    "date": "~ 2022.08.31 wed 23:59",
-    "img": "images/event/images/img4.png",
+    "date": "~ 2022.09.30 wed 23:59",
+    "img": "https://image.prospecs.com/files/upload/display/202208/202208261534271_4.jpg/dims/optimize",
     "title": [
       {
-        "contentEN": 8
+        "contentEN": 9
       },
       {
         "contentKR": "월 출석체크 이벤트"
@@ -61,8 +64,8 @@
   },
   {
     "id": 6,
-    "date": "~ 2022.08.31 wed 23:59",
-    "img": "images/event/images/img5.png",
+    "date": "~ 2022.12.31 wed 23:59",
+    "img": "https://image.prospecs.com/files/upload/display/202208/202208241549491_4.png/dims/optimize",
     "title": [
       {
         "contentKR": "프로스펙스닷컴 "
@@ -75,34 +78,34 @@
   },
   {
     "id": 7,
-    "date": "~ 2022.08.31 wed 23:59",
-    "img": "images/event/images/img6.png",
+    "date": "~ 2022.12.31 wed 23:59",
+    "img": "https://image.prospecs.com/files/upload/display/202203/202203250148271_4.png/dims/optimize",
     "title": [
       {
-        "contentKR": "기대해도 좋아! (의류편)"
+        "contentEN": "Eco Recycle Material"
       }
     ]
   },
   {
     "id": 8,
-    "date": "~ 2022.08.31 wed 23:59",
-    "img": "images/event/images/img7.png",
+    "date": "~ 2022.09.30 wed 23:59",
+    "img": "https://image.prospecs.com/files/upload/display/202208/202208111603071_4.png/dims/optimize",
     "title": [
       {
-        "contentKR": "기대해도 좋아! (용품편)"
+        "contentEN": "2022 FW HOW TO PLAY THIS CITY"
       }
     ]
   },
   {
     "id": 9,
-    "date": "~ 2022.08.31 wed 23:59",
-    "img": "images/event/images/img8.png",
+    "date": "~ 2022.12.31 wed 23:59",
+    "img": "https://image.prospecs.com/files/upload/display/202206/202206171021471_4.png/dims/optimize",
     "title": [
       {
-        "contentEN": "2022 "
+        "contentEN": "LG Twins Special edition"
       },
       {
-        "contentKR": "신상 샌들 기획전"
+        "contentKR": "(밀리터리 유니폼)"
       }
     ]
   }

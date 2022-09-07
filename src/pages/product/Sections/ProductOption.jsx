@@ -5,7 +5,6 @@ import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { AiFillStar } from 'react-icons/ai';
 import { AiOutlineDownload } from 'react-icons/ai';
 import { useState } from 'react';
-import Images from './Images';
 import AccordionCard from './AccordionCard';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -384,8 +383,6 @@ const StyledModal = styled.div`
 `;
 
 const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
-  const [active, setActive] = useState(false);
-  const [selectedImg, setSelectedImg] = useState(Images[0]);
   const [error, setError] = useState(false);
   const [overlapError, setOverlapError] = useState(false);
   const [size, setSize] = useState('250');
@@ -425,6 +422,8 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
           }
         );
         setDisabled(false);
+        setErrorMessage('장바구니에 추가 되었습니다');
+        setOverlapError(true);
       } catch (error) {
         console.log(error);
         setDisabled(false);
@@ -583,7 +582,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                     <p>
                       {(
                         Number(
-                          product.price
+                          product.discounted_price
                             .split('')
                             .filter(e => e !== ',')
                             .join('')

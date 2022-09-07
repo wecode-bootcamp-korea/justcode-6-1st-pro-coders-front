@@ -5,6 +5,7 @@ const StyledSection = styled.section`
     max-width: 2000px;
     width: 100%;
     margin: 0 auto;
+    padding: 0 !important;
 
     div.news {
       display: flex;

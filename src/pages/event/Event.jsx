@@ -4,10 +4,12 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import EventCard from './EventCard';
+import EventSkeleton from '../../components/Skeleton/EventSkeleton';
+import { useEffect } from 'react';
 
 const Main = styled.div`
   width: 1280px;
-  margin: 250px auto 0 auto;
+  margin: 250px auto 200px auto;
 
   div.headerContainer {
     margin: 0 20px;
@@ -112,7 +114,8 @@ const Main = styled.div`
   }
 `;
 
-const Event = props => {
+const Event = () => {
+  const [loading, setLoading] = useState(true)
   const [menuList, setMenuList] = useState([
     {
       id: 1,
@@ -131,20 +134,52 @@ const Event = props => {
     },
   ]);
   const [arrow, setArrow] = useState(false);
+  const [cardData, setCardData] = useState();
+  const [filteredCardData, setFilteredCardData] = useState();
+
+  useEffect(() => {
+    fetch('data/event.json')
+      .then((res) => res.json())
+      .then((json) => {
+        setCardData(json); 
+        setFilteredCardData(json); 
+      });
+  }, []);
+
+  useEffect(()=>{
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false);
+    }, 700)
+
+    return () => {clearTimeout(() => {
+      setLoading(false);
+    }, 700)}
+
+  },[])
 
   const handleSelected = e => {
+    console.log(e.target, 'e')
     const newMenu = menuList.map(menu => {
       return +e.target.id === menu.id ? { id: menu.id, text: menu.text, selected: true } : { id: menu.id, text: menu.text, selected: false };
     });
     setMenuList(newMenu);
+    +e.target.id === 1 && setFilteredCardData(cardData);
+    +e.target.id === 2 && setFilteredCardData(cardData.slice(0, 3));
+    +e.target.id === 3 && setFilteredCardData(cardData.slice(3,9));
   };
 
   const handleArrow = () => {
     setArrow(arrow => !arrow);
   };
 
+  console.log('FilteredCardData', filteredCardData)
+  console.log('cardData', cardData)
+
   return (
-    <Main>
+    <>
+    {loading && <EventSkeleton />}
+    {!loading && (<Main>
       <div className='headerContainer'>
         <Link to='/event'>
           <h3>EVENT</h3>
@@ -171,9 +206,10 @@ const Event = props => {
         {arrow ? <div>진행중</div> : null}
       </div>
       <div className='cardContainer'>
-        <EventCard />
+        <EventCard cardData={filteredCardData} />
       </div>
-    </Main>
+    </Main>)}
+    </>
   );
 };
 

@@ -400,7 +400,7 @@ const Item = () => {
 
   const filterItem = async categItem => {
     setLoading(true);
-    const { data } = await axios.get('/data/product.json/');
+    const { data } = await axios.get('http://localhost:8000/products?type=SHOES');
 
     setShoesCategory(data.filter(item => item.category === categItem));
     setLoading(false);
