@@ -14,7 +14,7 @@ const Main = styled.div`
     font-weight: 700;
     font-size: 40px;
     color: ${(props) => props.theme.colors.text};
-    max-width: 1640px;
+    max-width: 1240px;
     width: 100%;
   }
 
@@ -28,7 +28,7 @@ const Main = styled.div`
     background-size: 130%;
 
     div.container {
-      max-width: 1640px;
+      max-width: 1280px;
       width: 100%;
       margin: 0 auto;
 
@@ -156,7 +156,7 @@ const Main = styled.div`
     }
 
     div.textContainer {
-      max-width: 1640px;
+      max-width: 1280px;
       width: 100%;
       padding: 100px 20px 0 20px;
       margin: 0 auto;
@@ -199,7 +199,7 @@ const Main = styled.div`
     font-weight: 400;
 
     dl {
-      max-width: 1640px;
+      max-width: 1280px;
       width: 100%;
       padding: 0 20px;
       margin: 0 auto;
