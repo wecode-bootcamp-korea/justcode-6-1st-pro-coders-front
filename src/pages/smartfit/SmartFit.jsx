@@ -235,16 +235,60 @@ const Main = styled.div`
   }
 `;
 
+const LoginCheckModal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000050;
+  z-index: 10;
+
+  div.modalContainer {
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+
+    h5 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.5;
+      word-break: keep-all;
+      text-align: center;
+    }
+
+    button {
+      width: 50%;
+      padding: 20px;
+      border: 1px solid black;
+      background-color: white;
+    }
+  }
+`;
+
 const SmartFit = ({userInfo, setUserInfo}) => {
   const [modal, setModal] = useState(false);
   const openLogin = () => {
-    if(userInfo.isLogin) {alert('로그인 중입니다.'); return};
     setModal((prev) => !prev);
   };
 
   return (
     <Main>
-      {modal && <LoginModal setModal={setModal} setUserInfo={setUserInfo} />}
+      {modal && !userInfo.isLogin && <LoginModal setModal={setModal} setUserInfo={setUserInfo} />}
+      {modal && userInfo.isLogin && (
+        <LoginCheckModal>
+          <div className='modalContainer'>
+            <h5>로그인 중입니다.</h5>
+            <button onClick={()=> setModal(false)}>닫기</button>
+          </div>
+        </LoginCheckModal>)}
       <h3>SMART FIT</h3>
       <section className='banner'>
         <div className='container'>
