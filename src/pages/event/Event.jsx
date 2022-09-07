@@ -135,12 +135,14 @@ const Event = () => {
   ]);
   const [arrow, setArrow] = useState(false);
   const [cardData, setCardData] = useState();
+  const [filteredCardData, setFilteredCardData] = useState();
 
   useEffect(() => {
     fetch('data/event.json')
       .then((res) => res.json())
       .then((json) => {
         setCardData(json); 
+        setFilteredCardData(json); 
       });
   }, []);
 
@@ -157,15 +159,22 @@ const Event = () => {
   },[])
 
   const handleSelected = e => {
+    console.log(e.target, 'e')
     const newMenu = menuList.map(menu => {
       return +e.target.id === menu.id ? { id: menu.id, text: menu.text, selected: true } : { id: menu.id, text: menu.text, selected: false };
     });
     setMenuList(newMenu);
+    +e.target.id === 1 && setFilteredCardData(cardData);
+    +e.target.id === 2 && setFilteredCardData(cardData.slice(0, 3));
+    +e.target.id === 3 && setFilteredCardData(cardData.slice(3,9));
   };
 
   const handleArrow = () => {
     setArrow(arrow => !arrow);
   };
+
+  console.log('FilteredCardData', filteredCardData)
+  console.log('cardData', cardData)
 
   return (
     <>
@@ -197,7 +206,7 @@ const Event = () => {
         {arrow ? <div>진행중</div> : null}
       </div>
       <div className='cardContainer'>
-        <EventCard cardData={cardData} />
+        <EventCard cardData={filteredCardData} />
       </div>
     </Main>)}
     </>

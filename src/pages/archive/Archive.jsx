@@ -139,11 +139,11 @@ useEffect(()=>{
 
   setTimeout(() => {
     setLoading(false);
-  }, 800)
+  }, 500)
 
   return () => {clearTimeout(() => {
     setLoading(false);
-  }, 800)}
+  }, 500)}
 
 },[toggleTitle])
 
