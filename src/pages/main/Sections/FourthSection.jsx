@@ -69,7 +69,7 @@ const FourthSection = () => {
             <img src='https://image.prospecs.com/files/upload/display/202208/202208181043441.png/dims/optimize' alt='뉴스 1' />
           </div>
           <div className='imgContainer'>
-            <img src='https://images.unsplash.com/photo-1529635457390-aa69ba54d77d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='뉴스 2' />
+            <img src='https://image.prospecs.com/files/upload/display/202208/202208241216152.png/dims/optimize' alt='뉴스 2' />
           </div>
         </div>
       </div>

@@ -22,6 +22,8 @@
 
 > styled-components
 
+> Git
+
 <br/>
 
 # 프로젝트 설치 및 실행 방법
@@ -127,7 +129,7 @@ Intersection observer를 활용하였습니다.
 
 ![pagination-skeleton](https://user-images.githubusercontent.com/102274941/188805836-486dd20f-7902-4b0d-aaf9-e2a64f24d0bc.png)
 
-## ✅ 상품 상세페이지 Skeleton구현 및 카트 추가 로직 구현
+## ✅ 상품 상세페이지 Skeleton 구현 및 카트 추가 로직 구현
 
 ![cart-skeleton](https://user-images.githubusercontent.com/102274941/188807081-abb47f2b-7bb4-41a2-9d01-9119d30a7283.png)
 
@@ -137,11 +139,59 @@ Intersection observer를 활용하였습니다.
 
 ![cart-validation](https://user-images.githubusercontent.com/102274941/188807092-edb9262b-1659-4c43-89f3-5c72fc4ecafd.png)
 
-## ✅ 카트 페이지 레이아웃 및 카트 제품 삭제 등 로직 구현
+## ✅ Cart 페이지 레이아웃 및 카트 제품 삭제 등 로직 구현
 
 ![cart-skeleton2](https://user-images.githubusercontent.com/102274941/188808671-a98e117f-1f1f-463a-9787-9b69cc2bb4d3.png)
 
 ![cart](https://user-images.githubusercontent.com/102274941/188808444-683d9d62-fc23-4980-b53e-e59ca348d8a9.png)
+
+## ✅ Event 페이지 레이아웃 및 Skeleton 구현
+
+- Skeleton 구현
+- UI 구현
+- 카테고리 별로 달라지는 목록
+
+![event](https://user-images.githubusercontent.com/49029756/188876206-a6ad2cb1-19fc-4a45-9668-c4241af798b4.png)
+
+## ✅ Archive 페이지 레이아웃 및 Skeleton 구현
+
+- Skeleton 구현
+- 슬라이드 구현
+- 토글 UI 및 기능 구현
+
+![archive](https://user-images.githubusercontent.com/49029756/188876390-0019dc06-6a92-4a61-b4bd-39732c2a91f7.png)
+
+## ✅ Store 페이지 레이아웃 및 Skeleton 구현
+
+- Skeleton 구현
+- 카카오맵 API를 이용한 매장 지도
+- 매장 타입별 지도 & 상세 지도 구현
+
+![store-img1](https://user-images.githubusercontent.com/49029756/188876540-5bad27f2-beb6-4f00-8b4b-9de96f1c5b48.png)
+
+![store-img2](src="https://user-images.githubusercontent.com/49029756/188876677-29e04538-e42d-4193-a3b4-ffc0a78a5dc9.png)
+
+## ✅ Smartfit 페이지 레이아웃 및 로그인 기능 추가
+
+- Smartfit 페이지 UI 구현
+- GO 클릭시 로그인 모달 또는 로그인 확인 모달이 나오도록 구현
+- topbutton 구현
+
+![smartfit-img1](https://user-images.githubusercontent.com/49029756/188876756-24941826-6d58-4b35-8155-59647a200d6a.png)
+
+![smartfit-img2](https://user-images.githubusercontent.com/49029756/188876780-758aa3ce-0800-462c-b83e-2c2439ee8420.png)
+
+## ✅ 검색 기능 구현 및 Skeleton 구현
+
+- Skeleton 구현
+- 키워드 검색 기능 구현
+- 인기검색어 검색 기능 구현
+
+![search-skeleton](https://user-images.githubusercontent.com/49029756/188876916-32932e80-61a5-4b07-a38d-7857015966b9.png)
+
+![search-img1](https://user-images.githubusercontent.com/49029756/188877086-ed15d717-ea8a-42bd-811a-1ab745bb97bb.png)
+
+![search-img2](https://user-images.githubusercontent.com/49029756/188877105-04ee4d56-8a10-4a4c-99c3-3cd09fe02999.png)
 
 # 정보
 
