@@ -104,7 +104,7 @@ const ShopPage = () => {
       <StyledHeader page={page}>
         <ul className='listContainer' ref={swipedTarget}>
           <li>
-            <img src='https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='헤더 슬라이드 이미지' />
+            <img src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='헤더 슬라이드 이미지' />
             <div className='text'>
               <div className='textContainer'>
                 <p>Eco Recycle Material</p>
@@ -137,7 +137,7 @@ const ShopPage = () => {
             </div>
           </li>
           <li>
-            <img src='https://images.unsplash.com/photo-1561052967-61fc91e48d79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='헤더 슬라이드 이미지' />
+            <img src='https://images.unsplash.com/photo-1519311965067-36d3e5f33d39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2342&q=80' alt='헤더 슬라이드 이미지' />
             <div className='text'>
               <div className='textContainer'>
                 <p>ONLINE EXCLUSIVE</p>
@@ -148,7 +148,7 @@ const ShopPage = () => {
             </div>
           </li>
           <li>
-            <img src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='헤더 슬라이드 이미지' />
+            <img src='https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80' alt='헤더 슬라이드 이미지' />
             <div className='text'>
               <div className='textContainer'>
                 <p>LG네트웍스 모바일 기프트 카드</p>
@@ -161,7 +161,7 @@ const ShopPage = () => {
             </div>
           </li>
           <li>
-            <img src='https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='헤더 슬라이드 이미지' />
+            <img src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' alt='헤더 슬라이드 이미지' />
             <div className='text'>
               <div className='textContainer'>
                 <p>Eco Recycle Material</p>

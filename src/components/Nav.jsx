@@ -164,7 +164,7 @@ const StyledNav = styled.nav`
 
         &:last-of-type {
           div.inner {
-            background-image: url('/nav/img/gnb_banner_smartfit.png');
+            background-image: url('images/nav/img/gnb_banner_smartfit.png');
 
             background-size: auto 270px;
 
@@ -641,8 +641,8 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                     </li>
                   </ul>
                   <div className='adContainer'>
-                    <img src='/nav/img/ad1.png' alt='ad1' />
-                    <img src='/nav/img/ad2.png' alt='ad1' />
+                    <img src='images/nav/img/ad1.png' alt='ad1' />
+                    <img src='images/nav/img/ad2.png' alt='ad1' />
                   </div>
                 </div>
               </div>
@@ -700,10 +700,10 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
 
           <ul className='gnb2'>
             <li>
-              <img src='/nav/icon/icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
+              <img src='images/nav/icon/icon_search_white.svg' className='logo' alt='logo' onClick={() => setSearch(!search)} />
             </li>
             <li>
-              <img src='/nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/cart')} />
+              <img src='images/nav/icon/icon_cart_white.svg' className='logo' alt='logo' onClick={() => navigate('/cart')} />
             </li>
             <li>
               {isLogin ? ( //
@@ -726,7 +726,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                   placeholder='구매 상품평 작성하면 최대 3천 포인트'
                 />
 
-                {inputValue && <img src='/nav/icon/icon_search_close.svg' alt='close' onClick={clearHandler} />}
+                {inputValue && <img src='images/nav/icon/icon_search_close.svg' alt='close' onClick={clearHandler} />}
               </div>
               <button
                 onClick={() => {
@@ -755,7 +755,7 @@ const Nav = ({ userInfo: { isLogin }, setUserInfo, userInfo }) => {
                 <li>모자</li>
               </ul>
 
-              <img src='/nav/img/search_add.png' alt='search banner' />
+              <img src='images/nav/img/search_add.png' alt='search banner' />
             </div>
           </div>
         </div>
