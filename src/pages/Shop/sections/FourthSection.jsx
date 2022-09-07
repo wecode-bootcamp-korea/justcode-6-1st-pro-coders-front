@@ -168,7 +168,7 @@ const FourthSection = () => {
             <ul className='list' ref={swipedTarget}>
               <li>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize' alt='' />
+                  <img src='https://images.unsplash.com/photo-1597892657493-6847b9640bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
@@ -195,7 +195,7 @@ const FourthSection = () => {
               </li>
               <li>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize' alt='' />
+                  <img src='https://images.unsplash.com/photo-1639416292376-695d1f7fb53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
@@ -222,7 +222,7 @@ const FourthSection = () => {
               </li>
               <li>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize' alt='' />
+                  <img src='https://images.unsplash.com/photo-1597892657493-6847b9640bac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
@@ -249,7 +249,7 @@ const FourthSection = () => {
               </li>
               <li>
                 <div className='imgContainer'>
-                  <img src='https://image.prospecs.com/files/upload/display/202206/2022062816333218.png/dims/optimize' alt='' />
+                  <img src='https://images.unsplash.com/photo-1639416292376-695d1f7fb53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' alt='' />
                 </div>
                 <div className='text'>
                   <p className='red'>인플루언서와 함께하는 프로스펙스</p>
