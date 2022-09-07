@@ -579,17 +579,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   <div>
                     <p>수량</p>
                     <input type='text' id='count' name='count' onChange={changeHandler} placeholder={1} />
-                    <p>
-                      {(
-                        Number(
-                          product.price
-                            .split('')
-                            .filter(e => e !== ',')
-                            .join('')
-                        ) * count
-                      ).toLocaleString()}
-                      원
-                    </p>
+                    <p>{product.discounted_price}원</p>
                   </div>
                   {error && <p className='error'>숫자만 입력하세요</p>}
                 </div>
