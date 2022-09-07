@@ -201,8 +201,7 @@ const StyledPage = styled.main`
               width: 100%;
               padding: 0.8em 0.5em;
               font-family: inherit;
-              background: url('https://image.prospecs.com/front/images/renewal/icon_arrow_D.svg')
-                no-repeat 95% 50%;
+              background: url('https://image.prospecs.com/front/images/renewal/icon_arrow_D.svg') no-repeat 95% 50%;
               border: 1px solid #999;
               border-radius: 0px;
               -webkit-appearance: none;
@@ -468,11 +467,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
             <div className='product-img-box'>
               {/* ⬇️ 이미지 슬라이드 들어갈 자리 */}
               <div className='product-item-picture'>
-                <img
-                  src={product.main_image}
-                  alt='Selected'
-                  className='selected'
-                />
+                <img src={product.main_image} alt='Selected' className='selected' />
               </div>
               {/* ⬇️ 이미지 클릭시 메인 화면에 보여줌 */}
               <div className='img-container'>
@@ -506,12 +501,8 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                 {product.is_discounted === 1 ? (
                   <div className='product-price-sale-on'>
                     <span className='price'>{product.price}원</span>
-                    <span className='sale-percent'>
-                      {product.discount_percent}%
-                    </span>
-                    <span className='sale-price'>
-                      {product.discounted_price}원
-                    </span>
+                    <span className='sale-percent'>{product.discount_percent}%</span>
+                    <span className='sale-price'>{product.discounted_price}원</span>
                     <div className='tooltip'>
                       <AiOutlineQuestionCircle />
                     </div>
@@ -567,12 +558,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                       <option value='290'>290</option>
                     </select>
 
-                    <select
-                      name='product-size'
-                      id='product-size-male'
-                      onChange={e => setSize(e.target.value)}
-                      defaultValue='250'
-                    >
+                    <select name='product-size' id='product-size-male' onChange={e => setSize(e.target.value)} defaultValue='250'>
                       <option value='init'>사이즈선택</option>
                       <option value='250'>250</option>
                       <option value='260'>260</option>
@@ -581,12 +567,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                       <option value='290'>290</option>
                     </select>
 
-                    <select
-                      name='product-size'
-                      id='product-size-female'
-                      onChange={e => setSize(e.target.value)}
-                      defaultValue='250'
-                    >
+                    <select name='product-size' id='product-size-female' onChange={e => setSize(e.target.value)} defaultValue='250'>
                       <option value='init'>사이즈선택</option>
                       <option value='230'>230</option>
                       <option value='240'>240</option>
@@ -598,13 +579,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                 <div className='product-count'>
                   <div>
                     <p>수량</p>
-                    <input
-                      type='text'
-                      id='count'
-                      name='count'
-                      onChange={changeHandler}
-                      placeholder={1}
-                    />
+                    <input type='text' id='count' name='count' onChange={changeHandler} placeholder={1} />
                     <p>
                       {(
                         Number(
@@ -623,11 +598,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
               <div className='product-order-btn'>
                 <div className='order-btn-inner-box'>
                   <a className='purchase'>구매하기</a>
-                  <button
-                    className='basket'
-                    onClick={e => addCartHandler(e, product.id)}
-                    disabled={disabled}
-                  >
+                  <button className='basket' onClick={e => addCartHandler(e, product.id)} disabled={disabled}>
                     {disabled ? '기다려주세요' : '장바구니'}
                   </button>
                   <a className='stock'>오프라인 매장 재고 확인 &#62;</a>
@@ -642,10 +613,7 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
                   </div>
                   <div className='npay-btn'>
                     <a href='#' className='npay-img'>
-                      <img
-                        src='https://image.prospecs.com/front/images/renewal/icon_naverpay.svg'
-                        alt='N-pay 구매'
-                      />
+                      <img src='https://image.prospecs.com/front/images/renewal/icon_naverpay.svg' alt='N-pay 구매' />
                       <span className='hidden'>N-pay 구매</span>
                     </a>
                   </div>

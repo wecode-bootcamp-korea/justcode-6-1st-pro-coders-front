@@ -419,7 +419,7 @@ const Item = () => {
       setLoading(true);
 
       // fetch('http://localhost:8000/products?type=SHOES')
-      fetch('/data/product.json/')
+      fetch('http://localhost:8000/products?type=SHOES')
         .then(res => res.json())
         .then(data => {
           const slicedData = data.slice(page, page + 8);
