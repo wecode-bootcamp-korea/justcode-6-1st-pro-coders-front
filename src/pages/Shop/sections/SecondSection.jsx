@@ -85,11 +85,7 @@ const SecondSection = () => {
   }, []);
 
   return (
-    <StyledSection
-      page={page}
-      perView={4}
-      length={list?.length ? list.length : null}
-    >
+    <StyledSection page={page} perView={4} length={list?.length ? list.length : null}>
       <div className='container'>
         <h2>
           일상을 자유롭고 경쾌하게 <br /> FW 스타일링
@@ -104,11 +100,7 @@ const SecondSection = () => {
               <ul className='list' ref={swipedTarget}>
                 {list.map(item => (
                   <li key={item.id}>
-                    <img
-                      src={item.main_image}
-                      alt=''
-                      onClick={() => navigate(`/product/${item.id}`)}
-                    />
+                    <img src={item.main_image} alt={item.title} onClick={() => navigate(`/product/${item.id}`)} />
                     <p>{item.title}</p>
                     <h4>{item.discounted_price}원</h4>
                   </li>
