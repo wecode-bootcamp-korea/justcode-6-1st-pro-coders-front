@@ -425,6 +425,8 @@ const ProductOption = ({ product, userInfo: { isLogin, user_id, token } }) => {
           }
         );
         setDisabled(false);
+        setErrorMessage('장바구니에 추가 되었습니다');
+        setOverlapError(true);
       } catch (error) {
         console.log(error);
         setDisabled(false);

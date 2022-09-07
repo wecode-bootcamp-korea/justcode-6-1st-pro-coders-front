@@ -12,8 +12,8 @@ const StyledHeader = styled.header`
   div.navigator {
     position: absolute;
     bottom: 140px;
-    left: calc(50% - 820px);
-    max-width: 1640px;
+    left: calc(50% - 640px);
+    max-width: 1280px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -88,8 +88,8 @@ const StyledHeader = styled.header`
       div.content {
         position: absolute;
         bottom: 200px;
-        left: calc(50% - 820px);
-        max-width: 1640px;
+        left: calc(50% - 640px);
+        max-width: 1280px;
         width: 100%;
         padding: 0 20px;
 
