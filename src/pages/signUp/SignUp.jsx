@@ -305,11 +305,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
       (async () => {
         setDisabled(true);
 
-        console.log(email, password, nickname, phone_number, date_of_birth);
-
         try {
-          // 나중에 signup url 넣어야함
-
           await axios.post('http://localhost:8000/user/signup', {
             email,
             password,
@@ -317,7 +313,6 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
             phone_number,
           });
 
-          // 나중에 signin url
           const {
             data: { token, user_id },
           } = await axios.post('http://localhost:8000/user/login', {
@@ -335,6 +330,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
         } catch (error) {
           console.log(error);
           setDisabled(false);
+          setError(true);
         }
       })();
     } else {
