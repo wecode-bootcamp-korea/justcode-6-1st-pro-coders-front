@@ -283,6 +283,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
   const [gender, setGender] = useState('');
   const [error, setError] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     isLogin && navigate('/');
@@ -331,10 +332,12 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
           console.log(error);
           setDisabled(false);
           setError(true);
+          setMessage('통신에 실패했거나 이미 가입되어 있습니다.');
         }
       })();
     } else {
       setError(true);
+      setMessage('양식을 확인해주세요.');
     }
   };
 
@@ -401,7 +404,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
               </li>
             </ul>
 
-            {error && <p className='red'>양식을 확인해주세요.</p>}
+            {error && <p className='red'>{message}</p>}
 
             <h3>회원 가입 약관에 동의해주세요.</h3>
             <div className='line' />
