@@ -169,7 +169,7 @@ Intersection observer를 활용하였습니다.
 
 ![store-img1](https://user-images.githubusercontent.com/49029756/188876540-5bad27f2-beb6-4f00-8b4b-9de96f1c5b48.png)
 
-![store-img2](src="https://user-images.githubusercontent.com/49029756/188876677-29e04538-e42d-4193-a3b4-ffc0a78a5dc9.png)
+![store-img2](https://user-images.githubusercontent.com/49029756/188953505-b8e39f31-290b-4b3a-bc8e-a0a4ab558d1f.png)
 
 ## ✅ Smartfit 페이지 레이아웃 및 로그인 기능 추가
 
