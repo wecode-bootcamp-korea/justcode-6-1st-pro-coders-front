@@ -122,7 +122,6 @@ Intersection observer를 활용하였습니다.
 ![login2](https://user-images.githubusercontent.com/102274941/188804459-9256a662-7076-449c-bd14-6ec6cb1c1b86.png)
 
 ![signup](https://user-images.githubusercontent.com/102274941/188804448-66113b40-6cb2-47f1-a6b5-978a5714d4fb.png)
-
 ## ✅ Shoes 페이지 Pagination 구현 및 Skeleton 구현
 
 ![pagination](https://user-images.githubusercontent.com/102274941/188805683-d9256905-9db5-4083-af9d-5d4295f9aeeb.png)
