@@ -283,6 +283,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
   const [gender, setGender] = useState('');
   const [error, setError] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     isLogin && navigate('/');
@@ -305,11 +306,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
       (async () => {
         setDisabled(true);
 
-        console.log(email, password, nickname, phone_number, date_of_birth);
-
         try {
-          // 나중에 signup url 넣어야함
-
           await axios.post('http://localhost:8000/user/signup', {
             email,
             password,
@@ -317,7 +314,6 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
             phone_number,
           });
 
-          // 나중에 signin url
           const {
             data: { token, user_id },
           } = await axios.post('http://localhost:8000/user/login', {
@@ -335,10 +331,13 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
         } catch (error) {
           console.log(error);
           setDisabled(false);
+          setError(true);
+          setMessage('통신에 실패했거나 이미 가입되어 있습니다.');
         }
       })();
     } else {
       setError(true);
+      setMessage('양식을 확인해주세요.');
     }
   };
 
@@ -405,7 +404,7 @@ const SignUp = ({ userInfo: { isLogin }, setUserInfo }) => {
               </li>
             </ul>
 
-            {error && <p className='red'>양식을 확인해주세요.</p>}
+            {error && <p className='red'>{message}</p>}
 
             <h3>회원 가입 약관에 동의해주세요.</h3>
             <div className='line' />
