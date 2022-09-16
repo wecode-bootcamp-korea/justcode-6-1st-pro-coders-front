@@ -108,7 +108,7 @@ const Main = styled.div`
 `;
 
 const Archive = props => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const [toggleList, setToggleList] = useState([
     { id: 1, text: '22FW PERFORMANCE LOOKBOOK', selected: true },
     { id: 2, text: '22 SUMMER LOOKBOOK', selected: false },
@@ -148,8 +148,10 @@ const Archive = props => {
   };
 
   useEffect(() => {
-    if(!loading) {slideRef.current.style.transition = 'all 300ms ease-in-out';
-    slideRef.current.style.transform = `translateX(${slide}px)`}
+    if (!loading) {
+      slideRef.current.style.transition = 'all 300ms ease-in-out';
+      slideRef.current.style.transform = `translateX(${slide}px)`;
+    }
   }, [slide]);
 
   const handleSwipe = e => {
@@ -171,65 +173,67 @@ const Archive = props => {
 
   return (
     <>
-    {loading && <LookbookSkeleton/>}
-    {!loading && (<Main>
-      <h3>LOOKBOOK</h3>
-      <div className='titleContainer'>
-        <h4>22FW PERFORMANCE LOOKBOOK</h4>
-        <div className='selectContainer' onClick={handleToggle}>
-          <div>
-            <span className='selectTitle'>{toggleTitle.text}</span>
-            {toggleShow ? <FontAwesomeIcon icon={faChevronUp} size='xs' /> : <FontAwesomeIcon icon={faChevronDown} size='xs' />}
+      {loading && <LookbookSkeleton />}
+      {!loading && (
+        <Main>
+          <h3>LOOKBOOK</h3>
+          <div className='titleContainer'>
+            <h4>{toggleTitle.text}</h4>
+            <div className='selectContainer' onClick={handleToggle}>
+              <div>
+                <span className='selectTitle'>{toggleTitle.text}</span>
+                {toggleShow ? <FontAwesomeIcon icon={faChevronUp} size='xs' /> : <FontAwesomeIcon icon={faChevronDown} size='xs' />}
+              </div>
+              {toggleShow && (
+                <ul>
+                  {toggleList.map(info => {
+                    return info.selected ? (
+                      <li className='selected' id={info.id} onClick={handleToggleMenu} key={info.id}>
+                        {info.text}
+                      </li>
+                    ) : (
+                      <li id={info.id} onClick={handleToggleMenu} key={info.id}>
+                        {info.text}
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
           </div>
-          {toggleShow && (
-            <ul>
-              {toggleList.map(info => {
-                return info.selected ? (
-                  <li className='selected' id={info.id} onClick={handleToggleMenu} key={info.id}>
-                    {info.text}
-                  </li>
-                ) : (
-                  <li id={info.id} onClick={handleToggleMenu} key={info.id}>
-                    {info.text}
-                  </li>
-                );
-              })}
+          <section>
+            <div className='chevron left' id='left' onClick={handleSwipe}>
+              <FontAwesomeIcon icon={faChevronLeft} size='2x' color='white' />
+            </div>
+            <div className='chevron right' ig='right' onClick={handleSwipe}>
+              <FontAwesomeIcon icon={faChevronRight} size='2x' color='white' />
+            </div>
+            <ul className='imgContainer' ref={slideRef}>
+              {womenData &&
+                menData &&
+                ((toggleTitle.id + 1) % 2
+                  ? menData.map(data => {
+                      return (
+                        <li key={data.id}>
+                          <div className='imgBox'>
+                            <img src={data.img} alt='pictorial img' />
+                          </div>
+                        </li>
+                      );
+                    })
+                  : womenData.map(data => {
+                      return (
+                        <li key={data.id}>
+                          <div className='imgBox'>
+                            <img src={data.img} alt='pictorial img' />
+                          </div>
+                        </li>
+                      );
+                    }))}
             </ul>
-          )}
-        </div>
-      </div>
-      <section>
-        <div className='chevron left' id='left' onClick={handleSwipe}>
-          <FontAwesomeIcon icon={faChevronLeft} size='2x' color='white' />
-        </div>
-        <div className='chevron right' ig='right' onClick={handleSwipe}>
-          <FontAwesomeIcon icon={faChevronRight} size='2x' color='white' />
-        </div>
-        <ul className='imgContainer' ref={slideRef}>
-          {womenData &&
-            menData &&
-            ((toggleTitle.id + 1) % 2
-              ? menData.map(data => {
-                  return (
-                    <li key={data.id}>
-                      <div className='imgBox'>
-                        <img src={data.img} alt='pictorial img' />
-                      </div>
-                    </li>
-                  );
-                })
-              : womenData.map(data => {
-                  return (
-                    <li key={data.id}>
-                      <div className='imgBox'>
-                        <img src={data.img} alt='pictorial img' />
-                      </div>
-                    </li>
-                  );
-                }))}
-        </ul>
-      </section>
-    </Main>)}
+          </section>
+        </Main>
+      )}
     </>
   );
 };
