@@ -133,7 +133,7 @@ const Footer = () => {
           <ul>
             <li>(주) 7-Team-ProCoders</li>
             <li>프론트엔드 : 이다익 (채용문의 : kkukileon305@gmail.com)</li>
-            <li>프론트엔드 : 봉원희(채용문의 : mjr_rest@naver.com)</li>
+            <li>프론트엔드 : 봉원희(채용문의 : 2021bongwonny@gmail.com)</li>
             <li>프론트엔드 : 최승철(채용문의 : tmdcjf152@naver.com)</li>
             <li>백엔드 : 이신희(채용문의 : shlee2227@gmail.com)</li>
             <li>백엔드 : 조윤식(채용문의 : j9707052000@gmail.com)</li>
